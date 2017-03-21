@@ -10,7 +10,7 @@
 <div class="container-fluid">
     <div class="row">
         <form class="searchbar" action="search.php" method="GET">
-            <input type="text" class="form-control" name="query" placeholder="Chercher par garage, concessionaire etc" />
+            <input type="text" class="form-control" name="query" placeholder="Chercher par professionnel" />
         </form>
 
         <form class="searchbar" action="search.php" method="GET">
