@@ -11,6 +11,10 @@
 ===================================
 \**********************************/
 
+.bloc{
+    padding-right: 0!important;
+    padding-left: 0!important;
+}
 /**********************************\
 ===================================
 1. font
@@ -26,12 +30,6 @@
 2. navbar
 ===================================
 \**********************************/
-
-.navy{
-    /*background-color: #3bced2;*/
-    /*color: black!important;*/
-}
-
 /* Onglets navbar */
 ul li a{
 
@@ -39,40 +37,72 @@ ul li a{
     font-weight: bold;
     font-size: 18px;
     color: #adadad !important;
-    
 }
-
 /* Couleur navbar */
 .navbar{
     background-color: rgba(0, 0, 0, 1) !important;
 }
-
 /* Effet de survol souris onglet menu */
 ul li a:hover {
-    /*background-color: #2c9fa3 !important;*/
+
     color: white!important;
-
 }
-
 ul li a{
     text-shadow: 0 1px 0 rgba(255, 255, 255, .4);
-
-
 }
-
-
-
+/* logo*/
+#logo  {
+    width : 200px;
+    height: 30px;
+}
 
 /**********************************\
 ===================================
 3. banner
 ===================================
 \**********************************/
-
-
-
-
-
+html { font-size: 62.5%; }
+/* Default body */
+body {
+    margin: 0;
+    opacity: 0;
+}
+/* Loaded body */
+body.loaded {
+    opacity: 1;
+    transition: 1s opacity;
+}
+/* Default banner */
+.banner {
+    position: relative;
+    width: 100%;
+    height: 40rem;
+    padding: 0 5%;
+    overflow: hidden;
+    backface-visibility: hidden;
+}
+/* Default image container */
+.banner .background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 90px;
+    z-index: -1;
+    transform: translate3d(0,0,0) scale(1.25);
+    background: url('http://kingofwallpapers.com/garage/garage-013.jpg') no-repeat center center;
+    background-size: cover;
+}
+@media  (max-width: 800px){
+    .banner .background {
+        top: 0;
+    }
+}
+/* Loaded image container */
+.loaded .banner .background {
+    transform: scale(1);
+    transition: 6.5s transform;
+}
 /**********************************\
 ===================================
 4. search

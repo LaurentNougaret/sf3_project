@@ -16,9 +16,13 @@ $file = $page . ".php";
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
           crossorigin="anonymous">
     <link rel="stylesheet" href="CSS/main.css">
-    <!--liens Amor-->
-    <link href="/public/CSS/scrolling-nav.css" rel="stylesheet">
-    <!--/liens Amor-->
+    <!--links Amor-->
+    <link href="CSS/bootstrap.min.css" rel="stylesheet">
+    <link href="CSS/scrolling-nav.css" rel="stylesheet">
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
+    <!--/links Amor-->
     <!-- Call page titles -->
     <title>
         <?php
@@ -34,24 +38,24 @@ $file = $page . ".php";
     </title>
 </head>
 <body>
-    <div class="container-fluid">
-        <!-- Call header -->
-        <header>
-            <?php include"../inc/header.php"; ?>
-        </header>
 
-        <!-- Call page content -->
+    <!-- Call header -->
+    <header>
+        <?php include"../inc/header.php"; ?>
+    </header>
+
+    <!-- Call page content -->
+    <div class="bloc container-fluid ">
         <main>
-            <div class="container-fluid">
-                <?php include"../page/$file"; ?>
-            </div>
+            <?php include"../page/$file"; ?>
         </main>
-
-        <!-- Call footer -->
-        <footer>
-            <?php include"../inc/footer.php"; ?>
-        </footer>
     </div>
+
+    <!-- Call footer -->
+    <footer>
+        <?php include"../inc/footer.php"; ?>
+    </footer>
+
 
     <!-- Latest compiled and minified JvaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
@@ -60,13 +64,13 @@ $file = $page . ".php";
     <!-- Ajoutez vos liens vers dossiers js ici -->
     <script type="text/javascript" src="js/"></script>
 
-    <!--liens Amor-->
-    <!-- jQuery -->
-    <script src="/public/js/jquery.js"></script>
-    <!-- Scrolling Nav JavaScript -->
-    <script src="/public/js/jquery.easing.min.js"></script>
-    <script src="/public/js/scrolling-nav.js"></script>
-    <!--/liens Amor-->
+    <!--Script Amor-->
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery.easing.min.js"></script>
+    <script type="text/javascript" src="js/scrolling-nav.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+    <!--/Script Amor-->
 
 </body>
 </html>
