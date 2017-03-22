@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="container-fluid">
     <h1><span>CarAdvisor</span></h1>
     <div class="row footrow">
@@ -32,3 +33,4 @@
         <p><a class="mentions text-left" href="#mentions">Mentions légales</a><a classe="wcs" href="http://wildcodeschool.fr">&copy;Wild Code School</a>2017</p>
     </div>
 </div>
+
