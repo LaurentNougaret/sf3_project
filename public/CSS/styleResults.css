@@ -2,11 +2,12 @@
 body {
     margin: 50px;
 }
-
+.container {
+    margin: 50px;
+}
 #accordion .glyphicon {
     margin-right:10px;
 }
-
 .clickable{
     cursor: pointer;
 }
@@ -15,11 +16,28 @@ body {
     font-size: 15px;
 }
 .googleMap {
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
+}
+.listOfResults {
+    background-color: rgba(210, 227, 249, 0.19);
 }
 .eachResult {
+    display: inline-flex;
+    flex-direction: row;
     color: black;
+    padding: 10px;
+}
+.description h4 {
+    font-weight: bold;
+}
+.descriptionServices {
+    text-align: justify;
+    padding: 0 35px;
+}
+.buttonVoirPLus {
+    margin: 10px auto;
+    width: 200px;
 }
 /* Voting system */
 
