@@ -118,3 +118,20 @@ ul li a{
 8. footer
 ===================================
 \**********************************/
+footer {
+    background-color: rgba(0, 0, 0, 1);
+}
+ul {
+    list-style:none;
+    font-size: 18px;
+    color: white;
+}
+p {
+    font-size: 18px;
+    color: white;
+}
+
+.wcs {
+    display: inline;
+    float: right;
+}
