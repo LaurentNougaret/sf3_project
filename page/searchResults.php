@@ -10,21 +10,21 @@
     <div class="row">
 
         <div class="col-md-3">
-            <div class="well"><strong>Filtrer Résultats</strong> </div>
+            <div class="well"><strong>Filtrer recherche</strong> </div>
 
             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                <!-- first Panel start Here -->
+
+                <!-- First Panel Start Here -->
                 <div class="panel panel-default">
                     <div class="panel-heading" role="tab" id="headingOne">
                         <h4 class="panel-title">
-                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne" class="collapsed">
-                                Localisation <span class="glyphicon glyphicon-plus pull-right" aria-hidden="true"></span>
+                            <a role="button">
+                                Localisation
                             </a>
                         </h4>
                     </div>
-                    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false" style="height: 0px;">
+                    <div>
                         <div class="panel-body">
-
                             <div class="list-group">
                                 <div class="checkbox">
                                     <label><input type="checkbox" value="">Par ville</label>
@@ -42,12 +42,12 @@
                 <div class="panel panel-default">
                     <div class="panel-heading" role="tab" id="headingtwo">
                         <h4 class="panel-title">
-                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                Type de service <span class="glyphicon glyphicon-plus pull-right" aria-hidden="true"></span>
+                            <a role="button">
+                                Type de service
                             </a>
                         </h4>
                     </div>
-                    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingtwo" aria-expanded="false" style="height: 0px;">
+                    <div>
                         <div class="panel-body">
                             <div class="list-group">
                                 <div class="checkbox">
@@ -68,17 +68,17 @@
                     </div>
                 </div>         <!-- second Panel End Here -->
 
-                <!-- third Panel start Here -->
+                <!-- Third Panel start Here -->
 
                 <div class="panel panel-default">
                     <div class="panel-heading" role="tab" id="headingthree">
                         <h4 class="panel-title">
-                            <a class="" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
-                                Marque <span class="glyphicon glyphicon-plus pull-right" aria-hidden="true"></span>
+                            <a class="" role="button">
+                                Marque
                             </a>
                         </h4>
                     </div>
-                    <div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingthree" aria-expanded="true">
+                    <div>
                         <div class="panel-body">
                             <div class="list-group">
                                 <div class="checkbox">
@@ -111,12 +111,12 @@
                 <div class="panel panel-default">
                     <div class="panel-heading" role="tab" id="headingfour">
                         <h4 class="panel-title">
-                            <a class="" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
-                                Note globale <span class="glyphicon glyphicon-plus pull-right" aria-hidden="true"></span>
+                            <a role="button">
+                                Note globale
                             </a>
                         </h4>
                     </div>
-                    <div id="collapseFour" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingfour" aria-expanded="true">
+                    <div>
                         <div class="panel-body">
                             <div class="list-group">
                                 <div class="checkbox">
@@ -145,12 +145,12 @@
                 <div class="panel panel-default">
                     <div class="panel-heading" role="tab" id="headingfive">
                         <h4 class="panel-title">
-                            <a class="" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsefive" aria-expanded="true" aria-controls="collapsefive">
-                                Type de service <span class="glyphicon glyphicon-plus pull-right" aria-hidden="true"></span>
+                            <a role="button">
+                                Type de service
                             </a>
                         </h4>
                     </div>
-                    <div id="collapsefive" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingfive" aria-expanded="true">
+                    <div>
                         <div class="panel-body">
                             <div class="list-group">
                                 <div class="checkbox">
@@ -182,7 +182,7 @@
 
         <div class="col-md-9">
             <div class="well">
-                We found 37 results
+                We found 37 results!
             </div>
             <div class="well">
                 <div class="list-group">
