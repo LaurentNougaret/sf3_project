@@ -19,7 +19,7 @@
                     <h3 class="panel-title">Localization</h3>
                     <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
                 </div>
-                <div class="panel-body">Panel content</div>
+                <div class="panel-body"></div>
                 <!-- list of options -->
                 <ul>
                     <li>Par ville</li>
@@ -31,7 +31,7 @@
                     <h3 class="panel-title">Type de service</h3>
                     <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
                 </div>
-                <div class="panel-body">Panel content</div>
+                <div class="panel-body"></div>
                 <!-- list of options -->
                 <ul>
                     <li>Achats/Ventes</li>
@@ -45,7 +45,7 @@
                     <h3 class="panel-title">Marque</h3>
                     <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
                 </div>
-                <div class="panel-body">Panel content</div>
+                <div class="panel-body"></div>
                 <!-- list of options -->
                 <ul>
                     <li>Renault</li>
@@ -60,10 +60,26 @@
             </div>
             <div class="panel panel-default">
                 <div class="panel-heading">
+                    <h3 class="panel-title">Type de service</h3>
+                    <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+                </div>
+                <div class="panel-body"></div>
+                <!-- list of options -->
+                <ul>
+                    <li>Révision</li>
+                    <li>Freinage</li>
+                    <li>Embrayage</li>
+                    <li>Batterie</li>
+                    <li>Roulement</li>
+                    <li>Etc</li>
+                </ul>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
                     <h3 class="panel-title">Note globale</h3>
                     <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
                 </div>
-                <div class="panel-body">Panel content</div>
+                <div class="panel-body"></div>
                 <!-- list of options -->
                 <ul>
                     <li>1 étoile</li>
@@ -71,6 +87,22 @@
                     <li>3 étoiles</li>
                     <li>4 étoiles</li>
                     <li>5 étoiles</li>
+                </ul>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Type de véhicule</h3>
+                    <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+                </div>
+                <div class="panel-body"></div>
+                <!-- list of options -->
+                <ul>
+                    <li>Voiture</li>
+                    <li>Camion</li>
+                    <li>Vans</li>
+                    <li>Motorhome</li>
+                    <li>Anciens</li>
+                    <li>Etc</li>
                 </ul>
             </div>
         </div>
