@@ -2,7 +2,8 @@
 <html>
 <head>
     <link href="../public/CSS/styleSearchBar.css" rel='stylesheet'>
-    <title>Search Bar</title>
+    <link href="../public/CSS/bootstrap.css" rel='stylesheet'>
+    <title>Barre de Recherche</title>
 </head>
 <body>
 
@@ -10,7 +11,7 @@
 <div class="container-fluid">
     <div class="row">
         <form class="searchbar" action="search.php" method="GET">
-            <input type="text" class="form-control" name="query" placeholder="Chercher par professionnel" />
+            <input type="text" class="form-control" name="query" placeholder="Chercher par professionnel " />
         </form>
 
         <form class="searchbar" action="search.php" method="GET">
@@ -20,5 +21,6 @@
     </div>
 </div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </body>
 </html>

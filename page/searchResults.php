@@ -1,9 +1,9 @@
 <html>
 <head>
     <title></title>
-    <link href="../CSS/styleResults.css" rel='stylesheet'>
-    <link href="../CSS/bootstrap.css" rel='stylesheet'>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <link href="CSS/styleResults.css" rel='stylesheet'>
+    <link href="CSS/bootstrap.css" rel='stylesheet'>
+
 </head>
 <body>
 <div class="container">
@@ -298,5 +298,7 @@
 
         </div>
     </div>
-</div></body>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</body>
 </html>
