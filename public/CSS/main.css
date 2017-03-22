@@ -11,6 +11,11 @@
 ===================================
 \**********************************/
 
+.bloc {
+    padding-right: 0!important;
+    padding-left: 0!important;
+}
+
 /**********************************\
 ===================================
 1. font
@@ -47,7 +52,6 @@ ul li a{
 ul li a:hover {
     /*background-color: #2c9fa3 !important;*/
     color: white!important;
-
 }
 
 ul li a{
@@ -89,20 +93,64 @@ ul li a{
 8. footer
 ===================================
 \**********************************/
+
+/*** General parameters for the footer */
+
 footer {
     background-color: rgba(0, 0, 0, 1);
 }
-ul {
+
+.footrow p {
+    color: white;
+    font-size: 18px;
+}
+
+/*** Site Map ***/
+
+.sitemap {
+    margin: auto;
+}
+
+.sitemap ul {
     list-style:none;
     font-size: 18px;
     color: white;
 }
-p {
-    font-size: 18px;
-    color: white;
+/***Socialnetwork part ***/
+
+.socialNetworks {
+    margin: auto;
 }
 
-.wcs {
-    display: inline;
-    float: right;
+
+.newsform {
+    width: 60%;
+    margin: auto;
+}
+
+/*** Legal notices ***/
+
+.legal p {
+    font-size: 18px;
+    color: white;
+    margin: auto;
+}
+
+.modal-body p {
+    color: black;
+}
+
+@media (min-width: 360px) {
+
+    .mentions {
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .legal {
+        text-align: center;
+    }
+    .wcsmd {
+        display: none;
+    }
 }

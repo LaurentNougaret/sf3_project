@@ -17,7 +17,7 @@ $file = $page . ".php";
           crossorigin="anonymous">
     <link rel="stylesheet" href="CSS/main.css">
     <!--liens Amor-->
-    <link href="/public/CSS/scrolling-nav.css" rel="stylesheet">
+    <link href="CSS/scrolling-nav.css" rel="stylesheet">
     <!--/liens Amor-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -47,38 +47,40 @@ $file = $page . ".php";
     </title>
 </head>
 <body>
-<div class="container-fluid">
+
     <!-- Call header -->
     <header>
         <?php include "../inc/header.php"; ?>
     </header>
 
     <!-- Call page content -->
-    <main>
-        <div class="container-fluid">
+    <div class="bloc container-fluid">
+        <main>
             <?php include "../page/$file"; ?>
-        </div>
-    </main>
+        </main>
+    </div>
+
 
     <!-- Call footer -->
     <footer>
         <?php include "../inc/footer.php"; ?>
     </footer>
-</div>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
 
 <!-- Latest compiled and minified JvaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
 <!-- Ajoutez vos liens vers dossiers js ici -->
-<script type="text/javascript" src="js/"></script>
+
 
     <!--liens Amor-->
-    <!-- jQuery -->
-    <script src="/public/js/jquery.js"></script>
+
     <!-- Scrolling Nav JavaScript -->
-    <script src="/public/js/jquery.easing.min.js"></script>
-    <script src="/public/js/scrolling-nav.js"></script>
+    <script src="js/jquery.easing.min.js"></script>
+    <script src="js/scrolling-nav.js"></script>
     <!--/liens Amor-->
 
 </body>
