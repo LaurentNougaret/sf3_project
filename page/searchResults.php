@@ -6,212 +6,195 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </head>
 <body>
-<!-- Comments before results -->
-<div class="titlePageResults">
-</div>
 <div class="container">
     <div class="row">
-        <!-- Left-box with filters options -->
-        <div class="col-sm-3 col-md-3">
-            <a href="#" class="btn btn-primary btn-block">Filtrer les résultats</a> <!--why link?-->
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Localization</h3>
-                    <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
-                </div>
-                <div class="panel-body"></div>
-                <!-- list of options -->
-                <ul>
-                    <li>Par ville</li>
-                    <li>Par code postale</li>
-                </ul>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Type de service</h3>
-                    <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
-                </div>
-                <div class="panel-body"></div>
-                <!-- list of options -->
-                <ul>
-                    <li>Achats/Ventes</li>
-                    <li>Entretien</li>
-                    <li>Leasing</li>
-                    <li>Tous</li>
-                </ul>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Marque</h3>
-                    <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
-                </div>
-                <div class="panel-body"></div>
-                <!-- list of options -->
-                <ul>
-                    <li>Renault</li>
-                    <li>Citroën</li>
-                    <li>Peugeut</li>
-                    <li>Audi</li>
-                    <li>Mercedez</li>
-                    <li>Volkswagen</li>
-                    <li>Fiat</li>
-                    <li>Tous</li>
-                </ul>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Type de service</h3>
-                    <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
-                </div>
-                <div class="panel-body"></div>
-                <!-- list of options -->
-                <ul>
-                    <li>Révision</li>
-                    <li>Freinage</li>
-                    <li>Embrayage</li>
-                    <li>Batterie</li>
-                    <li>Roulement</li>
-                    <li>Etc</li>
-                </ul>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Note globale</h3>
-                    <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
-                </div>
-                <div class="panel-body"></div>
-                <!-- list of options -->
-                <ul>
-                    <li>1 étoile</li>
-                    <li>2 étoiles</li>
-                    <li>3 étoiles</li>
-                    <li>4 étoiles</li>
-                    <li>5 étoiles</li>
-                </ul>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Type de véhicule</h3>
-                    <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
-                </div>
-                <div class="panel-body"></div>
-                <!-- list of options -->
-                <ul>
-                    <li>Voiture</li>
-                    <li>Camion</li>
-                    <li>Vans</li>
-                    <li>Motorhome</li>
-                    <li>Anciens</li>
-                    <li>Etc</li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-sm-9 col-md-9">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Garage Creuzet Automobiles</h3>
-                    <!-- <div class="pull-right">
-                         <button type="button" class="close" aria-label="Close">
-                           <span aria-hidden="true">×</span>
-                         </button>
-                     </div>-->
-                </div>
-                <div class="rate1">
-                    <div class="rate">
-                        <input type="radio" id="star5" name="rate" value="5" />
-                        <label for="star5" title="text">5 stars</label>
-                        <input type="radio" id="star4" name="rate" value="4" />
-                        <label for="star4" title="text">4 stars</label>
-                        <input type="radio" id="star3" name="rate" value="3" />
-                        <label for="star3" title="text">3 stars</label>
-                        <input type="radio" id="star2" name="rate" value="2" />
-                        <label for="star2" title="text">2 stars</label>
-                        <input type="radio" id="star1" name="rate" value="1" />
-                        <label for="star1" title="text">1 star</label>
-                        <!-- If starts don't appear, we should show the grade in numbers from 1 to 5
-                        <p>5/5</p>
-                        -->
-                    </div>
-                    <div class="rateRecommendOrNot">
-                        <h4>100% recommendé</h4>
-                    </div>
-                    <div class="rateXavis">
-                        <h4>37 avis</h4>
-                    </div>
-                </div>
-                    <div class="listOfResults">
-                        <div class="eachResult">
 
-                            <div class="description">
-                                <h4>Garage Creuzet Automobiles</h4>
-                                <address>
-                                    33 rue Creuzet<br>
-                                    69007 Lyon
-                                </address>
-                                Horaires:<br>
-                                Du lundi au jeudi:<br>
-                                8h à 12h | 14h à 19.<br>
-                                le vendredi:<br>
-                                8h à 12h | 14h à 18h.<br>
-                                Le samedi: 9h30 à 14h.<br>
-                            </div>
-                            <div class="descriptionServices">
-                                <h4>Services:</h4>
-                                Véhicule de courtoisie, Facilités de paiement, Dépannage,...<br>
-                                Autres services :<br>
-                                Nettoyage interieur et exterieur de la voiture <br>
-                            </div>
+        <div class="col-md-3">
+            <div class="well"><strong>Filtrer Résultats</strong> </div>
 
-                            <div class="Map">
-                                <img src="http://i1248.photobucket.com/albums/hh481/ondine3/map_zpscsjdz1ag.jpg" class="googleMap">
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                <!-- first Panel start Here -->
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingOne">
+                        <h4 class="panel-title">
+                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne" class="collapsed">
+                                Localisation <span class="glyphicon glyphicon-plus pull-right" aria-hidden="true"></span>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne" aria-expanded="false" style="height: 0px;">
+                        <div class="panel-body">
+
+                            <div class="list-group">
+                                <div class="checkbox">
+                                    <label><input type="checkbox" value="">Par ville</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" value="">Par code postale</label>
+                                </div>
                             </div>
+                            <!-- List Group End Here -->
                         </div>
                     </div>
-                        <div class="buttonVoirPLus">
-                            <a href="#" class="btn btn-info btn-block">Voir plus d'information</a>
+                </div>         <!-- first Panel End Here -->
+
+                <!-- second Panel start Here -->
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingtwo">
+                        <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Type de service <span class="glyphicon glyphicon-plus pull-right" aria-hidden="true"></span>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingtwo" aria-expanded="false" style="height: 0px;">
+                        <div class="panel-body">
+                            <div class="list-group">
+                                <div class="checkbox">
+                                    <label><input type="checkbox" value="">Achats/ventes</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" value="">Entretien</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" value="">Leasing</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" value="">Tous</label>
+                                </div>
+                            </div>
+                            <!-- List Group End Here -->
                         </div>
-                </div>
-            <!-- Second result-->
+                    </div>
+                </div>         <!-- second Panel End Here -->
+
+                <!-- third Panel start Here -->
+
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingthree">
+                        <h4 class="panel-title">
+                            <a class="" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
+                                Marque <span class="glyphicon glyphicon-plus pull-right" aria-hidden="true"></span>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingthree" aria-expanded="true">
+                        <div class="panel-body">
+                            <div class="list-group">
+                                <div class="checkbox">
+                                    <label><input type="checkbox" value="">Renault</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" value="">Citroen</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" value="">Peugeot</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" value="">Volkswagen</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" value="">Audi</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" value="">Etc</label>
+                                </div>
+                            </div>
+                            <!-- List Group End Here -->
+                        </div>
+                    </div>
+                </div>         <!-- third Panel End Here -->
+
+
+
+                <!-- Forth  Panel start Here -->
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingfour">
+                        <h4 class="panel-title">
+                            <a class="" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+                                Note globale <span class="glyphicon glyphicon-plus pull-right" aria-hidden="true"></span>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapseFour" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingfour" aria-expanded="true">
+                        <div class="panel-body">
+                            <div class="list-group">
+                                <div class="checkbox">
+                                    <label><input type="checkbox" value="">1 étoile</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" value="">2 étoiles</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" value="">3 étoiles</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" value="">4 étoiles</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" value="">5 étoiles</label>
+                                </div>
+                            </div>
+                            <!-- List Group End Here -->
+                        </div>
+                    </div>
+                </div>         <!-- Forth Panel End Here -->
+
+                <!-- Fifth Panel start Here -->
+
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingfive">
+                        <h4 class="panel-title">
+                            <a class="" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsefive" aria-expanded="true" aria-controls="collapsefive">
+                                Type de service <span class="glyphicon glyphicon-plus pull-right" aria-hidden="true"></span>
+                            </a>
+                        </h4>
+                    </div>
+                    <div id="collapsefive" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingfive" aria-expanded="true">
+                        <div class="panel-body">
+                            <div class="list-group">
+                                <div class="checkbox">
+                                    <label><input type="checkbox" value="">Révision</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" value="">Freinage</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" value="">Embrayage</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" value="">Batterie</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" value="">Roulement</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" value="">Etc</label>
+                                </div>
+                            </div>
+                            <!-- List Group End Here -->
+                        </div>
+                    </div>
+                </div>         <!-- Fifth Panel End Here -->
             </div>
-        <div class="col-sm-9 col-md-9">
+        </div><!-- /.sidebar column end here -->
 
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Garage Creuzet Automobiles</h3>
-                    <!-- <div class="pull-right">
-                         <button type="button" class="close" aria-label="Close">
-                           <span aria-hidden="true">×</span>
-                         </button>
-                     </div>-->
-                </div>
-                <div class="rate1">
-                    <div class="rate">
-                        <input type="radio" id="star5" name="rate" value="5" />
-                        <label for="star5" title="text">5 stars</label>
-                        <input type="radio" id="star4" name="rate" value="4" />
-                        <label for="star4" title="text">4 stars</label>
-                        <input type="radio" id="star3" name="rate" value="3" />
-                        <label for="star3" title="text">3 stars</label>
-                        <input type="radio" id="star2" name="rate" value="2" />
-                        <label for="star2" title="text">2 stars</label>
-                        <input type="radio" id="star1" name="rate" value="1" />
-                        <label for="star1" title="text">1 star</label>
-                        <!-- If starts don't appear, we should show the grade in numbers from 1 to 5
-                        <p>5/5</p>
-                        -->
-                    </div>
-                    <div class="rateRecommendOrNot">
-                        <h4>100% recommendé</h4>
-                    </div>
-                    <div class="rateXavis">
-                        <h4>37 avis</h4>
-                    </div>
-                </div>
-                <div class="listOfResults">
-                    <div class="eachResult">
 
-                        <div class="description">
-                            <h4>Garage Creuzet Automobiles</h4>
+        <div class="col-md-9">
+            <div class="well">
+                We found 37 results
+            </div>
+            <div class="well">
+                <div class="list-group">
+                    <a href="#" class="list-group-item">
+                        <div class="media col-md-4">
+                            <figure class="pull-left">
+                                <img class="media-object img-rounded img-responsive"  src="http://i1248.photobucket.com/albums/hh481/ondine3/268cdd2f-a81d-42ee-b7b8-895a091e4b79_zpsk3iuquvw.jpg" alt="Garage" >
+                            </figure>
+                        </div>
+                        <div class="col-md-5">
+                            <h4 class="list-group-item-heading spacer-10"> Garage Creuzet Automobiles </h4>
+                            <p class="list-group-item-text">
                             <address>
                                 33 rue Creuzet<br>
                                 69007 Lyon
@@ -222,28 +205,98 @@
                             le vendredi:<br>
                             8h à 12h | 14h à 18h.<br>
                             Le samedi: 9h30 à 14h.<br>
+                            </p>
                         </div>
-                        <div class="descriptionServices">
-                            <h4>Services:</h4>
-                            Véhicule de courtoisie, Facilités de paiement, Dépannage,...<br>
-                            Autres services :<br>
-                            Nettoyage interieur et exterieur de la voiture <br>
+                        <div class="col-md-3 text-center">
+                            <h2> 124 <small> votes </small></h2>
+                            <button type="button" class="btn btn-info btn-md btn-block">Plus d'info</button>
+                            <div class="stars">
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                            </div>
+                            <p> Average 3.9 <small> / </small> 5 </p>
                         </div>
+                    </a>
+                    <hr>
+                    <a href="#" class="list-group-item">
+                        <div class="media col-md-4">
+                            <figure class="pull-left">
+                                <img class="media-object img-rounded img-responsive" src="http://i1248.photobucket.com/albums/hh481/ondine3/c73ec1dc-75ad-45d7-81fc-89328d3a713d_zpswkieadhl.jpg" alt="Garage2" >
+                            </figure>
+                        </div>
+                        <div class="col-md-5">
+                            <h4 class="list-group-item-heading spacer-10"> Garage Creuzet Automobiles </h4>
+                            <p class="list-group-item-text">
+                            <address>
+                                33 rue Creuzet<br>
+                                69007 Lyon
+                            </address>
+                            Horaires:<br>
+                            Du lundi au jeudi:<br>
+                            8h à 12h | 14h à 19.<br>
+                            le vendredi:<br>
+                            8h à 12h | 14h à 18h.<br>
+                            Le samedi: 9h30 à 14h.<br>
+                            </p>
+                        </div>
+                        <div class="col-md-3 text-center">
+                            <h2> 14 <small> votes </small></h2>
+                            <button type="button" class="btn btn-info btn-md btn-block">Plus d'info</button>
+                            <div class="stars">
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                            </div>
+                            <p> Average 3.9 <small> / </small> 5 </p>
+                        </div>
+                    </a>
+                    <hr>
 
-                        <div class="Map">
-                            <img src="http://i1248.photobucket.com/albums/hh481/ondine3/map_zpscsjdz1ag.jpg" class="googleMap">
+                    <a href="#" class="list-group-item">
+                        <div class="media col-md-4">
+                            <figure class="pull-left">
+                                <img class="media-object img-rounded img-responsive" src="http://i1248.photobucket.com/albums/hh481/ondine3/car4_zpswe9kelnp.jpeg" alt="Garage3" >
+                            </figure>
                         </div>
+                        <div class="col-md-5">
+                            <h4 class="list-group-item-heading spacer-10"> Garage Creuzet Automobiles </h4>
+                            <p class="list-group-item-text">
+                            <address>
+                                33 rue Creuzet<br>
+                                69007 Lyon
+                            </address>
+                            Horaires:<br>
+                            Du lundi au jeudi:<br>
+                            8h à 12h | 14h à 19.<br>
+                            le vendredi:<br>
+                            8h à 12h | 14h à 18h.<br>
+                            Le samedi: 9h30 à 14h.<br>
+                            </p>
+                        </div>
+                        <div class="col-md-3 text-center">
+                            <h2> 24 <small> votes </small></h2>
+                            <button type="button" class="btn btn-info btn-md btn-block">Plus d'info</button>
+                            <div class="stars">
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star"></span>
+                                <span class="glyphicon glyphicon-star-empty"></span>
+                            </div>
+                            <p> Average 3.9 <small> / </small> 5 </p>
+                        </div>
+                    </a>
 
-                    </div>
-                </div>
-                <div class="buttonVoirPLus">
-                    <a href="#" class="btn btn-info btn-block">Voir plus d'information</a>
                 </div>
             </div>
+
+
         </div>
     </div>
-        </div>
-    </div>
-</div>
-</body>
+</div></body>
 </html>

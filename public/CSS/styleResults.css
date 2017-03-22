@@ -1,85 +1,37 @@
-/* Search Results page */
-body {
-    margin: 50px;
-}
-.container {
-    margin: 50px;
-}
-#accordion .glyphicon {
-    margin-right:10px;
-}
-.clickable{
-    cursor: pointer;
-}
-.panel-heading span {
-    margin-top: -20px;
-    font-size: 15px;
-}
-.googleMap {
-    width: 250px;
-    height: 250px;
-}
-.listOfResults {
-    background-color: rgba(210, 227, 249, 0.19);
-}
-.eachResult {
-    display: inline-flex;
-    flex-direction: row;
-    color: black;
-    padding: 10px;
-}
-.description h4 {
-    font-weight: bold;
-}
-.descriptionServices {
-    text-align: justify;
-    padding: 0 35px;
-}
-.buttonVoirPLus {
-    margin: 10px auto;
-    width: 200px;
-}
-/* Voting system */
 
-.rate1 {
-    display: inline-flex;
-    flex-direction: row;
-    justify-content: center;
-    margin: 20px;
+/***************************
+2. Navigation
+***************************/
+a.list-group-item {
+    height:auto;
+    min-height:250px;
+
 }
-.rateRecommendOrNot {
-    padding: 0 50px;
-}
-.rateXavis {
-    padding: 0 50px;
+a.list-group-item.active small {
+    color:#fff;
+
 }
 
-.rate {
-    border: 1px solid #cccccc;
-    float: left;
-    height: 46px;
-    padding: 0 10px;
+.stars {
+    margin:20px auto 1px;
 }
 
-.rate:not(:checked) > input {
-    position: absolute;
-    top: -9999px;
+/***************************
+3. Generic
+***************************/
+
+.spacer-10 {
+    padding-top: 10px;
 }
-
-.rate:not(:checked) > label {
-    float: right;
-    width: 1em;
-    overflow: hidden;
-    white-space: nowrap;
-    cursor: pointer;
-    font-size: 30px;
-    color: #ccc;
+.spacer-20 {
+    padding-top: 20px;
 }
-
-.rate:not(:checked) > label:before { content: '★ '; }
-
-.rate > input:checked ~ label { color: #ffc700; }
-
-.rate:not(:checked) > label:hover, .rate:not(:checked) > label:hover ~ label { color: #deb217; }
-
-.rate > input:checked + label:hover, .rate > input:checked + label:hover ~ label, .rate > input:checked ~ label:hover, .rate > input:checked ~ label:hover ~ label, .rate > label:hover ~ input:checked ~ label { color: #c59b08; }
+.spacer-30 {
+    padding-top: 30px;
+}
+/***************************
+4. Product
+***************************/
+.btn-product{
+    width: 100%;
+}
