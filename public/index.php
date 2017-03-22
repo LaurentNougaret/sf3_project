@@ -16,6 +16,9 @@ $file = $page . ".php";
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
           crossorigin="anonymous">
     <link rel="stylesheet" href="CSS/main.css">
+    <!--liens Amor-->
+    <link href="/public/CSS/scrolling-nav.css" rel="stylesheet">
+    <!--/liens Amor-->
     <!-- Call page titles -->
     <title>
         <?php
@@ -56,6 +59,14 @@ $file = $page . ".php";
             crossorigin="anonymous"></script>
     <!-- Ajoutez vos liens vers dossiers js ici -->
     <script type="text/javascript" src="js/"></script>
+
+    <!--liens Amor-->
+    <!-- jQuery -->
+    <script src="/public/js/jquery.js"></script>
+    <!-- Scrolling Nav JavaScript -->
+    <script src="/public/js/jquery.easing.min.js"></script>
+    <script src="/public/js/scrolling-nav.js"></script>
+    <!--/liens Amor-->
 
 </body>
 </html>

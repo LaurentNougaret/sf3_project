@@ -1,12 +1,3 @@
-<head>
-    <link rel="stylesheet" href="/public/CSS/main.css">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Bootstrap Core CSS -->
-    <link href="/public/CSS/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link href="/public/CSS/scrolling-nav.css" rel="stylesheet">
-</head>
 <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top " role="navigation">
         <div class="container-fluid">
@@ -43,15 +34,9 @@
         <!-- /.container -->
     </nav>
 
-    <!-- jQuery -->
-    <script src="/public/js/jquery.js"></script>
-    <!-- Bootstrap Core JavaScript -->
-    <script src="/public/js/bootstrap.min.js"></script>
-    <!-- Scrolling Nav JavaScript -->
-    <script src="/public/js/jquery.easing.min.js"></script>
-    <script src="/public/js/scrolling-nav.js"></script>
 
-</body>
+
+
 
 
 
