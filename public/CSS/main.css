@@ -12,12 +12,16 @@
 \**********************************/
 
 .bloc {
-    padding-right: 0 !important;
-    padding-left: 0 !important;
+
+    padding-right: 0!important;
+    padding-left: 0!important;
 }
 
+a {
+    text-decoration: none!important;
+}
 /**********************************\
-===================================
+
 1. font
 ===================================
 \**********************************/
@@ -28,12 +32,45 @@
 ===================================
 \**********************************/
 
+.navy{
+    /*background-color: #3bced2;*/
+    /*color: black!important;*/
+}
+
+/* Onglets navbar */
+ul li a{
+
+    margin-left: 20px;
+    font-weight: bold;
+    font-size: 18px;
+    color: #adadad !important;
+    
+}
+
+/* Couleur navbar */
+.navbar{
+    background-color: rgba(0, 0, 0, 1) !important;
+}
+
+/* Effet de survol souris onglet menu */
+
+ul li a:hover {
+    /*background-color: #2c9fa3 !important;*/
+    color: white!important;
+}
+
+ul li a{
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .4);
+}
+
 /**********************************\
 ===================================
 3. banner
 ===================================
 \**********************************/
-
+#banner {
+    height: 1500px;
+}
 /**********************************\
 ===================================
 4. search
@@ -239,3 +276,93 @@
 8. footer
 ===================================
 \**********************************/
+
+/*** General parameters for the footer */
+
+footer {
+    background-color: rgba(0, 0, 0, 1);
+}
+
+.footrow p {
+    color: white;
+    font-size: 18px;
+}
+
+/*** Site Map ***/
+
+.sitemap p {
+
+    padding-left: 40%;
+}
+
+.sitemap a {
+    color: #adadad;
+    font-weight: bold;
+}
+
+.sitemap a:hover {
+    color: #ffffff;
+}
+
+
+/***Socialnetwork part ***/
+.newsform {
+    width: 60%;
+    margin: auto;
+}
+
+.socialNetworks .fa {
+    color: white;
+}
+
+/*** Legal notices ***/
+
+.legal p {
+    font-size: 18px;
+    color: white;
+    margin: auto;
+}
+
+#mentions .modal-body p {
+    color: black;
+}
+
+.mentions, .wcsxs, .wcsmd, .mentions:visited, .mentions:hover, .wcsxs:visited, .wcsmd:visited, .wcsxs:hover, .wcsmd:hover  {
+    color: white;
+}
+
+@media (min-width: 320px) and (max-width: 1024px){
+    .sitemap {
+        margin-top: 30px;
+    }
+    .sitemap p {
+        padding-left: 0;
+        text-align: center !important;
+    }
+
+    .socialNetworks, .newsLetters {
+        margin-top: 30px;
+        margin-bottom: 50px;
+    }
+
+
+    .mentions {
+        text-align: left;
+        cursor: pointer;
+    }
+
+    .legal {
+        text-align: center;
+    }
+
+    .wcsmd {
+        display: none;
+    }
+}
+
+@media (min-width: 1025px) {
+    .wcsxs {
+        display: none;
+    }
+}
+
