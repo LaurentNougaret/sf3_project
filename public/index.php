@@ -16,22 +16,32 @@ $file = $page . ".php";
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
           crossorigin="anonymous">
     <link rel="stylesheet" href="CSS/main.css">
-    <!--links Amor-->
+
+
     <link href="CSS/bootstrap.min.css" rel="stylesheet">
     <link href="CSS/scrolling-nav.css" rel="stylesheet">
 
-    <!--/links Amor-->
+
     <!-- Call page titles -->
     <title>
         <?php
-            switch ($page){
-                case 'index';
-                    echo 'Caradvisor : le site de comparaison des services de l\'automobile';
-                    break;
-                case 'search';
-                    echo 'Caradvisor : rechercher votre professionnel';
-                    break;
-            }
+        switch ($page) {
+            case 'index';
+                echo 'Caradvisor : le site de comparaison des services de l\'automobile';
+                break;
+            case 'search';
+                echo 'Caradvisor : recherchez votre professionnel';
+                break;
+            case 'account';
+                echo 'Caradvisor : vôtre compte';
+                break;
+            case 'contact';
+                echo 'Caradvisor : contactez-nous';
+                break;
+            case 'opinion';
+                echo 'Caradvisor : déposez votre avis';
+                break;
+        }
         ?>
     </title>
 </head>
