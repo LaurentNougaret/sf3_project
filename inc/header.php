@@ -11,7 +11,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand page-scroll" href="#page-top"><img src="/img/logo.png" width="200" height="30"></a>
+            <a class="navbar-brand page-scroll" href="#page-top"><img src="/img/logo.png" alt="logo de Caradvisor" width="200" height="30"></a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->

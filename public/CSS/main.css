@@ -30,7 +30,7 @@
 2. navbar
 ===================================
 \**********************************/
-/* Onglets navbar */
+/*  tabs navbar */
 ul li a{
 
     margin-left: 20px;
@@ -38,11 +38,10 @@ ul li a{
     font-size: 18px;
     color: #adadad !important;
 }
-/* Couleur navbar */
+/*  navbar color */
 .navbar{
     background-color: rgba(0, 0, 0, 1) !important;
 }
-/* Effet de survol souris onglet menu */
 ul li a:hover {
 
     color: white!important;
@@ -78,8 +77,8 @@ body.loaded {
     width: 100%;
     height: 40rem;
     padding: 0 5%;
-    overflow: hidden;
-    backface-visibility: hidden;
+    /*overflow: hidden;*/
+    margin-bottom: 120px;
 }
 /* Default image container */
 .banner .background {
@@ -90,7 +89,7 @@ body.loaded {
     top: 90px;
     z-index: -1;
     transform: translate3d(0,0,0) scale(1.25);
-    background: url('http://kingofwallpapers.com/garage/garage-013.jpg') no-repeat center center;
+    background: url('../img/garage.jpg') no-repeat center center;
     background-size: cover;
 }
 @media  (max-width: 800px){
