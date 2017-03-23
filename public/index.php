@@ -15,8 +15,8 @@ $file = $page . ".php";
           crossorigin="anonymous">
     <link rel="stylesheet" href="CSS/main.css">
     <link href="CSS/scrolling-nav.css" rel="stylesheet">
-
-    <!-- Call page titles -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <title>
         <?php
         switch ($page){
@@ -38,21 +38,15 @@ $file = $page . ".php";
     </header>
 
     <!-- Call page content -->
-
     <div class="bloc container-fluid ">
         <main>
             <?php include"../page/$file"; ?>
         </main>
     </div>
-
-
     <!-- Call footer -->
     <footer>
         <?php include"../inc/footer.php"; ?>
     </footer>
-
-
-
     <!-- Latest compiled and minified JvaScript -->
     <script src="http://code.jquery.com/jquery-3.2.1.min.js"
             integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -64,7 +58,5 @@ $file = $page . ".php";
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/scrolling-nav.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
-
-
 </body>
 </html>

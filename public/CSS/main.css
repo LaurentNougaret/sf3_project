@@ -10,13 +10,18 @@
 8. footer
 ===================================
 \**********************************/
+.bloc {
 
-.bloc{
     padding-right: 0!important;
     padding-left: 0!important;
 }
+
+a {
+    text-decoration: none!important;
+}
+
 /**********************************\
-===================================
+
 1. font
 ===================================
 \**********************************/
@@ -27,7 +32,8 @@
 ===================================
 \**********************************/
 
-/*  tabs navbar */
+/* Onglets navbar */
+
 ul li a{
 
     margin-left: 20px;
@@ -40,7 +46,6 @@ ul li a{
     background-color: rgba(0, 0, 0, 1) !important;
 }
 ul li a:hover {
-
     color: white!important;
 }
 ul li a{
@@ -51,7 +56,6 @@ ul li a{
     width : 200px;
     height: 30px;
 }
-
 /**********************************\
 
 3. banner
@@ -98,7 +102,6 @@ body.loaded {
     transform: scale(1);
     transition: 5s transform;
 }
-
 /**********************************\
 
 4. search
@@ -195,17 +198,199 @@ body.loaded {
 
 \**********************************/
 
+
+#slider {
+    background-color: white;
+    height: 500px;
+}
 /**********************************\
 6. opinion
 \**********************************/
+
+
+#opinion {
+    background-color: black;
+    height: 500px;
+}
 
 /**********************************\
 
 7. about
 \**********************************/
 
+#about {
+    background: url("/img/backg/about.jpg") no-repeat fixed center center;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+}
+
+#about .bloktext {
+    background-color: rgba(255,255,255,0.8);
+    border-radius: 10px;
+    margin-top: 15%;
+    height: 100%;
+}
+
+
+
+#about .hauteurtitre {
+    height: 100px;
+}
+
+#about .hauteurtitre img {
+    display: inline-block;
+    position: absolute;
+    top: 5%;
+}
+
+#about .hauteurtitre #logoabout {
+    right: 5%;
+}
+
+#about .hauteurtitre #photofondateur {
+    left:0;
+}
+
+
+@media (max-width:1024px) {
+    #about .bloktext {
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+}
+
+@media (max-width: 320px) {
+    #about {
+        height: 200vh;
+    }
+}
+
+@media (min-width:321px) and (max-width: 480px) {
+    #about {
+        height: 100vh;
+    }
+    #about .hauteurtitre {
+        text-align: center;
+        margin-bottom: 20%;
+    }
+
+    #about .hauteurtitre img {
+        position: static;
+    }
+}
+
+@media (min-width:601px) and (max-width: 768px) {
+    #about {
+        padding-top: 20%;
+    }
+}
+
+@media (max-width: 480px) and (orientation: landscape) {
+    #about {
+        height: 300vh;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 800px) and (orientation: landscape) {
+    #about {
+        height: 130vh;
+    }
+}
+
 /**********************************\
 
 8. footer
 
 \**********************************/
+
+/*** General parameters for the footer */
+
+footer {
+    background-color: rgba(0, 0, 0, 1);
+}
+
+.footrow p {
+    color: white;
+    font-size: 18px;
+}
+
+/*** Site Map ***/
+
+.sitemap p {
+
+    padding-left: 40%;
+}
+
+.sitemap a {
+    color: #adadad;
+    font-weight: bold;
+}
+
+.sitemap a:hover {
+    color: #ffffff;
+}
+
+
+/***Socialnetwork part ***/
+.newsform {
+    width: 60%;
+    margin: auto;
+}
+
+.socialNetworks .fa {
+    color: white;
+}
+
+/*** Legal notices ***/
+
+.legal p {
+    font-size: 18px;
+    color: white;
+    margin: auto;
+}
+
+#mentions .modal-body p {
+    color: black;
+}
+
+.mentions, .wcsxs, .wcsmd, .mentions:visited, .mentions:hover, .wcsxs:visited, .wcsmd:visited, .wcsxs:hover, .wcsmd:hover  {
+    color: white;
+}
+
+@media (min-width: 320px) and (max-width: 1024px){
+    .sitemap {
+        margin-top: 30px;
+    }
+    .sitemap p {
+        padding-left: 0;
+        text-align: center !important;
+    }
+
+    .socialNetworks, .newsLetters {
+        margin-top: 30px;
+        margin-bottom: 50px;
+    }
+
+
+    .mentions {
+        text-align: left;
+        cursor: pointer;
+    }
+
+    .legal {
+        text-align: center;
+    }
+
+    .wcsmd {
+        display: none;
+    }
+}
+
+@media (min-width: 1025px) {
+    .wcsxs {
+        display: none;
+    }
+}
+
