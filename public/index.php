@@ -16,22 +16,36 @@ $file = $page . ".php";
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
           crossorigin="anonymous">
     <link rel="stylesheet" href="CSS/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
     <!-- Call page titles -->
     <title>
         <?php
-            switch ($page){
-                case 'index';
-                    echo 'Caradvisor : le site de comparaison des services de l\'automobile';
-                    break;
-                case 'search';
-                    echo 'Caradvisor : rechercher votre professionnel';
-                    break;
-            }
+        switch ($page) {
+            case 'index';
+                echo 'Caradvisor : le site de comparaison des services de l\'automobile';
+                break;
+            case 'search';
+                echo 'Caradvisor : recherchez votre professionnel';
+                break;
+            case 'account';
+                echo 'Caradvisor : vôtre compte';
+                break;
+            case 'contact';
+                echo 'Caradvisor : contactez-nous';
+                break;
+            case 'opinion';
+                echo 'Caradvisor : déposez votre avis';
+                break;
+        }
         ?>
     </title>
 </head>
 <body>
-
+  
     <!-- Call header -->
     <header>
         <?php include"../inc/header.php"; ?>
@@ -55,6 +69,7 @@ $file = $page . ".php";
             crossorigin="anonymous"></script>
     <!-- Ajoutez vos liens vers dossiers js ici -->
     <script type="text/javascript" src="js/"></script>
+
 
 </body>
 </html>
