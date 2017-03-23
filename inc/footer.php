@@ -43,7 +43,4 @@
             <p><a class="wcsmd" href="http://wildcodeschool.fr" target="_blank">&copy;Wild Code School 2017</a></p>
         </div>
     </div>
-    <!-- Calling modal -->
-
 </div>
-

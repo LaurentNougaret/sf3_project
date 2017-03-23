@@ -10,7 +10,6 @@
 8. footer
 ===================================
 \**********************************/
-
 .bloc {
 
     padding-right: 0!important;
@@ -20,6 +19,7 @@
 a {
     text-decoration: none!important;
 }
+
 /**********************************\
 
 1. font
@@ -32,49 +32,80 @@ a {
 ===================================
 \**********************************/
 
-.navy{
-    /*background-color: #3bced2;*/
-    /*color: black!important;*/
-}
-
 /* Onglets navbar */
+
 ul li a{
 
     margin-left: 20px;
     font-weight: bold;
     font-size: 18px;
     color: #adadad !important;
-    
 }
-
-/* Couleur navbar */
+/*  navbar color */
 .navbar{
     background-color: rgba(0, 0, 0, 1) !important;
 }
-
-/* Effet de survol souris onglet menu */
-
 ul li a:hover {
-    /*background-color: #2c9fa3 !important;*/
     color: white!important;
 }
-
 ul li a{
     text-shadow: 0 1px 0 rgba(255, 255, 255, .4);
 }
-
-/**********************************\
-===================================
-3. banner
-===================================
-\**********************************/
-#banner {
-    height: 1500px;
+/* logo*/
+#logo  {
+    width : 200px;
+    height: 30px;
 }
 /**********************************\
-===================================
+
+3. banner
+
+\**********************************/
+
+/* Default body */
+body {
+    opacity: 0;
+}
+/* Loaded body */
+body.loaded {
+    opacity: 1;
+    transition: 3s opacity;
+}
+/* Default banner */
+.banner {
+    position: relative;
+    width: 100%;
+    height: 50rem;
+    overflow: hidden;
+    margin-bottom: 100px;
+}
+/* Default image container */
+.banner .background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    transform: translate3d(0,0,0) scale(1.25);
+    background: url('../img/garage.jpg') no-repeat center center; /* a changer pour une imge libre de droits */
+    background-size: cover;
+}
+@media  (max-width: 800px){
+    .banner .background {
+        top: 0;
+        background-position: 75% 50%;
+    }
+}
+/* Loaded image container */
+.loaded .banner .background {
+    transform: scale(1);
+    transition: 5s transform;
+}
+/**********************************\
+
 4. search
-===================================
+
 \**********************************/
 
     /**********************************\
@@ -162,9 +193,9 @@ ul li a{
 
 
 /**********************************\
-===================================
+
 5. slider
-===================================
+
 \**********************************/
 
 
@@ -173,9 +204,7 @@ ul li a{
     height: 500px;
 }
 /**********************************\
-===================================
 6. opinion
-===================================
 \**********************************/
 
 
@@ -185,9 +214,8 @@ ul li a{
 }
 
 /**********************************\
-===================================
+
 7. about
-===================================
 \**********************************/
 
 #about {
@@ -272,9 +300,9 @@ ul li a{
 }
 
 /**********************************\
-===================================
+
 8. footer
-===================================
+
 \**********************************/
 
 /*** General parameters for the footer */

@@ -1,7 +1,10 @@
 <!-- Banner -->
-<section id="banner">
+
+<section class="banner">
+    <span class="background"></span>
 
 </section>
+
 <!-- / Banner -->
 
 <!-- Search -->
