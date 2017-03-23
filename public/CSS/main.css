@@ -11,6 +11,11 @@
 ===================================
 \**********************************/
 
+.bloc {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+}
+
 /**********************************\
 ===================================
 1. font
@@ -125,17 +130,109 @@
 ===================================
 \**********************************/
 
+
+#slider {
+    background-color: white;
+    height: 500px;
+}
 /**********************************\
 ===================================
 6. opinion
 ===================================
 \**********************************/
 
+
+#opinion {
+    background-color: black;
+    height: 500px;
+}
+
 /**********************************\
 ===================================
 7. about
 ===================================
 \**********************************/
+
+#about {
+    background: url("/img/backg/about.jpg") no-repeat fixed center center;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+}
+
+#about .bloktext {
+    background-color: rgba(255,255,255,0.8);
+    border-radius: 10px;
+    margin-top: 15%;
+    height: 100%;
+}
+
+
+
+#about .hauteurtitre {
+    height: 100px;
+}
+
+#about .hauteurtitre img {
+    display: inline-block;
+    position: absolute;
+    top: 5%;
+}
+
+#about .hauteurtitre #logoabout {
+    right: 5%;
+}
+
+#about .hauteurtitre #photofondateur {
+    left:0;
+}
+
+
+@media (max-width:1024px) {
+    #about .bloktext {
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+}
+
+@media (max-width: 320px) {
+    #about {
+        height: 200vh;
+    }
+}
+
+@media (min-width:321px) and (max-width: 480px) {
+    #about {
+        height: 100vh;
+    }
+    #about .hauteurtitre {
+        text-align: center;
+        margin-bottom: 20%;
+    }
+
+    #about .hauteurtitre img {
+        position: static;
+    }
+}
+
+@media (min-width:601px) and (max-width: 768px) {
+    #about {
+        padding-top: 20%;
+    }
+}
+
+@media (max-width: 480px) and (orientation: landscape) {
+    #about {
+        height: 300vh;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 800px) and (orientation: landscape) {
+    #about {
+        height: 130vh;
+    }
+}
 
 /**********************************\
 ===================================
