@@ -1,8 +1,6 @@
 <?php
-
 $page = (isset($_GET['page']) ? $_GET['page'] : "index");
 $file = $page . ".php";
-
 ?>
 
 <!DOCTYPE html>
@@ -16,30 +14,17 @@ $file = $page . ".php";
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
           crossorigin="anonymous">
     <link rel="stylesheet" href="CSS/main.css">
-
-
-    <link href="CSS/bootstrap.min.css" rel="stylesheet">
     <link href="CSS/scrolling-nav.css" rel="stylesheet">
-
 
     <!-- Call page titles -->
     <title>
         <?php
-        switch ($page) {
+        switch ($page){
             case 'index';
                 echo 'Caradvisor : le site de comparaison des services de l\'automobile';
                 break;
             case 'search';
-                echo 'Caradvisor : recherchez votre professionnel';
-                break;
-            case 'account';
-                echo 'Caradvisor : vôtre compte';
-                break;
-            case 'contact';
-                echo 'Caradvisor : contactez-nous';
-                break;
-            case 'opinion';
-                echo 'Caradvisor : déposez votre avis';
+                echo 'Caradvisor : rechercher votre professionnel';
                 break;
         }
         ?>
@@ -53,16 +38,19 @@ $file = $page . ".php";
     </header>
 
     <!-- Call page content -->
+
     <div class="bloc container-fluid ">
         <main>
             <?php include"../page/$file"; ?>
         </main>
     </div>
 
+
     <!-- Call footer -->
     <footer>
         <?php include"../inc/footer.php"; ?>
     </footer>
+
 
 
     <!-- Latest compiled and minified JvaScript -->
@@ -76,6 +64,7 @@ $file = $page . ".php";
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/scrolling-nav.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+
 
 </body>
 </html>
