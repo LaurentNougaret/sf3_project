@@ -76,6 +76,90 @@ ul li a{
 ===================================
 \**********************************/
 
+    /**********************************\
+    4.1 - Search Bar - Main Page
+    \**********************************/
+
+
+    #SearchBar .searchbar {
+        border: 0px solid black;
+        padding: 20px;
+    }
+    #SearchBar .row {
+        background-color: rgba(245,245,245,0.6);
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+    }
+    #SearchBar button {
+        width: 50px;
+        height: 35px;
+        background-color: #ffea5b;
+        border: 1px solid rgba(94, 94, 94, 0.87);
+        -webkit-border-radius: 8px;
+        -moz-border-radius: 8px;
+        border-radius: 8px;
+        margin-left: 20px;
+        margin: 28px;
+    }
+    #SearchBar input {
+        height: 50px;
+        font-family: "TlwgTypewriter";
+        font-size: 13px;
+       margin: 0;
+    }
+
+
+        /**********************************************\
+        4.1.1 - Search Bar - Main Page - MEDIA QUERIES
+        \**********************************************/
+
+        @media all and (min-width: 961px) and (max-width: 1366px) {
+            #SearchBar button {
+                margin-left: -8px;
+        }
+
+    /**********************************\
+    4.2 - Search Results - Results Page
+    \**********************************/
+
+    /***************************
+    2. Navigation
+    ***************************/
+    a.list-group-item {
+        height:auto;
+        min-height:250px;
+
+    }
+    a.list-group-item.active small {
+        color:#fff;
+    }
+
+    .stars {
+        margin:20px auto 1px;
+    }
+
+    /***************************
+    3. Generic
+    ***************************/
+
+    .spacer-10 {
+        padding-top: 10px;
+    }
+    .spacer-20 {
+        padding-top: 20px;
+    }
+    .spacer-30 {
+        padding-top: 30px;
+    }
+    /***************************
+    4. Product
+    ***************************/
+    .btn-product{
+        width: 100%;
+    }
+
+
 /**********************************\
 ===================================
 5. slider
@@ -188,3 +272,4 @@ footer {
         display: none;
     }
 }
+
