@@ -43,24 +43,23 @@ $file = $page . ".php";
 
     <div class="bloc container-fluid">
         <main>
+
             <?php include "../page/$file"; ?>
         </main>
     </div>
+
 
     <!-- Call footer -->
     <footer>
         <?php include"../inc/footer.php"; ?>
     </footer>
 
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
 
 <!-- Latest compiled and minified JvaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
-    <!-- Scrolling Nav JavaScript -->
-    <script src="js/jquery.easing.min.js"></script>
     <script src="js/scrolling-nav.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 </body>
 </html>
