@@ -1,6 +1,3 @@
-
-<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
-
 <!-- Navigation -->
 <nav class="navbar navbar-default navbar-fixed-top " role="navigation">
     <div class="container-fluid">
