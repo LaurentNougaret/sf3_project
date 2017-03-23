@@ -54,7 +54,6 @@ $file = $page . ".php";
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
     <!-- Ajoutez vos liens vers dossiers js ici -->
-    <script type="text/javascript" src="js/"></script>
 
 </body>
 </html>
