@@ -31,24 +31,23 @@ $file = $page . ".php";
     </title>
 </head>
 <body>
-    <div class="container-fluid">
-        <!-- Call header -->
-        <header>
-            <?php include"../inc/header.php"; ?>
-        </header>
 
-        <!-- Call page content -->
+    <!-- Call header -->
+    <header>
+        <?php include"../inc/header.php"; ?>
+    </header>
+
+    <!-- Call page content -->
+    <div class="bloc container-fluid">
         <main>
-            <div class="container-fluid">
-                <?php include"../page/$file"; ?>
-            </div>
+            <?php include"../page/$file"; ?>
         </main>
-
-        <!-- Call footer -->
-        <footer>
-            <?php include"../inc/footer.php"; ?>
-        </footer>
     </div>
+
+    <!-- Call footer -->
+    <footer>
+        <?php include"../inc/footer.php"; ?>
+    </footer>
 
     <!-- Latest compiled and minified JvaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
