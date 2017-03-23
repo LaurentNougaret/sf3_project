@@ -19,8 +19,6 @@ $file = $page . ".php";
     <!--links Amor-->
     <link href="CSS/bootstrap.min.css" rel="stylesheet">
     <link href="CSS/scrolling-nav.css" rel="stylesheet">
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 
     <!--/links Amor-->
     <!-- Call page titles -->
@@ -58,20 +56,16 @@ $file = $page . ".php";
 
 
     <!-- Latest compiled and minified JvaScript -->
-
-    <!-- Ajoutez vos liens vers dossiers js ici -->
-
-
-    <!--Script Amor-->
-    <script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript" src="js/jquery.js"></script>
-    <script type="text/javascript" src="js/jquery.easing.min.js"></script>
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/scrolling-nav.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
-    <!--/Script Amor-->
 
 </body>
 </html>
