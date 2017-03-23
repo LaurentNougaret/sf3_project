@@ -1,8 +1,6 @@
 <?php
-
 $page = (isset($_GET['page']) ? $_GET['page'] : "index");
 $file = $page . ".php";
-
 ?>
 
 <!DOCTYPE html>
@@ -16,29 +14,15 @@ $file = $page . ".php";
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
           crossorigin="anonymous">
     <link rel="stylesheet" href="CSS/main.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
-          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-
     <!-- Call page titles -->
     <title>
         <?php
-        switch ($page) {
+        switch ($page){
             case 'index';
                 echo 'Caradvisor : le site de comparaison des services de l\'automobile';
                 break;
             case 'search';
-                echo 'Caradvisor : recherchez votre professionnel';
-                break;
-            case 'account';
-                echo 'Caradvisor : vôtre compte';
-                break;
-            case 'contact';
-                echo 'Caradvisor : contactez-nous';
-                break;
-            case 'opinion';
-                echo 'Caradvisor : déposez votre avis';
+                echo 'Caradvisor : rechercher votre professionnel';
                 break;
         }
         ?>
@@ -48,19 +32,19 @@ $file = $page . ".php";
 <div class="container-fluid">
     <!-- Call header -->
     <header>
-        <?php include "../inc/header.php"; ?>
+        <?php include"../inc/header.php"; ?>
     </header>
 
     <!-- Call page content -->
     <main>
         <div class="container-fluid">
-            <?php include "../page/$file"; ?>
+            <?php include"../page/$file"; ?>
         </div>
     </main>
 
     <!-- Call footer -->
     <footer>
-        <?php include "../inc/footer.php"; ?>
+        <?php include"../inc/footer.php"; ?>
     </footer>
 </div>
 
@@ -70,6 +54,8 @@ $file = $page . ".php";
         crossorigin="anonymous"></script>
 <!-- Ajoutez vos liens vers dossiers js ici -->
 <script type="text/javascript" src="js/"></script>
+<!-- JQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
 </body>
 </html>
