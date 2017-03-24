@@ -19,30 +19,36 @@ $file = $page . ".php";
           integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <title>
         <?php
-        switch ($page){
-            case 'index';
+        switch ($page) {
+            case 'index':
                 echo 'Caradvisor : le site de comparaison des services de l\'automobile';
                 break;
-            case 'search';
+            case 'search':
                 echo 'Caradvisor : rechercher votre professionnel';
                 break;
-        }
+            case 'opinion':
+                echo 'Caradvisor : déposez votre avis';
+                break;
+            case 'account':
+                echo 'Caradvisor : votre profil';
+                break;
+            case 'contact':
+                echo 'Caradvisor : contactez-nous';
+                break;
+            }
         ?>
     </title>
 </head>
 <body>
-
     <!-- Call header -->
     <header>
         <?php include"../inc/header.php"; ?>
     </header>
 
     <!-- Call page content -->
-    <div class="bloc container-fluid ">
         <main>
             <?php include"../page/$file"; ?>
         </main>
-    </div>
     <!-- Call footer -->
     <footer>
         <?php include"../inc/footer.php"; ?>

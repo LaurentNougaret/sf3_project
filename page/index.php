@@ -1,27 +1,29 @@
 <!-- Banner -->
-
 <section class="banner">
-    <span class="background"></span>
-
+    <div class="container">
+        <span class="background"></span>
+    </div>
 </section>
-
 <!-- / Banner -->
 
 <!-- Search -->
 <section id="search">
-    <div id="SearchBar" class="text-center">
-        <div class="row">
-            <div class="col-xs-12 col-md-5 col-md-offset-1">
-                <form class="searchbar" action="searchResults.php" method="GET">
-                    <input type="text" class="form-control" name="query" placeholder="Chercher par professionnel " />
-                </form>
+    <div class="container">
+        <h3 class="text-center">Trouvez votre professionnel de l'automobile</h3>
+        <div id="SearchBar" class="text-center">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-4 col-md-offset-2">
+                    <form class="searchbar" action="search.php" method="GET">
+                        <input type="text" class="form-control" name="query" placeholder="Chercher par professionnel" />
+                    </form>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-4">
+                    <form class="searchbar" action="search.php" method="GET">
+                        <input type="text" class="form-control" name="query" placeholder="Chercher par ville ou code postale"/>
+                    </form>
+                </div>
+                <div class="col-md-1"><a href="/?page=search"><button type="submit" class="btn btn-primary">OK</button></a></div>
             </div>
-            <div class="col-xs-12 col-md-5">
-                <form class="searchbar" action="searchResults.php" method="GET">
-                    <input type="text" class="form-control" name="query" placeholder="Chercher par ville ou code postale" />
-                </form>
-            </div>
-            <div class="col-md-1"><button type="submit" class="btn btn-default">OK</button></div>
         </div>
     </div>
 </section>
@@ -30,7 +32,28 @@
 <!-- Slider -->
 <section id="slider">
     <div class="container">
-
+        <h2 class="text-center">SLIDER</h2>
+        |<br>
+        |<br>
+        |<br>
+        |<br>
+        |<br>
+        |<br>
+        |<br>
+        |<br>
+        |<br>
+        |<br>
+        |<br>
+        |<br>
+        |<br>
+        |<br>
+        |<br>
+        |<br>
+        |<br>
+        |<br>
+        |<br>
+        |<br>
+        v<br>
     </div>
 </section>
 <!-- / Slider -->
@@ -38,7 +61,28 @@
 <!-- Leave opinion -->
 <section id="opinion">
     <div class="container">
-
+        <h2 class="text-center">BOUTONS DES AVIS</h2>
+        |<br>
+        |<br>
+        |<br>
+        |<br>
+        |<br>
+        |<br>
+        |<br>
+        |<br>
+        |<br>
+        |<br>
+        |<br>
+        |<br>
+        |<br>
+        |<br>
+        |<br>
+        |<br>
+        |<br>
+        |<br>
+        |<br>
+        |<br>
+        v<br>
     </div>
 </section>
 <!-- / Leave opinion -->
@@ -76,3 +120,32 @@
 </section>
 
 <!-- / About -->
+
+<!-- Values -->
+<section id="values">
+    <div class="container">
+        <h2 class="text-center">Les valeurs</h2>
+        |<br>
+        |<br>
+        |<br>
+        |<br>
+        |<br>
+        |<br>
+        |<br>
+        |<br>
+        |<br>
+        |<br>
+        |<br>
+        |<br>
+        |<br>
+        |<br>
+        |<br>
+        |<br>
+        |<br>
+        |<br>
+        |<br>
+        |<br>
+        v<br>
+    </div>
+</section>
+<!-- /Values -->

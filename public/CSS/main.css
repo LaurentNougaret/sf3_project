@@ -10,58 +10,42 @@
 8. footer
 ===================================
 \**********************************/
-.bloc {
-
-    padding-right: 0!important;
-    padding-left: 0!important;
-}
-
 a {
     text-decoration: none!important;
 }
 
 /**********************************\
-
 1. font
-===================================
 \**********************************/
 
 /**********************************\
-===================================
 2. navbar
-===================================
 \**********************************/
+/*  navbar color */
+.navbar {
+    background-color: rgba(0, 0, 0, 1) !important;
+}
 
+.navbar ul {
+    padding-right: 20px;
+}
 /* Onglets navbar */
-
-ul li a{
-
-    margin-left: 20px;
+.navbar ul li a {
     font-weight: bold;
     font-size: 18px;
     color: #adadad !important;
 }
-/*  navbar color */
-.navbar{
-    background-color: rgba(0, 0, 0, 1) !important;
-}
-ul li a:hover {
+
+.navbar ul li a:hover {
     color: white!important;
 }
-ul li a{
-    text-shadow: 0 1px 0 rgba(255, 255, 255, .4);
-}
-/* logo*/
-#logo  {
-    width : 200px;
-    height: 30px;
+
+.navbar .navbar-brand {
+    padding: 5px 15px;
 }
 /**********************************\
-
 3. banner
-
 \**********************************/
-
 /* Default body */
 body {
     opacity: 0;
@@ -69,7 +53,7 @@ body {
 /* Loaded body */
 body.loaded {
     opacity: 1;
-    transition: 3s opacity;
+    transition: 2s opacity;
 }
 /* Default banner */
 .banner {
@@ -91,6 +75,7 @@ body.loaded {
     background: url('../img/garage.jpg') no-repeat center center; /* a changer pour une imge libre de droits */
     background-size: cover;
 }
+
 @media  (max-width: 800px){
     .banner .background {
         top: 0;
@@ -103,121 +88,90 @@ body.loaded {
     transition: 5s transform;
 }
 /**********************************\
-
 4. search
-
 \**********************************/
+#search {
+    margin-bottom: 90px;
+}
 
-    /**********************************\
-    4.1 - Search Bar - Main Page
-    \**********************************/
+#SearchBar .searchbar {
+    padding: 20px;
+}
 
-
+@media (max-width:768px) {
     #SearchBar .searchbar {
-        border: 0px solid black;
-        padding: 20px;
+        width: 80%;
+        margin-left: 10%;
     }
-    #SearchBar .row {
-        background-color: rgba(245,245,245,0.6);
-        -webkit-border-radius: 3px;
-        -moz-border-radius: 3px;
-        border-radius: 3px;
-    }
+}
+
+#SearchBar button {
+    width: 50px;
+    height: 35px;
+    border: 1px solid rgba(94, 94, 94, 0.87);
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    margin: 28px;
+}
+
+@media all and (min-width: 961px) and (max-width: 1366px) {
     #SearchBar button {
-        width: 50px;
-        height: 35px;
-        background-color: #ffea5b;
-        border: 1px solid rgba(94, 94, 94, 0.87);
-        -webkit-border-radius: 8px;
-        -moz-border-radius: 8px;
-        border-radius: 8px;
-        margin-left: 20px;
-        margin: 28px;
+        margin-left: -8px;
     }
-    #SearchBar input {
-        height: 50px;
-        font-family: "TlwgTypewriter";
-        font-size: 13px;
-       margin: 0;
-    }
+}
 
+#SearchBar input {
+    height: 50px;
+    font-size: 13px;
+    margin: 0;
+}
+/* Search page */
+.searchpage {
+    margin-top: 150px;
+}
 
-        /**********************************************\
-        4.1.1 - Search Bar - Main Page - MEDIA QUERIES
-        \**********************************************/
+a.list-group-item {
+    height:auto;
+    min-height:250px;
 
-        @media all and (min-width: 961px) and (max-width: 1366px) {
-            #SearchBar button {
-                margin-left: -8px;
-        }
+}
+a.list-group-item.active small {
+    color:#fff;
+}
 
-    /**********************************\
-    4.2 - Search Results - Results Page
-    \**********************************/
+.stars {
+    margin:20px auto 1px;
+}
 
-    /***************************
-    2. Navigation
-    ***************************/
-    a.list-group-item {
-        height:auto;
-        min-height:250px;
+.spacer-10 {
+    padding-top: 10px;
+}
+.spacer-20 {
+    padding-top: 20px;
+}
+.spacer-30 {
+    padding-top: 30px;
+}
 
-    }
-    a.list-group-item.active small {
-        color:#fff;
-    }
-
-    .stars {
-        margin:20px auto 1px;
-    }
-
-    /***************************
-    3. Generic
-    ***************************/
-
-    .spacer-10 {
-        padding-top: 10px;
-    }
-    .spacer-20 {
-        padding-top: 20px;
-    }
-    .spacer-30 {
-        padding-top: 30px;
-    }
-    /***************************
-    4. Product
-    ***************************/
-    .btn-product{
-        width: 100%;
-    }
-
-
+.btn-product {
+    width: 100%;
+}
 /**********************************\
-
 5. slider
-
 \**********************************/
-
-
 #slider {
-    background-color: white;
     height: 500px;
 }
 /**********************************\
 6. opinion
 \**********************************/
-
-
 #opinion {
-    background-color: black;
     height: 500px;
 }
-
 /**********************************\
-
 7. about
 \**********************************/
-
 #about {
     background: url("/img/backg/about.jpg") no-repeat fixed center center;
     background-size: cover;
@@ -231,8 +185,6 @@ body.loaded {
     margin-top: 15%;
     height: 100%;
 }
-
-
 
 #about .hauteurtitre {
     height: 100px;
@@ -265,12 +217,7 @@ body.loaded {
     #about {
         height: 200vh;
     }
-}
 
-@media (min-width:321px) and (max-width: 480px) {
-    #about {
-        height: 100vh;
-    }
     #about .hauteurtitre {
         text-align: center;
         margin-bottom: 20%;
@@ -278,6 +225,13 @@ body.loaded {
 
     #about .hauteurtitre img {
         position: static;
+    }
+
+}
+
+@media (min-width:321px) and (max-width: 480px) {
+    #about {
+        height: 100vh;
     }
 }
 
@@ -291,6 +245,15 @@ body.loaded {
     #about {
         height: 300vh;
     }
+
+    #about .hauteurtitre {
+        text-align: center;
+        margin-bottom: 20%;
+    }
+
+    #about .hauteurtitre img {
+        position: static;
+    }
 }
 
 @media (min-width: 481px) and (max-width: 800px) and (orientation: landscape) {
@@ -298,57 +261,60 @@ body.loaded {
         height: 130vh;
     }
 }
-
 /**********************************\
-
 8. footer
-
 \**********************************/
-
 /*** General parameters for the footer */
-
 footer {
+    padding-top: 10px;
     background-color: rgba(0, 0, 0, 1);
+}
+
+footer h3 {
+    color: white;
 }
 
 .footrow p {
     color: white;
     font-size: 18px;
 }
-
 /*** Site Map ***/
-
 .sitemap p {
-
     padding-left: 40%;
+}
+
+.sitemap .plan {
+    margin-top: -10px;
 }
 
 .sitemap a {
     color: #adadad;
-    font-weight: bold;
+    font-size: 14px;
 }
 
 .sitemap a:hover {
     color: #ffffff;
 }
-
-
 /***Socialnetwork part ***/
 .newsform {
     width: 60%;
     margin: auto;
+    margin-bottom: 20px;
 }
 
 .socialNetworks .fa {
     color: white;
 }
-
 /*** Legal notices ***/
-
 .legal p {
-    font-size: 18px;
+    font-size: 14px;
     color: white;
     margin: auto;
+}
+
+.legal a:focus, a:active, a:visited {
+    outline: none;
+    color: grey;
 }
 
 #mentions .modal-body p {
@@ -373,7 +339,6 @@ footer {
         margin-bottom: 50px;
     }
 
-
     .mentions {
         text-align: left;
         cursor: pointer;
@@ -393,4 +358,3 @@ footer {
         display: none;
     }
 }
-
