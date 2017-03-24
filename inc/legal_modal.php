@@ -3,7 +3,7 @@
         <div class="modal-content">
             <div class="modal-header text-center">
                 <button type="button" id="top" class="close" data-dismiss="modal">×</button>
-                <h3>Mentions légales du site:</h3>
+                <h2>Mentions légales du site:</h2>
             </div>
             <div class="modal-body text-justify">
                 <p>Merci de lire attentivement les présentes modalités d'utilisation du présent site avant de le parcourir. En vous connectant sur ce site, vous acceptez sans réserve les présentes modalités.</p><br/>

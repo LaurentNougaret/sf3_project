@@ -10,140 +10,311 @@
 8. footer
 ===================================
 \**********************************/
-
-.bloc {
-    padding-right: 0!important;
-    padding-left: 0!important;
-}
-
 a {
     text-decoration: none!important;
 }
+
 /**********************************\
-===================================
 1. font
-===================================
 \**********************************/
 
 /**********************************\
-===================================
 2. navbar
-===================================
 \**********************************/
-
-.navy{
-    /*background-color: #3bced2;*/
-    /*color: black!important;*/
-}
-
-/* Onglets navbar */
-ul li a{
-
-    margin-left: 20px;
-    font-weight: bold;
-    font-size: 18px;
-    color: #adadad !important;
-    
-}
-
-/* Couleur navbar */
-.navbar{
+/*  navbar color */
+.navbar {
     background-color: rgba(0, 0, 0, 1) !important;
 }
 
-/* Effet de survol souris onglet menu */
+.navbar ul {
+    padding-right: 20px;
+}
+/* Onglets navbar */
+.navbar ul li a {
+    font-weight: bold;
+    font-size: 18px;
+    color: #adadad !important;
+}
 
-ul li a:hover {
-    /*background-color: #2c9fa3 !important;*/
+.navbar ul li a:hover {
     color: white!important;
 }
 
-ul li a{
-    text-shadow: 0 1px 0 rgba(255, 255, 255, .4);
+.navbar .navbar-brand {
+    padding: 5px 15px;
 }
-
 /**********************************\
-===================================
 3. banner
-===================================
 \**********************************/
-#banner {
-    height: 1500px;
+/* Default body */
+body {
+    opacity: 0;
+}
+/* Loaded body */
+body.loaded {
+    opacity: 1;
+    transition: 2s opacity;
+}
+/* Default banner */
+.banner {
+    position: relative;
+    width: 100%;
+    height: 50rem;
+    overflow: hidden;
+    margin-bottom: 100px;
+}
+/* Default image container */
+.banner .background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    transform: translate3d(0,0,0) scale(1.25);
+    background: url('../img/garage.jpg') no-repeat center center; /* a changer pour une imge libre de droits */
+    background-size: cover;
+}
+
+@media  (max-width: 800px){
+    .banner .background {
+        top: 0;
+        background-position: 75% 50%;
+    }
+}
+/* Loaded image container */
+.loaded .banner .background {
+    transform: scale(1);
+    transition: 5s transform;
 }
 /**********************************\
-===================================
 4. search
-===================================
 \**********************************/
+#search {
+    margin-bottom: 90px;
+}
 
+#SearchBar .searchbar {
+    padding: 20px;
+}
+
+@media (max-width:768px) {
+    #SearchBar .searchbar {
+        width: 80%;
+        margin-left: 10%;
+    }
+}
+
+#SearchBar button {
+    width: 50px;
+    height: 35px;
+    border: 1px solid rgba(94, 94, 94, 0.87);
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    margin: 28px;
+}
+
+@media all and (min-width: 961px) and (max-width: 1366px) {
+    #SearchBar button {
+        margin-left: -8px;
+    }
+}
+
+#SearchBar input {
+    height: 50px;
+    font-size: 13px;
+    margin: 0;
+}
+/* Search page */
+.searchpage {
+    margin-top: 150px;
+}
+
+a.list-group-item {
+    height:auto;
+    min-height:250px;
+
+}
+a.list-group-item.active small {
+    color:#fff;
+}
+
+.stars {
+    margin:20px auto 1px;
+}
+
+.spacer-10 {
+    padding-top: 10px;
+}
+.spacer-20 {
+    padding-top: 20px;
+}
+.spacer-30 {
+    padding-top: 30px;
+}
+
+.btn-product {
+    width: 100%;
+}
 /**********************************\
-===================================
 5. slider
-===================================
 \**********************************/
-
+#slider {
+    height: 500px;
+}
 /**********************************\
-===================================
 6. opinion
-===================================
 \**********************************/
-
+#opinion {
+    height: 500px;
+}
 /**********************************\
-===================================
 7. about
-===================================
 \**********************************/
+#about {
+    background: url("/img/backg/about.jpg") no-repeat fixed center center;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+}
 
+#about .bloktext {
+    background-color: rgba(255,255,255,0.8);
+    border-radius: 10px;
+    margin-top: 15%;
+    height: 100%;
+}
+
+#about .hauteurtitre {
+    height: 100px;
+}
+
+#about .hauteurtitre img {
+    display: inline-block;
+    position: absolute;
+    top: 5%;
+}
+
+#about .hauteurtitre #logoabout {
+    right: 5%;
+}
+
+#about .hauteurtitre #photofondateur {
+    left:0;
+}
+
+
+@media (max-width:1024px) {
+    #about .bloktext {
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+}
+
+@media (max-width: 320px) {
+    #about {
+        height: 200vh;
+    }
+
+    #about .hauteurtitre {
+        text-align: center;
+        margin-bottom: 20%;
+    }
+
+    #about .hauteurtitre img {
+        position: static;
+    }
+
+}
+
+@media (min-width:321px) and (max-width: 480px) {
+    #about {
+        height: 100vh;
+    }
+}
+
+@media (min-width:601px) and (max-width: 768px) {
+    #about {
+        padding-top: 20%;
+    }
+}
+
+@media (max-width: 480px) and (orientation: landscape) {
+    #about {
+        height: 300vh;
+    }
+
+    #about .hauteurtitre {
+        text-align: center;
+        margin-bottom: 20%;
+    }
+
+    #about .hauteurtitre img {
+        position: static;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 800px) and (orientation: landscape) {
+    #about {
+        height: 130vh;
+    }
+}
 /**********************************\
-===================================
 8. footer
-===================================
 \**********************************/
-
 /*** General parameters for the footer */
-
 footer {
+    padding-top: 10px;
     background-color: rgba(0, 0, 0, 1);
+}
+
+footer h3 {
+    color: white;
 }
 
 .footrow p {
     color: white;
     font-size: 18px;
 }
-
 /*** Site Map ***/
-
 .sitemap p {
-
     padding-left: 40%;
+}
+
+.sitemap .plan {
+    margin-top: -10px;
 }
 
 .sitemap a {
     color: #adadad;
-    font-weight: bold;
+    font-size: 14px;
 }
 
 .sitemap a:hover {
     color: #ffffff;
 }
-
-
 /***Socialnetwork part ***/
 .newsform {
     width: 60%;
     margin: auto;
+    margin-bottom: 20px;
 }
 
 .socialNetworks .fa {
     color: white;
 }
-
 /*** Legal notices ***/
-
 .legal p {
-    font-size: 18px;
+    font-size: 14px;
     color: white;
     margin: auto;
+}
+
+.legal a:focus, a:active, a:visited {
+    outline: none;
+    color: grey;
 }
 
 #mentions .modal-body p {
@@ -167,7 +338,6 @@ footer {
         margin-top: 30px;
         margin-bottom: 50px;
     }
-
 
     .mentions {
         text-align: left;

@@ -1,8 +1,6 @@
 <?php
-
 $page = (isset($_GET['page']) ? $_GET['page'] : "index");
 $file = $page . ".php";
-
 ?>
 
 <!DOCTYPE html>
@@ -19,62 +17,53 @@ $file = $page . ".php";
     <link href="CSS/scrolling-nav.css" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
           integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <!-- Call page titles -->
     <title>
         <?php
         switch ($page) {
-            case 'index';
+            case 'index':
                 echo 'Caradvisor : le site de comparaison des services de l\'automobile';
                 break;
-            case 'search';
-                echo 'Caradvisor : recherchez votre professionnel';
+            case 'search':
+                echo 'Caradvisor : rechercher votre professionnel';
                 break;
-            case 'account';
-                echo 'Caradvisor : vôtre compte';
-                break;
-            case 'contact';
-                echo 'Caradvisor : contactez-nous';
-                break;
-            case 'opinion';
+            case 'opinion':
                 echo 'Caradvisor : déposez votre avis';
                 break;
-        }
+            case 'account':
+                echo 'Caradvisor : votre profil';
+                break;
+            case 'contact':
+                echo 'Caradvisor : contactez-nous';
+                break;
+            }
         ?>
     </title>
 </head>
 <body>
-
     <!-- Call header -->
     <header>
-        <?php include "../inc/header.php"; ?>
+        <?php include"../inc/header.php"; ?>
     </header>
 
     <!-- Call page content -->
-    <div class="bloc container-fluid">
         <main>
-            <?php include "../page/$file"; ?>
+            <?php include"../page/$file"; ?>
         </main>
-    </div>
-
-
     <!-- Call footer -->
     <footer>
-        <?php include "../inc/footer.php"; ?>
+        <?php include"../inc/footer.php"; ?>
     </footer>
-
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.2.1.js"
-            integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+    <!-- Latest compiled and minified JvaScript -->
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
             crossorigin="anonymous"></script>
-<!-- Latest compiled and minified JvaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-        crossorigin="anonymous"></script>
-<!-- Ajoutez vos liens vers dossiers js ici -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
     <!-- Scrolling Nav JavaScript -->
     <script src="js/scrolling-nav.js"></script>
-
-
-
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/scrolling-nav.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
 </body>
 </html>

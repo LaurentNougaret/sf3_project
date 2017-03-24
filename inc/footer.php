@@ -1,19 +1,13 @@
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-xs-12 col-md-12 ">
-            <img src="/img/logo.png" alt="logo de CarAdvisor">
-        </div>
     <div class="row footrow">
         <div class="sitemap col-xs-12 col-md-4 ">
-
             <p>Plan du site :</p>
-            <p><a href="#logo">Accueil</a></p>
-            <p><a href="../page/search.php">Recherche</a></p>
-            <p><a href="../page/account.php">Mon compte</a></p>
-            <p><a href="../page/opinion.php">Déposer un avis</a></p>
-            <p><a href="#concept">Concept</a></p>
-            <p><a href="../page/contact.php">Contactez-nous</a></p>
-            </ul>
+            <p class="plan"><a href="#logo">Accueil</a></p>
+            <p class="plan"><a href="../page/search.php">Recherche</a></p>
+            <p class="plan"><a href="../page/account.php">Mon compte</a></p>
+            <p class="plan"><a href="../page/opinion.php">Déposer un avis</a></p>
+            <p class="plan"><a href="#concept">Concept</a></p>
+            <p class="plan"><a href="../page/contact.php">Contactez-nous</a></p>
         </div>
         <div class="socialNetworks col-xs-12 col-md-4 text-center">
             <div class="row">
@@ -43,7 +37,4 @@
             <p><a class="wcsmd" href="http://wildcodeschool.fr" target="_blank">&copy;Wild Code School 2017</a></p>
         </div>
     </div>
-    <!-- Calling modal -->
-
 </div>
-
