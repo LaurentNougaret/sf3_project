@@ -176,7 +176,6 @@ a.list-group-item.active small {
     background: url("/img/backg/about.jpg") no-repeat fixed center center;
     background-size: cover;
     height: 100vh;
-    width: 100vw;
 }
 
 #about .bloktext {
