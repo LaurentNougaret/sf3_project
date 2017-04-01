@@ -1,0 +1,32 @@
+/**********************************\
+===================================
+1. Form: Sign Up
+2. Form: Review Sale
+2. Form: Review After-Sale
+===================================
+\**********************************/
+
+/**********************************\
+1. Sign Up
+\**********************************/
+
+.formSignUp {
+    margin: 150px auto 10px auto;
+}
+legend {
+    text-align: center;
+    padding: 10px;
+}
+/**********************************\
+2. Form: Review Sale
+\**********************************/
+.formReviewSale {
+    margin: 150px auto 10px auto;
+}
+.formReviewSale h4 {
+    text-align: center;
+    margin: 50px;
+}
+/**********************************\
+2. Form: Review After-Sale
+\*
