@@ -152,7 +152,7 @@
             </div>
         </div>
 
-    <h4>Donnez-nous plus de détails. Comment avez vous trouvé:</h4>
+    <h4>Comment avez vous trouvé:</h4>
 
         <!-- Rating: detail experience: Welcoming -->
         <div class="form-group">
@@ -310,13 +310,51 @@
                 </label>
             </div>
         </div>
-
+<hr>
         <!-- Text input - Date of appointment -->
         <div class="form-group">
-            <label class="col-md-5 control-label" for="birthday">Date ou duréé de votre expérience</label>
+            <label class="col-md-5 control-label" for="duration">Date de votre expérience</label>
             <div class="col-md-2">
-                <input id="birthday" name="birthday" placeholder="Format DD/MM/AAAA" class="form-control input-md" required="" type="date">
-                <input id="birthday" name="birthday" placeholder="Duréé de _____ au _______" class="form-control input-md" required="" type="date">
+                <label for="day"></label>
+                <select name="day">
+                    <option value="default" selected>Jour</option>
+                    <?php
+                    for ($menuday = 1; $menuday <= 31; $menuday++) {
+                        ?>
+                        <option value="<?php echo $menuday; ?>">
+                            <?php echo $menuday; ?>
+                        </option>
+                        <?php
+                    }
+                    ?>
+                </select></div>
+            <div class="col-md-2">
+                <label for="month"></label>
+                <select name="month">
+                    <option value="default" selected>Mois</option>
+                    <?php
+                    for ($menuday = 1; $menuday <= 12; $menuday++) { ?>
+                        <option value="<?php echo $menuday; ?>">
+                            <?php echo $menuday; ?>
+                        </option>
+                        <?php
+                    }
+                    ?>
+                </select></div>
+                <div class="col-md-2">
+                    <label for="year"></label>
+                    <select name="year">
+                        <option value="default" selected>Annéé</option>
+                        <?php
+                        for ($menuyear = date('Y'); $menuyear >= 1900; $menuyear--) {
+                            ?>
+                            <option value="<?php echo $menuyear; ?>">
+                                <?php echo $menuyear; ?>
+                            </option>
+                            <?php
+                        }
+                        ?>
+                    </select>
             </div>
         </div>
 
