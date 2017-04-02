@@ -35,7 +35,6 @@
             <label class="col-md-5 control-label" for="firstname">Prénom</label>
             <div class="col-md-2">
                 <input id="firstname" name="firstname" placeholder="Votre prénom" class="form-control input-md" required="" type="text">
-
             </div>
         </div>
 
@@ -53,7 +52,6 @@
             <label class="col-md-5 control-label" for="emailaddress">E-mail</label>
             <div class="col-md-2">
                 <input id="emailaddress" name="emailaddress" placeholder="E-mail" class="form-control input-md" required="" type="email">
-
             </div>
         </div>
 
@@ -62,16 +60,15 @@
             <label class="col-md-5 control-label" for="emailaddress">Crééz votre mot de passe</label>
             <div class="col-md-2">
                 <input id="password" name="password" placeholder="Mot de passe" class="form-control input-md" required="" type="password">
-
             </div>
         </div>
         <div class="form-group">
             <label class="col-md-5 control-label" for="emailaddress">Répétez mot de passe</label>
             <div class="col-md-2">
                 <input id="password" name="password" placeholder="Mot de passe" class="form-control input-md" required="" type="password">
-
             </div>
         </div>
+
         <!-- Text input - Adresse -->
         <div class="form-group">
             <label class="col-md-5 control-label" for="address">Adresse</label>
@@ -129,7 +126,6 @@
             <label class="col-md-5 control-label" for="telephoneMobile">Téléphone portable</label>
             <div class="col-md-2">
                 <input id="telephoneMobile" name="telephoneMobile" placeholder="Votre numéro de téléphone portable" class="form-control input-md" required="" type="tel">
-
             </div>
         </div>
 
@@ -138,7 +134,6 @@
             <label class="col-md-5 control-label" for="immatriculation">Identifiez votre véhicule</label>
             <div class="col-md-2">
                 <input id="immatriculation" name="immatriculation" placeholder="Numéro d'immatriculation de votre véhicule" class="form-control input-md" required="" type="text">
-
             </div>
         </div>
 
@@ -168,7 +163,5 @@
                 <button id="saveReviewButton" name="saveReviewButton" class="btn btn-primary">Enregistrer</button>
             </div>
         </div>
-
     </fieldset>
 </form>
-<br><br><br><br><br><br>
