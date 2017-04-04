@@ -162,13 +162,18 @@ a.list-group-item.active small {
 5. slider
 \**********************************/
 #slider {
+    background: url("/img/backg/about.jpg") no-repeat fixed center center;
+    background-size: cover;
     height: 400px;
 }
 
 /* carousel */
 #slider #quote-carousel {
     padding: 0 10px 30px 10px;
-    margin-top: 30px;
+    background-color: rgba(255,255,255,0.8);
+    border-radius: 10px;
+    margin-top: 10%;
+    margin-bottom: 10%;
 }
 
 /* Control buttons  */
@@ -195,57 +200,44 @@ a.list-group-item.active small {
     margin: 0;
 }
 
-#slider .item blockquote img {
-    width: 100px;
-    margin-bottom: 10px;
-}
-
 #slider .item blockquote p:before {
     content: "\f10d";
-    font-family: 'Fontawesome';
     float: left;
     margin-right: 10px;
 }
 
 #slider #quote-carousel img {
-    width: 140px;
+    width: 100px;
     height:100px;
+    background-color: lightgrey;
 }
 
 /**
   MEDIA QUERIES
 */
-
-/* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
     #slider #quote-carousel
     {
         margin-bottom: 0;
         padding: 0 40px 30px 40px;
     }
-
 }
 
-/* Small devices (tablets, up to 768px) */
-@media (max-width: 768px) {
-
-    /* Make the indicators larger for easier clicking with fingers/thumb on mobile */
-
-    #slider #quote-carousel .carousel-indicators {
-        bottom: -20px !important;
+@media (max-width: 320px) {
+    #slider {
+        margin-top: 10vh;
+        height: 90vh;
     }
-    #slider #quote-carousel .carousel-indicators li {
-        display: inline-block;
-        margin: 0 5px;
-        width: 15px;
-        height: 15px;
+    /* Previous button  */
+    #slider #quote-carousel .carousel-control.left {
+        left: 0;
     }
-    #slider #quote-carousel .carousel-indicators li.active {
-        margin: 0 5px;
-        width: 20px;
-        height: 20px;
+    /* Next button  */
+    #slider #quote-carousel .carousel-control.right {
+        right: 0 !important;
     }
 }
+
 /**********************************\
 6. opinion
 \**********************************/
