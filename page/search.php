@@ -127,45 +127,8 @@
                         </div>
                     </div>
                 </div>         <!-- Forth Panel End Here -->
-
-                <!-- Fifth Panel start Here -->
-
-                <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="headingfive">
-                        <h4 class="panel-title">
-                            <a role="button">
-                                Type de service
-                            </a>
-                        </h4>
-                    </div>
-                    <div>
-                        <div class="panel-body">
-                            <div class="list-group">
-                                <div class="checkbox">
-                                    <label><input type="checkbox" value="">Révision</label>
-                                </div>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" value="">Freinage</label>
-                                </div>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" value="">Embrayage</label>
-                                </div>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" value="">Batterie</label>
-                                </div>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" value="">Roulement</label>
-                                </div>
-                                <div class="checkbox">
-                                    <label><input type="checkbox" value="">Etc</label>
-                                </div>
-                            </div>
-                            <!-- List Group End Here -->
-                        </div>
-                    </div>
-                </div>         <!-- Fifth Panel End Here -->
-            </div>
-        </div><!-- /.sidebar column end here -->
+        </div>
+    </div><!-- /.sidebar column end here -->
 
         <div class="col-sm-9">
             <div class="well">
