@@ -26,7 +26,7 @@ $file = $page . ".php";
             case 'search':
                 echo 'Caradvisor : rechercher votre professionnel';
                 break;
-            case 'opinion':
+            case 'review':
                 echo 'Caradvisor : déposez votre avis';
                 break;
             case 'account':

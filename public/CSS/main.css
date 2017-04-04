@@ -166,12 +166,84 @@ a.list-group-item.active small {
 /**********************************\
 6. opinion
 \**********************************/
-#opinion {
-    height: 500px;
+#opinion{
+    width: 100%;
+    height: 440px;
 }
-/**********************************\
-7. about
-\**********************************/
+h2
+{
+    text-align: center;
+    margin-top: 20px;
+    color:  black;
+    text-transform: uppercase;
+    font-size: 30px;
+}
+
+h2 span
+{
+    color:red;
+}
+
+.btn-block{
+    margin-bottom: 150px;
+    margin-top: 50px;
+    width: 300px;
+    height: 60px;
+    background-color: #630000;
+}
+.btn-block:hover{
+    background-color: blue;
+    filter: brightness(50%);
+    transition-duration: 0.5s;
+}
+.btn-block:visited, .btn-block:focus, .btn-block:active {
+    background-color: #630000 !important;
+    outline: none !important;
+}
+@media (min-width: 320px) and (max-width: 479px) {
+
+    h2
+    {
+        text-align: center;
+        margin-top: 20px;
+        color:  black;
+        text-transform: uppercase;
+        font-size: 25px;
+    }
+    .btn-block {
+        font-size: 15px!important;
+        width: 220px;
+        height: 40px;
+        margin-bottom: 20px;
+        margin-top: 20px;
+
+    }
+    .navy2{
+        margin-bottom: 100px!important;
+    }
+}
+@media (min-width: 480px) and (max-width: 1023px) {
+    #opinion{
+        width: 100%;
+        height: 100%;
+    }
+    .btn-block {
+        font-size: 15px!important;
+        width: 220px;
+        height: 55px;
+        margin-bottom:20px;
+        margin-top: 20px;
+
+    }
+    .navy2{
+        margin-bottom: 100px!important;
+    }
+}
+
+
+    /**********************************\
+    7. about
+    \**********************************/
 #about {
     background: url("/img/backg/about.jpg") no-repeat fixed center center;
     background-size: cover;
