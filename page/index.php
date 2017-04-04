@@ -32,28 +32,36 @@
 <!-- Slider -->
 <section id="slider">
     <div class="container">
-        <h2 class="text-center">SLIDER</h2>
-        |<br>
-        |<br>
-        |<br>
-        |<br>
-        |<br>
-        |<br>
-        |<br>
-        |<br>
-        |<br>
-        |<br>
-        |<br>
-        |<br>
-        |<br>
-        |<br>
-        |<br>
-        |<br>
-        |<br>
-        |<br>
-        |<br>
-        |<br>
-        v<br>
+        <div class='row'>
+            <div class='col-md-offset-2 col-md-8'>
+                <div class="carousel slide" data-ride="carousel" id="quote-carousel">
+                    <!-- Carousel Slides / Quotes -->
+                    <div class="carousel-inner">
+                        <?php foreach ($avis as $review): ?>
+                            <!-- Quote 1 -->
+                            <div class="item <?php if($review['id']==1): echo "active"; endif; ?>">
+                                <blockquote>
+                                    <div class="row">
+                                        <div class="col-sm-3 text-center">
+                                            <img class="img-circle" src="img/photo_fondateur.png">
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <h3><?php echo $review['proname']?></h3>
+                                            <p><?php echo $review['review']; ?></p>
+                                            <small><?php echo $review['firstname'] . " " . $review['lastname'] . ", " . $review['city']; ?></small>
+                                        </div>
+                                    </div>
+                                </blockquote>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+
+                    <!-- Carousel Buttons Next/Prev -->
+                    <a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa fa-chevron-left"></i></a>
+                    <a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="fa fa-chevron-right"></i></a>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 <!-- / Slider -->

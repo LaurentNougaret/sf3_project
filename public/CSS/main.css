@@ -162,7 +162,89 @@ a.list-group-item.active small {
 5. slider
 \**********************************/
 #slider {
-    height: 500px;
+    height: 400px;
+}
+
+/* carousel */
+#slider #quote-carousel {
+    padding: 0 10px 30px 10px;
+    margin-top: 30px;
+}
+
+/* Control buttons  */
+#slider #quote-carousel .carousel-control {
+    background: none;
+    color: #222;
+    font-size: 2.3em;
+    text-shadow: none;
+    margin-top: 30px;
+}
+/* Previous button  */
+#slider #quote-carousel .carousel-control.left {
+    left: -12px;
+}
+/* Next button  */
+#slider #quote-carousel .carousel-control.right {
+    right: -12px !important;
+}
+
+/* End carousel */
+
+#slider .item blockquote {
+    border-left: none;
+    margin: 0;
+}
+
+#slider .item blockquote img {
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+#slider .item blockquote p:before {
+    content: "\f10d";
+    font-family: 'Fontawesome';
+    float: left;
+    margin-right: 10px;
+}
+
+#slider #quote-carousel img {
+    width: 140px;
+    height:100px;
+}
+
+/**
+  MEDIA QUERIES
+*/
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    #slider #quote-carousel
+    {
+        margin-bottom: 0;
+        padding: 0 40px 30px 40px;
+    }
+
+}
+
+/* Small devices (tablets, up to 768px) */
+@media (max-width: 768px) {
+
+    /* Make the indicators larger for easier clicking with fingers/thumb on mobile */
+
+    #slider #quote-carousel .carousel-indicators {
+        bottom: -20px !important;
+    }
+    #slider #quote-carousel .carousel-indicators li {
+        display: inline-block;
+        margin: 0 5px;
+        width: 15px;
+        height: 15px;
+    }
+    #slider #quote-carousel .carousel-indicators li.active {
+        margin: 0 5px;
+        width: 20px;
+        height: 20px;
+    }
 }
 /**********************************\
 6. opinion
