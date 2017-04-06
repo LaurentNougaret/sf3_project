@@ -67,30 +67,32 @@
 <!-- / Slider -->
 
 <!-- Leave opinion -->
-<section id="review">
-    <div class="container">
-        <h2 class="text-center">BOUTONS DES AVIS</h2>
-        |<br>
-        |<br>
-        |<br>
-        |<br>
-        |<br>
-        |<br>
-        |<br>
-        |<br>
-        |<br>
-        |<br>
-        |<br>
-        |<br>
-        |<br>
-        |<br>
-        |<br>
-        |<br>
-        |<br>
-        |<br>
-        |<br>
-        |<br>
-        v<br>
+<section id="review" >
+    <div class="container" >
+        <div class="row">
+            <div class="col-xs-12 col-md-12">
+                <h2><span>Déposer</span> vos Avis</h2>
+            </div>
+        </div>
+        <div class="row">
+           <div class="col-xs-12 col-sm-12 col-md-4">
+               <div class="block-center">
+                     <a href="/?page=review"><button type="button" class="btn btn-primary btn-lg btn-block center-block">ENTRETIEN / REPARATION</button></a>
+               </div>
+           </div>
+            <div class="col-xs-12 col-md-4">
+                <div class="block-center">
+                    <a href="#" ><button type="button" class="btn btn-primary btn-lg btn-block  center-block">ACHAT OCCASION</button></a>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-4 ">
+                <div class="block-center">
+                    <a href="/?page=review"><button type="button" class="btn btn-primary btn-lg btn-block center-block navy2">ACHAT NEUF</button></a>
+                </div>
+            </div>
+
+        </div>
+
     </div>
 </section>
 <!-- / Leave opinion -->
