@@ -1,5 +1,5 @@
 <!-- Banner -->
-<section class="banner">
+<section id="banner" class="banner">
     <div class="container">
         <span class="background"></span>
     </div>
@@ -59,7 +59,7 @@
 <!-- / Slider -->
 
 <!-- Leave opinion -->
-<section id="opinion">
+<section id="review">
     <div class="container">
         <h2 class="text-center">BOUTONS DES AVIS</h2>
         |<br>

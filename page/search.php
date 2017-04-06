@@ -27,7 +27,6 @@
                         </div>
                     </div>
                 </div>         <!-- first Panel End Here -->
-
                 <!-- second Panel start Here -->
                 <div class="panel panel-default">
                     <div class="panel-heading" role="tab" id="headingtwo">
@@ -57,9 +56,7 @@
                         </div>
                     </div>
                 </div>         <!-- second Panel End Here -->
-
                 <!-- Third Panel start Here -->
-
                 <div class="panel panel-default">
                     <div class="panel-heading" role="tab" id="headingthree">
                         <h4 class="panel-title">
@@ -94,7 +91,6 @@
                         </div>
                     </div>
                 </div>         <!-- third Panel End Here -->
-
                 <!-- Forth  Panel start Here -->
                 <div class="panel panel-default">
                     <div class="panel-heading" role="tab" id="headingfour">
@@ -127,9 +123,7 @@
                         </div>
                     </div>
                 </div>         <!-- Forth Panel End Here -->
-
                 <!-- Fifth Panel start Here -->
-
                 <div class="panel panel-default">
                     <div class="panel-heading" role="tab" id="headingfive">
                         <h4 class="panel-title">
@@ -166,7 +160,6 @@
                 </div>         <!-- Fifth Panel End Here -->
             </div>
         </div><!-- /.sidebar column end here -->
-
         <div class="col-sm-9">
             <div class="well">
                 We found 37 results!
@@ -243,7 +236,6 @@
                         </div>
                     </a>
                     <hr>
-
                     <a href="#" class="list-group-item">
                         <div class="media col-md-4">
                             <figure class="pull-left">
