@@ -5,9 +5,10 @@
 3. banner
 4. search
 5. slider
-6. opinion
+6. review
 7. about
-8. footer
+8. values
+9. footer
 ===================================
 \**********************************/
 a {
@@ -161,14 +162,89 @@ a.list-group-item.active small {
 5. slider
 \**********************************/
 #slider {
-    height: 500px;
+    background: url("/img/backg/about.jpg") no-repeat fixed center center;
+    background-size: cover;
+    height: 400px;
 }
+
+/* carousel */
+#slider #quote-carousel {
+    padding: 0 10px 30px 10px;
+    background-color: rgba(255,255,255,0.8);
+    border-radius: 10px;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+/* Control buttons  */
+#slider #quote-carousel .carousel-control {
+    background: none;
+    color: #222;
+    font-size: 2.3em;
+    text-shadow: none;
+    margin-top: 30px;
+}
+/* Previous button  */
+#slider #quote-carousel .carousel-control.left {
+    left: -12px;
+}
+/* Next button  */
+#slider #quote-carousel .carousel-control.right {
+    right: -12px !important;
+}
+
+/* End carousel */
+
+#slider .item blockquote {
+    border-left: none;
+    margin: 0;
+}
+
+#slider .item blockquote p:before {
+    content: "\f10d";
+    float: left;
+    margin-right: 10px;
+}
+
+#slider #quote-carousel img {
+    width: 100px;
+    height:100px;
+    background-color: lightgrey;
+}
+
+/**
+  MEDIA QUERIES
+*/
+@media (min-width: 768px) {
+    #slider #quote-carousel
+    {
+        margin-bottom: 0;
+        padding: 0 40px 30px 40px;
+    }
+}
+
+@media (max-width: 320px) {
+    #slider {
+        margin-top: 10vh;
+        height: 90vh;
+    }
+    /* Previous button  */
+    #slider #quote-carousel .carousel-control.left {
+        left: 0;
+    }
+    /* Next button  */
+    #slider #quote-carousel .carousel-control.right {
+        right: 0 !important;
+    }
+}
+
 /**********************************\
-6. opinion
+6. review
 \**********************************/
-#opinion{
-    width: 100%;
-    height: 440px;
+
+#review {
+    height: 500px;
+
 }
 h2
 {
@@ -245,24 +321,29 @@ h2 span
     7. about
     \**********************************/
 #about {
-    background: url("/img/backg/about.jpg") no-repeat fixed center center;
+    background: url("../img/backg/about.jpg") no-repeat fixed center center;
     background-size: cover;
-    height: 100vh;
+    height: 500px;
+}
+
+@media (max-width: 768px) {
+    #about {
+        height: 120%;
+    }
 }
 
 #about .bloktext {
     background-color: rgba(255,255,255,0.8);
     border-radius: 10px;
-    margin-top: 15%;
-    height: 100%;
+    margin-top: 10%;
+    margin-bottom: 10%;
 }
 
 #about .hauteurtitre {
-    height: 100px;
+    height: 90px;
 }
 
 #about .hauteurtitre img {
-    display: inline-block;
     position: absolute;
     top: 5%;
 }
@@ -272,68 +353,46 @@ h2 span
 }
 
 #about .hauteurtitre #photofondateur {
-    left:0;
+    left: 5%;
 }
 
-
-@media (max-width:1024px) {
-    #about .bloktext {
-        width: 90%;
-        margin-left: 5%;
-        margin-right: 5%;
-    }
-}
-
-@media (max-width: 320px) {
-    #about {
-        height: 200vh;
-    }
-
+@media (max-width: 1024px) {
     #about .hauteurtitre {
         text-align: center;
-        margin-bottom: 20%;
+        height: 150px;
     }
 
     #about .hauteurtitre img {
         position: static;
-    }
-
-}
-
-@media (min-width:321px) and (max-width: 480px) {
-    #about {
-        height: 100vh;
-    }
-}
-
-@media (min-width:601px) and (max-width: 768px) {
-    #about {
-        padding-top: 20%;
-    }
-}
-
-@media (max-width: 480px) and (orientation: landscape) {
-    #about {
-        height: 300vh;
-    }
-
-    #about .hauteurtitre {
-        text-align: center;
-        margin-bottom: 20%;
-    }
-
-    #about .hauteurtitre img {
-        position: static;
-    }
-}
-
-@media (min-width: 481px) and (max-width: 800px) and (orientation: landscape) {
-    #about {
-        height: 130vh;
     }
 }
 /**********************************\
-8. footer
+8. values
+\**********************************/
+#values {
+    margin-top: 5%;
+    margin-bottom: 10%;
+}
+
+#values h2 {
+    padding-bottom: 5%;
+}
+
+@media (max-width: 320px) {
+    #values h2 {
+        font-size: 24px;
+    }
+    #values h3 {
+        font-size: 18px;
+    }
+}
+#values img {
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+}
+/**********************************\
+9. footer
 \**********************************/
 /*** General parameters for the footer */
 footer {
@@ -428,4 +487,29 @@ footer h3 {
     .wcsxs {
         display: none;
     }
+}
+
+/*** Bottom-to-top button ***/
+
+.back-to-top {
+    background: none;
+    margin: 0;
+    position: fixed;
+    bottom: 170px;
+    right: 0px;
+    width: 49px;
+    height: 45px;
+    z-index: 100;
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0);
+    display: none;
+    border-radius: 25px;
+}
+
+.back-to-top i {
+    font-size: 55px;
+    position: relative;
+    color: #0000FF;
+    margin-left:1px;
+
 }
