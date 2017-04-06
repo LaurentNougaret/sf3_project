@@ -26,7 +26,6 @@
                         </div>
                     </div>
                 </div>         <!-- first Panel End Here -->
-
                 <!-- second Panel start Here -->
                 <div class="panel panel-default">
                     <div class="panel-heading" role="tab" id="headingtwo">
@@ -56,9 +55,7 @@
                         </div>
                     </div>
                 </div>         <!-- second Panel End Here -->
-
                 <!-- Third Panel start Here -->
-
                 <div class="panel panel-default">
                     <div class="panel-heading" role="tab" id="headingthree">
                         <h4 class="panel-title">
@@ -93,7 +90,6 @@
                         </div>
                     </div>
                 </div>         <!-- third Panel End Here -->
-
                 <!-- Forth  Panel start Here -->
                 <div class="panel panel-default">
                     <div class="panel-heading" role="tab" id="headingfour">
@@ -126,9 +122,43 @@
                         </div>
                     </div>
                 </div>         <!-- Forth Panel End Here -->
-        </div>
-    </div><!-- /.sidebar column end here -->
-
+                <!-- Fifth Panel start Here -->
+                <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="headingfive">
+                        <h4 class="panel-title">
+                            <a role="button">
+                                Type de service
+                            </a>
+                        </h4>
+                    </div>
+                    <div>
+                        <div class="panel-body">
+                            <div class="list-group">
+                                <div class="checkbox">
+                                    <label><input type="checkbox" value="">Révision</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" value="">Freinage</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" value="">Embrayage</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" value="">Batterie</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" value="">Roulement</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label><input type="checkbox" value="">Etc</label>
+                                </div>
+                            </div>
+                            <!-- List Group End Here -->
+                        </div>
+                    </div>
+                </div>         <!-- Fifth Panel End Here -->
+            </div>
+        </div><!-- /.sidebar column end here -->
         <div class="col-sm-9">
             <div class="well">
                 We found 37 results!
@@ -205,7 +235,6 @@
                         </div>
                     </a>
                     <hr>
-
                     <a href="#" class="list-group-item">
                         <div class="media col-md-4">
                             <figure class="pull-left">

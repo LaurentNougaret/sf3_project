@@ -1,5 +1,5 @@
 <!-- Banner -->
-<section class="banner">
+<section id="banner" class="banner">
     <div class="container">
         <span class="background"></span>
     </div>

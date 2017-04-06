@@ -5,7 +5,7 @@
 3. banner
 4. search
 5. slider
-6. opinion
+6. review
 7. about
 8. values
 9. footer
@@ -239,11 +239,10 @@ a.list-group-item.active small {
 }
 
 /**********************************\
-6. opinion
+6. review
 \**********************************/
-#opinion{
-    width: 100%;
-    height: 440px;
+#review {
+    height: 500px;
 }
 h2
 {
@@ -320,7 +319,7 @@ h2 span
     7. about
     \**********************************/
 #about {
-    background: url("/img/backg/about.jpg") no-repeat fixed center center;
+    background: url("../img/backg/about.jpg") no-repeat fixed center center;
     background-size: cover;
     height: 500px;
 }
@@ -486,4 +485,29 @@ footer h3 {
     .wcsxs {
         display: none;
     }
+}
+
+/*** Bottom-to-top button ***/
+
+.back-to-top {
+    background: none;
+    margin: 0;
+    position: fixed;
+    bottom: 170px;
+    right: 0px;
+    width: 49px;
+    height: 45px;
+    z-index: 100;
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0);
+    display: none;
+    border-radius: 25px;
+}
+
+.back-to-top i {
+    font-size: 55px;
+    position: relative;
+    color: #0000FF;
+    margin-left:1px;
+
 }
