@@ -35,7 +35,7 @@ $file = $page . ".php";
             case 'search':
                 echo 'Caradvisor : rechercher votre professionnel';
                 break;
-            case 'opinion':
+            case 'review':
                 echo 'Caradvisor : déposez votre avis';
                 break;
             case 'account':
@@ -62,6 +62,9 @@ $file = $page . ".php";
     <footer>
         <?php include"../inc/footer.php"; ?>
     </footer>
+    <a href="#banner" class="back-to-top">
+        <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+    </a>
     <!-- Latest compiled and minified JvaScript -->
     <script src="http://code.jquery.com/jquery-3.2.1.min.js"
             integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -71,6 +74,7 @@ $file = $page . ".php";
             crossorigin="anonymous"></script>
     <script type="text/javascript" src="js/slider.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/back-to-top.js"></script>
     <script type="text/javascript" src="js/scrolling-nav.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
 </body>
