@@ -17,7 +17,10 @@
                 <a class="page-scroll" href="#page-top"></a>
             </li>
             <li>
-                <a class="page-scroll navy" href="#">Inscription</a>
+                <a class="page-scroll " href="#opinion">Déposer un avis</a>
+            </li>
+            <li>
+                <a class="page-scroll " href="#">Inscription</a>
             </li>
             <li>
                 <a class="page-scroll" href="#">Connexion</a>
