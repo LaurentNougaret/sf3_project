@@ -66,7 +66,7 @@
 </section>
 <!-- / Slider -->
 
-<!-- Leave opinion -->
+<!-- Leave review -->
 <section id="review" >
     <div class="container" >
         <div class="row">
@@ -82,7 +82,7 @@
            </div>
             <div class="col-xs-12 col-md-4">
                 <div class="block-center">
-                    <a href="#" ><button type="button" class="btn btn-primary btn-lg btn-block  center-block">ACHAT OCCASION</button></a>
+                    <a href="/?page=review" ><button type="button" class="btn btn-primary btn-lg btn-block center-block">ACHAT OCCASION</button></a>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-4 ">
