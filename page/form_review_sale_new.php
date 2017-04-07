@@ -26,7 +26,7 @@
                                                 <option value="2">Garagiste</option>
                                                 <option value="3">Agent</option>
                                                 <option value="3">Carrosserie</option>
-                                                <option value="3">Etc</option>
+                                                <option value="3">Autre</option>
                                             </select>
                                         </div>
                                     </td>
