@@ -5,7 +5,7 @@
 3. banner
 4. search
 5. slider
-6. opinion
+6. review
 7. about
 8. values
 9. footer
@@ -109,7 +109,6 @@ body.loaded {
 #SearchBar button {
     width: 50px;
     height: 35px;
-    border: 1px solid rgba(94, 94, 94, 0.87);
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
     border-radius: 8px;
@@ -216,8 +215,7 @@ a.list-group-item.active small {
   MEDIA QUERIES
 */
 @media (min-width: 768px) {
-    #slider #quote-carousel
-    {
+    #slider #quote-carousel {
         margin-bottom: 0;
         padding: 0 40px 30px 40px;
     }
@@ -237,18 +235,92 @@ a.list-group-item.active small {
         right: 0 !important;
     }
 }
-
 /**********************************\
-6. opinion
+6. review
 \**********************************/
-#opinion {
+#review {
     height: 500px;
+    padding-top: 7%;
+}
+
+#review h2 {
+    text-align: center;
+    margin-top: 20px;
+    color:  black;
+    text-transform: uppercase;
+    font-size: 30px;
+}
+
+#review h2 span {
+    color: #e73a56;
+}
+
+#review .btn-block {
+    margin-bottom: 150px;
+    margin-top: 50px;
+    width: 300px;
+    height: 60px;
+    background-color: #1287c0;
+}
+
+#review .btn-block:hover{
+    background-color: #1287c0;
+    filter: brightness(50%);
+    border-radius: 30px;
+    transition-duration: 0.5s;
+}
+
+#review .btn-block:visited, .btn-block:focus, .btn-block:active {
+    background-color: #1287c0 !important;
+    outline: none !important;
+}
+
+@media (min-width: 320px) and (max-width: 479px) {
+
+    #review h2 {
+        text-align: center;
+        margin-top: 20px;
+        color:  black;
+        text-transform: uppercase;
+        font-size: 25px;
+    }
+
+    #review .btn-block {
+        font-size: 15px!important;
+        width: 220px;
+        height: 40px;
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+
+    #review .navy2 {
+        margin-bottom: 100px!important;
+    }
+}
+
+@media (min-width: 480px) and (max-width: 1023px) {
+    #review {
+        width: 100%;
+        height: 100%;
+    }
+
+    #review .btn-block {
+        font-size: 15px!important;
+        width: 220px;
+        height: 55px;
+        margin-bottom:20px;
+        margin-top: 20px;
+    }
+
+    #review .navy2 {
+        margin-bottom: 100px!important;
+    }
 }
 /**********************************\
 7. about
 \**********************************/
 #about {
-    background: url("/img/backg/about.jpg") no-repeat fixed center center;
+    background: url("../img/backg/about.jpg") no-repeat fixed center center;
     background-size: cover;
     height: 500px;
 }
@@ -313,6 +385,7 @@ a.list-group-item.active small {
         font-size: 18px;
     }
 }
+
 #values img {
     margin-top: 10%;
     margin-left: auto;
@@ -413,5 +486,33 @@ footer h3 {
 @media (min-width: 1025px) {
     .wcsxs {
         display: none;
+    }
+}
+/*** Bottom-to-top button ***/
+.back-to-top {
+    background: none;
+    margin: 0;
+    position: fixed;
+    bottom: 170px;
+    right: 0px;
+    width: 49px;
+    height: 45px;
+    z-index: 100;
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 0);
+    display: none;
+    border-radius: 25px;
+}
+
+.back-to-top i {
+    font-size: 55px;
+    position: relative;
+    color: #1287c0;
+    margin-left:1px;
+}
+
+@media (max-width: 480px) {
+    .back-to-top {
+        display: none !important;
     }
 }

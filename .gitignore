@@ -1,3 +1,4 @@
 .idea
+/config/Config.php
 
 /page/test.php
