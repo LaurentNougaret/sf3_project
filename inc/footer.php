@@ -12,9 +12,9 @@
         <div class="socialNetworks col-xs-12 col-md-4 text-center">
             <div class="row">
                 <div class="col-xs-12"><p>Retrouvez-nous sur :</p></div>
-                <div class="col-xs-4 text-right"><a href="#instagram"><i class=" fa fa-3x fa-instagram"></i></div>
-                <div class="col-xs-4"><a href="#facebook"><i class=" fa fa-3x fa-facebook"></i></div>
-                <div class="col-xs-4 text-left"><a href="#twitter"><i class=" fa fa-3x fa-twitter"></i></div>
+                <div class="col-xs-4 text-right"><a href="#instagram"><i class=" fa fa-3x fa-instagram"></i></a></div>
+                <div class="col-xs-4"><a href="#facebook"><i class=" fa fa-3x fa-facebook"></i></a></div>
+                <div class="col-xs-4 text-left"><a href="#twitter"><i class=" fa fa-3x fa-twitter"></i></a></div>
             </div>
         </div>
         <div class="newsLetters col-xs-12 col-md-4 text-center">
