@@ -36,7 +36,13 @@ $file = $page . ".php";
             case 'search':
                 echo 'Caradvisor : rechercher votre professionnel';
                 break;
-            case 'review':
+            case 'form_review_sale_new':
+                echo 'Caradvisor : déposez votre avis';
+                break;
+            case 'form_review_sale_used':
+                echo 'Caradvisor : déposez votre avis';
+                break;
+            case 'form_review_repair':
                 echo 'Caradvisor : déposez votre avis';
                 break;
             case 'account':
