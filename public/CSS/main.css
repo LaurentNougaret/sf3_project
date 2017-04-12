@@ -27,6 +27,11 @@ a {
     background-color: rgba(0, 0, 0, 1) !important;
 }
 
+.navbar img {
+    height: 130%;
+    width: 90%;
+}
+
 .navbar ul {
     padding-right: 20px;
 }
@@ -35,6 +40,7 @@ a {
     font-weight: bold;
     font-size: 18px;
     color: #adadad !important;
+    padding: 13px 10px;
 }
 
 .navbar ul li a:hover {
@@ -47,15 +53,6 @@ a {
 /**********************************\
 3. banner
 \**********************************/
-/* Default body */
-body {
-    opacity: 0;
-}
-/* Loaded body */
-body.loaded {
-    opacity: 1;
-    transition: 2s opacity;
-}
 /* Default banner */
 .banner {
     position: relative;
@@ -129,6 +126,10 @@ body.loaded {
 /* Search page */
 .searchpage {
     margin-top: 150px;
+}
+
+.searchpage .checkbox {
+    text-align: left;
 }
 
 a.list-group-item {
@@ -260,18 +261,25 @@ a.list-group-item.active small {
     margin-top: 50px;
     width: 300px;
     height: 60px;
-    background-color: #1287c0;
+    border-radius: 3em;
+    border: 3px solid #1287c0;
+    color: #1287c0;
+    background-color: transparent !important;
+    background-image: -webkit-linear-gradient(top, transparent 50%, #1287c0 50%);
+    background-image: linear-gradient(to bottom, transparent 50%, #1287c0 50%);
+    -webkit-transition: background 150ms ease-in-out, color 150ms ease-in-out;
+    transition: background 150ms ease-in-out, color 150ms ease-in-out;
+    background-size: 210%;
+    font-size: 18px;
 }
 
 #review .btn-block:hover{
+    color: #fff;
     background-color: #1287c0;
-    filter: brightness(50%);
-    border-radius: 30px;
-    transition-duration: 0.5s;
+    background-position: 0 100%;
 }
 
 #review .btn-block:visited, .btn-block:focus, .btn-block:active {
-    background-color: #1287c0 !important;
     outline: none !important;
 }
 
@@ -286,7 +294,7 @@ a.list-group-item.active small {
     }
 
     #review .btn-block {
-        font-size: 15px!important;
+        font-size: 15px !important;
         width: 220px;
         height: 40px;
         margin-bottom: 20px;
@@ -294,7 +302,7 @@ a.list-group-item.active small {
     }
 
     #review .navy2 {
-        margin-bottom: 100px!important;
+        margin-bottom: 100px !important;
     }
 }
 
@@ -305,9 +313,8 @@ a.list-group-item.active small {
     }
 
     #review .btn-block {
-        font-size: 15px!important;
+        font-size: 15px !important;
         width: 220px;
-        height: 55px;
         margin-bottom:20px;
         margin-top: 20px;
     }
@@ -387,6 +394,8 @@ a.list-group-item.active small {
 }
 
 #values img {
+    height : 40%;
+    width: 40%;
     margin-top: 10%;
     margin-left: auto;
     margin-right: auto;
@@ -494,7 +503,7 @@ footer h3 {
     margin: 0;
     position: fixed;
     bottom: 170px;
-    right: 0px;
+    right: 0;
     width: 49px;
     height: 45px;
     z-index: 100;
@@ -511,7 +520,7 @@ footer h3 {
     margin-left:1px;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
     .back-to-top {
         display: none !important;
     }

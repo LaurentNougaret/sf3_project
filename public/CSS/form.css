@@ -1,60 +1,64 @@
-/**********************************\
-===================================
-1. Form: Sign Up
-2. Form: Review Sale
-2. Form: Review After-Sale
-===================================
-\**********************************/
-
-/**********************************\
-1. Sign Up
-\**********************************/
-
-.formSignUp {
-    margin: 150px auto 10px auto;
-}
-legend {
-    text-align: center;
-    padding: 10px;
-}
-/**********************************\
-2. Form: Review Sale
-\**********************************/
-.formReviewSale {
-    margin: 60px auto 10px auto;
-}
-.formReviewSale h4 {
-    text-align: center;
-    margin: 50px;
-}
-.formReviewSale h1 {
-    text-align: center;
-}
-.tdlabel {
-    width: 130px;
-}
-.newcarReview {
-    padding-top: 120px;
-}
-.checkbox {
-    text-align: center;
-}
-.rating {
-    text-align: left;
-    font-size: 36px;
-    color: #373737;
-    unicode-bidi: bidi-override;
-    direction: rtl;
-}
-.rating > span:hover:before,
-.rating > span:hover ~ span:before {
-    color: #eaee0f;
-    content: "\2605";
-    position: absolute;
-}
-#saveReviewButton {
-    margin: 20px auto;
+.reviewform {
+    margin-top: 10%;
+    margin-bottom: 10%;
 }
 
-/**********************************\
-2. Form: Review After-Sale
+.reviewform .btn-block {
+    font-size: 10px;
+    margin-top: 15%;
+    margin-bottom: -10%;
+    width: 20em;
+    height: 4em;
+    border-radius: 3em;
+    border: 3px solid #1287c0;
+    color: #1287c0;
+    background-color: transparent !important;
+    background-image: -webkit-linear-gradient(top, transparent 50%, #1287c0 50%);
+    background-image: linear-gradient(to bottom, transparent 50%, #1287c0 50%);
+    -webkit-transition: background 150ms ease-in-out, color 150ms ease-in-out;
+    transition: background 150ms ease-in-out, color 150ms ease-in-out;
+    background-size: 210%;
+}
+
+.reviewform .btn-block:hover{
+    color: #fff;
+    background-color: #1287c0;
+    background-position: 0 100%;
+}
+
+.reviewform .btn-block:visited, .btn-block:focus, .btn-block:active {
+    border: 3px solid #1287c0 !important;
+}
+
+.reviewform .bloc {
+    margin-top: 5%;
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 10px;
+    padding: 2% 0;
+}
+
+.reviewform .bloc hr {
+    margin-bottom: 5%;
+    border-top: 1px dotted #1287c0;
+    margin-left: 20%;
+    margin-right:20%;
+}
+
+.reviewform .rating-md {
+    margin-top: -20px;
+}
+
+.reviewform .empty-stars img {
+    opacity: .5;
+}
+
+.reviewform .label {
+    background-color: #1287c0 !important;
+}
+
+@media (max-width: 768px) {
+    .reviewform .form-group {
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+}
