@@ -8,7 +8,8 @@
 6. review
 7. about
 8. values
-9. footer
+9. legal
+10. footer
 ===================================
 \**********************************/
 a {
@@ -391,8 +392,16 @@ a.list-group-item.active small {
     margin-left: auto;
     margin-right: auto;
 }
+
 /**********************************\
-9. footer
+9. legal
+\**********************************/
+#mentionslegales {
+    margin-top: 130px;
+}
+
+/**********************************\
+10. footer
 \**********************************/
 /*** General parameters for the footer */
 footer {
@@ -436,6 +445,11 @@ footer h3 {
     color: white;
 }
 /*** Legal notices ***/
+.legal {
+    display: inline;
+    flex-direction: row;
+    justify-content: center;
+}
 .legal p {
     font-size: 14px;
     color: white;
@@ -447,14 +461,13 @@ footer h3 {
     color: grey;
 }
 
-#mentions .modal-body p {
-    color: black;
-}
-
 .mentions, .wcsxs, .wcsmd, .mentions:visited, .mentions:hover, .wcsxs:visited, .wcsmd:visited, .wcsxs:hover, .wcsmd:hover  {
     color: white;
 }
-
+.copyright {
+    margin: 20px;
+    text-align: center;
+}
 @media (min-width: 320px) and (max-width: 1024px){
     .sitemap {
         margin-top: 30px;
