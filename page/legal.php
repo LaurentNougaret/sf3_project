@@ -1,11 +1,6 @@
-<div id="mentions" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header text-center">
-                <button type="button" id="top" class="close" data-dismiss="modal">×</button>
+<div id="mentions" class="container-fluid">
                 <h2>Mentions légales du site:</h2>
-            </div>
-            <div class="modal-body text-justify">
+            <div>
                 <p>Merci de lire attentivement les présentes modalités d'utilisation du présent site avant de le parcourir. En vous connectant sur ce site, vous acceptez sans réserve les présentes modalités.</p><br/>
                 <h3>Editeur du site</h3><br/>
                 <p>RestaurantsAtypiques.fr<br/>
@@ -83,6 +78,4 @@
             <div class="modal-footer">
                 <a href="#top"><i class="fa fa-arrow-circle-up" aria-hidden="true"></i></a>
             </div>
-        </div>
-    </div>
 </div>
