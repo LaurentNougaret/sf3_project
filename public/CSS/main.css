@@ -25,7 +25,7 @@ a {
 \**********************************/
 /*  navbar color */
 .navbar {
-    background-color: rgba(0, 0, 0, 1) !important;
+    background-color: #2d3142 !important;
 }
 
 .navbar img {
@@ -405,8 +405,20 @@ a.list-group-item.active small {
 /**********************************\
 9. legal
 \**********************************/
+#legalnotices {
+    margin-top: 10%;
+}
 #mentionslegales {
-    margin-top: 30px;
+    margin-top: 20px;
+    padding: 80px;
+    border: 1px solid #7a7a7a;
+    -webkit-box-shadow: 0px 0px 7px -3px rgba(89,86,89,1);
+    -moz-box-shadow: 0px 0px 7px -3px rgba(89,86,89,1);
+    box-shadow: 0px 0px 7px -3px rgba(89,86,89,1);
+}
+.iconToTop {
+    text-align: right;
+    margin-bottom: 23px;
 }
 
 /**********************************\
@@ -416,11 +428,11 @@ a.list-group-item.active small {
 footer {
     padding-top: 10px;
     padding-bottom: 30px;
-    background-color: rgba(0, 0, 0, 1);
+    background-color: #2d3142;
 }
 .footer h3 {
     border-bottom: 1px solid #BAC1C8;
-    color: #54697E;
+    color: #ababab;
     font-size: 17px;
     font-weight: 600;
     line-height: 27px;
@@ -446,7 +458,7 @@ footer {
     margin-top: 10px;
 }
 .social li {
-    background-color: rgba(7, 1, 17, 0.51);
+    background-color: rgb(45, 49, 66);
     border: 1px solid #5e5e5e;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -462,18 +474,22 @@ footer {
     width: 46px;
 }
 .social li:hover {
-    border: 2px solid #2c3e50;
-    background: #2c3e50;
+    border: 2px solid #6691b4;
+    background: rgba(100, 127, 150, 0.98);
 }
 .social li a i {
     text-align: center;
     font-size: 22px;
 }
 .footer-bottom {
-    color: white;
-    background: #111111;
-    border-top: 1px solid #DDDDDD;
+    text-align: center;
+    color: #d4d4d4;
+    background: rgba(45, 49, 66, 0.99);
+    border-top: 1px solid #262626;
+    border-bottom: 1px solid #262626;
     padding-top: 10px;
+    margin-top: 10px;
+    margin-bottom: -25px;
 }
 /*** Bottom-to-top button ***/
 .back-to-top {

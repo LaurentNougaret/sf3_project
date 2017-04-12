@@ -1,6 +1,6 @@
-<div class="container reviewform">
-    <div class="row">
-        <div class="col-xs-12 col-sm-8 title">
+<div class="container">
+    <div id="legalnotices" class="row">
+        <div class="col-xs-12">
             <h1>Mentions Légales</h1>
             <br>
             <p>Merci de lire attentivement les présentes modalités d'utilisation du présent site avant de le parcourir.
@@ -8,8 +8,8 @@
         </div>
     </div>
     <!-- Conditions -->
-    <div id="mentionslegales" class="bloc">
-        <div class="panel panel-default">
+    <div>
+        <div id="mentionslegales" class="panel panel-default">
             <h3>Editeur du site</h3><br/>
             <p>RestaurantsAtypiques.fr<br/>
                 par DevPlus<br/>
@@ -83,9 +83,8 @@
             <h3>Contactez-nous</h3><br/>
             <p>Natural-net est à votre disposition pour tous vos commentaires ou suggestions. Vous pouvez nous écrire par courrier électronique à : contact@natural-net.fr.</p>
         </div>
-        <div class="modal-footer">
+        <div class="iconToTop">
             <a href="#top"><i class="fa fa-arrow-circle-up" aria-hidden="true"></i></a>
         </div>
     </div>
-</div>
 </div>

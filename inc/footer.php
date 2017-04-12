@@ -1,4 +1,3 @@
-<footer>
     <div class="footer" id="footer">
         <div class="container">
             <div class="row">
@@ -47,9 +46,5 @@
     <!--/.footer-->
 
     <div class="footer-bottom">
-        <div class="container">
-            <p class="text-center"> &copy; Wild Code School 2017 </p>
-        </div>
+          <p> &copy; Wild Code School 2017 </p>
     </div>
-    <!--/.footer-bottom-->
-</footer>
