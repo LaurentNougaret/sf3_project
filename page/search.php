@@ -1,7 +1,7 @@
 <div class="container searchpage">
     <div class="row">
         <div class="col-sm-3">
-            <div class="well"><strong>Filtrer recherche</strong> </div>
+            <div class="well"><strong>Filtrer votre recherche</strong> </div>
             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                 <!-- First Panel Start Here -->
                 <div class="panel panel-default">

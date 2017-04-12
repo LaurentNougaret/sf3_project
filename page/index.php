@@ -82,12 +82,12 @@
            </div>
             <div class="col-xs-12 col-md-4">
                 <div class="block-center">
-                    <a href="/?page=form_review_sale_used" ><button type="button" class="btn btn-primary btn-lg btn-block  center-block">ACHAT OCCASION</button></a>
+                    <a href="/?page=form_review_sale_new" ><button type="button" class="btn btn-primary btn-lg btn-block  center-block">ACHAT NEUF</button></a>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-4 ">
                 <div class="block-center">
-                    <a href="/?page=form_review_sale_new"><button type="button" class="btn btn-primary btn-lg btn-block center-block navy2">ACHAT NEUF</button></a>
+                    <a href="/?page=form_review_sale_used"><button type="button" class="btn btn-primary btn-lg btn-block center-block navy2">ACHAT OCCASION</button></a>
                 </div>
             </div>
 
