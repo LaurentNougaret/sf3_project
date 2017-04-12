@@ -52,7 +52,7 @@ $file = $page . ".php";
             case 'legal':
                 echo 'Caradvisor : mentions légales';
                 break;
-            case 'legal2':
+            case 'cgu':
                 echo 'Caradvisor : conditions générales d\'\utilisation';
                 break;
             case 'contact':
