@@ -415,100 +415,65 @@ a.list-group-item.active small {
 /*** General parameters for the footer */
 footer {
     padding-top: 10px;
+    padding-bottom: 30px;
     background-color: rgba(0, 0, 0, 1);
 }
-
-footer h3 {
+.footer h3 {
+    border-bottom: 1px solid #BAC1C8;
+    color: #54697E;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 27px;
+    padding: 40px 0 10px;
+    text-transform: uppercase;
+}
+.footer ul {
+    font-size: 16px;
+    list-style-type: none;
+    margin-left: 0;
+    padding-left: 0;
+    margin-top: 15px;
     color: white;
 }
-
-.footrow p {
-    color: white;
-    font-size: 18px;
+.footer ul li a {
+    padding: 0 0 5px 0;
+    display: block;
 }
-/*** Site Map ***/
-.sitemap p {
-    padding-left: 40%;
-}
-
-.sitemap .plan {
-    margin-top: -10px;
-}
-
-.sitemap a {
-    color: #adadad;
-    font-size: 14px;
-}
-
-.sitemap a:hover {
-    color: #ffffff;
-}
-/***Socialnetwork part ***/
-.newsform {
-    width: 60%;
-    margin: auto;
-    margin-bottom: 20px;
-}
-
-.socialNetworks .fa {
+.footer a {
     color: white;
 }
-/*** Legal notices ***/
-.legal {
-    display: inline;
-    flex-direction: row;
-    justify-content: center;
+.footer button {
+    margin-top: 10px;
 }
-.legal p {
-    font-size: 14px;
-    color: white;
-    margin: auto;
-}
-
-.legal a:focus, a:active, a:visited {
-    outline: none;
-    color: grey;
-}
-
-.mentions, .wcsxs, .wcsmd, .mentions:visited, .mentions:hover, .wcsxs:visited, .wcsmd:visited, .wcsxs:hover, .wcsmd:hover  {
-    color: white;
-}
-.copyright {
-    margin: 20px;
+.social li {
+    background-color: rgba(7, 1, 17, 0.51);
+    border: 1px solid #5e5e5e;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -o-border-radius: 50%;
+    -ms-border-radius: 50%;
+    border-radius: 50%;
+    float: left;
+    height: 46px;
+    line-height: 46px;
+    margin: 0 8px 0 0;
+    padding: 0;
     text-align: center;
+    width: 46px;
 }
-@media (min-width: 320px) and (max-width: 1024px){
-    .sitemap {
-        margin-top: 30px;
-    }
-    .sitemap p {
-        padding-left: 0;
-        text-align: center !important;
-    }
-
-    .socialNetworks, .newsLetters {
-        margin-top: 30px;
-        margin-bottom: 50px;
-    }
-
-    .mentions {
-        text-align: left;
-        cursor: pointer;
-    }
-
-    .legal {
-        text-align: center;
-    }
-
-    .wcsmd {
-        display: none;
-    }
+.social li:hover {
+    border: 2px solid #2c3e50;
+    background: #2c3e50;
 }
-
-@media (min-width: 1025px) {
-    .wcsxs {
-        display: none;
-    }
+.social li a i {
+    text-align: center;
+    font-size: 22px;
+}
+.footer-bottom {
+    color: white;
+    background: #111111;
+    border-top: 1px solid #DDDDDD;
+    padding-top: 10px;
 }
 /*** Bottom-to-top button ***/
 .back-to-top {
@@ -525,14 +490,12 @@ footer h3 {
     display: none;
     border-radius: 25px;
 }
-
 .back-to-top i {
     font-size: 55px;
     position: relative;
     color: #1287c0;
     margin-left:1px;
 }
-
 @media (max-width: 600px) {
     .back-to-top {
         display: none !important;
