@@ -138,7 +138,7 @@
                         </div>
                         <div class="col-md-3 text-center">
                             <h2> 124 <small> votes </small></h2>
-                            <a href="" target="_parent" ><button type="button" class="btn btn-info btn-md btn-block">Plus d'info</button></a>
+                            <a href="/?page=info"><button type="button" class="btn btn-info btn-md btn-block">Plus d'info</button></a>
                             <div class="stars">
                                 <span class="glyphicon glyphicon-star"></span>
                                 <span class="glyphicon glyphicon-star"></span>
@@ -173,7 +173,7 @@
                         </div>
                         <div class="col-md-3 text-center">
                             <h2> 14 <small> votes </small></h2>
-                            <button type="button" class="btn btn-info btn-md btn-block">Plus d'info</button>
+                            <a href="/?page=info"><button type="button" class="btn btn-info btn-md btn-block">Plus d'info</button></a>
                             <div class="stars">
                                 <span class="glyphicon glyphicon-star"></span>
                                 <span class="glyphicon glyphicon-star"></span>
@@ -208,7 +208,7 @@
                         </div>
                         <div class="col-md-3 text-center">
                             <h2> 24 <small> votes </small></h2>
-                            <button type="button" class="btn btn-info btn-md btn-block">Plus d'info</button>
+                            <a href="/?page=info"><button type="button" class="btn btn-info btn-md btn-block">Plus d'info</button></a>
                             <div class="stars">
                                 <span class="glyphicon glyphicon-star"></span>
                                 <span class="glyphicon glyphicon-star"></span>
