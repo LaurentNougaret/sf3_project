@@ -28,6 +28,7 @@ $file = $page . ".php";
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
           integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.1/css/star-rating.min.css'>
+    <link rel="stylesheet" type="text/css" href='//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css'>
     <title>
         <?php
         switch ($page) {
@@ -93,5 +94,7 @@ $file = $page . ".php";
     <script type="text/javascript" src="js/scrollTo.js"></script>
     <script type="text/javascript" src="js/back-to-top.js"></script>
     <script type="text/javascript" src="js/scrolling-nav.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+    <script type="text/javascript" src="js/cookieconsent.js"></script>
 </body>
 </html>
