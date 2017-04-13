@@ -252,7 +252,7 @@
             <div class="form-group required">
                 <label class="control-label" for="saveReviewButton"></label>
                 <div class="col-xs-12">
-                    <button id="saveReviewButton" name="saveReviewButton" class="btn btn-primary btn-block center-block">Enregistrer</button>
+                    <button id="saveReviewButton" name="saveReviewButton" class="btn btn-primary btn-block center-block">Envoyer votre avis</button>
                 </div>
             </div>
         </fieldset>
