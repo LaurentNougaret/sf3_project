@@ -1,60 +1,90 @@
-/**********************************\
-===================================
-1. Form: Sign Up
-2. Form: Review Sale
-2. Form: Review After-Sale
-===================================
-\**********************************/
-
-/**********************************\
-1. Sign Up
-\**********************************/
-
-.formSignUp {
-    margin: 150px auto 10px auto;
-}
-legend {
-    text-align: center;
-    padding: 10px;
-}
-/**********************************\
-2. Form: Review Sale
-\**********************************/
-.formReviewSale {
-    margin: 60px auto 10px auto;
-}
-.formReviewSale h4 {
-    text-align: center;
-    margin: 50px;
-}
-.formReviewSale h1 {
-    text-align: center;
-}
-.tdlabel {
-    width: 130px;
-}
-.newcarReview {
-    padding-top: 120px;
-}
-.checkbox {
-    text-align: center;
-}
-.rating {
-    text-align: left;
-    font-size: 36px;
-    color: #373737;
-    unicode-bidi: bidi-override;
-    direction: rtl;
-}
-.rating > span:hover:before,
-.rating > span:hover ~ span:before {
-    color: #eaee0f;
-    content: "\2605";
-    position: absolute;
-}
-#saveReviewButton {
-    margin: 20px auto;
+.reviewform {
+    margin-top: 10%;
+    margin-bottom: 10%;
 }
 
-/**********************************\
-2. Form: Review After-Sale
+.reviewform .btn-block {
+    font-size: 14px;
+    margin-top: 3em;
+    margin-bottom: 1em;
+    width: 15em;
+    height: 3em;
+    border-radius: 4px;
+    border: 3px solid #ff4756;
+    background-color: #fff;
+    color: #ff4756;
+    -o-transition:color .2s ease-out, background 0.2s ease-in;
+    -moz-transition:color .2s ease-out, background 0.2s ease-in;
+    -webkit-transition:color .2s ease-out, background 0.2s ease-in;
+}
+
+.reviewform .btn-block:hover{
+    color: #fff;
+    background-color: #ff4756;
+}
+
+.reviewform .btn-block:focus, .btn-block:active {
+    outline: none !important;
+    border: 3px solid #ff4756 !important;
+}
+
+.reviewform .bloc {
+    margin-top: 5%;
+    background-color: rgba(191, 192, 192, 0.05);
+    border-radius: 10px;
+    padding: 2% 0;
+}
+
+.reviewform .bloc hr {
+    margin-bottom: 5%;
+    border-top: 2px dotted #ff4756;
+    margin-left: 20%;
+    margin-right:20%;
+}
+
+.reviewform .rating-container .caption {
+    margin-top: -0.1em;
+}
+
+.reviewform .rating-md {
+    margin-top: -20px;
+}
+
+.reviewform .empty-stars img {
+    opacity: .5;
+}
+
+.reviewform .label {
+    background-color: #2d3142 !important;
+}
+
+.reviewform .help-block {
+    margin: 0;
+}
+
+.reviewform .agree {
+    font-size: 12px;
+    margin-top: -10px;
+}
+
+.reviewform #saveReviewButton {
+    margin-top: 0;
+}
+
+@media (max-width: 600px) {
+
+}
+
+@media (max-width: 768px) {
+    .reviewform .title {
+        margin-bottom: 1em;
+    }
+    .reviewform .form-group {
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+    .reviewform .btn-block {
+        margin-top: 1em;
+        margin-bottom: 1em;
+    }
+}

@@ -1,0 +1,25 @@
+/* Search page */
+.searchpage {
+    margin-top: 150px;
+}
+
+.searchpage .checkbox {
+    text-align: left;
+}
+
+.searchpage .list-group-item {
+    height:auto;
+    min-height:250px;
+
+}
+.searchpage a.list-group-item.active small {
+    color:#fff;
+}
+
+.searchpage .stars {
+    margin:20px auto 1px;
+}
+
+.search .btn-product {
+    width: 100%;
+}

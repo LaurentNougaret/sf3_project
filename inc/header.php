@@ -7,7 +7,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand page-scroll" href="/?page=index"><img src="/img/logo.png" alt="logo de Caradvisor"></a>
+        <a class="navbar-brand page-scroll" href="/?page=index"><img src="/img/logo/logo.png" alt="logo de Caradvisor"></a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -19,7 +19,7 @@
             <!-- If in index, use the scroll, if not use the link -->
             <?php if($_GET['page'] == "index"): ?>
             <li>
-                <a class="page-scroll js-scrollTo" href="#review">Déposer un avis</a>
+                <a class="page-scroll js-scrollTo" href="/?page=index#review">Déposer un avis</a>
             </li>
             <?php endif; ?>
             <?php if($_GET['page'] != "index"): ?>
