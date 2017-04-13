@@ -29,7 +29,13 @@ a:hover {
 }
 
 .navbar .navbar-toggle {
-    background-color: #bfc0c0;
+    background-color: #2d3142;
+    border: none;
+}
+
+.navbar .navbar-toggle:hover, .navbar .navbar-toggle:active, .navbar .navbar-toggle:focus {
+    background-color: #2d3142 !important;
+    border: none;
 }
 
 .navbar img {
@@ -433,11 +439,9 @@ footer {
     -webkit-transition:color .2s ease-out, background 0.2s ease-in;
 }
 
-.footer button:hover, button:focus, button:active {
+.footer button:hover, .footer button:focus, .footer button:active {
     color: #2d3142;
     background-color: #ff4756;
-    border: 3px solid #ff4756 !important;
-    outline: none !important;
 }
 
 .social li {
