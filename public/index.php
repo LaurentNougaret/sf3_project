@@ -25,6 +25,7 @@ $file = $page . ".php";
     <link rel="stylesheet" href="CSS/main.css">
     <link rel="stylesheet" href="CSS/scrolling-nav.css">
     <link rel="stylesheet" href="CSS/form.css">
+    <link rel="stylesheet" href="CSS/search.css">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
           integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.1/css/star-rating.min.css'>
@@ -92,6 +93,7 @@ $file = $page . ".php";
     <script type="text/javascript" src="js/rating.js"></script>
     <script type="text/javascript" src="js/slider.js"></script>
     <script type="text/javascript" src="js/scrollTo.js"></script>
+    <script type="text/javascript" src="js/banner.js"></script>
     <script type="text/javascript" src="js/back-to-top.js"></script>
     <script type="text/javascript" src="js/scrolling-nav.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
