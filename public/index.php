@@ -50,6 +50,12 @@ $file = $page . ".php";
             case 'account':
                 echo 'Caradvisor : votre profil';
                 break;
+            case 'legal':
+                echo 'Caradvisor : mentions légales';
+                break;
+            case 'cgu':
+                echo 'Caradvisor : conditions générales d\'\utilisation';
+                break;
             case 'contact':
                 echo 'Caradvisor : contactez-nous';
                 break;

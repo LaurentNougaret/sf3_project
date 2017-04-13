@@ -8,7 +8,8 @@
 6. review
 7. about
 8. values
-9. footer
+9. legal
+10. footer
 ===================================
 \**********************************/
 a:hover {
@@ -23,7 +24,7 @@ a:hover {
 \**********************************/
 /*  navbar color */
 .navbar {
-    background-color: rgba(0, 0, 0, 1) !important;
+    background-color: #2d3142 !important;
 }
 
 .navbar img {
@@ -350,102 +351,95 @@ a:hover {
     margin-left: auto;
     margin-right: auto;
 }
+
 /**********************************\
-9. footer
+9. legal
+\**********************************/
+#legalnotices {
+    margin-top: 10%;
+}
+#mentionslegales {
+    margin-top: 20px;
+    padding: 80px;
+    border: 1px solid #7a7a7a;
+    -webkit-box-shadow: 0px 0px 7px -3px rgba(89,86,89,1);
+    -moz-box-shadow: 0px 0px 7px -3px rgba(89,86,89,1);
+    box-shadow: 0px 0px 7px -3px rgba(89,86,89,1);
+}
+.iconToTop {
+    text-align: right;
+    margin-bottom: 23px;
+}
+
+/**********************************\
+10. footer
 \**********************************/
 /*** General parameters for the footer */
 footer {
     padding-top: 10px;
-    background-color: rgba(0, 0, 0, 1);
+    padding-bottom: 30px;
+    background-color: #2d3142;
 }
-
-footer h3 {
+.footer h3 {
+    border-bottom: 1px solid #BAC1C8;
+    color: #ababab;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 27px;
+    padding: 40px 0 10px;
+    text-transform: uppercase;
+}
+.footer ul {
+    font-size: 16px;
+    list-style-type: none;
+    margin-left: 0;
+    padding-left: 0;
+    margin-top: 15px;
     color: white;
 }
-
-.footrow p {
-    color: white;
-    font-size: 18px;
+.footer ul li a {
+    padding: 0 0 5px 0;
+    display: block;
 }
-/*** Site Map ***/
-.sitemap p {
-    padding-left: 40%;
-}
-
-.sitemap .plan {
-    margin-top: -10px;
-}
-
-.sitemap a {
-    color: #adadad;
-    font-size: 14px;
-}
-
-.sitemap a:hover {
-    color: #ffffff;
-}
-/***Socialnetwork part ***/
-.newsform {
-    width: 60%;
-    margin: auto;
-    margin-bottom: 20px;
-}
-
-.socialNetworks .fa {
+.footer a {
     color: white;
 }
-/*** Legal notices ***/
-.legal p {
-    font-size: 14px;
-    color: white;
-    margin: auto;
+.footer button {
+    margin-top: 10px;
 }
-
-.legal a:focus, a:active, a:visited {
-    outline: none;
-    color: grey;
+.social li {
+    background-color: rgb(45, 49, 66);
+    border: 1px solid #5e5e5e;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -o-border-radius: 50%;
+    -ms-border-radius: 50%;
+    border-radius: 50%;
+    float: left;
+    height: 46px;
+    line-height: 46px;
+    margin: 0 8px 0 0;
+    padding: 0;
+    text-align: center;
+    width: 46px;
 }
-
-#mentions .modal-body p {
-    color: black;
+.social li:hover {
+    border: 2px solid #6691b4;
+    background: rgba(100, 127, 150, 0.98);
 }
-
-.mentions, .wcsxs, .wcsmd, .mentions:visited, .mentions:hover, .wcsxs:visited, .wcsmd:visited, .wcsxs:hover, .wcsmd:hover  {
-    color: white;
+.social li a i {
+    text-align: center;
+    font-size: 22px;
 }
-
-@media (min-width: 320px) and (max-width: 1024px){
-    .sitemap {
-        margin-top: 30px;
-    }
-    .sitemap p {
-        padding-left: 0;
-        text-align: center !important;
-    }
-
-    .socialNetworks, .newsLetters {
-        margin-top: 30px;
-        margin-bottom: 50px;
-    }
-
-    .mentions {
-        text-align: left;
-        cursor: pointer;
-    }
-
-    .legal {
-        text-align: center;
-    }
-
-    .wcsmd {
-        display: none;
-    }
-}
-
-@media (min-width: 1025px) {
-    .wcsxs {
-        display: none;
-    }
+.footer-bottom {
+    text-align: center;
+    color: #d4d4d4;
+    background: rgba(45, 49, 66, 0.99);
+    border-top: 1px solid #262626;
+    border-bottom: 1px solid #262626;
+    padding-top: 10px;
+    margin-top: 10px;
+    margin-bottom: -25px;
 }
 /*** Bottom-to-top button ***/
 .back-to-top {
@@ -462,14 +456,12 @@ footer h3 {
     display: none;
     border-radius: 25px;
 }
-
 .back-to-top i {
     font-size: 55px;
     position: relative;
     color: #1287c0;
     margin-left:1px;
 }
-
 @media (max-width: 600px) {
     .back-to-top {
         display: none !important;
