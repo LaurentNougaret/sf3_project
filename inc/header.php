@@ -19,7 +19,7 @@
             <!-- If in index, use the scroll, if not use the link -->
             <?php if($_GET['page'] == "index"): ?>
             <li>
-                <a class="page-scroll js-scrollTo" href="/?page=index#review">Déposer un avis</a>
+                <a class="page-scroll js-scrollTo" href="#review">Déposer un avis</a>
             </li>
             <?php endif; ?>
             <?php if($_GET['page'] != "index"): ?>
