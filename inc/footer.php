@@ -29,7 +29,7 @@
     </div>
     <div class="row legal">
         <div class="col-xs-6 text-right">
-            <p><a class="mentions" href="#mentions" data-toggle="modal">Mentions légales</a></p>
+            <p><a class="mentions" href="#mentions" data-toggle="modal" >Mentions légales</a></p>
             <?php include "../inc/legal_modal.php"?>
         </div>
         <div class="col-xs-6 text-left">
