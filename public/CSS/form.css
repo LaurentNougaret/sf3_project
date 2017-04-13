@@ -58,6 +58,19 @@
     background-color: #2d3142 !important;
 }
 
+.reviewform .help-block {
+    margin: 0;
+}
+
+.reviewform .agree {
+    font-size: 12px;
+    margin-top: -10px;
+}
+
+.reviewform #saveReviewButton {
+    margin-top: 0;
+}
+
 @media (max-width: 600px) {
 
 }
