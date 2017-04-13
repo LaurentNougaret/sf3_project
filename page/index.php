@@ -12,17 +12,17 @@
         <h2 class="text-center">Trouvez votre professionnel de l'automobile</h2>
         <div id="SearchBar">
             <div class="row">
-                <div class="col-xs-12 col-sm-6 col-md-4 col-md-offset-2">
+                <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-0 col-md-4 col-md-offset-2">
                     <form class="searchbar" action="search.php" method="GET">
                         <input type="text" class="form-control" name="query" placeholder="Chercher par professionnel" />
                     </form>
                 </div>
-                <div class="col-xs-12 col-sm-6 col-md-4">
+                <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-0 col-md-4">
                     <form class="searchbar" action="search.php" method="GET">
                         <input type="text" class="form-control" name="query" placeholder="Chercher par ville ou code postale"/>
                     </form>
                 </div>
-                <div class="col-md-1"><a href="/?page=search"><button type="submit" class="btn btn-primary">OK</button></a></div>
+                <div class="col-xs-12 col-md-1"><a href="/?page=search"><button type="submit" class="btn btn-primary center-block">OK</button></a></div>
             </div>
         </div>
     </div>
