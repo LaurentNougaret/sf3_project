@@ -62,3 +62,13 @@
         margin-right: 2%;
     }
 }
+
+/* Contact Us Form */
+
+.formContact {
+    margin: 15% auto;
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 10px;
+    padding: 2% 0;
+    width: 75%;
+}
