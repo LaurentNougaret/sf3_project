@@ -33,9 +33,10 @@
     -webkit-transition: color .2s ease-out, background 0.2s ease-in;
 }
 
-.searchpage .btn-block:hover {
+.searchpage .btn-block:hover, .searchpage .btn-block:focus {
     color: #fff;
     background-color: #ff4756;
+    outline: none;
 }
 
 @media (max-width: 991px) {
