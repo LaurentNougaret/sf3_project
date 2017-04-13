@@ -6,12 +6,8 @@
             <p>Merci de remplir le formulaire afin de déposer un avis sur l'achat de votre véhicule. En déposant celui-ci et grâce à l'aide de <strong>CarAdvisor</strong>, vous contribuez grandement à l'amélioration du monde automobile et de ses acteurs. </p>
         </div>
         <div class=" col-sm-3 col-sm-offset-1">
-            <div class="block-center">
-                <a href="/?page=form_review_sale_used"><button type="button" class="btn btn-primary btn-lg btn-block center-block">ACHAT OCCASION</button></a>
-            </div>
-            <div class="block-center">
-                <a href="/?page=form_review_repair"><button type="button" class="btn btn-primary btn-lg btn-block center-block">ENTRETIEN / REPARATION</button></a>
-            </div>
+            <a href="/?page=form_review_sale_used"><button type="button" class="btn btn-primary btn-lg btn-block center-block">ACHAT OCCASION</button></a>
+            <a href="/?page=form_review_repair"><button type="button" class="btn btn-primary btn-lg btn-block center-block">ENTRETIEN / REPARATION</button></a>
         </div>
     </div>
     <!-- Form Name - Add Review -->

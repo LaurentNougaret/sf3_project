@@ -17,7 +17,7 @@
                 <a class="page-scroll" href="#page-top"></a>
             </li>
             <li>
-                <a class="page-scroll js-scrollTo" href="#review">Déposer un avis</a>
+                <a class="page-scroll js-scrollTo" href="/?page=index#review">Déposer un avis</a>
             </li>
             <li>
                 <a class="page-scroll " href="#">Inscription</a>

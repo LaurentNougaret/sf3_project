@@ -4,26 +4,23 @@
 }
 
 .reviewform .btn-block {
-    font-size: 10px;
-    margin-top: 15%;
-    margin-bottom: -10%;
-    width: 20em;
-    height: 4em;
+    font-size: 13px;
+    margin-top: 3em;
+    margin-bottom: 1em;
+    width: 15em;
+    height: 3em;
     border-radius: 3em;
     border: 3px solid #1287c0;
+    background-color: #fff;
     color: #1287c0;
-    background-color: transparent !important;
-    background-image: -webkit-linear-gradient(top, transparent 50%, #1287c0 50%);
-    background-image: linear-gradient(to bottom, transparent 50%, #1287c0 50%);
-    -webkit-transition: background 150ms ease-in-out, color 150ms ease-in-out;
-    transition: background 150ms ease-in-out, color 150ms ease-in-out;
-    background-size: 210%;
+    -o-transition:color .2s ease-out, background 0.2s ease-in;
+    -moz-transition:color .2s ease-out, background 0.2s ease-in;
+    -webkit-transition:color .2s ease-out, background 0.2s ease-in;
 }
 
 .reviewform .btn-block:hover{
     color: #fff;
-    background-color: #1287c0;
-    background-position: 0 100%;
+    background-color: rgba(18, 135, 192, 0.6)
 }
 
 .reviewform .btn-block:visited, .btn-block:focus, .btn-block:active {
@@ -44,6 +41,10 @@
     margin-right:20%;
 }
 
+.reviewform .rating-container .caption {
+    margin-top: -0.1em;
+}
+
 .reviewform .rating-md {
     margin-top: -20px;
 }
@@ -54,6 +55,12 @@
 
 .reviewform .label {
     background-color: #1287c0 !important;
+}
+
+@media (max-width: 600px) {
+    .reviewform .title {
+        margin-bottom: 2em;
+    }
 }
 
 @media (max-width: 768px) {
