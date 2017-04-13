@@ -4,15 +4,15 @@
 }
 
 .reviewform .btn-block {
-    font-size: 13px;
+    font-size: 14px;
     margin-top: 3em;
     margin-bottom: 1em;
     width: 15em;
     height: 3em;
-    border-radius: 3em;
-    border: 3px solid #1287c0;
+    border-radius: 4px;
+    border: 3px solid #ff4756;
     background-color: #fff;
-    color: #1287c0;
+    color: #ff4756;
     -o-transition:color .2s ease-out, background 0.2s ease-in;
     -moz-transition:color .2s ease-out, background 0.2s ease-in;
     -webkit-transition:color .2s ease-out, background 0.2s ease-in;
@@ -20,23 +20,24 @@
 
 .reviewform .btn-block:hover{
     color: #fff;
-    background-color: rgba(18, 135, 192, 0.6)
+    background-color: #ff4756;
 }
 
-.reviewform .btn-block:visited, .btn-block:focus, .btn-block:active {
-    border: 3px solid #1287c0 !important;
+.reviewform .btn-block:focus, .btn-block:active {
+    outline: none !important;
+    border: 3px solid #ff4756 !important;
 }
 
 .reviewform .bloc {
     margin-top: 5%;
-    background-color: rgba(0,0,0,0.1);
+    background-color: rgba(191, 192, 192, 0.05);
     border-radius: 10px;
     padding: 2% 0;
 }
 
 .reviewform .bloc hr {
     margin-bottom: 5%;
-    border-top: 1px dotted #1287c0;
+    border-top: 2px dotted #ff4756;
     margin-left: 20%;
     margin-right:20%;
 }
@@ -54,18 +55,23 @@
 }
 
 .reviewform .label {
-    background-color: #1287c0 !important;
+    background-color: #2d3142 !important;
 }
 
 @media (max-width: 600px) {
-    .reviewform .title {
-        margin-bottom: 2em;
-    }
+
 }
 
 @media (max-width: 768px) {
+    .reviewform .title {
+        margin-bottom: 1em;
+    }
     .reviewform .form-group {
         margin-left: 2%;
         margin-right: 2%;
+    }
+    .reviewform .btn-block {
+        margin-top: 1em;
+        margin-bottom: 1em;
     }
 }

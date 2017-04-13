@@ -1,12 +1,16 @@
 <div class="container reviewform">
     <div class="row">
-        <div class="col-xs-12 col-sm-8 title text-center">
+        <div class="col-xs-12 title text-center">
             <h1>Achat d'un véhicule neuf - Ajouter un avis</h1>
             <br>
             <p>Merci de remplir le formulaire afin de déposer un avis sur l'achat de votre véhicule. En déposant celui-ci et grâce à l'aide de <strong>CarAdvisor</strong>, vous contribuez grandement à l'amélioration du monde automobile et de ses acteurs. </p>
         </div>
-        <div class=" col-sm-3 col-sm-offset-1">
-            <a href="/?page=form_review_sale_used"><button type="button" class="btn btn-primary btn-lg btn-block center-block">ACHAT OCCASION</button></a>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-3 col-sm-offset-2 col-md-3 col-md-offset-3">
+            <a href="/?page=form_review_sale_used" ><button type="button" class="btn btn-primary btn-lg btn-block center-block">ACHAT OCCASION</button></a>
+        </div>
+        <div class="col-xs-12 col-sm-3 col-sm-offset-1 col-md-3 col-md-offset-0">
             <a href="/?page=form_review_repair"><button type="button" class="btn btn-primary btn-lg btn-block center-block">ENTRETIEN / REPARATION</button></a>
         </div>
     </div>
@@ -223,6 +227,32 @@
                     <div class="col-sm-6">
                         <textarea class="form-control" id="advicebox" name="advicebox" rows="5" placeholder="Votre message..."></textarea>
                     </div>
+                </div>
+            </div>
+            <div class="form-group required">
+                <label class="col-xs-12 tex-center col-sm-6 control-label" for="filebutton">Justificatif d'expérience</label>
+                <div class="col-xs-12 text-center col-sm-6">
+                    <input id="filebutton" name="filebutton" class="input-file" type="file">
+                    <br><span class="help-block">Format de fichier accepté: JPG, PDF</span><br>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-8 col-xs-offset-2">
+                    <div class="checkbox">
+                        <label for="iagree-0">
+                            <input name="iagree" id="iagree-0" value="1" type="checkbox">
+                            Je certifie que cet avis reflète ma propre expérience et mon opinion authentique sur ce Garage,
+                            que je ne suis pas lié personnellement ni professionnellement à cet établissement et que je n'ai reçu aucune compensation financière ou autre de celui-ci pour écrire cet avis.
+                            Je comprends que CarAdvisor applique une politique de tolérance zéro sur les faux avis
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <!-- Button - Save review -->
+            <div class="form-group required">
+                <label class="col-md-5 control-label" for="saveReviewButton"></label>
+                <div class="col-md-4">
+                    <button id="saveReviewButton" name="saveReviewButton" class="btn btn-primary">Enregistrer</button>
                 </div>
             </div>
         </fieldset>

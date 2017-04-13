@@ -1,17 +1,17 @@
 <div class="container reviewform">
     <div class="row">
-        <div class="col-xs-12 col-sm-8 title text-center">
+        <div class="col-xs-12 title text-center">
             <h1>Entretien ou réparation d'un véhicule - Ajouter un avis</h1>
             <br>
             <p>Merci de remplir le formulaire afin de déposer un avis sur l'entretien ou la réparation de votre véhicule. En déposant celui-ci et grâce à l'aide de <strong>CarAdvisor</strong>, vous contribuez grandement à l'amélioration du monde automobile et de ses acteurs. </p>
         </div>
-        <div class="col-xs-12 col-sm-3">
-            <div class="block-center">
-                <a href="/?page=form_review_sale_new" ><button type="button" class="btn btn-primary btn-lg btn-block center-block">ACHAT NEUF</button></a>
-            </div>
-            <div class="block-center">
-                <a href="/?page=form_review_sale_used"><button type="button" class="btn btn-primary btn-lg btn-block center-block">ACHAT OCCASION</button></a>
-            </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-3 col-sm-offset-2 col-md-3 col-md-offset-3">
+            <a href="/?page=form_review_sale_new" ><button type="button" class="btn btn-primary btn-lg btn-block center-block">ACHAT NEUF</button></a>
+        </div>
+        <div class="col-xs-12 col-sm-3 col-sm-offset-1 col-md-3 col-md-offset-0">
+            <a href="/?page=form_review_sale_used"><button type="button" class="btn btn-primary btn-lg btn-block center-block">ACHAT OCCASION</button></a>
         </div>
     </div>
     <!-- Form Name - Add Review -->
@@ -291,6 +291,9 @@
                         <textarea class="form-control" id="advicebox" name="advicebox" rows="5" placeholder="Votre message..."></textarea>
                     </div>
                 </div>
+            </div>
+            <div class="col-xs-12 col-sm-3 col-sm-offset-2 col-md-3 col-md-offset-3">
+                <button type="button" class="btn btn-primary btn-lg btn-block center-block">ACHAT NEUF</button></>
             </div>
         </fieldset>
     </form>
