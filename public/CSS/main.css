@@ -57,6 +57,9 @@ a:hover {
 .navbar ul li a:hover {
     color: white!important;
 }
+nav li a:focus{
+    outline: none;
+}
 
 .navbar .navbar-brand {
     padding: 5px 15px;
