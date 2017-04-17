@@ -1,7 +1,6 @@
 <div class="container">
-
     <div class="row">
-        <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3 navy3">
+        <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3 bloc">
             <form role="form">
                 <h3>Inscription</h3>
                 <hr class="colorgraph">
@@ -71,7 +70,7 @@
                 <!--/ vehicule 1-->
 
                 <!--vehicule 2-->
-                <a data-toggle="collapse" data-target="#demo" ><span class="glyphicon glyphicon-plus"></a></span><h3 class="plus">Véhicule n°2</h3>
+                <a data-toggle="collapse" data-target="#demo" ><span class="glyphicon glyphicon-plus"></a></span><h3 class="plus-vehicule">Véhicule n°2</h3>
                 <hr class="colorgraph">
                 <div id="demo" class="collapse">
                 <div class="row">
@@ -116,10 +115,10 @@
 
                 <hr class="colorgraph">
                 <div class="row">
-                    <div class="col-xs-12 col-md-12">
-                        <input type="submit" value="Inscription" class="btn btn-primary btn-block btn-lg" tabindex="7">
+                    <label class="control-label" for="inscription"></label>
+                    <div class="col-xs-12">
+                        <button id="inscription" name="inscription" class="btn btn-primary btn-block center-block">Inscription</button>
                     </div>
-
                 </div>
             </form>
         </div>

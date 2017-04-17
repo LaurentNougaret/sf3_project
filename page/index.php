@@ -25,7 +25,7 @@
                         <input type="text" class="form-control" name="query" placeholder="Chercher par ville ou code postale"/>
                     </form>
                 </div>
-                <div class="col-xs-12 col-md-1"><a href="/?page=search"><button type="submit" class="btn btn-primary center-block">OK</button></a></div>
+                <div class="col-xs-12 col-md-1"><a href="/?page=search"><button type="submit" class="btn btn-primary btn-search center-block">OK</button></a></div>
             </div>
         </div>
     </div>

@@ -29,7 +29,13 @@ a:hover {
 }
 
 .navbar .navbar-toggle {
-    background-color: #bfc0c0;
+    background-color: #2d3142;
+    border: none;
+}
+
+.navbar .navbar-toggle:hover, .navbar .navbar-toggle:active, .navbar .navbar-toggle:focus {
+    background-color: #2d3142 !important;
+    border: none;
 }
 
 .navbar img {
@@ -116,7 +122,7 @@ nav li a:focus{
     font-size: 13px;
 }
 
-#search .btn {
+#search .btn-search {
     margin-top: 15px;
     border-radius: 4px;
     border: 3px solid #ff4756;
@@ -128,7 +134,7 @@ nav li a:focus{
     -webkit-transition:color .2s ease-out, background 0.2s ease-in;
 }
 
-#search .btn:hover, .btn:active, .btn:focus {
+#search .btn-search:hover, #search .btn-search:active, #search .btn-search:focus {
     color: #fff;
     background-color: #ff4756;
     border: 3px solid #ff4756 !important;
@@ -436,11 +442,10 @@ footer {
     -webkit-transition:color .2s ease-out, background 0.2s ease-in;
 }
 
-.footer button:hover, button:focus, button:active {
+.footer .btn-info:hover, .footer .btn-info:focus, .footer .btn-info:active {
     color: #2d3142;
     background-color: #ff4756;
-    border: 3px solid #ff4756 !important;
-    outline: none !important;
+    border: 3px solid #ff4756;
 }
 
 .social li {
@@ -467,7 +472,8 @@ footer {
     text-align: center;
     font-size: 22px;
 }
-.footer-bottom {
+
+.footer-bottom a {
     text-align: center;
     color: #d4d4d4;
     background: rgba(45, 49, 66, 0.99);
@@ -476,6 +482,12 @@ footer {
     padding-top: 10px;
     margin-top: 10px;
     margin-bottom: -25px;
+}
+
+.footer-bottom a:hover, .footer-bottom a:focus {
+    color: gray;
+    text-decoration: none;
+    outline: none;
 }
 /*** Bottom-to-top button ***/
 .back-to-top {
