@@ -39,7 +39,7 @@
                     <div class="modal-body">
                         <input id="lost_email" class="form-control" type="text" placeholder="Email" required>
                     </div>
-                    <div class="modal-footer">
+                    <div id="login-btn" class="modal-footer">
                         <div>
                             <button type="submit" class="btn btn-primary btn-lg btn-block btn-conn">Envoyer</button>
                         </div>
