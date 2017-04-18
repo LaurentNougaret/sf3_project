@@ -7,7 +7,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand page-scroll" href="/?page=index"><img src="/img/logo.png" alt="logo de Caradvisor"></a>
+        <a class="navbar-brand page-scroll" href="/?page=index"><img src="/img/logo/logo.png" alt="logo de Caradvisor"></a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -17,6 +17,8 @@
                 <a class="page-scroll" href="#page-top"></a>
             </li>
             <?php if ($_GET['page'] == "index" || $_GET['page'] == "inscription" || $_GET['page'] == "account-reviews" || $_GET['page'] == "account-cars" || $_GET['page'] == "account"): ?>
+            <!-- If in index, use the scroll, if not use the link -->
+            <?php if($_GET['page'] == "index"): ?>
             <li>
                 <a class="page-scroll js-scrollTo" href="#review">Déposer un avis</a>
             </li>
@@ -28,7 +30,7 @@
             <?php endif; ?>
             <?php if ($_GET['page'] == "index" || $_GET['page'] == "inscription"): ?>
             <li>
-                <a class="page-scroll" href="#">Connexion</a>
+                <a class="page-scroll " href="/?page=inscription">Inscription</a>
             </li>
             <?php endif; ?>
             <?php if ($_GET['page'] == "account-reviews" || $_GET['page'] == "account-cars"): ?>
@@ -52,3 +54,4 @@
         </ul>
     </div>
 </nav>
+<?php include "modalConnection.php"?>
