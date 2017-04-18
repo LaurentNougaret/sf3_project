@@ -29,7 +29,13 @@ a:hover {
 }
 
 .navbar .navbar-toggle {
-    background-color: #bfc0c0;
+    background-color: #2d3142;
+    border: none;
+}
+
+.navbar .navbar-toggle:hover, .navbar .navbar-toggle:active, .navbar .navbar-toggle:focus {
+    background-color: #2d3142 !important;
+    border: none;
 }
 
 .navbar img {
@@ -50,6 +56,9 @@ a:hover {
 
 .navbar ul li a:hover {
     color: white!important;
+}
+nav li a:focus{
+    outline: none;
 }
 
 .navbar .navbar-brand {
@@ -93,12 +102,43 @@ a:hover {
 4. search
 \**********************************/
 #search {
-    margin-top: 5%;
-    margin-bottom: 5%;
+    margin-top: 10%;
+    margin-bottom: 10%;
 }
 
 #search .searchbar {
-    padding: 5%;
+    margin-top: 10px;
+}
+
+#search button {
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    margin-top: 20px;
+}
+
+#search input {
+    height: 50px;
+    font-size: 13px;
+}
+
+#search .btn-search {
+    margin-top: 15px;
+    border-radius: 4px;
+    border: 3px solid #ff4756;
+    background-color: #fff;
+    font-weight: bold;
+    color: #ff4756;
+    -o-transition:color .2s ease-out, background 0.2s ease-in;
+    -moz-transition:color .2s ease-out, background 0.2s ease-in;
+    -webkit-transition:color .2s ease-out, background 0.2s ease-in;
+}
+
+#search .btn-search:hover, #search .btn-search:active, #search .btn-search:focus {
+    color: #fff;
+    background-color: #ff4756;
+    border: 3px solid #ff4756 !important;
+    outline: none !important;
 }
 
 @media (max-width:768px) {
@@ -106,27 +146,6 @@ a:hover {
         width: 80%;
         margin-left: 10%;
     }
-}
-
-#search button {
-    width: 50px;
-    height: 35px;
-    -webkit-border-radius: 8px;
-    -moz-border-radius: 8px;
-    border-radius: 8px;
-    margin: 28px;
-}
-
-@media all and (min-width: 961px) and (max-width: 1366px) {
-    #search button {
-        margin-left: -8px;
-    }
-}
-
-#search input {
-    height: 50px;
-    font-size: 13px;
-    margin: 0;
 }
 /**********************************\
 5. slider
@@ -423,11 +442,10 @@ footer {
     -webkit-transition:color .2s ease-out, background 0.2s ease-in;
 }
 
-.footer button:hover, button:focus, button:active {
+.footer .btn-info:hover, .footer .btn-info:focus, .footer .btn-info:active {
     color: #2d3142;
     background-color: #ff4756;
-    border: 3px solid #ff4756 !important;
-    outline: none !important;
+    border: 3px solid #ff4756;
 }
 
 .social li {
@@ -454,7 +472,8 @@ footer {
     text-align: center;
     font-size: 22px;
 }
-.footer-bottom {
+
+.footer-bottom a {
     text-align: center;
     color: #d4d4d4;
     background: rgba(45, 49, 66, 0.99);
@@ -463,6 +482,12 @@ footer {
     padding-top: 10px;
     margin-top: 10px;
     margin-bottom: -25px;
+}
+
+.footer-bottom a:hover, .footer-bottom a:focus {
+    color: gray;
+    text-decoration: none;
+    outline: none;
 }
 /*** Bottom-to-top button ***/
 .back-to-top {

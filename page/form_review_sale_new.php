@@ -229,17 +229,17 @@
                     </div>
                 </div>
             </div>
-            <div class="form-group required">
-                <label class="col-xs-12 tex-center col-sm-6 control-label" for="filebutton">Justificatif d'expérience</label>
-                <div class="col-xs-12 text-center col-sm-6">
-                    <input id="filebutton" name="filebutton" class="input-file" type="file">
+            <div class="form-group required col-xs-12 text-center">
+                <label class=" control-label" for="filebutton">Justificatif d'expérience</label>
+                <div>
+                    <input id="filebutton" name="filebutton" class="input-file center-block" type="file">
                     <br><span class="help-block">Format de fichier accepté: JPG, PDF</span><br>
                 </div>
             </div>
             <div class="form-group">
-                <div class="col-xs-8 col-xs-offset-2">
+                <div class="col-xs-12 col-sm-8 col-sm-offset-2 text-justify">
                     <div class="checkbox">
-                        <label for="iagree-0">
+                        <label class="agree" for="iagree-0">
                             <input name="iagree" id="iagree-0" value="1" type="checkbox">
                             Je certifie que cet avis reflète ma propre expérience et mon opinion authentique sur ce Garage,
                             que je ne suis pas lié personnellement ni professionnellement à cet établissement et que je n'ai reçu aucune compensation financière ou autre de celui-ci pour écrire cet avis.
@@ -250,9 +250,9 @@
             </div>
             <!-- Button - Save review -->
             <div class="form-group required">
-                <label class="col-md-5 control-label" for="saveReviewButton"></label>
-                <div class="col-md-4">
-                    <button id="saveReviewButton" name="saveReviewButton" class="btn btn-primary">Enregistrer</button>
+                <label class="control-label" for="saveReviewButton"></label>
+                <div class="col-xs-12">
+                    <button id="saveReviewButton" name="saveReviewButton" class="btn btn-primary btn-block center-block">Envoyer votre avis</button>
                 </div>
             </div>
         </fieldset>
