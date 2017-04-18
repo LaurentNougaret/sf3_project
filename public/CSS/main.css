@@ -38,7 +38,7 @@ a {
 }
 
 .navbar ul li a:hover {
-    color: white!important;
+    color: white !important;
 }
 
 .navbar .navbar-brand {
@@ -73,7 +73,7 @@ body.loaded {
     top: 0;
     z-index: -1;
     transform: translate3d(0,0,0) scale(1.25);
-    background: url('../img/garage.jpg') no-repeat center center; /* a changer pour une imge libre de droits */
+    background: url('../img/stock-photo-car.jpg') no-repeat center center; /* a changer pour une imge libre de droits */
     background-size: cover;
 }
 

@@ -5,7 +5,7 @@
             <p class="plan"><a href="#logo">Accueil</a></p>
             <p class="plan"><a href="../page/search.php">Recherche</a></p>
             <p class="plan"><a href="../page/account.php">Mon compte</a></p>
-            <p class="plan"><a href="../page/review.php">Déposer un avis</a></p>
+            <p class="plan"><a href="../page/account-reviews.php">Déposer un avis</a></p>
             <p class="plan"><a href="#concept">Concept</a></p>
             <p class="plan"><a href="../page/contact.php">Contactez-nous</a></p>
         </div>

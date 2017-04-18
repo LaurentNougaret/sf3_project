@@ -24,7 +24,8 @@ $file = $page . ".php";
           crossorigin="anonymous">
     <link rel="stylesheet" href="CSS/main.css">
     <link href="CSS/scrolling-nav.css" rel="stylesheet">
-    <link rel="stylesheet" href="CSS/form.css">
+    <!--<link rel="stylesheet" href="CSS/form.css">-->
+    <link rel="stylesheet" href="CSS/account.css">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
           integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <title>
@@ -45,11 +46,17 @@ $file = $page . ".php";
             case 'form_review_repair':
                 echo 'Caradvisor : déposez votre avis';
                 break;
+            case 'contact':
+                echo 'Caradvisor : contactez-nous';
+                break;
             case 'account':
                 echo 'Caradvisor : votre profil';
                 break;
-            case 'contact':
-                echo 'Caradvisor : contactez-nous';
+            case 'account-reviews':
+                echo 'Caradvisor : vos avis';
+                break;
+            case 'account-cars':
+                echo 'Caradvisor : vos véhicules';
                 break;
             }
         ?>
@@ -84,6 +91,7 @@ $file = $page . ".php";
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" src="js/back-to-top.js"></script>
     <script type="text/javascript" src="js/scrolling-nav.js"></script>
+
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
 </body>
 </html>
