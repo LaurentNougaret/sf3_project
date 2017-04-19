@@ -18,7 +18,7 @@
                         <input id="login_password" class="form-control" type="password" placeholder="Mot de passe" required>
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox"> Se souvenir de moi
+                                <input type="checkbox">Se souvenir de moi
                             </label>
                         </div>
                     </div>

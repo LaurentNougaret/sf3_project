@@ -38,3 +38,8 @@ button#login_lost_btn.btn-link, button#lost_login_btn.btn-link, a#login_register
     color: black;
     outline: none!important;
 }
+.checkbox {
+    margin: 0 auto;
+
+
+}

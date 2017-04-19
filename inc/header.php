@@ -17,12 +17,12 @@
                 <a class="page-scroll" href="#page-top"></a>
             </li>
             <!-- If in index, use the scroll, if not use the link -->
-            <?php if($_GET['page'] == "index"): ?>
+            <?php if($_GET['page'] == "index" || $_GET['page'] == ""): ?>
             <li>
                 <a class="page-scroll js-scrollTo" href="#review">Déposer un avis</a>
             </li>
             <?php endif; ?>
-            <?php if($_GET['page'] != "index"): ?>
+            <?php if($_GET['page'] != "index" and $_GET['page'] != "" and $_GET['page'] != "pro_inscription" and $_GET['page'] != "pro_inscription" and $_GET['page'] != "pro_inscription" and $_GET['page'] != "pro_connection"  ): ?>
                 <li>
                     <a class="page-scroll js-scrollTo" href="/?page=index#review">Déposer un avis</a>
                 </li>
@@ -33,13 +33,13 @@
                 <a class="page-scroll " href="/?page=inscription">Inscription</a>
             </li>
             <?php endif; ?>
-            <?php if($_GET['page'] == "index" || $_GET['page'] == "inscription"): ?>
+            <?php if($_GET['page'] == "index" || $_GET['page'] == "inscription" || $_GET['page'] == ""): ?>
             <li>
                 <a href="#"  data-toggle="modal" data-target="#login-modal">Connexion</a>
             </li>
             <?php endif; ?>
             <li>
-                <a class="page-scroll" href="#">Professionnels</a>
+                <a class="page-scroll" href="/?page=pro_connection">Professionnels</a>
             </li>
         </ul>
 
