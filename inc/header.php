@@ -42,7 +42,6 @@
                 <a class="page-scroll" href="/?page=pro_connection">Professionnels</a>
             </li>
         </ul>
-
     </div>
 </nav>
 <?php include "modalConnection.php"?>
