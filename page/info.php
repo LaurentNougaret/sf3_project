@@ -19,7 +19,7 @@
                     <p>Adresse : </p>
                     <address>
                         33 rue Creuzet<br>
-                        69007 Lyon
+                        69007  Lyon
                     </address>
                 </div>
                 <div class="col-xs-6">
