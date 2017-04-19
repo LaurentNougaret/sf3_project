@@ -88,3 +88,38 @@
         margin-bottom: 1em;
     }
 }
+
+/* Contact Us Form */
+
+.contactPage {
+    margin: 10% auto;
+}
+.contactWelcomePhrase {
+    text-align: center;
+    margin-bottom: 40px;
+}
+.formContact {
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+}
+.sendMessageButton {
+    font-size: 14px;
+    width: 10em;
+    height: 3em;
+    border-radius: 4px;
+    border: 3px solid #ff4756 !important;
+    background-color: #fff; !important;
+    color: #ff4756; !important;
+}
+.sendMessageButton:hover{
+    color: #fff;
+    background-color: #ff4756;
+}
+
+.sendMessageButton:focus, .sendMessageButton:active {
+    outline: none !important;
+    border: 3px solid #ff4756 !important;
+}
+.formContactDivAddress {
+    text-align: center;
+}
