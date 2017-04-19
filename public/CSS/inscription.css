@@ -1,15 +1,15 @@
-.bloc{
+#signup .bloc{
     margin-top: 100px;
     margin-bottom: 100px;
 }
 
-.bloc .plus-vehicule {
+#signup .bloc .plus-vehicule {
     display: inline-block;
     padding-left: 10px;
     outline: none!important;
 }
 
-.bloc #inscription {
+#signup .bloc #inscription {
     width: 10em;
     font-size: 20px;
     margin-top: 3em;
@@ -23,14 +23,14 @@
     -webkit-transition: color .2s ease-out, background 0.2s ease-in;
 }
 
-.bloc #inscription:hover, .bloc #inscription:focus {
+#signup .bloc #inscription:hover, .bloc #inscription:focus {
     color: #fff;
     background-color: #ff4756;
     outline: none;
 }
 
 @media (max-width: 779px){
-    .bloc {
+    #signup .bloc {
         margin-top: 50px;
         margin-bottom: 100px;
     }

@@ -1,0 +1,11 @@
+#account-reviews {
+    margin: 90px auto 50px auto;
+}
+
+.modify-review, .delete-review {
+    margin: 20px auto auto auto;
+}
+
+#account-review hr {
+    margin-bottom:30px;
+}

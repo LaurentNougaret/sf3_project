@@ -23,15 +23,23 @@ $file = $page . ".php";
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
           crossorigin="anonymous">
     <link rel="stylesheet" href="CSS/main.css">
+    <link rel="stylesheet" href="CSS/account.css">
+    <link rel="stylesheet" href="CSS/account-cars.css">
+    <link rel="stylesheet" href="CSS/account-reviews.css">
     <link rel="stylesheet" href="CSS/scrolling-nav.css">
     <link rel="stylesheet" href="CSS/form.css">
     <link rel="stylesheet" href="CSS/connexion.css">
     <link rel="stylesheet" href="CSS/inscription.css">
     <link rel="stylesheet" href="CSS/search.css">
     <link rel="stylesheet" href="CSS/info.css">
+    <link rel="stylesheet" href="CSS/pro_inscription.css">
+    <link rel="stylesheet" href="CSS/pro_connection.css">
+    <link href="CSS/scrolling-nav.css" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/account.css">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
           integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.1/css/star-rating.min.css'>
+    <link rel="stylesheet" type="text/css" href='//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css'>
     <title>
         <?php
         switch ($page) {
@@ -51,7 +59,10 @@ $file = $page . ".php";
                 echo 'Caradvisor : déposez votre avis Achat occasion';
                 break;
             case 'form_review_repair':
-                echo 'Caradvisor : déposez votre avis Entratien Réparation';
+                echo 'Caradvisor : déposez votre avis Entretien Réparation';
+                break;
+            case 'contact':
+                echo 'Caradvisor : contactez-nous';
                 break;
             case 'account':
                 echo 'Caradvisor : votre profil';
@@ -60,14 +71,21 @@ $file = $page . ".php";
                 echo 'Caradvisor : mentions légales';
                 break;
             case 'cgu':
-                echo 'Caradvisor : conditions générales d\'\utilisation';
+                echo 'Caradvisor : conditions générales d\'utilisation';
                 break;
-            case 'contact':
-                echo 'Caradvisor : contactez-nous';
+            case 'account-reviews':
+                echo 'Caradvisor : vos avis';
+                break;
+            case 'account-cars':
+                echo 'Caradvisor : vos véhicules';
+                break;
+            case 'info':
+                echo 'Caradvisor : infomartions sur le professionnel';
                 break;
             }
         ?>
     </title>
+    <link rel="icon" type="image/png" href="../public/img/favicon.ico" />
 </head>
 <body>
     <!-- Call header -->
@@ -104,6 +122,7 @@ $file = $page . ".php";
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
     <script type="text/javascript" src="js/js_inscription.js"></script>
     <script type="text/javascript" src="js/js_modal.js"></script>
-
+    <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+    <script type="text/javascript" src="js/cookieconsent.js"></script>
 </body>
 </html>

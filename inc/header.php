@@ -38,6 +38,21 @@
                 <a href="#"  data-toggle="modal" data-target="#login-modal">Connexion</a>
             </li>
             <?php endif; ?>
+            <?php if ($_GET['page'] == "account-reviews" || $_GET['page'] == "account-cars"): ?>
+                <li>
+                    <a class="page-scroll" href="/?page=account">Votre profil</a>
+                </li>
+            <?php endif; ?>
+            <?php if ($_GET['page'] == "account-cars" || $_GET['page'] == "account"): ?>
+                <li>
+                    <a class="page-scroll" href="/?page=account-reviews">Vos avis</a>
+                </li>
+            <?php endif; ?>
+            <?php if ($_GET['page'] == "account" || $_GET['page'] == "account-reviews"): ?>
+                <li>
+                    <a class="page-scroll" href="/?page=account-cars">Vos véhicules</a>
+                </li>
+            <?php endif; ?>
             <li>
                 <a class="page-scroll" href="/?page=pro_connection">Professionnels</a>
             </li>
