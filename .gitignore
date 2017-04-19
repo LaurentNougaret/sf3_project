@@ -1,7 +1,3 @@
 .idea
-/config/Config.php
-<<<<<<< HEAD
-=======
-
 /page/test.php
->>>>>>> 254ea7405fcac90499a6c96c1d506599bde81440
+/config
