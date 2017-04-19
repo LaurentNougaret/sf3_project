@@ -58,8 +58,7 @@
                             <input type="text" name="kilometrage1" id="kilometrage1" class="form-control input-lg" placeholder="Kilométrage" tabindex="2">
                         </div>
                     </div>
-                </div>
-                <div class="row">
+
                     <div class="col-xs-12 col-sm-6 col-md-6">
                         <div class="form-group">
                             <input type="text" name="immatriculation" id="immatriculation" class="form-control input-lg" placeholder="Immatriculation" tabindex="1">
@@ -73,30 +72,30 @@
                 <a data-toggle="collapse" data-target="#demo" ><span class="glyphicon glyphicon-plus"></a></span><h3 class="plus-vehicule">Véhicule n°2</h3>
                 <hr class="colorgraph">
                 <div id="demo" class="collapse">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-6 col-md-6">
-                        <div class="form-group">
-                            <input type="text" name="marque2" id="marque2" class="form-control input-lg" placeholder="Marque" tabindex="1">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <input type="text" name="marque2" id="marque2" class="form-control input-lg" placeholder="Marque" tabindex="1">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <input type="text" name="modele2" id="modele2" class="form-control input-lg" placeholder="Modéle" tabindex="2">
+                            </div>
                         </div>
                     </div>
-                    <div class="col-xs-12 col-sm-6 col-md-6">
-                        <div class="form-group">
-                            <input type="text" name="modele2" id="modele2" class="form-control input-lg" placeholder="Modéle" tabindex="2">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <input type="text" name="annee2" id="annee2" class="form-control input-lg" placeholder="Année" tabindex="1">
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <input type="text" name="kilometrage2" id="kilometrage2" class="form-control input-lg" placeholder="Kilométrage" tabindex="2">
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-12 col-sm-6 col-md-6">
-                        <div class="form-group">
-                            <input type="text" name="annee2" id="annee2" class="form-control input-lg" placeholder="Année" tabindex="1">
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-6">
-                        <div class="form-group">
-                            <input type="text" name="kilometrage2" id="kilometrage2" class="form-control input-lg" placeholder="Kilométrage" tabindex="2">
-                        </div>
-                    </div>
-                </div>
                     <div class="row">
                         <div class="col-xs-12 col-sm-6 col-md-6">
                             <div class="form-group">

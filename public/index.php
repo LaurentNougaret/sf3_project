@@ -23,6 +23,9 @@ $file = $page . ".php";
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
           crossorigin="anonymous">
     <link rel="stylesheet" href="CSS/main.css">
+    <link rel="stylesheet" href="CSS/account.css">
+    <link rel="stylesheet" href="CSS/account-cars.css">
+    <link rel="stylesheet" href="CSS/account-reviews.css">
     <link rel="stylesheet" href="CSS/scrolling-nav.css">
     <link rel="stylesheet" href="CSS/form.css">
     <link rel="stylesheet" href="CSS/connexion.css">
@@ -65,8 +68,6 @@ $file = $page . ".php";
             case 'cgu':
                 echo 'Caradvisor : conditions générales d\'\utilisation';
                 break;
-            case 'contact':
-                echo 'Caradvisor : contactez-nous';
             case 'account-reviews':
                 echo 'Caradvisor : vos avis';
                 break;
@@ -76,6 +77,7 @@ $file = $page . ".php";
             }
         ?>
     </title>
+    <link rel="icon" type="image/png" href="../public/img/favicon.ico" />
 </head>
 <body>
     <!-- Call header -->
