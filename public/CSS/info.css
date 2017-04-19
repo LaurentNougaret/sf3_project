@@ -1,3 +1,70 @@
 #info {
     margin-top: 100px;
 }
+
+#info .garage .description {
+    margin-top: 2em;
+}
+
+#info .garage .label {
+    background-color: #2d3142 !important;
+}
+
+#info .garage .caption {
+    margin-top: -0.2em;
+    font-size: 25px;
+}
+
+#info .title hr, #info .info hr, #info .reviews .underline {
+    margin-bottom: 5%;
+    border-top: 2px dotted #ff4756;
+}
+
+#info .info {
+    background-color: rgba(191, 192, 192, 0.1);
+    border-radius: 10px;
+    padding: 2% 2%;
+}
+
+#info .reviews {
+    margin-top: -15%;
+}
+
+@media (max-width: 768px) {
+    #info .reviews {
+        margin-top: 0;
+    }
+}
+
+#info .reviews .quote {
+    margin-bottom: 3em;
+}
+
+#info .reviews .review hr {
+    border-top: 2px dotted #bfc0c0;
+    margin: 0 20% 5% 20%;
+}
+
+/* Make google map iframe responsive */
+#info .info .googlemaps {
+    position: relative;
+    padding-bottom: 75%;
+    height: 0;
+    overflow: hidden;
+    margin-bottom: 2em;
+}
+
+#info .info .googlemaps iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* No iframe on mobile or small tablet potrait */
+@media (max-width: 600px) {
+    #info .info .googlemaps {
+        display: none;
+    }
+}

@@ -71,13 +71,16 @@ $file = $page . ".php";
                 echo 'Caradvisor : mentions légales';
                 break;
             case 'cgu':
-                echo 'Caradvisor : conditions générales d\'\utilisation';
+                echo 'Caradvisor : conditions générales d\'utilisation';
                 break;
             case 'account-reviews':
                 echo 'Caradvisor : vos avis';
                 break;
             case 'account-cars':
                 echo 'Caradvisor : vos véhicules';
+                break;
+            case 'info':
+                echo 'Caradvisor : infomartions sur le professionnel';
                 break;
             }
         ?>

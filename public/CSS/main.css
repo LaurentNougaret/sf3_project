@@ -169,7 +169,6 @@ nav li a:focus{
 #slider #quote-carousel .carousel-control {
     background: none;
     color: #222;
-    font-size: 2.3em;
     text-shadow: none;
     margin-top: 30px;
 }
@@ -446,6 +445,7 @@ footer {
     color: #2d3142;
     background-color: #ff4756;
     border: 3px solid #ff4756;
+    outline: none;
 }
 
 .social li {
