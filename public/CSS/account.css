@@ -1,8 +1,8 @@
-.info {
-    margin: 5% ;
+#account {
     margin-top: 90px;
+    margin-bottom: 50px;
 }
 
-.colorgraph {
+#account hr {
     margin-bottom:30px;
 }

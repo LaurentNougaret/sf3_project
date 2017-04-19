@@ -1,7 +1,11 @@
-.list {
-    margin-top: 100px;
-}
-.colorgraph {
-    margin-bottom:30px;
+#account-reviews {
+    margin: 90px auto 50px auto;
 }
 
+.modify-review, .delete-review {
+    margin: 20px auto auto auto;
+}
+
+#account-review hr {
+    margin-bottom:30px;
+}
