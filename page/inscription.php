@@ -107,7 +107,7 @@
                 <!--/ vehicule 2-->
 
                 <div class="row">
-                    <div class="col-xs-8 col-sm-12 col-md-12">
+                    <div id="inscrition-text-footer" class="col-xs-8 col-sm-12 col-md-12">
                        En cliquant sur  <strong class="label label-primary">inscription</strong>,vous acceptez les  <a href="#" data-toggle="modal" data-target="#t_and_c_m">Conditions d'utilisation</a> en vigueur sur ce site, y compris notre politique sur les cookies.
                     </div>
                 </div>

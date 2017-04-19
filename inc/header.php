@@ -18,11 +18,11 @@
             </li>
             <!-- If in index, use the scroll, if not use the link -->
             <?php if($_GET['page'] == "index" || $_GET['page'] == ""): ?>
-                <li>
-                    <a class="page-scroll js-scrollTo" href="#review">Déposer un avis</a>
-                </li>
+            <li>
+                <a class="page-scroll js-scrollTo" href="#review">Déposer un avis</a>
+            </li>
             <?php endif; ?>
-            <?php if($_GET['page'] != "index" and $_GET['page'] != "pro_inscription" and $_GET['page'] != "pro_connection" and $_GET['page'] != "" ): ?>
+            <?php if($_GET['page'] != "index" and $_GET['page'] != "" and $_GET['page'] != "pro_inscription" and $_GET['page'] != "pro_inscription" and $_GET['page'] != "pro_inscription" and $_GET['page'] != "pro_connection"  ): ?>
                 <li>
                     <a class="page-scroll js-scrollTo" href="/?page=index#review">Déposer un avis</a>
                 </li>
@@ -34,9 +34,9 @@
                 </li>
             <?php endif; ?>
             <?php if($_GET['page'] == "index" || $_GET['page'] == "inscription" || $_GET['page'] == ""): ?>
-                <li>
-                    <a href="#"  data-toggle="modal" data-target="#login-modal">Connexion</a>
-                </li>
+            <li>
+                <a href="#"  data-toggle="modal" data-target="#login-modal">Connexion</a>
+            </li>
             <?php endif; ?>
             <?php if ($_GET['page'] == "account-reviews" || $_GET['page'] == "account-cars"): ?>
                 <li>
