@@ -11,8 +11,9 @@
 }
 
 #account-reviews .delete-review, #account-reviews .modify-review  {
-    width: 10em;
+    width: 8em;
     font-size: 20px;
+    margin-left: 4em;
     margin-top: 3em;
     margin-bottom: 1em;
     border-radius: 4px;
@@ -24,7 +25,7 @@
     -webkit-transition: color .2s ease-out, background 0.2s ease-in;
 }
 
-#account-cars .delete-review:hover, #account-cars .modify-review:hover, #account-cars .delete-review:focus, #account-cars .modify-review:focus {
+#account-reviews .delete-review:hover, #account-reviews .modify-review:hover, #account-reviews .delete-review:focus, #account-reviews .modify-review:focus {
     color: #fff;
     background-color: #ff4756;
     outline: none;

@@ -395,6 +395,13 @@ nav li a:focus{
 #values h2 {
     margin-bottom: 3%;
     color: #2d3142;
+    text-align: center;
+}
+
+#values hr {
+    border-top: 1px solid #ff4756;
+    margin-left: 35%;
+    margin-right: 35%;
 }
 
 @media (max-width: 320px) {
@@ -443,7 +450,7 @@ footer {
     background-color: #2d3142;
 }
 .footer h3 {
-    border-bottom: 1px solid #bfc0c0;
+    border-bottom: 1px solid #ff4756;
     color: #bfc0c0;
     font-size: 17px;
     font-weight: 600;
@@ -526,6 +533,7 @@ footer {
     text-decoration: none;
     outline: none;
 }
+
 /*** Bottom-to-top button ***/
 .back-to-top {
     background: none;
