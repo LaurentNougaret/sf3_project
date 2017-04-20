@@ -117,7 +117,7 @@
                     <div class="row">
                         <label class="control-label" for="inscription"></label>
                         <div class="col-xs-12">
-                            <button id="inscription" name="inscription" class="btn btn-primary btn-block center-block">Inscription</button>
+                            <button id="inscription" name="inscription" class="btn btn-primary btn-block center-block" type="submit">Inscription</button>
                         </div>
                     </div>
                 </form>

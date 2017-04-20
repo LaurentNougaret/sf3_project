@@ -160,7 +160,7 @@
         <div class="form-group">
             <label class="col-md-5 control-label" for="saveReviewButton"></label>
             <div class="col-md-4">
-                <button id="saveReviewButton" name="saveReviewButton" class="btn btn-primary">Enregistrer</button>
+                <button id="saveReviewButton" name="saveReviewButton" class="btn btn-primary" type="submit">Enregistrer</button>
             </div>
         </div>
     </fieldset>
