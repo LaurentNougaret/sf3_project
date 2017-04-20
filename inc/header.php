@@ -22,16 +22,16 @@
                 <a class="page-scroll js-scrollTo" href="#review">Déposer un avis</a>
             </li>
             <?php endif; ?>
-            <?php if($_GET['page'] != "index" and $_GET['page'] != "" and $_GET['page'] != "pro_inscription" and $_GET['page'] != "pro_inscription" and $_GET['page'] != "pro_inscription" and $_GET['page'] != "pro_connection"  ): ?>
+            <?php if($_GET['page'] != "index" and $_GET['page'] != "" and $_GET['page'] != "pro_inscription" and $_GET['page'] != "account_pro" and $_GET['page'] != "account_pro_reviews" and $_GET['page'] != "pro_connection"  ): ?>
                 <li>
                     <a class="page-scroll js-scrollTo" href="/?page=index#review">Déposer un avis</a>
                 </li>
             <?php endif; ?>
             <!-- Show inscription btn when on index, or empty url -->
             <?php if($_GET['page'] == "index" || $_GET['page'] == ""): ?>
-                <li>
-                    <a class="page-scroll " href="/?page=inscription">Inscription</a>
-                </li>
+            <li>
+                <a class="page-scroll " href="/?page=inscription">Inscription</a>
+            </li>
             <?php endif; ?>
             <?php if($_GET['page'] == "index" || $_GET['page'] == "inscription" || $_GET['page'] == ""): ?>
             <li>
@@ -53,9 +53,21 @@
                     <a class="page-scroll" href="/?page=account-cars">Vos véhicules</a>
                 </li>
             <?php endif; ?>
+            <?php if ($_GET['page'] != "account_pro" and $_GET['page'] != "account_pro_reviews"): ?>
             <li>
                 <a class="page-scroll" href="/?page=pro_connection">Professionnels</a>
             </li>
+            <?php endif; ?>
+            <?php if ($_GET['page'] == "account_pro"): ?>
+            <li>
+                <a class="page-scroll" href="/?page=account_pro_reviews">Les avis</a>
+            </li>
+            <?php endif; ?>
+            <?php if ($_GET['page'] == "account_pro_reviews"): ?>
+                <li>
+                    <a class="page-scroll" href="/?page=account_pro">Votre profil</a>
+                </li>
+            <?php endif; ?>
         </ul>
     </div>
 </nav>

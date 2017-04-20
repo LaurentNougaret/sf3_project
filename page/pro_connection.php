@@ -26,7 +26,8 @@
                     <hr class="colorgraph">
                     <div class="row" id="btn_pro_connection">
                         <div class="col-xs-6 col-sm-6 col-md-6">
-                            <input type="submit" class="btn btn-lg btn-success btn-block" value="Connexion">
+                         <!-- <input type="submit" class="btn btn-lg btn-success btn-block" value="Connexion">-->
+                            <a href="/?page=account_pro" class="btn btn-lg btn-primary btn-block">Connexion</a>
                         </div>
                         <div class="col-xs-6 col-sm-6 col-md-6">
                             <a href="/?page=pro_inscription" class="btn btn-lg btn-primary btn-block">Inscription</a>
