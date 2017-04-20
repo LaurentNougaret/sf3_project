@@ -79,8 +79,9 @@
                 <button type="button" class="btn btn-primary pull-right save-account">Enregistrer</button>
             </div>
             <div class="col-xs-6 ">
-                <button type="button" class="btn btn-primary delete-account">Supprimer votre profil</button>
+                <button data-toggle="modal" data-target="#delete-account" type="button" class="btn btn-primary delete-account">Supprimer votre profil</button>
             </div>
         </div>
     </div>
 </section>
+<?php include "../inc/modalDeleteAccount.php"?>
