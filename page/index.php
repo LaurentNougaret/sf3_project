@@ -1,6 +1,3 @@
-
-
-
 <!-- Banner -->
 <section id="banner" class="banner">
     <div class="container">
@@ -23,7 +20,7 @@
                 </div>
                 <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-0 col-md-4">
                     <form class="searchbar" action="search.php" method="GET">
-                        <input type="text" class="form-control" name="query" placeholder="Chercher par ville ou code postale"/>
+                        <input type="text" class="form-control" name="query" placeholder="Chercher par ville ou code postal"/>
                     </form>
                 </div>
                 <div class="col-xs-12 col-md-1"><a href="/?page=search"><button type="submit" class="btn btn-primary btn-search center-block">OK</button></a></div>
@@ -144,6 +141,7 @@
 <section id="values">
     <div class="container">
         <h2>Nos valeurs</h2>
+        <hr>
         <div class="row">
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
                 <h3>La confiance</h3>
