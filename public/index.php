@@ -34,6 +34,10 @@ $file = $page . ".php";
     <link rel="stylesheet" href="CSS/info.css">
     <link rel="stylesheet" href="CSS/pro_inscription.css">
     <link rel="stylesheet" href="CSS/pro_connection.css">
+
+    <link rel="stylesheet" href="CSS/account_pro.css">
+    <link rel="stylesheet" href="CSS/account_pro_reviews.css">
+
     <link href="CSS/scrolling-nav.css" rel="stylesheet">
     <link rel="stylesheet" href="CSS/account.css">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
