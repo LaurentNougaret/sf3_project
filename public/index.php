@@ -37,6 +37,7 @@ $file = $page . ".php";
 
     <link rel="stylesheet" href="CSS/account_pro.css">
     <link rel="stylesheet" href="CSS/account_pro_reviews.css">
+    <link rel="stylesheet" href="CSS/modalPro.css">
 
     <link href="CSS/scrolling-nav.css" rel="stylesheet">
     <link rel="stylesheet" href="CSS/account.css">
@@ -126,6 +127,7 @@ $file = $page . ".php";
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
     <script type="text/javascript" src="js/js_inscription.js"></script>
     <script type="text/javascript" src="js/js_modal.js"></script>
+    <script type="text/javascript" src="js/js_modalpro.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
     <script type="text/javascript" src="js/cookieconsent.js"></script>
 </body>

@@ -1,18 +1,17 @@
-
 $(function() {
 
-    var $formLogin = $('#login-form');
-    var $formLost = $('#lost-form');
-    var $divForms = $('#div-forms');
+    var $formLogin = $('#login-pro-form');
+    var $formLost = $('#lost-pro-form');
+    var $divForms = $('#div-pro-forms');
     var $modalAnimateTime = 300;
     var $msgAnimateTime = 150;
     var $msgShowTime = 2000;
 
     $("form").submit(function () {
         switch(this.id) {
-            case "login-form":
-                var $lg_username=$('#login_username').val();
-                var $lg_password=$('#login_password').val();
+            case "login-pro-form":
+                var $lg_username=$('#login_pro_username').val();
+                var $lg_password=$('#login_pro_password').val();
                 if ($lg_username == "ERROR") {
                     msgChange($('#div-login-msg'), $('#icon-login-msg'), $('#text-login-msg'), "error", "glyphicon-remove", "Login error");
                 } else {
@@ -20,7 +19,7 @@ $(function() {
                 }
                 return false;
                 break;
-            case "lost-form":
+            case "lost-pro-form":
                 var $ls_email=$('#lost_email').val();
                 if ($ls_email == "ERROR") {
                     msgChange($('#div-lost-msg'), $('#icon-lost-msg'), $('#text-lost-msg'), "error", "glyphicon-remove", "Send error");
@@ -35,8 +34,9 @@ $(function() {
         return false;
     });
 
-    $('#login_lost_btn').click( function () { modalAnimate($formLogin, $formLost); });
-    $('#lost_login_btn').click( function () { modalAnimate($formLost, $formLogin); });
+    $('#login_pro_lost_btn').click( function () { modalAnimate($formLogin, $formLost); });
+    $('#lost_pro_login_btn').click( function () { modalAnimate($formLost, $formLogin); });
+    $('#lost_pro_register_btn').click( function () { modalAnimate($formLost, $formRegister); });
 
     function modalAnimate ($oldForm, $newForm) {
         var $oldH = $oldForm.height();
@@ -69,3 +69,4 @@ $(function() {
         }, $msgShowTime);
     }
 });
+

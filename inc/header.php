@@ -55,7 +55,7 @@
             <?php endif; ?>
             <?php if ($_GET['page'] != "account_pro" and $_GET['page'] != "account_pro_reviews"): ?>
             <li>
-                <a class="page-scroll" href="/?page=pro_connection">Professionnels</a>
+                <a href="#"  data-toggle="modal" data-target="#login-modal-pro" >Professionnels</a>
             </li>
             <?php endif; ?>
             <?php if ($_GET['page'] == "account_pro"): ?>
@@ -72,3 +72,4 @@
     </div>
 </nav>
 <?php include "modalConnection.php"?>
+<?php include "modalProConnection.php"?>
