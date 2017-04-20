@@ -18,7 +18,7 @@
                         <input id="login_password" class="form-control" type="password" placeholder="Mot de passe" required>
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox"> Se souvenir de moi
+                                <input type="checkbox">Se souvenir de moi
                             </label>
                         </div>
                     </div>
@@ -39,7 +39,7 @@
                     <div class="modal-body">
                         <input id="lost_email" class="form-control" type="text" placeholder="Email" required>
                     </div>
-                    <div class="modal-footer">
+                    <div id="login-btn" class="modal-footer">
                         <div>
                             <button type="submit" class="btn btn-primary btn-lg btn-block btn-conn">Envoyer</button>
                         </div>

@@ -1,7 +1,31 @@
-.list {
-    margin-top: 100px;
+#account-reviews {
+    margin: 90px auto 50px auto;
 }
-.colorgraph {
+
+.modify-review, .delete-review {
+    margin: 20px auto auto auto;
+}
+
+#account-reviews hr {
     margin-bottom:30px;
 }
 
+#account-reviews .delete-review, #account-reviews .modify-review  {
+    width: 10em;
+    font-size: 20px;
+    margin-top: 3em;
+    margin-bottom: 1em;
+    border-radius: 4px;
+    border: 3px solid #ff4756;
+    background-color: #fff;
+    color: #ff4756;
+    -o-transition: color .2s ease-out, background 0.2s ease-in;
+    -moz-transition: color .2s ease-out, background 0.2s ease-in;
+    -webkit-transition: color .2s ease-out, background 0.2s ease-in;
+}
+
+#account-cars .delete-review:hover, #account-cars .modify-review:hover, #account-cars .delete-review:focus, #account-cars .modify-review:focus {
+    color: #fff;
+    background-color: #ff4756;
+    outline: none;
+}

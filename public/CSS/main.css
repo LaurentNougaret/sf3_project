@@ -51,7 +51,7 @@ a:hover {
     font-weight: bold;
     font-size: 18px;
     color: #bfc0c0 !important;
-    padding: 13px 10px;
+    padding: 13px 9px;
 }
 
 .navbar ul li a:hover {
@@ -83,14 +83,20 @@ nav li a:focus{
     top: 0;
     z-index: -1;
     transform: translate3d(0,0,0) scale(1.25);
-    background: url('../img/stock-photo-car.jpg') no-repeat center center; /* a changer pour une imge libre de droits */
+    background: url('../img/stock-photo-car.jpg') no-repeat center center;
     background-size: cover;
+}
+
+@media (max-width: 500px) {
+    #banner {
+        display: none;
+    }
 }
 
 @media  (max-width: 800px){
     #banner .background {
         top: 0;
-        background-position: 75% 50%;
+        background-position: 0 50%;
     }
 }
 /* Loaded image container */
@@ -102,8 +108,26 @@ nav li a:focus{
 4. search
 \**********************************/
 #search {
-    margin-top: 10%;
-    margin-bottom: 10%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+@media (max-width: 500px) {
+    #search {
+        margin-top: 15%;
+    }
+}
+
+#search h2 {
+    margin-bottom: 5%;
+    color: #2d3142;
+}
+
+#search hr {
+    margin-bottom: 5%;
+    border-top: 1px solid #ff4756;
+    margin-left: 35%;
+    margin-right: 35%;
 }
 
 #search .searchbar {
@@ -233,13 +257,20 @@ nav li a:focus{
 
 #review h2 {
     margin-top: 10%;
+    margin-bottom: 5%;
     text-align: center;
-    color:  #BFC0C0;
+    color: #aaabab;
 }
 
 #review h2 span {
     color: #2d3142;
     text-shadow: none;
+}
+
+#review hr {
+    border-top: 1px solid #ff4756;
+    margin-left: 35%;
+    margin-right: 35%;
 }
 
 #review .btn-block {
@@ -272,9 +303,14 @@ nav li a:focus{
     color: #BFC0C0;
 }
 
-#review .needconnect a:link {
-    color: #BFC0C0;
+#review .needconnect a {
+    color: #bfc0c0;
     text-decoration: underline;
+}
+
+#review .needconnect a:hover, #review .needconnect a:focus {
+    color: #2d3142;
+    outline: none;
 }
 
 @media (min-width: 320px) and (max-width: 479px) {
@@ -358,6 +394,7 @@ nav li a:focus{
 
 #values h2 {
     margin-bottom: 3%;
+    color: #2d3142;
 }
 
 @media (max-width: 320px) {

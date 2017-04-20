@@ -1,0 +1,114 @@
+#pro_connection {
+    margin-top: 10%
+}
+
+.glyphicon.glyphicon-warning-sign {
+    padding: 10px;
+}
+
+
+
+#fieldset_pro_inscription {
+    margin-bottom: 20%;
+}
+
+#btn_pro_connection input.btn.btn-lg.btn-success.btn-block {
+    width: 10em;
+    font-size: 20px;
+    margin-top: 3em;
+    margin-bottom: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 4px;
+    border: 3px solid #ff4756;
+    background-color: #fff;
+    color: #ff4756;
+    -o-transition: color .2s ease-out, background 0.2s ease-in;
+    -moz-transition: color .2s ease-out, background 0.2s ease-in;
+    -webkit-transition: color .2s ease-out, background 0.2s ease-in;
+}
+
+#btn_pro_connection input.btn.btn-lg.btn-success.btn-block:hover, #btn_pro_connection input.btn.btn-lg.btn-success.btn-block:focus {
+    color: #fff;
+    background-color: #ff4756;
+    outline: none;
+}
+
+#fieldset_pro_inscription a.btn.btn-lg.btn-primary.btn-block {
+
+    width: 10em;
+    font-size: 20px;
+    margin-top: 3em;
+    margin-bottom: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 4px;
+    border: 3px solid #ff4756;
+    background-color: #fff;
+    color: #ff4756;
+    -o-transition: color .2s ease-out, background 0.2s ease-in;
+    -moz-transition: color .2s ease-out, background 0.2s ease-in;
+    -webkit-transition: color .2s ease-out, background 0.2s ease-in;
+
+}
+
+#fieldset_pro_inscription a.btn.btn-lg.btn-primary.btn-block:hover, #fieldset_pro_inscription a.btn.btn-lg.btn-primary.btn-block:focus {
+    color: #fff;
+    background-color: #ff4756;
+    outline: none;
+}
+
+#fieldset_pro_inscription button {
+    border-color: white;
+    background-color: white;
+}
+
+#fieldset_pro_inscription button:focus {
+    outline-style: none;
+}
+#fieldset_pro_inscription a.btn.btn-link.pull-right {
+    color: #000;
+    font-weight: normal!important;
+}
+
+#fieldset_pro_inscription a.btn.btn-link.pull-right:focus, #fieldset_pro_inscription a.btn-link.pull-right:hover {
+    text-decoration: none!important;
+    color: black!important;
+    outline: none;
+}
+
+#fieldset_pro_inscription label {
+    font-weight: normal;
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+    #btn_pro_connection a.btn.btn-lg.btn-primary.btn-block, #btn_pro_connection input.btn.btn-lg.btn-success.btn-block {
+
+        width: 9em;
+        font-size: 15px;
+        margin-top: 3em;
+        margin-bottom: 1em;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 2px;
+        border: 3px solid #ff4756;
+        background-color: #fff;
+        color: #ff4756;
+        -o-transition: color .2s ease-out, background 0.2s ease-in;
+        -moz-transition: color .2s ease-out, background 0.2s ease-in;
+        -webkit-transition: color .2s ease-out, background 0.2s ease-in;
+
+    }
+
+}
+
+@media (max-width: 365px) {
+    #remember button , #remember a {
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+        float: none !important;
+
+
+    }
+}
