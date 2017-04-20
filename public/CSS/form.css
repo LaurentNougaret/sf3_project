@@ -1,9 +1,9 @@
-.reviewform {
+.forms .reviewform {
     margin-top: 10%;
     margin-bottom: 10%;
 }
 
-.reviewform .btn-block {
+.forms .reviewform .btn-block {
     font-size: 14px;
     margin-top: 3em;
     margin-bottom: 1em;
@@ -18,72 +18,64 @@
     -webkit-transition:color .2s ease-out, background 0.2s ease-in;
 }
 
-.reviewform .btn-block:hover{
+.forms .reviewform .btn-block:hover{
     color: #fff;
     background-color: #ff4756;
 }
 
-.reviewform .btn-block:focus, .btn-block:active {
+.forms .reviewform .btn-block:focus, .forms .btn-block:active {
     outline: none !important;
     border: 3px solid #ff4756 !important;
 }
 
-.reviewform .bloc {
+.forms .reviewform .bloc {
     margin-top: 5%;
     background-color: rgba(191, 192, 192, 0.05);
     border-radius: 10px;
     padding: 2% 0;
 }
 
-.reviewform .bloc hr {
+.forms .reviewform .bloc hr {
     margin-bottom: 5%;
-    border-top: 2px dotted #ff4756;
+    border-top: 1px solid #ff4756;
     margin-left: 20%;
     margin-right:20%;
 }
 
-.reviewform .rating-container .caption {
+.forms .reviewform .rating-container .caption {
     margin-top: -0.1em;
 }
 
-.reviewform .rating-md {
+.forms .reviewform .rating-md {
     margin-top: -20px;
 }
 
-.reviewform .empty-stars img {
+.forms .reviewform .empty-stars img {
     opacity: .5;
 }
 
-.reviewform .label {
-    background-color: #2d3142 !important;
-}
-
-.reviewform .help-block {
+.forms .reviewform .help-block {
     margin: 0;
 }
 
-.reviewform .agree {
+.forms .reviewform .agree {
     font-size: 12px;
     margin-top: -10px;
 }
 
-.reviewform #saveReviewButton {
+.forms .reviewform #saveReviewButton {
     margin-top: 0;
 }
 
-@media (max-width: 600px) {
-
-}
-
 @media (max-width: 768px) {
-    .reviewform .title {
+    .forms .reviewform .title {
         margin-bottom: 1em;
     }
-    .reviewform .form-group {
+    .forms .reviewform .form-group {
         margin-left: 2%;
         margin-right: 2%;
     }
-    .reviewform .btn-block {
+    .forms .reviewform .btn-block {
         margin-top: 1em;
         margin-bottom: 1em;
     }
@@ -94,6 +86,7 @@
 .contactPage {
     margin: 10% auto;
 }
+
 .contactWelcomePhrase {
     text-align: center;
     margin-bottom: 40px;

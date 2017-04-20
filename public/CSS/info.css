@@ -6,10 +6,6 @@
     margin-top: 2em;
 }
 
-#info .garage .label {
-    background-color: #2d3142 !important;
-}
-
 #info .garage .caption {
     margin-top: -0.2em;
     font-size: 25px;
@@ -17,7 +13,7 @@
 
 #info .title hr, #info .info hr, #info .reviews .underline {
     margin-bottom: 5%;
-    border-top: 2px dotted #ff4756;
+    border-top: 1px solid #ff4756;
 }
 
 #info .info {
@@ -41,7 +37,7 @@
 }
 
 #info .reviews .review hr {
-    border-top: 2px dotted #bfc0c0;
+    border-top: 1px solid #bfc0c0;
     margin: 0 20% 5% 20%;
 }
 
