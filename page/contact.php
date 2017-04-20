@@ -1,33 +1,34 @@
-<div class="container contactPage">
+<section id="contactPage">
+<div class="container">
     <div class="row">
-        <h2 class="text-center">Contactez-nous</h2>
+        <h1 class="text-center">Contactez-nous</h1>
         <hr>
         <h4 class="contactWelcomePhrase"> Vous avez des questions, des suggestions ou des demandes? Envoyez-nous un message!</h4>
-        <div class="col-xs-10 col-xs-offset-1 col-md-6 offset-md-3">
+        <div class="col-xs-10 col-xs-offset-1 col-md-5 offset-md-3">
             <form action="" method="post" role="form" class="form-horizontal formContact">
                 <fieldset>
                     <div class="form-group">
-                        <label for="surname">Nom</label>
+                        <label for="surname"></label>
                             <input class="form-control" name="surname" id="surname" placeholder="Nom" type="text">
                     </div>
                     <!-- Text area - Title of message -->
                     <div class="form-group">
-                        <label for="name">Prénom</label>
+                        <label for="name"></label>
                             <input class="form-control" name="name" id="name" placeholder="Prénom" type="text">
                     </div>
                     <!-- Text area - E-mail -->
                     <div class="form-group">
-                        <label for="email">E-mail</label>
+                        <label for="email"></label>
                             <input class="form-control" name="email" id="email" placeholder="E-mail" type="email">
                     </div>
                     <!-- Text area - Subject of the message -->
                     <div class="form-group">
-                        <label for="subject">Objet</label>
+                        <label for="subject"></label>
                             <input class="form-control" name="subject" id="subject" placeholder="Objet" type="text">
                     </div>
                     <!-- Text area - Write message -->
                     <div class="form-group">
-                        <label for="contactForm">Message</label>
+                        <label for="contactForm"></label>
                             <textarea class="form-control" id="contactForm" name="contactForm" rows="8" placeholder="Laissez votre message"></textarea>
                     </div>
                     <!-- Button - Save review -->
@@ -38,8 +39,8 @@
                 </fieldset>
             </form>
         </div>
-        <div class="col-xs-12 col-md-3">
-            <div class="formContactDivAddress">
+        <div class="col-xs-12 col-md-6">
+            <div class="formContactDivAddress"><br>
                 <h4> CarAdvisor </h4>
                 <address>
                     Siège social
@@ -54,4 +55,4 @@
         </div>
     </div>
 </div>
-
+</section>
