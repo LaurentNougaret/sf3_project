@@ -10,7 +10,7 @@
 <!-- / Banner -->
 
 <!-- Search -->
-<section id="search">
+<section id="searchEngine">
     <div class="container">
         <h2 class="text-center">Trouvez votre professionnel de l'automobile</h2>
         <hr>
