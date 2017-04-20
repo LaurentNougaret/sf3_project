@@ -313,7 +313,7 @@ nav li a:focus{
 @media (min-width: 320px) and (max-width: 479px) {
 
     #review h2 {
-        color: black;
+        color: #aaabab;
         text-transform: uppercase;
         font-size: 25px;
     }
