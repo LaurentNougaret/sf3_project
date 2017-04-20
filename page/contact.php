@@ -8,39 +8,39 @@
             <form action="" method="post" role="form" class="form-horizontal formContact">
                 <fieldset>
                     <div class="form-group">
-                        <label for="surname"></label>
+                        <label for="surname" class="visuallyhidden"></label>
                             <input class="form-control" name="surname" id="surname" placeholder="Nom" type="text">
                     </div>
                     <!-- Text area - Title of message -->
                     <div class="form-group">
-                        <label for="name"></label>
+                        <label for="name" class="visuallyhidden"></label>
                             <input class="form-control" name="name" id="name" placeholder="Prénom" type="text">
                     </div>
                     <!-- Text area - E-mail -->
                     <div class="form-group">
-                        <label for="email"></label>
+                        <label for="email" class="visuallyhidden"></label>
                             <input class="form-control" name="email" id="email" placeholder="E-mail" type="email">
                     </div>
                     <!-- Text area - Subject of the message -->
                     <div class="form-group">
-                        <label for="subject"></label>
+                        <label for="subject" class="visuallyhidden"></label>
                             <input class="form-control" name="subject" id="subject" placeholder="Objet" type="text">
                     </div>
                     <!-- Text area - Write message -->
                     <div class="form-group">
-                        <label for="contactForm"></label>
+                        <label for="contactForm" class="visuallyhidden"></label>
                             <textarea class="form-control" id="contactForm" name="contactForm" rows="8" placeholder="Laissez votre message"></textarea>
                     </div>
                     <!-- Button - Save review -->
                     <div class="form-group">
-                        <label for="sendMessageButton"></label>
+                        <label for="sendMessageButton" class="visuallyhidden"></label>
                             <button id="sendMessageButton" name="sendMessageButton" class="btn sendMessageButton center-block">Envoyer</button>
                     </div>
                 </fieldset>
             </form>
         </div>
-        <div class="col-xs-12 col-md-6">
-            <div class="formContactDivAddress"><br>
+        <div class="col-xs-12 col-md-5">
+            <div class="formContactDivAddress">
                 <h4> CarAdvisor </h4>
                 <address>
                     Siège social
