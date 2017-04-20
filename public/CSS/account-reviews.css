@@ -1,14 +1,17 @@
-#account {
-    margin-top: 90px;
-    margin-bottom: 50px;
+#account-reviews {
+    margin: 90px auto 50px auto;
 }
 
-#account hr {
+.modify-review, .delete-review {
+    margin: 20px auto auto auto;
+}
+
+#account-reviews hr {
     margin-bottom:30px;
 }
 
-#account .save-account, #account .delete-account  {
-    width: 12em;
+#account-reviews .delete-review, #account-reviews .modify-review  {
+    width: 10em;
     font-size: 20px;
     margin-top: 3em;
     margin-bottom: 1em;
@@ -21,7 +24,7 @@
     -webkit-transition: color .2s ease-out, background 0.2s ease-in;
 }
 
-#account .save-account:hover, #account .delete-account:hover, #account .save-account:focus, #account .delete-account:focus {
+#account-cars .delete-review:hover, #account-cars .modify-review:hover, #account-cars .delete-review:focus, #account-cars .modify-review:focus {
     color: #fff;
     background-color: #ff4756;
     outline: none;

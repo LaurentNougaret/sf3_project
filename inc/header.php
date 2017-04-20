@@ -1,3 +1,4 @@
+<!-- Navigation -->
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="navbar-header page-scroll">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -17,9 +18,9 @@
             </li>
             <!-- If in index, use the scroll, if not use the link -->
             <?php if($_GET['page'] == "index" || $_GET['page'] == ""): ?>
-                <li>
-                    <a class="page-scroll js-scrollTo" href="#review">Déposer un avis</a>
-                </li>
+            <li>
+                <a class="page-scroll js-scrollTo" href="#review">Déposer un avis</a>
+            </li>
             <?php endif; ?>
             <?php if($_GET['page'] != "index" and $_GET['page'] != "" and $_GET['page'] != "pro_inscription" and $_GET['page'] != "pro_inscription" and $_GET['page'] != "pro_inscription" and $_GET['page'] != "pro_connection"  ): ?>
                 <li>
@@ -33,8 +34,23 @@
                 </li>
             <?php endif; ?>
             <?php if($_GET['page'] == "index" || $_GET['page'] == "inscription" || $_GET['page'] == ""): ?>
+            <li>
+                <a href="#"  data-toggle="modal" data-target="#login-modal">Connexion</a>
+            </li>
+            <?php endif; ?>
+            <?php if ($_GET['page'] == "account-reviews" || $_GET['page'] == "account-cars"): ?>
                 <li>
-                    <a href="#"  data-toggle="modal" data-target="#login-modal">Connexion</a>
+                    <a class="page-scroll" href="/?page=account">Votre profil</a>
+                </li>
+            <?php endif; ?>
+            <?php if ($_GET['page'] == "account-cars" || $_GET['page'] == "account"): ?>
+                <li>
+                    <a class="page-scroll" href="/?page=account-reviews">Vos avis</a>
+                </li>
+            <?php endif; ?>
+            <?php if ($_GET['page'] == "account" || $_GET['page'] == "account-reviews"): ?>
+                <li>
+                    <a class="page-scroll" href="/?page=account-cars">Vos véhicules</a>
                 </li>
             <?php endif; ?>
             <li>

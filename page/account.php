@@ -1,11 +1,12 @@
-<div class="container">
+<section id="account">
+    <div class="container">
     <form role="form" class="info">
         <div class="row text-center">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <h3>Votre profil</h3>
             </div>
        </div>
-        <hr class="colorgraph">
+        <hr>
         <div class="row">
             <div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-2 ">
                 <div class="form-group">
@@ -74,8 +75,12 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xs-2 col-xs-offset-4 col-sm-2 col-sm-offset-5">
-                <button type="button" class="btn btn-primary">Enregistrer</button>
+            <div class="col-xs-6 ">
+                <button type="button" class="btn btn-primary pull-right save-account">Enregistrer</button>
+            </div>
+            <div class="col-xs-6 ">
+                <button type="button" class="btn btn-primary delete-account">Supprimer votre profil</button>
             </div>
         </div>
-</div>
+    </div>
+</section>
