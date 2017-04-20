@@ -125,7 +125,7 @@
     margin: 5% 35%;
     border-top: 1px solid #ff4756;
 }
-.visuallyhidden {
+#contactPage .visuallyhidden {
     border: 0;
     clip: rect(0 0 0 0);
     height: 1px;

@@ -124,5 +124,6 @@ $file = $page . ".php";
     <script type="text/javascript" src="js/js_modal.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
     <script type="text/javascript" src="js/cookieconsent.js"></script>
+    <script type="text/javascript" src="js/alerts.js"></script>
 </body>
 </html>

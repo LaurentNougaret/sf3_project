@@ -34,7 +34,7 @@
                     <!-- Button - Save review -->
                     <div class="form-group">
                         <label for="sendMessageButton" class="visuallyhidden"></label>
-                            <button id="sendMessageButton" name="sendMessageButton" class="btn sendMessageButton center-block">Envoyer</button>
+                            <button type="submit" id="sendMessageButton" name="sendMessageButton" class="btn sendMessageButton center-block">Envoyer</button>
                     </div>
                 </fieldset>
             </form>
