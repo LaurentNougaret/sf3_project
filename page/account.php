@@ -75,8 +75,11 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xs-12">
-                <button type="button" class="btn btn-primary center-block">Enregistrer</button>
+            <div class="col-xs-6 ">
+                <button type="button" class="btn btn-primary pull-right save-account">Enregistrer</button>
+            </div>
+            <div class="col-xs-6 ">
+                <button type="button" class="btn btn-primary delete-account">Supprimer votre profil</button>
             </div>
         </div>
     </div>
