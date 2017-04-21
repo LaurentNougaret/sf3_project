@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 text-center">
-                <h3><span class="glyphicon glyphicon-warning-sign"></span>Cette section du site est strictement reservée aux professionnels de l'automobile<span class="glyphicon glyphicon-warning-sign"></span></h3>
+                <h3 class="pro_account">ACCES PROFESSIONNELS</h3>
             </div>
             <div class="row">
                 <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3 bloc">
@@ -98,7 +98,7 @@
                             </div>
                         </div>
                     </form>
-                    <div class="form-group required col-xs-12 text-center">
+                    <div class="form-group required col-xs-12 text-center update-photo">
                         <label class=" control-label" for="filebutton">Ajouter une photo de votre établissement </label>
                         <div>
                             <input id="filebutton" name="filebutton" class="input-file center-block" type="file">

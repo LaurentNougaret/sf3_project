@@ -42,6 +42,14 @@
     -webkit-transition: color .2s ease-out, background 0.2s ease-in;
 }
 
+#signup .bloc #inscription a {
+    color: #ff4756;
+}
+
+#signup .bloc #inscription a:hover {
+    color: #fff;
+}
+
 #signup .bloc #inscription:hover, .bloc #inscription:focus {
     color: #fff;
     background-color: #ff4756;

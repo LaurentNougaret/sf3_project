@@ -2,7 +2,7 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-12 text-center">
-            <h3><span class="glyphicon glyphicon-warning-sign"></span>Cette section du site est strictement reservée aux professionnels de l'automobile<span class="glyphicon glyphicon-warning-sign"></span></h3>
+            <h3 class="access">ACCES PROFESSIONNELS</span></h3>
         </div>
         <div class="row">
             <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3 bloc">
@@ -98,7 +98,7 @@
                         </div>
                     </div>
                 </form>
-                <div class="form-group required col-xs-12 text-center">
+                <div class="form-group required col-xs-12 text-center update-photo">
                     <label class=" control-label" for="filebutton">Ajouter une photo de votre établissement </label>
                     <div>
                         <input id="filebutton" name="filebutton" class="input-file center-block" type="file">
@@ -106,11 +106,11 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div id="inscrition-text-footer" class="col-xs-8 col-sm-12 col-md-12">
+                    <div id="inscription-text-footer" class="col-xs-8 col-sm-12 col-md-12">
                         En cliquant sur  <strong>Inscription</strong>,vous acceptez les  <a href="#" data-toggle="modal" data-target="#t_and_c_m">Conditions d'utilisation</a> en vigueur sur ce site, y compris notre politique sur les cookies.
                     </div>
                 </div>
-            <button id="inscription" name="inscription" class="btn btn-primary btn-block center-block inscription-pro-btn">Inscription</button>
+                <a href="/?page=index"><button id="inscription" name="inscription" class="btn btn-primary btn-block center-block inscription-pro-btn" type="button">Inscription</button></a>
             </div>
         </div>
     </div>

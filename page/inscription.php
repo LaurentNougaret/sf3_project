@@ -130,7 +130,7 @@
                     <div class="row">
                         <label class="control-label" for="inscription"></label>
                         <div class="col-xs-12">
-                            <button id="inscription" name="inscription" class="btn btn-primary btn-block center-block" type="submit">Inscription</button>
+                            <button id="inscription" name="inscription" class="btn btn-primary btn-block center-block" type="submit"><a href="/?page=index">Inscription</a></button>
                         </div>
                     </div>
                 </form>

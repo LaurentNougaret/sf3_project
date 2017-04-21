@@ -26,7 +26,7 @@
                     </div>
                     <div class="modal-footer">
                         <div>
-                            <button type="submit" class="btn btn-conn btn-primary btn-lg btn-block">Connexion</button>
+                            <a href="/?page=account"><button type="button" class="btn btn-conn btn-primary btn-lg btn-block">Connexion</button></a>
                         </div>
                         <div class="text-center">
                             <button id="login_lost_btn" type="button" class="btn btn-link">Mot de passe oublié?</button>

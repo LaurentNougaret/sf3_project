@@ -1,5 +1,5 @@
 .pro {
-    margin-top: 10%
+    margin-top: 7%
 }
 
 .pro .visuallyhidden {
@@ -12,8 +12,13 @@
     position: absolute;
     width: 1px;
 }
+.pro .access {
+    color: #ff4756;
+}
 
 .pro hr {
+    margin-top: 8%;
+    margin-bottom: 8%;
     border: 1px solid #ff4756;
 }
 
@@ -35,4 +40,16 @@
     color: #fff;
     background-color: #ff4756;
     outline: none;
+}
+
+.pro .inscription-pro-btn a {
+    color: #ff4756;
+}
+
+.pro .inscription-pro-btn a:hover {
+    color: #fff;
+}
+
+.pro .update-photo {
+    margin-top: 5%;
 }

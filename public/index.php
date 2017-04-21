@@ -33,7 +33,6 @@ $file = $page . ".php";
     <link rel="stylesheet" href="CSS/search.css">
     <link rel="stylesheet" href="CSS/info.css">
     <link rel="stylesheet" href="CSS/pro_inscription.css">
-    <link rel="stylesheet" href="CSS/pro_connection.css">
 
     <link rel="stylesheet" href="CSS/account_pro.css">
     <link rel="stylesheet" href="CSS/account_pro_reviews.css">
@@ -51,10 +50,10 @@ $file = $page . ".php";
                 echo 'Caradvisor : le site de comparaison des services de l\'automobile';
                 break;
             case 'inscription':
-                echo 'Caradvisor : Inscrivez-vous';
+                echo 'Caradvisor : inscrivez-vous';
                 break;
             case 'search':
-                echo 'Caradvisor : rechercher votre professionnel';
+                echo 'Caradvisor : recherchez votre professionnel';
                 break;
             case 'form_review_sale_new':
                 echo 'Caradvisor : déposez votre avis Achat neuf';
@@ -84,7 +83,7 @@ $file = $page . ".php";
                 echo 'Caradvisor : vos véhicules';
                 break;
             case 'info':
-                echo 'Caradvisor : infomartions sur le professionnel';
+                echo 'Caradvisor : informations sur le professionnel';
                 break;
             }
         ?>

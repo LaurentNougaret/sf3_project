@@ -19,12 +19,12 @@
             <!-- If in index, use the scroll, if not use the link -->
             <?php if($_GET['page'] == "index" || $_GET['page'] == ""): ?>
             <li>
-                <a class="page-scroll js-scrollTo" id="menu-review" href="#review">Déposer un avis</a>
+                <a class="page-scroll js-scrollTo" id="menu-review" href="#review">Déposez un avis</a>
             </li>
             <?php endif; ?>
             <?php if($_GET['page'] != "index" and $_GET['page'] != "" and $_GET['page'] != "pro_inscription" and $_GET['page'] != "account_pro" and $_GET['page'] != "account_pro_reviews" and $_GET['page'] != "pro_connection"  ): ?>
                 <li>
-                    <a class="page-scroll js-scrollTo" href="/?page=index#review">Déposer un avis</a>
+                    <a class="page-scroll js-scrollTo" href="/?page=index#review">Déposez un avis</a>
                 </li>
             <?php endif; ?>
             <!-- Show inscription btn when on index, or empty url -->
@@ -35,7 +35,7 @@
             <?php endif; ?>
             <?php if($_GET['page'] == "index" || $_GET['page'] == "inscription" || $_GET['page'] == ""): ?>
             <li>
-                <a href="#"  data-toggle="modal" data-target="#login-modal">Connexion</a>
+                <a href="#"  data-toggle="modal" data-target="#login-modal">Connection</a>
             </li>
             <?php endif; ?>
             <?php if ($_GET['page'] == "account-reviews" || $_GET['page'] == "account-cars"): ?>
@@ -55,7 +55,7 @@
             <?php endif; ?>
             <?php if ($_GET['page'] != "account_pro" and $_GET['page'] != "account_pro_reviews"): ?>
             <li>
-                <a class="page-scroll" href="/?page=pro_connection">Professionnels</a>
+                <a class="page-scroll" href="/?page=pro_connection">Accès professionnels</a>
             </li>
             <?php endif; ?>
             <?php if ($_GET['page'] == "account_pro"): ?>

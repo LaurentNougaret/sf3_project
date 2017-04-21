@@ -1,5 +1,9 @@
-#account-pro {
-    margin-top: 10%;
+.pro {
+    margin-top: 6%;
+}
+
+.pro .pro_account {
+    color: #ff4756;
 }
 
 .pro .row {
@@ -7,7 +11,7 @@
     margin-right: auto;
 }
 
-#account-pro .save-pro-btn {
+.pro .save-pro-btn {
     width: 9em;
     font-size: 20px;
     margin-top: 1em;
@@ -23,14 +27,18 @@
     -webkit-transition: color .2s ease-out, background 0.2s ease-in;
 }
 
-#account-pro .save-pro-btn:hover, #account-pro .save-pro-btn:focus {
+.pro .save-pro-btn:hover, .pro .save-pro-btn:focus {
         color: #fff;
         background-color: #ff4756;
         outline: none;
 }
 
+.pro .update-photo {
+    margin-top: 5%;
+}
+
 @media (min-width: 320px) and (max-width: 480px) {
-    #account-pro .save-pro-btn {
+    .pro .save-pro-btn {
 
         width: 9em;
         font-size: 15px;
