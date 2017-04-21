@@ -36,10 +36,8 @@ $file = $page . ".php";
     <link rel="stylesheet" href="CSS/inscription.css">
     <link rel="stylesheet" href="CSS/search.css">
     <link rel="stylesheet" href="CSS/info.css">
-    <link rel="stylesheet" href="CSS/pro_inscription.css">
-    <link rel="stylesheet" href="CSS/pro_connection.css">
+    <link rel="stylesheet" href="CSS/pro.css">
     <link rel="stylesheet" href="CSS/scrolling-nav.css">
-    <link rel="stylesheet" href="CSS/account.css">
     <!-- External CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
           integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -130,6 +128,7 @@ $file = $page . ".php";
     <script type="text/javascript" src="js/scrolling-nav.js"></script>
     <script type="text/javascript" src="js/js_inscription.js"></script>
     <script type="text/javascript" src="js/js_modal.js"></script>
+    <script type="text/javascript" src="js/js_modalpro.js"></script>
     <script type="text/javascript" src="js/cookieconsent.js"></script>
     <script type="text/javascript" src="js/alerts.js"></script>
 </body>

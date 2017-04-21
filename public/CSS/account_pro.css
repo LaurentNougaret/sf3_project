@@ -1,0 +1,48 @@
+#account-pro {
+    margin-top: 10%;
+}
+
+#account-pro.row {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#account-pro .visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+#account-pro .save-pro-btn, #account-pro .delete-pro-btn {
+    width: 12em;
+    font-size: 20px;
+    margin-bottom: 3em;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 4px;
+    border: 3px solid #ff4756;
+    background-color: #fff;
+    color: #ff4756;
+    -o-transition: color .2s ease-out, background 0.2s ease-in;
+    -moz-transition: color .2s ease-out, background 0.2s ease-in;
+    -webkit-transition: color .2s ease-out, background 0.2s ease-in;
+}
+
+#account-pro .save-pro-btn:hover, #account-pro .save-pro-btn:focus, #account-pro .delete-pro-btn:hover, #account-pro .delete-pro-btn:focus {
+        color: #fff;
+        background-color: #ff4756;
+        outline: none;
+}
+
+
+
+@media (max-width: 768px) {
+    #account-pro .save-pro-btn {
+        margin-bottom: 1em;
+    }
+}
