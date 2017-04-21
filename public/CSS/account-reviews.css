@@ -2,7 +2,7 @@
     margin: 90px auto 50px auto;
 }
 
-.modify-review, .delete-review {
+#account-reviews .modify-review, .delete-review {
     margin: 20px auto auto auto;
 }
 
