@@ -32,20 +32,16 @@
     outline: none;
 }
 
-.modal-footer .btn-link {
-    color : #bfc0c0;
-}
-
 .modal-footer #login_lost_btn:hover, .modal-footer #login_register_btn:hover, .modal-footer #lost_login_btn:hover,
-.modal-footer #login_lost_btn:focus, .modal-footer #login_register_btn:focus, .modal-footer #lost_login_btn:focus
-.modal-footer #login_pro_lost_btn:hover, .modal-footer #login_pro_register_btn:hover, #lost_pro_login_btn:hover,
-.modal-footer #login_pro_lost_btn:hover, .modal-footer #login_pro_register_btn:hover, #lost_pro_login_btn:focus {
+.modal-footer #login_lost_btn:focus, .modal-footer #login_register_btn:focus, .modal-footer #lost_login_btn:focus,
+.modal-footer #login_pro_lost_btn:hover, .modal-footer #login_pro_register_btn:hover, .modal-footer #lost_pro_login_btn:hover,
+.modal-footer #login_pro_lost_btn:hover, .modal-footer #login_pro_register_btn:hover, .modal-footer #lost_pro_login_btn:focus {
     text-decoration: none !important;
     color: gray;
 }
 
 .modal-footer #login_lost_btn, .modal-footer #login_register_btn, .modal-footer #lost_login_btn,
-#login_pro_lost_btn, #login_pro_register, #lost_pro_login_btn {
+.modal-footer #login_pro_lost_btn, .modal-footer #login_pro_register_btn, .modal-footer #lost_pro_login_btn {
     color: black;
     outline: none!important;
 }
