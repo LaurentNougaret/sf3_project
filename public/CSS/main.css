@@ -18,7 +18,9 @@ a:hover {
 /**********************************\
 1. font
 \**********************************/
-
+body {
+    font-family: 'Roboto', sans-serif;
+}
 /**********************************\
 2. navbar
 \**********************************/
@@ -26,6 +28,7 @@ a:hover {
 .navbar {
     background-color: #2d3142 !important;
     border: 1px solid #2d3142;
+    letter-spacing: 1px;
 }
 
 .navbar .navbar-toggle {
@@ -39,8 +42,8 @@ a:hover {
 }
 
 .navbar img {
-    height: 130%;
-    width: 90%;
+    height: 150%;
+    width: 105%;
 }
 
 .navbar ul {
@@ -387,6 +390,7 @@ nav li a:focus{
 #values {
     margin-top: 3%;
     margin-bottom: 3%;
+    font-family: 'Roboto', sans-serif;
 }
 
 #values h2 {
@@ -445,6 +449,7 @@ footer {
     padding-top: 10px;
     padding-bottom: 30px;
     background-color: #2d3142;
+    font-family: 'Roboto', sans-serif;
 }
 .footer h3 {
     border-bottom: 1px solid #ff4756;
