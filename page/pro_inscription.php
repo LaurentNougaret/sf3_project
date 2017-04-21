@@ -2,12 +2,12 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-12 text-center">
-            <h3 class="access">ACCES PROFESSIONNELS</span></h3>
+            <h2 class="pro_account">ACCES PROFESSIONNELS</h2>
         </div>
         <div class="row">
             <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3 bloc">
                 <form role="form">
-                    <h3 class="text-center">Inscription</h3>
+                    <h2 class="text-center">Inscription</h2>
                     <hr>
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">

@@ -1,5 +1,9 @@
 .pro {
-    margin-top: 10%
+    margin-top: 6%
+}
+
+.pro .pro_account {
+    color: #ff4756;
 }
 
 .pro .visuallyhidden {
@@ -41,7 +45,6 @@
 }
 
 .pro .inscription-pro-btn, .pro .save-pro-btn, .pro .delete-pro-btn {
-    width: 12em;
     font-size: 20px;
     margin-bottom: 3em;
     margin-left: auto;
@@ -55,7 +58,12 @@
     -webkit-transition: color .2s ease-out, background 0.2s ease-in;
 }
 
+.pro .save-pro-btn, .pro .delete-pro-btn {
+    width: 11em;
+}
+
 .pro .inscription-pro-btn {
+    width: 12em;
     margin-top: 5%;
 }
 
@@ -68,6 +76,10 @@
     background-color: #ff4756;
     outline: none;
     border: 3px solid #ff4756;
+}
+
+.pro .update-photo {
+    margin-top: 5%;
 }
 
 @media (max-width: 768px) {

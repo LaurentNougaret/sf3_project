@@ -2,7 +2,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header" align="center">
-                <img id="img_logo" src="img/logo.png">
+                <img id="img_logo" src="img/logo/logo.png">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                 </button>
@@ -12,9 +12,11 @@
                 <!-- Begin # Login Form -->
                 <form id="login-pro-form">
                     <div class="modal-body">
+                        <label for="login_pro_username" class="visuallyhidden"></label>
                         <input id="login_pro_username" class="form-control" type="text" placeholder="Nom d'utilisateur" required>
+                        <label for="login_pro_password" class="visuallyhidden"></label>
                         <input id="login_pro_password" class="form-control" type="password" placeholder="Mot de passe" required>
-                        <div class="checkbox">
+                        <div class="checkbox text-center">
                             <label>
                                 <input type="checkbox">Se souvenir de moi
                             </label>
@@ -22,11 +24,11 @@
                     </div>
                     <div class="modal-footer">
                         <div>
-                            <button type="submit" class="btn btn-conn btn-primary btn-lg btn-block">Connexion</button>
+                            <a href="/?page=pro_account"><button type="button" class="btn btn-conn btn-primary btn-lg btn-block">Connexion</button></a>
                         </div>
-                        <div>
+                        <div class="text-center">
                             <button id="login_pro_lost_btn" type="button" class="btn btn-link">Mot de passe oublié?</button>
-                            <a href="/?page=pro_inscription" <button id="login_pro_register_btn" type="button" class="btn btn-link">Inscription</button></a>
+                            <a href="/?page=pro_inscription"><button id="login_pro_register_btn" type="button" class="btn btn-link">Inscription</button></a>
                         </div>
                     </div>
                 </form>
@@ -38,10 +40,10 @@
                         <input id="lost_pro_email" class="form-control" type="text" placeholder="Email" required>
                     </div>
                     <div id="login-pro-btn" class="modal-footer">
-                        <div>
+                        <div class="text-center">
                             <button type="submit" class="btn btn-primary btn-lg btn-block btn-conn">Envoyer</button>
                         </div>
-                        <div>
+                        <div class="text-center">
                             <button id="lost_pro_login_btn" type="button" class="btn btn-link">Connexion</button>
                         </div>
                     </div>

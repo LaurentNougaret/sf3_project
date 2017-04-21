@@ -8,6 +8,7 @@
                     </div>
                 </div>
                 <hr>
+            <div class="row">
                 <div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-2 ">
                     <div class="form-group">
                         <label for="name" class="visuallyhidden"></label>
@@ -71,12 +72,15 @@
                                placeholder="Téléphone" tabindex="9">
                     </div>
                 </div>
+            </div>
+            <div class="row">
                 <div class="col-xs-6 ">
                     <button type="submit" class="btn btn-primary pull-right save-account">Enregistrer</button>
                 </div>
                 <div class="col-xs-6 ">
                     <button data-toggle="modal" data-target="#delete-account" type="button" class="btn btn-primary delete-account">Supprimer votre profil</button>
                 </div>
+            </div>
             </form>
         </div>
     </div>

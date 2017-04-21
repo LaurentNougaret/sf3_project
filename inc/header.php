@@ -35,7 +35,7 @@
             <?php endif; ?>
             <?php if($_GET['page'] == "index" || $_GET['page'] == "inscription" || $_GET['page'] == ""): ?>
             <li>
-                <a href="#"  data-toggle="modal" data-target="#login-modal">Connection</a>
+                <a href="#"  data-toggle="modal" data-target="#login-modal">Connexion</a>
             </li>
             <?php endif; ?>
             <?php if ($_GET['page'] == "account-reviews" || $_GET['page'] == "account-cars"): ?>
@@ -55,13 +55,12 @@
             <?php endif; ?>
             <?php if ($_GET['page'] != "pro_account" and $_GET['page'] != "pro_account_reviews"): ?>
             <li>
-                <a class="page-scroll" href="/?page=pro_connection">Accès professionnels</a>
-                <a class="page-scroll" data-toggle="modal" data-target="#login-modal-pro">Professionnels</a>
+                <a href="#" class="page-scroll" data-toggle="modal" data-target="#login-modal-pro">Accès professionnels</a>
             </li>
             <?php endif; ?>
             <?php if ($_GET['page'] == "pro_account"): ?>
             <li>
-                <a class="page-scroll" href="/?page=pro_account_reviews">Les avis</a>
+                <a class="page-scroll" href="/?page=pro_account_reviews">Vos avis</a>
             </li>
             <?php endif; ?>
             <?php if ($_GET['page'] == "pro_account_reviews"): ?>

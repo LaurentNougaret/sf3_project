@@ -36,11 +36,7 @@ $file = $page . ".php";
     <link rel="stylesheet" href="CSS/inscription.css">
     <link rel="stylesheet" href="CSS/search.css">
     <link rel="stylesheet" href="CSS/info.css">
-    <link rel="stylesheet" href="CSS/pro_inscription.css">
-
     <link rel="stylesheet" href="CSS/account_pro.css">
-    <link rel="stylesheet" href="CSS/account_pro_reviews.css">
-
     <link href="CSS/scrolling-nav.css" rel="stylesheet">
     <link rel="stylesheet" href="CSS/account.css">
     <link rel="stylesheet" href="CSS/pro.css">

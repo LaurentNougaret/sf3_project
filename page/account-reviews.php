@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-10 col-xs-offset-1">
-                <h3 class="text-center">Vos avis</h3>
+                <h2 class="text-center">Vos avis</h2>
                 <hr>
                 <?php foreach ($avis as $review): ?>
                     <!-- Quote 1 -->

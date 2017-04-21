@@ -1,6 +1,9 @@
 <section class="pro">
     <div class="container">
         <div class="row" id="account-pro-reviews">
+            <div class="col-xs-12 text-center">
+                <h2 class="pro_account">ACCES PROFESSIONNELS</h2>
+            </div>
             <div class="col-xs-10 col-xs-offset-1">
                 <h2 class="text-center">Les Avis</h2>
                 <hr class="pro-review-underline">

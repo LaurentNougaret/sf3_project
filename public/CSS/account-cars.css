@@ -3,7 +3,8 @@
 }
 
 #account-cars hr {
-    margin-bottom:30px;
+    border: 1px solid #ff4756;
+    margin: 2% 25% 5% 25%;
 }
 
 #account-cars h3 {
