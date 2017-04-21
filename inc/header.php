@@ -19,12 +19,12 @@
             <!-- If in index, use the scroll, if not use the link -->
             <?php if($_GET['page'] == "index" || $_GET['page'] == ""): ?>
             <li>
-                <a class="page-scroll js-scrollTo" href="#review">Déposer un avis</a>
+                <a class="page-scroll js-scrollTo" id="menu-review" href="#review">Déposez un avis</a>
             </li>
             <?php endif; ?>
-            <?php if($_GET['page'] != "index" and $_GET['page'] != "" and $_GET['page'] != "pro_inscription" and $_GET['page'] != "account_pro" and $_GET['page'] != "account_pro_reviews" and $_GET['page'] != "pro_connection"  ): ?>
+            <?php if($_GET['page'] != "index" and $_GET['page'] != "" and $_GET['page'] != "pro_inscription" and $_GET['page'] != "pro_account" and $_GET['page'] != "pro_account_reviews" and $_GET['page'] != "pro_connection"  ): ?>
                 <li>
-                    <a class="page-scroll js-scrollTo" href="/?page=index#review">Déposer un avis</a>
+                    <a class="page-scroll js-scrollTo" href="/?page=index#review">Déposez un avis</a>
                 </li>
             <?php endif; ?>
             <!-- Show inscription btn when on index, or empty url -->
@@ -53,19 +53,19 @@
                     <a class="page-scroll" href="/?page=account-cars">Vos véhicules</a>
                 </li>
             <?php endif; ?>
-            <?php if ($_GET['page'] != "account_pro" and $_GET['page'] != "account_pro_reviews"): ?>
+            <?php if ($_GET['page'] != "pro_account" and $_GET['page'] != "pro_account_reviews"): ?>
             <li>
-                <a href="#"  data-toggle="modal" data-target="#login-modal-pro" >Professionnels</a>
+                <a href="#" class="page-scroll" data-toggle="modal" data-target="#login-modal-pro">Accès professionnels</a>
             </li>
             <?php endif; ?>
-            <?php if ($_GET['page'] == "account_pro"): ?>
+            <?php if ($_GET['page'] == "pro_account"): ?>
             <li>
-                <a class="page-scroll" href="/?page=account_pro_reviews">Les avis</a>
+                <a class="page-scroll" href="/?page=pro_account_reviews">Vos avis</a>
             </li>
             <?php endif; ?>
-            <?php if ($_GET['page'] == "account_pro_reviews"): ?>
+            <?php if ($_GET['page'] == "pro_account_reviews"): ?>
                 <li>
-                    <a class="page-scroll" href="/?page=account_pro">Votre profil</a>
+                    <a class="page-scroll" href="/?page=pro_account">Votre profil</a>
                 </li>
             <?php endif; ?>
         </ul>

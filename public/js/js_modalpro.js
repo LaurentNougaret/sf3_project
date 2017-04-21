@@ -1,5 +1,4 @@
 $(function() {
-
     var $formLogin = $('#login-pro-form');
     var $formLost = $('#lost-pro-form');
     var $divForms = $('#div-pro-forms');
@@ -69,4 +68,3 @@ $(function() {
         }, $msgShowTime);
     }
 });
-

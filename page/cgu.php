@@ -3,7 +3,7 @@
         <div class="col-xs-12">
             <h1>Conditions générales d'utilisation</h1>
             <br>
-            <p>Merci de lire attentivement les présentes modalités d'utilisation du présent site avant de le parcourir.
+            <p>Merci de lire attentivement les modalités d'utilisation du présent site avant de le parcourir.
                 En vous connectant sur ce site, vous acceptez sans réserve les présentes modalités.</p>
         </div>
     </div>

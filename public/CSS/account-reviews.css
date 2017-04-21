@@ -2,10 +2,37 @@
     margin: 90px auto 50px auto;
 }
 
-.modify-review, .delete-review {
+#account-reviews .modify-review, .delete-review {
     margin: 20px auto auto auto;
 }
 
-#account-review hr {
-    margin-bottom:30px;
+#account-reviews hr {
+    border: 1px solid #ff4756;
+    margin: 0 25% 5% 25%;
+}
+
+#account-reviews .review {
+    border-left: 2px solid #ff4756;
+    margin-top: 5%;
+}
+
+#account-reviews .delete-review, #account-reviews .modify-review  {
+    width: 8em;
+    font-size: 20px;
+    margin-left: 4em;
+    margin-top: 4em;
+    margin-bottom: 1em;
+    border-radius: 4px;
+    border: 3px solid #ff4756;
+    background-color: #fff;
+    color: #ff4756;
+    -o-transition: color .2s ease-out, background 0.2s ease-in;
+    -moz-transition: color .2s ease-out, background 0.2s ease-in;
+    -webkit-transition: color .2s ease-out, background 0.2s ease-in;
+}
+
+#account-reviews .delete-review:hover, #account-reviews .modify-review:hover, #account-reviews .delete-review:focus, #account-reviews .modify-review:focus {
+    color: #fff;
+    background-color: #ff4756;
+    outline: none;
 }

@@ -1,6 +1,4 @@
-
 $(function() {
-
     var $formLogin = $('#login-form');
     var $formLost = $('#lost-form');
     var $divForms = $('#div-forms');

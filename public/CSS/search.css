@@ -10,7 +10,6 @@
 .searchpage .list-group-item {
     height:auto;
     min-height:250px;
-
 }
 .searchpage a.list-group-item.active small {
     color:#fff;
