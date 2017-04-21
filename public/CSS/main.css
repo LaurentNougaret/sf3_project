@@ -414,6 +414,28 @@ nav li a:focus{
     margin-right: auto;
 }
 
+@media (max-width: 480px) {
+    #values h4 {
+        font-size: 13px;
+    }
+
+    #values img {
+        width: 50%;
+    }
+}
+
+@media (min-width: 480px) and (max-width: 600px) {
+    #values h3 {
+        font-size: 20px;
+    }
+
+    #values h4 {
+        font-size: 15px;
+    }
+}
+
+
+
 /**********************************\
 9. legal
 \**********************************/

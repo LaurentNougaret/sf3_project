@@ -23,11 +23,11 @@
                     </div>
                     <div class="modal-footer">
                         <div>
-                            <button type="submit" class="btn btn-conn btn-primary btn-lg btn-block">Connexion</button>
+                            <a href="/?page=account_pro"><button type="button" class="btn btn-conn btn-lg btn-block">Connexion</button></a>
                         </div>
                         <div>
                             <button id="login_pro_lost_btn" type="button" class="btn btn-link">Mot de passe oublié?</button>
-                            <a href="/?page=pro_inscription" <button id="login_pro_register_btn" type="button" class="btn btn-link">Inscription</button></a>
+                            <a href="/?page=pro_inscription"><button id="login_pro_register_btn" type="button" class="btn btn-link">Inscription</button></a>
                         </div>
                     </div>
                 </form>
