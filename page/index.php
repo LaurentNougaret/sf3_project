@@ -2,6 +2,7 @@
 <section id="banner" class="banner">
     <div class="container">
         <span class="background"></span>
+        <p>Le meilleur service auto à portée de clic !</p>
     </div>
 </section>
 <!-- / Banner -->

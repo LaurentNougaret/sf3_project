@@ -26,7 +26,7 @@ body {
 \**********************************/
 /*  navbar color */
 .navbar {
-    background-color: #2d3142 !important;
+    background-color: rgba(45, 49, 66, 0.9) !important;
     border: 1px solid #2d3142;
     letter-spacing: 1px;
 }
@@ -59,7 +59,11 @@ body {
 
 .navbar ul li a:hover {
     color: white !important;
+    border-bottom: 2px solid #ff4756;
+    padding: 13px 0 7px 0;
+    margin: 0 9px;
 }
+
 nav li a:focus{
     outline: none;
 }
@@ -67,6 +71,7 @@ nav li a:focus{
 .navbar .navbar-brand {
     padding: 5px 15px;
 }
+
 /**********************************\
 3. banner
 \**********************************/
@@ -90,6 +95,15 @@ nav li a:focus{
     background-size: cover;
 }
 
+.banner p {
+    margin-top: 35%;
+    padding-left: 0;
+    padding-right: 0;
+    text-align: center;
+    color: white;
+    font-size: 40px;
+    background-color: rgba(170, 171, 171, 0.5);
+}
 @media (max-width: 500px) {
     #banner {
         display: none;
