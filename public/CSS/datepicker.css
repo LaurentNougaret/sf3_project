@@ -8,6 +8,7 @@
 .ui-datepicker-trigger {
     margin: 0 0 0 5px;
     vertical-align: text-top;
+    color: black;
 }
 
 .ui-datepicker {
