@@ -44,9 +44,9 @@
     -webkit-transition: color .2s ease-out, background 0.2s ease-in;
 }
 
-.pro .inscription-pro-btn, .pro .save-pro-btn, .pro .delete-pro-btn {
+.pro .inscription-pro-btn, .pro .save-pro-btn {
     font-size: 20px;
-    margin-bottom: 3em;
+    margin-bottom: 1em;
     margin-left: auto;
     margin-right: auto;
     border-radius: 4px;
@@ -58,7 +58,7 @@
     -webkit-transition: color .2s ease-out, background 0.2s ease-in;
 }
 
-.pro .save-pro-btn, .pro .delete-pro-btn {
+.pro .save-pro-btn {
     width: 11em;
 }
 
@@ -69,7 +69,6 @@
 
 .pro .inscription-pro-btn:hover, .pro .inscription-pro-btn:focus,
 .pro .save-pro-btn:hover, .pro .save-pro-btn:focus,
-.pro .delete-pro-btn:hover, .pro .delete-pro-btn:focus,
 .pro .modify-pro-review:hover, .pro .modify-pro-review:focus,
 .pro .btn-send:hover, .pro .btn-send:focus {
     color: #fff;
@@ -80,6 +79,10 @@
 
 .pro .update-photo {
     margin-top: 5%;
+}
+
+.pro .delete-pro-account {
+    margin-bottom: 2em;
 }
 
 @media (max-width: 768px) {

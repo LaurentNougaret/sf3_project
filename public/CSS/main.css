@@ -190,7 +190,7 @@ nav li a:focus{
 5. slider
 \**********************************/
 #slider {
-    background: url("/img/backg/about.jpg") no-repeat fixed center center;
+    background: url("img/backg/about.jpg") no-repeat fixed center center;
     background-size: cover;
     height: 400px;
 }
@@ -315,10 +315,11 @@ nav li a:focus{
     margin-top: 10%;
     margin-bottom: 20%;
     color: #BFC0C0;
+    font-size: 18px;
 }
 
 #review .needconnect a {
-    color: #bfc0c0;
+    color: #2d3142;
     text-decoration: underline;
 }
 
