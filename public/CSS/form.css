@@ -46,7 +46,8 @@
 }
 
 .forms .reviewform .rating-md .label {
-    background-color: #1590c4;
+    color: #1590c4;
+    background-color: transparent;
 }
 
 .forms .reviewform .rating-md {
@@ -61,7 +62,7 @@
     margin: 0;
 }
 
-.forms .reviewform .agree {
+.forms .reviewform .iagree {
     font-size: 12px;
     margin-top: -10px;
 }
