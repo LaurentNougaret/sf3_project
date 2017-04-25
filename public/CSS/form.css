@@ -53,16 +53,6 @@
     opacity: .5;
 }
 
-.forms .element {
-    top: inherit;
-    left: inherit;
-}
-
-.forms .datepicker .datepicker-dropdown {
-    top: 130% !important;
-    left: 30% !important;
-}
-
 .forms .reviewform .help-block {
     margin: 0;
 }
