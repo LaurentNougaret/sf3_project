@@ -85,6 +85,10 @@
     margin-bottom: 2em;
 }
 
+.pro #inscription-text-footer {
+    text-align: justify;
+}
+
 @media (max-width: 768px) {
     .pro .save-pro-btn {
         margin-bottom: 1em;

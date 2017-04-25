@@ -68,7 +68,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-3 control-label">Note globale</label>
                         <div class="col-sm-7">
-                            <input id="rating" value="3">
+                            <input id="rating" value="1">
                         </div>
                     </div>
                     <div class="form-group">
@@ -83,48 +83,15 @@
                             <textarea class="form-control" id="reviewBox" name="reviewBox" rows="7" placeholder="Décrivez votre experience..."></textarea>
                         </div>
                     </div>
+                    <!-- Date input -->
                     <div class="form-group">
-                        <label for="" class="col-xs-12 col-sm-3 control-label">Date de la prise en charge</label>
-                        <div class="col-xs-3 col-sm-1">
-                            <select name="appointment" id="appointment"">
-                                <option value="default" selected>Jour</option>
-                                <?php
-                                for ($menuday = 1; $menuday <= 31; $menuday++) {
-                                    ?>
-                                    <option value="<?php echo $menuday; ?>">
-                                        <?php echo $menuday; ?>
-                                    </option>
-                                    <?php
-                                }
-                                ?>
-                            </select>
-                        </div>
-                        <div class="col-xs-3 col-sm-1">
-                            <select name="MonthOfAppointment">
-                                <option value="default" selected>Mois</option>
-                                <?php
-                                for ($menuday = 1; $menuday <= 12; $menuday++) { ?>
-                                    <option value="<?php echo $menuday; ?>">
-                                        <?php echo $menuday; ?>
-                                    </option>
-                                    <?php
-                                }
-                                ?>
-                            </select>
-                        </div>
-                        <div class="col-xs-3 col-sm-1">
-                            <select name="YearOfAppointment">
-                                <option value="default" selected>Année</option>
-                                <?php
-                                for ($menuyear = date('Y'); $menuyear >= 1900; $menuyear--) {
-                                    ?>
-                                    <option value="<?php echo $menuyear; ?>">
-                                        <?php echo $menuyear; ?>
-                                    </option>
-                                    <?php
-                                }
-                                ?>
-                            </select>
+                        <div id="datepicker-container" class="datepicker-container">
+                            <label for="date" class="col-xs-12 col-sm-3 control-label wrapper">Date de l'intervention</label>
+                            <span class="outline-element-container">
+                                <input id="datepicker-input" type="text" class="rounded openemr-datepicker input-textbox outline-element incorrect"
+                                       placeholder="jj/mm/aaaa" objtype="7" name="action_element" objindex=""  aria-label="Choisir la date">
+                                <span class="correct-incorrect-icon"> </span></span>
+                            <div id="datepicker"></div>
                         </div>
                     </div>
                 </div>
@@ -134,7 +101,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-3 control-label">Quel type d'accueil avez vous eu ?</label>
                         <div class="col-sm-7 example-01">
-                            <input name="ratingwelcome" id="ratingwelcome" value="4">
+                            <input name="ratingwelcome" id="ratingwelcome" value="1">
                         </div>
                     </div>
                     <div class="form-group">
@@ -163,7 +130,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-3 control-label">Délai de prise en charge de votre véhicule sur place:</label>
                         <div class="col-sm-7 example-01">
-                            <input name="ratingdelay" id="ratingdelay" value="3">
+                            <input name="ratingdelay" id="ratingdelay" value="1">
                         </div>
                     </div>
                     <div class="form-group">
@@ -172,13 +139,13 @@
                             <div class="radio-inline">
                                 <label>
                                     <input name="intervention" id="intervention" value="option1"  type="radio">
-                                    oui
+                                    Oui
                                 </label>
                             </div>
                             <div class="radio-inline">
                                 <label>
                                     <input name="intervention" id="intervention1" value="option2" type="radio">
-                                    non
+                                    Non
                                 </label>
                             </div>
                         </div>
@@ -189,13 +156,13 @@
                             <div class="radio-inline">
                                 <label>
                                     <input name="comunication" id="comuncation" value="option3"  type="radio">
-                                    oui
+                                    Oui
                                 </label>
                             </div>
                             <div class="radio-inline">
                                 <label>
                                     <input name="comunication" id="comunication1" value="option4" type="radio">
-                                    non
+                                    Non
                                 </label>
                             </div>
                         </div>
@@ -206,13 +173,13 @@
                             <div class="radio-inline">
                                 <label>
                                     <input name="document" id="document" value="option5" type="radio">
-                                    oui
+                                    Oui
                                 </label>
                             </div>
                             <div class="radio-inline">
                                 <label>
                                     <input name="document" id="document1" value="option6" type="radio">
-                                    non
+                                    Non
                                 </label>
                             </div>
                         </div>
@@ -223,13 +190,13 @@
                             <div class="radio-inline">
                                 <label>
                                     <input name="quotation" id="quotation" value="option7" type="radio">
-                                    oui
+                                    Oui
                                 </label>
                             </div>
                             <div class="radio-inline">
                                 <label>
                                     <input name="quotation" id="quotation1" value="option8" type="radio">
-                                    non
+                                    Non
                                 </label>
                             </div>
                         </div>
@@ -240,13 +207,13 @@
                             <div class="radio-inline">
                                 <label>
                                     <input name="replace" id="replace" value="option9" type="radio">
-                                    oui
+                                    Oui
                                 </label>
                             </div>
                             <div class="radio-inline">
                                 <label>
                                     <input name="replace" id="replace1" value="option10" type="radio">
-                                    non
+                                    Non
                                 </label>
                             </div>
                         </div>
@@ -277,13 +244,13 @@
                     <div class="form-group">
                         <label for="" class="col-sm-3 control-label">Dans quel état votre véhicule a-t-il été restitué ?</label>
                         <div class="col-sm-7">
-                            <input id="ratingclean" value="3">
+                            <input id="ratingclean" value="1">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="" class="col-sm-3 control-label">Dans quel mesure conseilleriez-vous votre professionnel ?</label>
                         <div class="col-sm-7">
-                            <input id="ratingadvice" value="3">
+                            <input id="ratingadvice" value="1">
                         </div>
                     </div>
                     <div class="form-group">
@@ -295,7 +262,7 @@
                 </div>
                 <div class="form-group required">
                     <div class="col-xs-12 text-center">
-                        <label class=" control-label" for="filebutton">Justificatif d'expérience</label>
+                        <label class=" control-label" for="filebutton"><h4>Justificatif d'expérience</h4></label>
                     </div>
                     <div class="col-xs-12 text-center">
                         <input id="filebutton" name="filebutton" class="input-file center-block" type="file" accept=".jpg, .pdf">

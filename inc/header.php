@@ -7,15 +7,24 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand page-scroll"><img src="/img/logo/logo.png" alt="logo de Caradvisor"></a>
+        <a class="navbar-brand page-scroll" href="/?page=index"><p><span class="simplelogo1">Car</span><span class="simplelogo2">Advisor</span></p></a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav navbar-right">
+            <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+            <li class="hidden">
+                <a class="page-scroll" href="#page-top"></a>
+            </li>
             <!-- If in index, use the scroll, if not use the link -->
+            <?php if($_GET['page'] != "index" and $_GET['page'] != ""): ?>
+                <li>
+                    <a class="page-scroll js-scrollTo" id="menu-review" href="/?page=index">Accueil</a>
+                </li>
+            <?php endif; ?>
             <?php if($_GET['page'] == "index" || $_GET['page'] == ""): ?>
             <li>
-                <a class="page-scroll js-scrollTo" href="#review">Déposez un avis</a>
+                <a class="page-scroll js-scrollTo" id="menu-review" href="#review">Déposez un avis</a>
             </li>
             <?php endif; ?>
             <?php if($_GET['page'] != "index" and $_GET['page'] != "" and $_GET['page'] != "pro_inscription" and $_GET['page'] != "pro_account" and $_GET['page'] != "pro_account_reviews" and $_GET['page'] != "pro_connection" and $_GET['page'] != "account" and $_GET['page'] != "account-cars"  and $_GET['page'] != "account-reviews"): ?>

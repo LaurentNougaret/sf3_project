@@ -19,8 +19,10 @@ $file = $page . ".php";
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Favicon -->
+    <link rel="icon" type="img/png" href="img/favicon.ico" />
     <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto" rel="stylesheet">
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
@@ -36,15 +38,17 @@ $file = $page . ".php";
     <link rel="stylesheet" href="CSS/inscription.css">
     <link rel="stylesheet" href="CSS/search.css">
     <link rel="stylesheet" href="CSS/info.css">
-    <link href="CSS/scrolling-nav.css" rel="stylesheet">
     <link rel="stylesheet" href="CSS/account.css">
     <link rel="stylesheet" href="CSS/pro.css">
-    <link rel="stylesheet" href="CSS/scrolling-nav.css">
+    <link rel="stylesheet" href="CSS/datepicker.css">
     <!-- External CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
           integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.1/css/star-rating.min.css'>
     <link rel="stylesheet" type="text/css" href='//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css'>
+    <!-- Datepicker -->
+    <link rel='stylesheet prefetch' href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css'>
+    <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Open+Sans'>
     <title>
         <?php
         switch ($page) {
@@ -120,6 +124,7 @@ $file = $page . ".php";
     <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.1/js/star-rating.min.js'></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+    <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js'></script>
     <!-- Local JS -->
     <script type="text/javascript" src="js/rating.js"></script>
     <script type="text/javascript" src="js/slider.js"></script>
@@ -130,7 +135,8 @@ $file = $page . ".php";
     <script type="text/javascript" src="js/js_modal.js"></script>
     <script type="text/javascript" src="js/js_modalpro.js"></script>
     <script type="text/javascript" src="js/cookieconsent.js"></script>
-    <script type="text/javascript" src="js/alerts.js"></script>
     <script type="text/javascript" src="js/closing_responsive_menu.js"></script>
+    <!-- Datepicker -->
+    <script type="text/javascript" src="js/datepicker.js"></script>
 </body>
 </html>

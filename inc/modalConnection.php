@@ -3,10 +3,10 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header" align="center">
-                <img id="img_logo" src="img/logo/logo.png">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                 </button>
+                <p class="modalTitle">Car<span>Advisor</p>
             </div>
 
             <!-- Begin # DIV Form -->
@@ -26,7 +26,7 @@
                     </div>
                     <div class="modal-footer">
                         <div>
-                            <a href="/?page=account"><button type="button" class="btn btn-conn btn-primary btn-lg btn-block">Connexion</button></a>
+                            <a href="/?page=index"><button type="button" class="btn btn-conn btn-primary btn-lg btn-block">Connexion</button></a>
                         </div>
                         <div class="text-center">
                             <button id="login_lost_btn" type="button" class="btn btn-link">Mot de passe oublié?</button>

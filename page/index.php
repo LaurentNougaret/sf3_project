@@ -1,8 +1,8 @@
 <!-- Banner -->
 <section id="banner" class="banner">
     <div class="container">
-        <span class="background"></span>
-        <p>Le meilleur service auto en un seul clic !</p>
+        <span class="background"><div class="calque"></div></span>
+        <p>Le partage d’expérience du monde automobile.</p>
     </div>
 </section>
 <!-- / Banner -->
@@ -14,12 +14,12 @@
         <hr>
         <div id="SearchBar">
             <div class="row">
-                <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-0 col-md-4 col-md-offset-2">
+                <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0 col-md-4 col-md-offset-2">
                     <form class="searchbar" action="search.php" method="GET">
                         <input type="text" class="form-control" name="query" placeholder="Cherchez par professionnel" />
                     </form>
                 </div>
-                <div class="col-xs-8 col-xs-offset-2 col-sm-6 col-sm-offset-0 col-md-4">
+                <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0 col-md-4">
                     <form class="searchbar" action="search.php" method="GET">
                         <input type="text" class="form-control" name="query" placeholder="Cherchez par ville ou code postal"/>
                     </form>
@@ -42,18 +42,16 @@
                         <?php foreach ($avis as $review): ?>
                             <!-- Quote 1 -->
                             <div class="item <?php if($review['id']==1): echo "active"; endif; ?>">
-                                <blockquote>
                                     <div class="row">
                                         <div class="col-sm-3 text-center">
                                             <img class="img-circle" src="img/photo_fondateur.png">
                                         </div>
                                         <div class="col-sm-9">
-                                            <h3><?php echo $review['proname']?></h3>
-                                            <p><?php echo $review['review']; ?></p>
-                                            <small><?php echo $review['firstname'] . " " . $review['lastname'] . ", " . $review['city']; ?></small>
+                                            <h3 class="review-pro"><?php echo $review['proname']?></h3>
+                                            <p class="review"><?php echo $review['review']; ?></p>
+                                            <small class="review-author"><?php echo $review['firstname'] . " " . $review['lastname'] . ", " . $review['city']; ?></small>
                                         </div>
                                     </div>
-                                </blockquote>
                             </div>
                         <?php endforeach; ?>
                     </div>
@@ -96,7 +94,7 @@
         </div>
         <div class="row">
             <div class="col-xs-12 col-sm-8 col-sm-offset-2 text-center">
-                <p class="needconnect">Merci de vous inscrire <a href="/?page=inscription">ici</a> ou de vous connecter <a href="#" data-toggle="modal" data-target="#login-modal">ici</a> pour déposer un avis.</p>
+                <p class="needconnect">Merci de vous <a href="/?page=inscription">inscrire</a> ou de vous <a href="#" data-toggle="modal" data-target="#login-modal">connecter</a> pour déposer un avis.</p>
             </div>
         </div>
 
@@ -111,11 +109,10 @@
             <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0 bloktext">
                 <div class="hauteurtitre">
                     <h2>À propos de <br>CarAdvisor</h2>
-                    <img src="img/logo/logo.png" alt="logo de Caradvisor" id="logoabout">
                 </div>
                 <p class="text-justify">
                     <strong>CarAdvisor</strong> est le premier site automobile complètement indépendant qui vous permet de
-                    donner un avis sur un professionnel du secteur (concessionnaire, garagiste indépendant, centre-auto,...).<br>
+                    donner un avis sur un professionnel du secteur (concessionnaire, garagiste indépendant, centre-auto...).<br>
                     Basé sur un échange de témoignages et de notations vérifiés (certification AFNOR), <strong>CarAdvisor</strong> vous garantit
                     une totale transparence pour que vous puissiez choisir en toute simplicité qui s’occupera de votre véhicule.
                 </p>
@@ -125,9 +122,10 @@
                     <h2>Le fondateur</h2>
                     <img src="img/photo_fondateur.png" alt="photo du fondateur" id="photofondateur">
                 </div>
-                <p class="text-justify">
+                <p class="text-justify ">
                     Fort d’une expérience de plus de 20 ans dans le monde de l’automobile, <strong>Olivier Jacquet</strong> est un professionnel de l’animation
-                    et de la gestion de réseau automobile. Sa volonté : faire en sorte que les bonnes adresses, tout comme les mauvaises, soient
+                    et de la gestion de réseau automobile. <br>
+                    Sa volonté : faire en sorte que les bonnes adresses, tout comme les mauvaises, soient
                     connues grâce au partage des expériences de chacun afin d’améliorer la qualité de la relation client. En un mot changer la
                     vie de l’utilisateur automobile.
                 </p>
