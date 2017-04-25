@@ -120,7 +120,6 @@ $file = $page . ".php";
     <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.1/js/star-rating.min.js'></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
     <!-- Local JS -->
     <script type="text/javascript" src="js/rating.js"></script>
     <script type="text/javascript" src="js/slider.js"></script>
@@ -128,7 +127,6 @@ $file = $page . ".php";
     <script type="text/javascript" src="js/banner.js"></script>
     <script type="text/javascript" src="js/back-to-top.js"></script>
     <script type="text/javascript" src="js/scrolling-nav.js"></script>
-    <script type="text/javascript" src="js/js_inscription.js"></script>
     <script type="text/javascript" src="js/js_modal.js"></script>
     <script type="text/javascript" src="js/js_modalpro.js"></script>
     <script type="text/javascript" src="js/cookieconsent.js"></script>

@@ -26,11 +26,7 @@ body {
 \**********************************/
 /*  navbar color */
 .navbar {
-<<<<<<< HEAD
-    background-color: rgba(45, 49, 66, 0.9);
-=======
     background-color: rgba(45, 49, 66, 0.9) !important;
->>>>>>> ab730ce29ee9ec5d74e7440b4dcffd4ad6808a87
     border: 1px solid #2d3142;
     letter-spacing: 1px;
 }
@@ -62,17 +58,11 @@ body {
 }
 
 .navbar ul li a:hover {
-<<<<<<< HEAD
     color: #fff !important;
     border-bottom: 1px solid #fff;
-    margin-bottom: 10px;
-    padding-bottom: 3px;
-=======
-    color: white !important;
     border-bottom: 2px solid #ff4756;
     padding: 13px 0 7px 0;
     margin: 0 9px;
->>>>>>> ab730ce29ee9ec5d74e7440b4dcffd4ad6808a87
 }
 
 nav li a:focus{

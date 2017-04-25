@@ -13,17 +13,6 @@
     <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav navbar-right">
             <!-- If in index, use the scroll, if not use the link -->
-<<<<<<< HEAD
-            <li>
-                <a class="page-scroll" href="/?page=index">Accueil</a>
-            </li>
-=======
-            <?php if($_GET['page'] != "index" and $_GET['page'] != ""): ?>
-                <li>
-                    <a class="page-scroll js-scrollTo" id="menu-review" href="/?page=index">Accueil</a>
-                </li>
-            <?php endif; ?>
->>>>>>> ab730ce29ee9ec5d74e7440b4dcffd4ad6808a87
             <?php if($_GET['page'] == "index" || $_GET['page'] == ""): ?>
             <li>
                 <a class="page-scroll js-scrollTo" href="#review">Déposez un avis</a>
