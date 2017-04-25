@@ -68,7 +68,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-3 control-label">Note globale</label>
                         <div class="col-sm-7">
-                            <input name="rating" id="rating" value="3">
+                            <input name="rating" id="rating" value="0">
                         </div>
                     </div>
                     <div class="form-group">
@@ -112,7 +112,7 @@
                         <div class="col-lg-8">
                             <div class="radio-inline">
                                 <label>
-                                    <input name="information" id="information" value="option1" checked="" type="radio">
+                                    <input name="information" id="information" value="option1" type="radio">
                                     oui
                                 </label>
                             </div>
@@ -129,7 +129,7 @@
                         <div class="col-lg-8">
                             <div class="radio-inline">
                                 <label>
-                                    <input name="try" id="try" value="option3" checked="" type="radio">
+                                    <input name="try" id="try" value="option3" type="radio">
                                     oui
                                 </label>
                             </div>
@@ -146,7 +146,7 @@
                         <div class="col-lg-8">
                             <div class="radio-inline">
                                 <label>
-                                    <input name="tryvehicule" id="tryvehicule" value="option5" checked="" type="radio">
+                                    <input name="tryvehicule" id="tryvehicule" value="option5" type="radio">
                                     oui
                                 </label>
                             </div>
@@ -168,7 +168,7 @@
                             </div>
                             <div class="radio-inline">
                                 <label>
-                                    <input name="finance" type="radio" data-toggle="collapse" data-target=".collapseOne.in" checked=""/> Non
+                                    <input name="finance" type="radio" data-toggle="collapse" data-target=".collapseOne.in" /> Non
                                 </label>
                             </div>
                             <div class="panel-group" id="accordion">
@@ -199,15 +199,15 @@
                         <label class=" control-label" for="filebutton">Justificatif d'expérience</label>
                     </div>
                     <div class="col-xs-12 text-center">
-                        <input id="filebutton" name="filebutton" class="input-file center-block" type="file">
-                        <br><span class="help-block">Format de fichier accepté: JPG, PDF</span><br>
+                        <input id="filebutton" name="filebutton" class="input-file center-block" type="file" accept=".jpg, .pdf">
+                        <br><span class="help-block">Formats de fichiers acceptés: JPG, PDF.</span><br>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-xs-12 col-sm-8 col-sm-offset-2 text-justify">
                         <div class="checkbox">
                             <label class="agree" for="iagree-0">
-                                <input name="iagree" id="iagree-0" value="1" type="checkbox">
+                                <input name="iagree" id="iagree-0" value="1" type="checkbox" required>
                                 Je certifie que cet avis reflète ma propre expérience et mon opinion authentique sur ce Garage,
                                 que je ne suis pas lié personnellement ni professionnellement à cet établissement et que je n'ai reçu aucune compensation financière ou autre de celui-ci pour écrire cet avis.
                                 Je comprends que CarAdvisor applique une politique de tolérance zéro sur les faux avis

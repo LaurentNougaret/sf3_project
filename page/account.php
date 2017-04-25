@@ -1,4 +1,4 @@
-<section id="account" xmlns="http://www.w3.org/1999/html">
+<section id="account">
     <div class="container">
         <div class="row">
             <form role="form" class="info">
@@ -74,11 +74,11 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-6 ">
-                    <button type="submit" class="btn btn-primary pull-right save-account">Enregistrer</button>
+                <div class="col-xs-12">
+                    <button type="submit" class="btn btn-primary save-account center-block">Enregistrer</button>
                 </div>
-                <div class="col-xs-6 ">
-                    <button data-toggle="modal" data-target="#delete-account" type="button" class="btn btn-primary delete-account">Supprimer votre profil</button>
+                <div class="col-xs-8 col-xs-offset-2 text-center delete-account">
+                    <p>Pour supprimer votre profil, veuillez cliquer <a href="" data-toggle="modal" data-target="#delete-account">ici.</a></p>
                 </div>
             </div>
             </form>

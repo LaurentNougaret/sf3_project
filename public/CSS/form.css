@@ -74,6 +74,7 @@
 
 .forms .reviewform #saveReviewButton {
     margin-top: 0;
+    margin-bottom: -50px;
 }
 
 @media (max-width: 768px) {
