@@ -1,8 +1,8 @@
 <!-- Banner -->
 <section id="banner" class="banner">
     <div class="container">
-        <span class="background"></span>
-        <p>Le meilleur service auto en un seul clic !</p>
+        <span class="background"><div class="calque"></div></span>
+        <p>Le partage d’expérience du monde automobile.</p>
     </div>
 </section>
 <!-- / Banner -->
@@ -42,16 +42,16 @@
                         <?php foreach ($avis as $review): ?>
                             <!-- Quote 1 -->
                             <div class="item <?php if($review['id']==1): echo "active"; endif; ?>">
-                                <div class="row">
-                                    <div class="col-sm-3 text-center">
-                                        <img class="img-circle" src="img/photo_fondateur.png">
+                                    <div class="row">
+                                        <div class="col-sm-3 text-center">
+                                            <img class="img-circle" src="img/photo_fondateur.png">
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <h3><?php echo $review['proname']?></h3>
+                                            <p><?php echo $review['review']; ?></p>
+                                            <small><?php echo $review['firstname'] . " " . $review['lastname'] . ", " . $review['city']; ?></small>
+                                        </div>
                                     </div>
-                                    <div class="col-sm-9">
-                                        <h3><?php echo $review['proname']?></h3>
-                                        <p><?php echo $review['review']; ?></p>
-                                        <small><?php echo $review['firstname'] . " " . $review['lastname'] . ", " . $review['city']; ?></small>
-                                    </div>
-                                </div>
                             </div>
                         <?php endforeach; ?>
                     </div>
@@ -93,7 +93,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center">
+            <div class="col-xs-12 col-sm-8 col-sm-offset-2 text-center">
                 <p class="needconnect">Merci de vous inscrire <a href="/?page=inscription">ici</a> ou de vous connecter <a href="#" data-toggle="modal" data-target="#login-modal">ici</a> pour déposer un avis.</p>
             </div>
         </div>

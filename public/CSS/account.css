@@ -8,11 +8,10 @@
     margin: 2% 25% 5% 25%;
 }
 
-
-#account .save-account, #account .delete-account  {
+#account .save-account  {
     width: 12em;
     font-size: 20px;
-    margin-top: 3em;
+    margin-top: 1em;
     margin-bottom: 1em;
     border-radius: 4px;
     border: 3px solid #ff4756;
@@ -23,7 +22,7 @@
     -webkit-transition: color .2s ease-out, background 0.2s ease-in;
 }
 
-#account .save-account:hover, #account .delete-account:hover, #account .save-account:focus, #account .delete-account:focus {
+#account .save-account:hover, #account .save-account:focus {
     color: #fff;
     background-color: #ff4756;
     outline: none;
@@ -38,4 +37,9 @@
     padding: 0;
     position: absolute;
     width: 1px;
+}
+
+.delete-account {
+    margin-top: 1em;
+
 }

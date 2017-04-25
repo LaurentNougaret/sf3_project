@@ -41,9 +41,22 @@ body {
     border: none;
 }
 
-.navbar img {
-    height: 150%;
-    width: 105%;
+.navbar .simplelogo1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 41px;
+    color: #BFC0C0;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin: 10px 0;
+}
+
+.navbar .simplelogo2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 41px;
+    color: #ff4756;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin: 10px 0;
 }
 
 .navbar ul {
@@ -83,6 +96,13 @@ nav li a:focus{
     overflow: hidden;
 }
 /* Default image container */
+#banner .calque {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.4);
+}
+
 #banner .background {
     width: 100%;
     height: 100%;
@@ -96,13 +116,12 @@ nav li a:focus{
 }
 
 .banner p {
-    margin-top: 35%;
-    padding-left: 0;
-    padding-right: 0;
+    margin-top: 20%;
+    margin-right: 30%;
+    margin-left: 30%;
     text-align: center;
-    color: white;
+    color: #fff;
     font-size: 40px;
-    background-color: rgba(170, 171, 171, 0.5);
 }
 @media (max-width: 500px) {
     #banner {
@@ -190,7 +209,7 @@ nav li a:focus{
 5. slider
 \**********************************/
 #slider {
-    background: url("/img/backg/about.jpg") no-repeat fixed center center;
+    background: url("../img/backg/about.jpg") no-repeat fixed center center;
     background-size: cover;
     height: 400px;
 }
@@ -315,10 +334,11 @@ nav li a:focus{
     margin-top: 10%;
     margin-bottom: 20%;
     color: #BFC0C0;
+    font-size: 18px;
 }
 
 #review .needconnect a {
-    color: #bfc0c0;
+    color: #2d3142;
     text-decoration: underline;
 }
 

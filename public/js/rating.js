@@ -2,7 +2,7 @@ $(function() {
     $("#rating, #ratingwelcome, #ratinginformation, #ratingadvice, #ratingdelay, #ratingclean, #rating2, #rating3").rating({
         stars: 1,
         emptyStar: '<img src="../img/rating/ratingcarempty.png" />',
-        filledStar: '<img src="../img/rating/ratingcarcolor.png" />',
+        filledStar: '<img src="../img/rating/ratingcarcolor3.png" />',
         showClear: false,
         starCaptions: {
             0.5		: 'Horrible',
@@ -20,7 +20,7 @@ $(function() {
     $("#rating4").rating({
         stars: 1,
         emptyStar: '<img src="../img/rating/ratingcarempty.png" />',
-        filledStar: '<img src="../img/rating/ratingcarcolor.png" />',
+        filledStar: '<img src="../img/rating/ratingcarcolor3.png" />',
         showClear: false,
         starCaptions: {
             0.5		: 'Très sale',
@@ -38,7 +38,7 @@ $(function() {
     $("#rating5").rating({
         stars: 1,
         emptyStar: '<img src="../img/rating/ratingcarempty.png" />',
-        filledStar: '<img src="../img/rating/ratingcarcolor.png" />',
+        filledStar: '<img src="../img/rating/ratingcarcolor3.png" />',
         showClear: false,
         starCaptions: {
             0.5		: 'Pas du tout',

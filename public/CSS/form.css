@@ -45,12 +45,26 @@
     margin-top: -0.1em;
 }
 
+.forms .reviewform .rating-md .label {
+    background-color: #1590c4;
+}
+
 .forms .reviewform .rating-md {
     margin-top: -20px;
 }
 
 .forms .reviewform .empty-stars img {
-    opacity: .5;
+    opacity: .1;
+}
+
+.forms .element {
+    top: inherit;
+    left: inherit;
+}
+
+.forms .datepicker .datepicker-dropdown {
+    top: 130% !important;
+    left: 30% !important;
 }
 
 .forms .reviewform .help-block {
@@ -64,6 +78,7 @@
 
 .forms .reviewform #saveReviewButton {
     margin-top: 0;
+    margin-bottom: -50px;
 }
 
 @media (max-width: 768px) {

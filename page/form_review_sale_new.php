@@ -68,7 +68,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-3 control-label">Note globale</label>
                         <div class="col-sm-7">
-                            <input name="rating" id="rating" value="3">
+                            <input name="rating" id="rating" value="1">
                         </div>
                     </div>
                     <div class="form-group">
@@ -83,48 +83,12 @@
                             <textarea class="form-control" id="reviewBox" name="reviewBox" rows="7" placeholder="Décrivez votre experience..."></textarea>
                         </div>
                     </div>
+                    <!-- Date input -->
                     <div class="form-group">
-                        <label for="" class="col-xs-12 col-sm-3 control-label">Date de l'achat</label>
-                        <div class="col-xs-3 col-sm-1">
-                            <select name="appointment" id="appointment">
-                                <option value="default" selected>Jour</option>
-                                <?php
-                                for ($menuday = 1; $menuday <= 31; $menuday++) {
-                                    ?>
-                                    <option value="<?php echo $menuday; ?>">
-                                        <?php echo $menuday; ?>
-                                    </option>
-                                    <?php
-                                }
-                                ?>
-                            </select>
-                        </div>
-                        <div class="col-xs-3 col-sm-1">
-                            <select name="MonthOfAppointment">
-                                <option value="default" selected>Mois</option>
-                                <?php
-                                for ($menuday = 1; $menuday <= 12; $menuday++) { ?>
-                                    <option value="<?php echo $menuday; ?>">
-                                        <?php echo $menuday; ?>
-                                    </option>
-                                    <?php
-                                }
-                                ?>
-                            </select>
-                        </div>
-                        <div class="col-xs-3 col-sm-1">
-                            <select name="YearOfAppointment">
-                                <option value="default" selected>Année</option>
-                                <?php
-                                for ($menuyear = date('Y'); $menuyear >= 1900; $menuyear--) {
-                                    ?>
-                                    <option value="<?php echo $menuyear; ?>">
-                                        <?php echo $menuyear; ?>
-                                    </option>
-                                    <?php
-                                }
-                                ?>
-                            </select>
+                        <label for="date" class="col-xs-12 col-sm-3 control-label">Date de l'achat</label>
+                        <div class="col-sm-2 input-group" id="sandbox-container">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                            <input class="form-control" id="date" name="date" placeholder="dd/mm/aaaa" type="text">
                         </div>
                     </div>
                 </div>
@@ -134,13 +98,13 @@
                     <div class="form-group">
                         <label for="" class="col-sm-3 control-label">Quel type d'accueil avez vous eu ?</label>
                         <div class="col-sm-7">
-                            <input name="ratingwelcome" id="ratingwelcome" value="4">
+                            <input name="ratingwelcome" id="ratingwelcome" value="1">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="" class="col-sm-3 control-label">Délai pour avoir un renseignement sur le véhicule :</label>
                         <div class="col-sm-7 example-01">
-                            <input name="ratinginformation" id="ratinginformation" value="4">
+                            <input name="ratinginformation" id="ratinginformation" value="1">
                         </div>
                     </div>
                     <div class="form-group">
@@ -220,7 +184,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-3 control-label">Dans quel mesure conseilleriez-vous votre vendeur ou marchand ?</label>
                         <div class="col-sm-7">
-                            <input id="ratingadvice" value="4">
+                            <input id="ratingadvice" value="1">
                         </div>
                     </div>
                     <div class="form-group">
@@ -235,15 +199,15 @@
                         <label class=" control-label" for="filebutton">Justificatif d'expérience</label>
                     </div>
                     <div class="col-xs-12 text-center">
-                        <input id="filebutton" name="filebutton" class="input-file center-block" type="file">
-                        <br><span class="help-block">Format de fichier accepté: JPG, PDF</span><br>
+                        <input id="filebutton" name="filebutton" class="input-file center-block" type="file" accept=".jpg, .pdf">
+                        <br><span class="help-block">Formats de fichiers acceptés: JPG, PDF.</span><br>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-xs-12 col-sm-8 col-sm-offset-2 text-justify">
                         <div class="checkbox">
                             <label class="agree" for="iagree-0">
-                                <input name="iagree" id="iagree-0" value="1" type="checkbox">
+                                <input name="iagree" id="iagree-0" value="1" type="checkbox" required>
                                 Je certifie que cet avis reflète ma propre expérience et mon opinion authentique sur ce Garage,
                                 que je ne suis pas lié personnellement ni professionnellement à cet établissement et que je n'ai reçu aucune compensation financière ou autre de celui-ci pour écrire cet avis.
                                 Je comprends que CarAdvisor applique une politique de tolérance zéro sur les faux avis

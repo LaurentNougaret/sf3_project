@@ -16,7 +16,7 @@
                                         <label><input type="checkbox" value="">Par ville</label>
                                     </div>
                                     <div class="checkbox">
-                                        <label><input type="checkbox" value="">Par code postale</label>
+                                        <label><input type="checkbox" value="">Par code postal</label>
                                     </div>
                                 </div>
                                 <!-- List Group End Here -->
@@ -112,7 +112,7 @@
 
             <div class="col-sm-9">
                 <div class="well">
-                    We found 37 results!
+                    Nous avons trouvé 37 résultats!
                 </div>
                 <div class="well">
                     <div class="list-group">
