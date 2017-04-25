@@ -41,9 +41,22 @@ body {
     border: none;
 }
 
-.navbar img {
-    height: 150%;
-    width: 105%;
+.navbar .simplelogo1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 41px;
+    color: #BFC0C0;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin: 10px 0;
+}
+
+.navbar .simplelogo2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 41px;
+    color: #ff4756;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin: 10px 0;
 }
 
 .navbar ul {
