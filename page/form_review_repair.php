@@ -88,7 +88,8 @@
                         <div id="datepicker-container" class="datepicker-container">
                             <label for="date" class="col-xs-12 col-sm-3 control-label wrapper">Date de l'intervention</label>
                             <span class="outline-element-container">
-                                <input id="datepicker-input" type="text" class="rounded openemr-datepicker input-textbox outline-element incorrect" placeholder="jj/mm/yyyy" objtype="7" name="action_element" objindex=""  aria-label="Choisir la date">
+                                <input id="datepicker-input" type="text" class="rounded openemr-datepicker input-textbox outline-element incorrect"
+                                       placeholder="jj/mm/aaaa" objtype="7" name="action_element" objindex=""  aria-label="Choisir la date">
                                 <span class="correct-incorrect-icon"> </span></span>
                             <div id="datepicker"></div>
                         </div>
@@ -138,13 +139,13 @@
                             <div class="radio-inline">
                                 <label>
                                     <input name="intervention" id="intervention" value="option1"  type="radio">
-                                    oui
+                                    Oui
                                 </label>
                             </div>
                             <div class="radio-inline">
                                 <label>
                                     <input name="intervention" id="intervention1" value="option2" type="radio">
-                                    non
+                                    Non
                                 </label>
                             </div>
                         </div>
@@ -155,13 +156,13 @@
                             <div class="radio-inline">
                                 <label>
                                     <input name="comunication" id="comuncation" value="option3"  type="radio">
-                                    oui
+                                    Oui
                                 </label>
                             </div>
                             <div class="radio-inline">
                                 <label>
                                     <input name="comunication" id="comunication1" value="option4" type="radio">
-                                    non
+                                    Non
                                 </label>
                             </div>
                         </div>
@@ -172,13 +173,13 @@
                             <div class="radio-inline">
                                 <label>
                                     <input name="document" id="document" value="option5" type="radio">
-                                    oui
+                                    Oui
                                 </label>
                             </div>
                             <div class="radio-inline">
                                 <label>
                                     <input name="document" id="document1" value="option6" type="radio">
-                                    non
+                                    Non
                                 </label>
                             </div>
                         </div>
@@ -189,13 +190,13 @@
                             <div class="radio-inline">
                                 <label>
                                     <input name="quotation" id="quotation" value="option7" type="radio">
-                                    oui
+                                    Oui
                                 </label>
                             </div>
                             <div class="radio-inline">
                                 <label>
                                     <input name="quotation" id="quotation1" value="option8" type="radio">
-                                    non
+                                    Non
                                 </label>
                             </div>
                         </div>
@@ -206,13 +207,13 @@
                             <div class="radio-inline">
                                 <label>
                                     <input name="replace" id="replace" value="option9" type="radio">
-                                    oui
+                                    Oui
                                 </label>
                             </div>
                             <div class="radio-inline">
                                 <label>
                                     <input name="replace" id="replace1" value="option10" type="radio">
-                                    non
+                                    Non
                                 </label>
                             </div>
                         </div>
@@ -261,7 +262,7 @@
                 </div>
                 <div class="form-group required">
                     <div class="col-xs-12 text-center">
-                        <label class=" control-label" for="filebutton">Justificatif d'expérience</label>
+                        <label class=" control-label" for="filebutton"><h4>Justificatif d'expérience</h4></label>
                     </div>
                     <div class="col-xs-12 text-center">
                         <input id="filebutton" name="filebutton" class="input-file center-block" type="file" accept=".jpg, .pdf">

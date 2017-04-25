@@ -1,10 +1,5 @@
 /* datepicker css */
 
-.ui-datepicker {
-    text-align: center;
-}
-
-
 .ui-datepicker-trigger {
     margin: 0 0 0 5px;
     vertical-align: text-top;
@@ -12,32 +7,22 @@
 }
 
 .ui-datepicker {
+    text-align: center;
     font-family: Open Sans, Arial, sans-serif;
     margin-top: 2px;
     padding: 0 !important;
-    border-color: #c9f0f5 !important;
-}
-
-.ui-datepicker {
-    width: 256px;
-}
-
-.openemr-calendar .ui-datepicker {
-    width: 191px;
+    width: 266px;
 }
 
 .ui-datepicker table {
-    width: 256px;
+    width: 263px;
+    height: 235px;
     table-layout: fixed;
-}
-
-.openemr-calendar .ui-datepicker table {
-    width: 191px;
-    table-layout: fixed;
+    border-color: #b2b2b2;
 }
 
 .ui-datepicker-header {
-    background-color: #ff4756 !important;
+    background-color: rgba(255, 71, 86, 0.87) !important;
     background-image: none !important;
     border-radius: 1px;
 }
@@ -45,7 +30,7 @@
 .openemr-calendar .ui-datepicker-header {
     background-color: #e6f7f9 !important;
     border-width: 1px;
-    border-color: #c9f0f5;
+    border-color: #bfe4e9;
     border-style: solid;
 }
 
@@ -119,8 +104,8 @@
     background-color: #BFC0C0;
     width: 110px !important;
     height: 22px;
-    font-family: Open Sans !important;
-    color: #4d4d4d;
+
+    color: #060606;
     font-size: 14px !important;
     font-weight: 600;
     text-align: left;
@@ -131,7 +116,7 @@
 
 .openemr-calendar .ui-datepicker-month {
     font-family: Open Sans, Arial, sans-serif;
-    color: rgba(34, 34, 34, 0.87);
+    color: rgb(34, 34, 34);
     font-size: 12px !important;
     font-weight: 700;
     text-align: center;
@@ -144,8 +129,7 @@
     width: 61px !important;
     height: 22px;
     border: none !important;
-    font-family: Open Sans !important;
-    color: #4d4d4d;
+    color: rgb(34, 34, 34);
     font-size: 14px !important;
     font-weight: 600;
     text-align: left;
@@ -269,14 +253,6 @@
     background-color: transparent !important;
 }
 
-.ui-datepicker-buttonpane.ui-widget-content {
-    text-align: center;
-    background-color: #ff4756;
-    margin: 0 !important;
-    height: 28px;
-    padding: 0 !important;
-}
-
 .openemr-calendar .ui-datepicker-year {
     background-color: transparent;
 }
@@ -298,4 +274,9 @@
     border: 1px solid lightgrey;
     margin-left: 1.5%;
     padding: 6px;
+}
+
+.ui-widget-content {
+
+    margin: -2px !important;
 }
