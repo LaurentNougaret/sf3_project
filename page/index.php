@@ -42,7 +42,6 @@
                         <?php foreach ($avis as $review): ?>
                             <!-- Quote 1 -->
                             <div class="item <?php if($review['id']==1): echo "active"; endif; ?>">
-                                <blockquote>
                                     <div class="row">
                                         <div class="col-sm-3 text-center">
                                             <img class="img-circle" src="img/photo_fondateur.png">
@@ -53,7 +52,6 @@
                                             <small><?php echo $review['firstname'] . " " . $review['lastname'] . ", " . $review['city']; ?></small>
                                         </div>
                                     </div>
-                                </blockquote>
                             </div>
                         <?php endforeach; ?>
                     </div>
@@ -111,7 +109,6 @@
             <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0 bloktext">
                 <div class="hauteurtitre">
                     <h2>À propos de <br>CarAdvisor</h2>
-                    <img src="img/logo/logo.png" alt="logo de Caradvisor" id="logoabout">
                 </div>
                 <p class="text-justify">
                     <strong>CarAdvisor</strong> est le premier site automobile complètement indépendant qui vous permet de

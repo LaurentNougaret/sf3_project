@@ -41,22 +41,16 @@ body {
     border: none;
 }
 
-.navbar .simplelogo1 {
+.navbar .simplelogo1, .simplelogo2 {
     font-family: 'Montserrat', sans-serif;
     font-size: 41px;
     color: #BFC0C0;
     font-weight: bold;
     letter-spacing: 3px;
-    margin: 10px 0;
 }
 
 .navbar .simplelogo2 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 41px;
     color: #ff4756;
-    font-weight: bold;
-    letter-spacing: 3px;
-    margin: 10px 0;
 }
 
 .navbar ul {
@@ -82,7 +76,7 @@ nav li a:focus{
 }
 
 .navbar .navbar-brand {
-    padding: 5px 15px;
+    padding: 15px 15px;
 }
 
 /**********************************\
@@ -216,11 +210,12 @@ nav li a:focus{
 
 /* carousel */
 #slider #quote-carousel {
-    padding: 0 10px 30px 10px;
+    padding: 30px 10px 30px 10px;
     background-color: rgba(255,255,255,0.8);
     border-radius: 10px;
     margin-top: 10%;
     margin-bottom: 10%;
+    height: 300px;
 }
 
 /* Control buttons  */
@@ -233,10 +228,12 @@ nav li a:focus{
 /* Previous button  */
 #slider #quote-carousel .carousel-control.left {
     left: -12px;
+    padding-top: 30px;
 }
 /* Next button  */
 #slider #quote-carousel .carousel-control.right {
     right: -12px !important;
+    padding-top: 30px;
 }
 
 /* End carousel */
@@ -258,13 +255,28 @@ nav li a:focus{
     background-color: lightgrey;
 }
 
+#slider #quote-carousel small {
+    float: right;
+    padding-right: 10%;
+}
+
+@media (min-width: 768px) {
+    #slider .fa-chevron-left, #slider .fa-chevron-right {
+        padding-top: 35%;
+    }
+
+    #slider .img-circle {
+        margin-top: 20%;
+    }
+}
 /**
   MEDIA QUERIES
 */
 @media (min-width: 768px) {
     #slider #quote-carousel {
         margin-bottom: 0;
-        padding: 0 40px 30px 40px;
+        padding: 30px 40px 30px 40px;
+        height: 200px;
     }
 }
 
@@ -400,10 +412,6 @@ nav li a:focus{
     top: 5%;
 }
 
-#about .hauteurtitre #logoabout {
-    right: 5%;
-}
-
 #about .hauteurtitre #photofondateur {
     left: 5%;
 }
@@ -506,9 +514,9 @@ nav li a:focus{
     margin-top: 20px;
     padding: 80px;
     border: 1px solid #7a7a7a;
-    -webkit-box-shadow: 0px 0px 7px -3px rgba(89,86,89,1);
-    -moz-box-shadow: 0px 0px 7px -3px rgba(89,86,89,1);
-    box-shadow: 0px 0px 7px -3px rgba(89,86,89,1);
+    -webkit-box-shadow: 0 0 7px -3px rgba(89,86,89,1);
+    -moz-box-shadow: 0 0 7px -3px rgba(89,86,89,1);
+    box-shadow: 0 0 7px -3px rgba(89,86,89,1);
 }
 .iconToTop {
     text-align: right;
@@ -585,8 +593,8 @@ footer {
     width: 46px;
 }
 .social li:hover {
-    border: 2px solid #6691b4;
-    background: rgba(100, 127, 150, 0.98);
+    border: 2px solid #ff4756;
+    background: rgba(255, 71, 86, 0.73);
 }
 .social li a i {
     text-align: center;

@@ -86,10 +86,12 @@
                     </div>
                     <!-- Date input -->
                     <div class="form-group">
-                        <label for="date" class="col-xs-12 col-sm-3 control-label">Date de l'achat</label>
-                        <div class="col-sm-2 input-group" id="sandbox-container">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
-                            <input class="form-control" id="date" name="date" placeholder="dd/mm/aaaa" type="text">
+                        <div id="datepicker-container" class="datepicker-container">
+                            <label for="date" class="col-xs-12 col-sm-3 control-label wrapper">Date de l'achat</label>
+                            <span class="outline-element-container">
+                                <input id="datepicker-input" type="text" class="rounded openemr-datepicker input-textbox outline-element incorrect" placeholder="jj/mm/yyyy" objtype="7" name="action_element" objindex=""  aria-label="Choisir la date">
+                                <span class="correct-incorrect-icon"> </span></span>
+                            <div id="datepicker"></div>
                         </div>
                     </div>
                 </div>
