@@ -68,7 +68,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-3 control-label">Note globale</label>
                         <div class="col-sm-7">
-                            <input id="rating" value="3">
+                            <input id="rating" value="1">
                         </div>
                     </div>
                     <div class="form-group">
@@ -83,48 +83,12 @@
                             <textarea class="form-control" id="reviewBox" name="reviewBox" rows="7" placeholder="Décrivez votre experience..."></textarea>
                         </div>
                     </div>
+                    <!-- Date input -->
                     <div class="form-group">
-                        <label for="" class="col-xs-12 col-sm-3 control-label">Date de la prise en charge</label>
-                        <div class="col-xs-3 col-sm-1">
-                            <select name="appointment" id="appointment"">
-                                <option value="default" selected>Jour</option>
-                                <?php
-                                for ($menuday = 1; $menuday <= 31; $menuday++) {
-                                    ?>
-                                    <option value="<?php echo $menuday; ?>">
-                                        <?php echo $menuday; ?>
-                                    </option>
-                                    <?php
-                                }
-                                ?>
-                            </select>
-                        </div>
-                        <div class="col-xs-3 col-sm-1">
-                            <select name="MonthOfAppointment">
-                                <option value="default" selected>Mois</option>
-                                <?php
-                                for ($menuday = 1; $menuday <= 12; $menuday++) { ?>
-                                    <option value="<?php echo $menuday; ?>">
-                                        <?php echo $menuday; ?>
-                                    </option>
-                                    <?php
-                                }
-                                ?>
-                            </select>
-                        </div>
-                        <div class="col-xs-3 col-sm-1">
-                            <select name="YearOfAppointment">
-                                <option value="default" selected>Année</option>
-                                <?php
-                                for ($menuyear = date('Y'); $menuyear >= 1900; $menuyear--) {
-                                    ?>
-                                    <option value="<?php echo $menuyear; ?>">
-                                        <?php echo $menuyear; ?>
-                                    </option>
-                                    <?php
-                                }
-                                ?>
-                            </select>
+                        <label for="date" class="col-xs-12 col-sm-3 control-label">Date de l'achat</label>
+                        <div class="col-sm-2 input-group" id="sandbox-container">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                            <input class="form-control" id="date" name="date" placeholder="dd/mm/aaaa" type="text">
                         </div>
                     </div>
                 </div>
@@ -134,7 +98,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-3 control-label">Quel type d'accueil avez vous eu ?</label>
                         <div class="col-sm-7 example-01">
-                            <input name="ratingwelcome" id="ratingwelcome" value="4">
+                            <input name="ratingwelcome" id="ratingwelcome" value="1">
                         </div>
                     </div>
                     <div class="form-group">
@@ -163,7 +127,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-3 control-label">Délai de prise en charge de votre véhicule sur place:</label>
                         <div class="col-sm-7 example-01">
-                            <input name="ratingdelay" id="ratingdelay" value="3">
+                            <input name="ratingdelay" id="ratingdelay" value="1">
                         </div>
                     </div>
                     <div class="form-group">
@@ -277,13 +241,13 @@
                     <div class="form-group">
                         <label for="" class="col-sm-3 control-label">Dans quel état votre véhicule a-t-il été restitué ?</label>
                         <div class="col-sm-7">
-                            <input id="ratingclean" value="3">
+                            <input id="ratingclean" value="1">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="" class="col-sm-3 control-label">Dans quel mesure conseilleriez-vous votre professionnel ?</label>
                         <div class="col-sm-7">
-                            <input id="ratingadvice" value="3">
+                            <input id="ratingadvice" value="1">
                         </div>
                     </div>
                     <div class="form-group">

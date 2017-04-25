@@ -2,6 +2,14 @@
     margin-top: 10%;
 }
 
+.modal-header .modalTitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 31px;
+    color: #2d3142;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin: 8px;
+}
 .modal-header .close {
     outline: none;
 }

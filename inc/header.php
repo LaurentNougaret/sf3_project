@@ -7,7 +7,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand page-scroll" href="/?page=index"><img src="/img/logo/logo.png" alt="logo de Caradvisor"></a>
+        <a class="navbar-brand page-scroll" href="/?page=index"><p><span class="simplelogo1">Car</span><span class="simplelogo2">Advisor</span></p></a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navbar-ex1-collapse">
