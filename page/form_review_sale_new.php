@@ -1,483 +1,264 @@
-<div class="container">
-    <div class="newcarReview">
-        <h1>Achat Véhicule Neuf - Ajouter un avis</h1>
-    </div>
-    <br>
-    <p>Merci de remplir le formulaire afin de déposer un avis sur l'achat de votre véhicule neuf. En déposant celui-ci et grâce à l'aide de <strong>CarAdvisor</strong>, vous contribuez grandement à l'amélioration du monde automobile et de ses acteurs. </p>
-    <!-- Form Name - Add Review -->
-    <form action="" method="post" role="form" class="form-horizontal formReviewSale">
-        <fieldset>
-            <div class="PanelCollection">
-                <div class="panel panel-default" id="panel">
-                    <div class="panel-heading collapseable" data-toggle="collapse">
-                        <h1 class="panel-title">Informations sur l'entreprise</h1>
+<section class="forms">
+    <div class="container reviewform">
+        <div class="row">
+            <div class="col-xs-12 title text-center">
+                <h1>Achat d'un véhicule neuf - Ajouter un avis</h1>
+                <br>
+                <p>Merci de remplir le formulaire afin de déposer un avis sur l'achat de votre véhicule. En déposant celui-ci et grâce à l'aide de <strong>CarAdvisor</strong>, vous contribuez grandement à l'amélioration du monde automobile et de ses acteurs. </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-3 col-sm-offset-2 col-md-3 col-md-offset-3">
+                <a href="/?page=form_review_sale_used" ><button type="button" class="btn btn-primary btn-lg btn-block center-block">ACHAT OCCASION</button></a>
+            </div>
+            <div class="col-xs-12 col-sm-3 col-sm-offset-1 col-md-3 col-md-offset-0">
+                <a href="/?page=form_review_repair"><button type="button" class="btn btn-primary btn-lg btn-block center-block">ENTRETIEN / REPARATION</button></a>
+            </div>
+        </div>
+        <!-- Form Name - Add Review -->
+        <form action="" method="post" role="form" class="form-horizontal formReviewRepair">
+            <fieldset>
+                <div class="bloc">
+                    <h2 class="text-center">Informations sur l'entreprise</h2>
+                    <hr>
+                    <div class="form-group">
+                        <label for="select" class="col-sm-3 control-label">Type de prestataire</label>
+                        <div class="col-sm-4">
+                            <select class="form-control" name="select" id="select">
+                                <option value="1">Concessionnaire</option>
+                                <option value="2">Garagiste</option>
+                                <option value="3">Agent</option>
+                                <option value="3">Carrosserie</option>
+                                <option value="3">Autre</option>
+                            </select>
+                        </div>
                     </div>
-                    <input type="hidden" name="" value="" id="">
-                    <div id="QuestionForm" class="panel-collapse collapse in">
-                        <div class="panel-body">
-                            <table class="table table-responsive">
-                                <tr id="TypeDePrestataire" title="Type de prestataire">
-                                    <td>Type de prestataire
-                                    </td>
-                                    <td>
-                                        <div class="form-group required">
-                                            <select id="TypePrest" name="TypePrest" class="form-control required">
-                                                <option value="1">Concessionnaire</option>
-                                                <option value="2">Garagiste</option>
-                                                <option value="3">Agent</option>
-                                                <option value="3">Carrosserie</option>
-                                                <option value="3">Autre</option>
-                                            </select>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                <tr id="BusinessName" title="BusinessName">
-                                    <td class="tdlabel">Nom
-                                    </td>
-                                    <td>
-                                        <div class="form-group controls required">
-                                            <input class="col-md-11" id="businessName" name="businessName" placeholder="Nom de la societè" class="form-control input-md" required="" type="text">
-                                        </div>
-                                    </td>
-                                    <td class="tdlabel">Numéro SIRET
-                                    </td>
-                                    <td>
-                                        <div class="form-group controls required">
-                                            <input class="col-md-11" id="businessID" name="businessID" placeholder="SIRET" class="form-control input-md" required="" type="text">
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr id="" title="">
-                                    <td class="tdlabel">Email
-                                    </td>
-                                    <td>
-                                        <div class="form-group controls required">
-                                            <input class="col-md-11" id="businessEmail" name="businessEmail" placeholder="E-mail" class="form-control input-md" required="" type="email">
-                                        </div>
-                                    </td>
-                                    <td class="tdlabel">Adresse
-                                    </td>
-                                    <td>
-                                        <div class="form-group controls required">
-                                            <input class="col-md-11" id="businessAdress" name="businessAdress" placeholder="Adresse" class="form-control input-md" required="" type="text">
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr id="" title="">
-                                    <td class="tdlabel">Ville
-                                    </td>
-                                    <td>
-                                        <div class="form-group controls required">
-                                            <input class="col-md-11" id="BusinessCity" name="BusinessCity" placeholder="Ville" class="form-control input-md" required="" type="text">
-                                        </div>
-                                    </td>
-                                    <td class="tdlabel">Code Postal
-                                    </td>
-                                    <td>
-                                        <div class="form-group controls required">
-                                            <input class="col-md-11" id="businessZipCode" name="businessZipCode" placeholder="Code postal" class="form-control input-md" required="" type="text">
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr id="" title="">
-                                    <td class="tdlabel">Pays
-                                    </td>
-                                    <td>
-                                        <div class="form-group controls required">
-                                            <input class="col-md-11" id="businessCountry" name="businessCountry" placeholder="Pays" class="form-control input-md" required="" type="email">
-                                        </div>
-                                    </td>
-                                    <td class="tdlabel">Téléphone
-                                    </td>
-                                    <td>
-                                        <div class="form-group controls required">
-                                            <input class="col-md-11" id="businessPhone" name="businessPhone" placeholder="Téléphone" class="form-control input-md" required="" type="text">
-                                        </div>
-                                    </td>
-                                </tr>
-                            </table>
+                    <div class="form-group">
+                        <label for="" class="col-sm-3 control-label">Nom</label>
+                        <div class="col-sm-6">
+                            <input class="form-control" name="name" id="name" placeholder="Nom de la société" type="text">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-sm-3 control-label">Ville</label>
+                        <div class="col-sm-3">
+                            <input class="form-control" name="city" id="city" placeholder="" type="text">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-sm-3 control-label">Code Postal</label>
+                        <div class="col-sm-3">
+                            <input class="form-control" name="postal" id="postal" placeholder="" type="text">
                         </div>
                     </div>
                 </div>
-
-                <div class="PanelCollection">
-                    <div class="panel panel-default" id="panel">
-                        <div class="panel-heading collapseable" data-toggle="collapse" data-target="">
-                            <h1 class="panel-title">Votre expérience</h1>
+                <div class="bloc">
+                    <h2 class="text-center">Votre Expérience</h2>
+                    <hr>
+                    <div class="form-group">
+                        <label for="select" class="col-sm-3 control-label">Mon véhicule</label>
+                        <div class="col-sm-4">
+                            <select class="form-control" name="car" id="car">
+                                <option value="Mon vehicule 1">Mon véhicule 1</option>
+                                <option value="Mon véhicule 2">Mon véhicule 2</option>
+                                <option value="Ajouter un nouveau véhicule">Ajouter un nouveau véhicule</option>
+                            </select>
                         </div>
-                        <input type="hidden" name="" value="" id="">
-                        <div id="QuestionForm" class="panel-collapse collapse in">
-                            <div class="panel-body">
-                                <div class="form-group required">
-                                </div>
-                                <table class="table table-hover table-responsive">
-                                    <!-- Type of Vehicle -->
-                                    <tr id="TypeOfVehicle" title="Type Of Vehicle">
-                                        <td width="200px">Type de véhicule
-                                        </td>
-                                        <td>
-                                            <!-- Select Vehicle -->
-                                            <div class="form-group required">
-                                                <div class="col-md-3">
-                                                    <select id="selectCity" name="selectCity" class="form-control required">
-                                                        <option value="Mon vehicule 1">Mon véhicule 1</option>
-                                                        <option value="Mon véhicule 2">Mon véhicule 2</option>
-                                                        <option value="Ajouter un nouveau véhicule">Ajouter un nouveau véhicule</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-
-                                    <!-- Global Evaluation -->
-                                    <tr id="GlobalRating" title="Global Rating" class="required">
-                                        <td width="200px">Note globale
-                                        </td>
-                                        <td>
-                                            <!-- Rating: stars -->
-                                            <div class="form-group required">
-                                                <div class="col-md-6">
-                                                    <div class="rating">
-                                                        <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <!-- Review's Title -->
-                                    <tr id="TitleOfReview" title="Title Of Review">
-                                        <td width="200px">Titre
-                                        </td>
-                                        <td>
-                                            <!-- Title box -->
-                                            <div class="form-group required">
-                                                <div class="col-md-6">
-                                                    <input id="Title" name="Title" placeholder="Titre résumant votre avis"
-                                                           class="form-control input-md" required="" type="text">
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-
-                                    <!-- TextArea - Write your opinion -->
-                                    <tr id="WriteOpinion" title="Write Your Opinion">
-                                        <td>Votre avis
-                                        </td>
-                                        <td>
-                                            <!-- TextArea - Review box -->
-                                            <div class="form-group required">
-                                                <div class="col-md-6">
-                                                    <textarea class="form-control" id="reviewBox" name="reviewBox" rows="7" cols="30" placeholder="Décrivez votre experience..."></textarea>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <!-- Date of appointment -->
-                                    <tr id="DateOfAppointment" title="DateOfAppointment">
-                                        <td>Date de l'achat
-                                        </td>
-                                        <td>
-                                            <!-- Select Date of appointment -->
-                                            <div class="form-group required">
-                                                <div class="col-md-1">
-                                                    <select name="DayOfAppointment">
-                                                        <option value="default" selected>Jour</option>
-                                                        <?php
-                                                        for ($menuday = 1; $menuday <= 31; $menuday++) {
-                                                            ?>
-                                                            <option value="<?php echo $menuday; ?>">
-                                                                <?php echo $menuday; ?>
-                                                            </option>
-                                                            <?php
-                                                        }
-                                                        ?>
-                                                    </select>
-                                                </div>
-                                                <div class="col-md-1">
-                                                    <select name="MonthOfAppointment">
-                                                        <option value="default" selected>Mois</option>
-                                                        <?php
-                                                        for ($menuday = 1; $menuday <= 12; $menuday++) { ?>
-                                                            <option value="<?php echo $menuday; ?>">
-                                                                <?php echo $menuday; ?>
-                                                            </option>
-                                                            <?php
-                                                        }
-                                                        ?>
-                                                    </select>
-                                                </div>
-                                                <div class="col-md-1">
-                                                    <select name="YearOfAppointment">
-                                                        <option value="default" selected>Année</option>
-                                                        <?php
-                                                        for ($menuyear = date('Y'); $menuyear >= 1900; $menuyear--) {
-                                                            ?>
-                                                            <option value="<?php echo $menuyear; ?>">
-                                                                <?php echo $menuyear; ?>
-                                                            </option>
-                                                            <?php
-                                                        }
-                                                        ?>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </table>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-sm-3 control-label">Note globale</label>
+                        <div class="col-sm-7">
+                            <input name="rating" id="rating" value="3">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-sm-3 control-label">Titre</label>
+                        <div class="col-sm-6">
+                            <input class="form-control" name="title" id="title" placeholder="Titre de mon avis" type="text">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-sm-3 control-label">Message</label>
+                        <div class="col-sm-6">
+                            <textarea class="form-control" id="reviewBox" name="reviewBox" rows="7" placeholder="Décrivez votre experience..."></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-xs-12 col-sm-3 control-label">Date de l'achat</label>
+                        <div class="col-xs-3 col-sm-1">
+                            <select name="appointment" id="appointment">
+                                <option value="default" selected>Jour</option>
+                                <?php
+                                for ($menuday = 1; $menuday <= 31; $menuday++) {
+                                    ?>
+                                    <option value="<?php echo $menuday; ?>">
+                                        <?php echo $menuday; ?>
+                                    </option>
+                                    <?php
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <div class="col-xs-3 col-sm-1">
+                            <select name="MonthOfAppointment">
+                                <option value="default" selected>Mois</option>
+                                <?php
+                                for ($menuday = 1; $menuday <= 12; $menuday++) { ?>
+                                    <option value="<?php echo $menuday; ?>">
+                                        <?php echo $menuday; ?>
+                                    </option>
+                                    <?php
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <div class="col-xs-3 col-sm-1">
+                            <select name="YearOfAppointment">
+                                <option value="default" selected>Année</option>
+                                <?php
+                                for ($menuyear = date('Y'); $menuyear >= 1900; $menuyear--) {
+                                    ?>
+                                    <option value="<?php echo $menuyear; ?>">
+                                        <?php echo $menuyear; ?>
+                                    </option>
+                                    <?php
+                                }
+                                ?>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="bloc">
+                    <h2 class="text-center">Donnez votre avis</h2>
+                    <hr>
+                    <div class="form-group">
+                        <label for="" class="col-sm-3 control-label">Quel type d'accueil avez vous eu ?</label>
+                        <div class="col-sm-7">
+                            <input name="ratingwelcome" id="ratingwelcome" value="4">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-sm-3 control-label">Délai pour avoir un renseignement sur le véhicule :</label>
+                        <div class="col-sm-7 example-01">
+                            <input name="ratinginformation" id="ratinginformation" value="4">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Avez-vous eu les renseignements souhaités ?</label>
+                        <div class="col-lg-8">
+                            <div class="radio-inline">
+                                <label>
+                                    <input name="information" id="information" value="option1" type="radio">
+                                    oui
+                                </label>
+                            </div>
+                            <div class="radio-inline">
+                                <label>
+                                    <input name="information" id="information1" value="option2" type="radio">
+                                    non
+                                </label>
                             </div>
                         </div>
                     </div>
-                    <div class="PanelCollection">
-                        <div class="panel panel-default" id="panel">
-                            <div class="panel-heading collapseable">
-                                <h3 class="panel-title">Donnez votre avis</h3>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Vous a-t-on proposé un essai ?</label>
+                        <div class="col-lg-8">
+                            <div class="radio-inline">
+                                <label>
+                                    <input name="try" id="try" value="option3" type="radio">
+                                    oui
+                                </label>
                             </div>
-                            <input type="hidden" name="" value="" id="">
-                            <div id="QuestionForm" class="panel-collapse collapse in">
-                                <div class="panel-body required">
-                                    <table class="table table-responsive table-hover">
-                                        <tr id="SpecificQuestion1" title="Specific Question 1">
-                                            <td width="300px">1) Quel type d'accueil avez-vous eu?
-                                            </td>
-                                            <td>
-                                                <div class="form-group required">
-                                                    <div class="col-md-8">
-                                                        <label class="radio-inline" for="radios-0">
-                                                            <input name="radios" id="radios-0" value="oneStar" checked="checked" type="radio">
-                                                            Horrible
-                                                        </label>
-                                                        <label class="radio-inline" for="radios-1">
-                                                            <input name="radios" id="radios-1" value="twoStar" type="radio">
-                                                            Médiocre
-                                                        </label>
-                                                        <label class="radio-inline" for="radios-1">
-                                                            <input name="radios" id="radios-1" value="threeStar" type="radio">
-                                                            Moyen
-                                                        </label>
-                                                        <label class="radio-inline" for="radios-1">
-                                                            <input name="radios" id="radios-1" value="fourStar" type="radio">
-                                                            Très bien
-                                                        </label>
-                                                        <label class="radio-inline" for="radios-1">
-                                                            <input name="radios" id="radios-1" value="fiveStar" type="radio">
-                                                            Excellent
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-
-                                        <tr id="SpecificQuestion2" title="Specific Question 1" >
-                                            <td>2) Temps d'attente pour obtenir un renseignement
-                                            </td>
-                                            <td>
-                                                <div class="form-group required">
-                                                    <div class="col-md-8">
-                                                        <label class="radio-inline" for="radios-0">
-                                                            <input name="radios" id="radios-0" value="oneStar" type="radio">
-                                                            Horrible
-                                                        </label>
-                                                        <label class="radio-inline" for="radios-1">
-                                                            <input name="radios" id="radios-1" value="twoStar" type="radio">
-                                                            Médiocre
-                                                        </label>
-                                                        <label class="radio-inline" for="radios-1">
-                                                            <input name="radios" id="radios-1" value="threeStar" type="radio">
-                                                            Moyen
-                                                        </label>
-                                                        <label class="radio-inline" for="radios-1">
-                                                            <input name="radios" id="radios-1" value="fourStar" type="radio">
-                                                            Très bien
-                                                        </label>
-                                                        <label class="radio-inline" for="radios-1">
-                                                            <input name="radios" id="radios-1" value="fiveStar" type="radio">
-                                                            Excellent
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr id="SpecificQuestion3" title="Specific Question 3">
-                                            <td>3) Accueil vendeur
-                                            </td>
-                                            <td>
-                                                <div class="form-group required">
-                                                    <div class="col-md-8">
-                                                        <label class="radio-inline" for="radios-0">
-                                                            <input name="radios" id="radios-0" value="oneStar" type="radio">
-                                                            Horrible
-                                                        </label>
-                                                        <label class="radio-inline" for="radios-1">
-                                                            <input name="radios" id="radios-1" value="twoStar" type="radio">
-                                                            Médiocre
-                                                        </label>
-                                                        <label class="radio-inline" for="radios-1">
-                                                            <input name="radios" id="radios-1" value="threeStar" type="radio">
-                                                            Moyen
-                                                        </label>
-                                                        <label class="radio-inline" for="radios-1">
-                                                            <input name="radios" id="radios-1" value="fourStar" type="radio">
-                                                            Très bien
-                                                        </label>
-                                                        <label class="radio-inline" for="radios-1">
-                                                            <input name="radios" id="radios-1" value="fiveStar" type="radio">
-                                                            Excellent
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr id="SpecificQuestion4" title="Specific Question 4">
-                                            <td>4) Vous a t'on proposé un essai?
-                                            </td>
-                                            <td>
-                                                <div class="form-group required">
-                                                    <div class="col-md-8">
-                                                        <label class="radio-inline" for="radios-0">
-                                                            <input name="radios" id="radios-0" value="oneStar" type="radio">
-                                                            Oui
-                                                        </label>
-                                                        <label class="radio-inline" for="radios-1">
-                                                            <input name="radios" id="radios-1" value="twoStar" type="radio">
-                                                            Non
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr id="SpecificQuestion5" title="Specific Question 5">
-                                            <td>5) Est-ce que vous pu essayer le véhicule (motorisation souhaitée)?
-                                            </td>
-                                            <td>
-                                                <div class="form-group required">
-                                                    <div class="col-md-8">
-                                                        <label class="radio-inline" for="radios-0">
-                                                            <input name="radios" id="radios-0" value="Yes" type="radio">
-                                                            Oui
-                                                        </label>
-                                                        <label class="radio-inline" for="radios-1">
-                                                            <input name="radios" id="radios-1" value="No" type="radio">
-                                                            Non
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr id="SpecificQuestion6" title="Specific Question 6">
-                                            <td>6) Vous a t'on proposé une solution de financement?
-                                            </td>
-                                            <td>
-                                                <div class="form-group">
-                                                    <div class="col-md-8">
-                                                        <label class="radio-inline" for="radios-0">
-                                                            <input name="radios" id="radios-0" value="Yes" type="radio">
-                                                            Oui
-                                                        </label>
-                                                        <label class="radio-inline" for="radios-1">
-                                                            <input name="radios" id="radios-1" value="No" type="radio">
-                                                            Non
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr id="SpecificQuestion7" title="Specific Question 7">
-                                            <td>7)  Avez-vous obtenu les renseignements que vous souhaitiez?
-                                            </td>
-                                            <td>
-                                                <div class="form-group required">
-                                                    <div class="col-md-8">
-                                                        <label class="radio-inline" for="radios-0">
-                                                            <input name="radios" id="radios-0" value="oneStar" type="radio">
-                                                            Horrible
-                                                        </label>
-                                                        <label class="radio-inline" for="radios-1">
-                                                            <input name="radios" id="radios-1" value="twoStar" type="radio">
-                                                            Médiocre
-                                                        </label>
-                                                        <label class="radio-inline" for="radios-1">
-                                                            <input name="radios" id="radios-1" value="threeStar" type="radio">
-                                                            Moyen
-                                                        </label>
-                                                        <label class="radio-inline" for="radios-1">
-                                                            <input name="radios" id="radios-1" value="fourStar" type="radio">
-                                                            Très bien
-                                                        </label>
-                                                        <label class="radio-inline" for="radios-1">
-                                                            <input name="radios" id="radios-1" value="fiveStar" type="radio">
-                                                            Excellent
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr id="SpecificQuestion8" title="Specific Question 8">
-                                            <td>8)  Dans quelle mesure conseillerez vous votre vendeur et marchand?
-                                            </td>
-                                            <td>
-                                                <div class="form-group required">
-                                                    <div class="col-md-8">
-                                                        <label class="radio-inline" for="radios-0">
-                                                            <input name="radios" id="radios-0" value="oneStar" type="radio">
-                                                            Horrible
-                                                        </label>
-                                                        <label class="radio-inline" for="radios-1">
-                                                            <input name="radios" id="radios-1" value="twoStar" type="radio">
-                                                            Médiocre
-                                                        </label>
-                                                        <label class="radio-inline" for="radios-1">
-                                                            <input name="radios" id="radios-1" value="threeStar" type="radio">
-                                                            Moyen
-                                                        </label>
-                                                        <label class="radio-inline" for="radios-1">
-                                                            <input name="radios" id="radios-1" value="fourStar" type="radio">
-                                                            Très bien
-                                                        </label>
-                                                        <label class="radio-inline" for="radios-1">
-                                                            <input name="radios" id="radios-1" value="fiveStar" type="radio">
-                                                            Excellent
-                                                        </label>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </table>
+                            <div class="radio-inline">
+                                <label>
+                                    <input name="try" id="try1" value="option4" type="radio">
+                                    non
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">L'essai était-il sur le véhicule souhaité (motorisation) ?</label>
+                        <div class="col-lg-8">
+                            <div class="radio-inline">
+                                <label>
+                                    <input name="tryvehicule" id="tryvehicule" value="option5" type="radio">
+                                    oui
+                                </label>
+                            </div>
+                            <div class="radio-inline">
+                                <label>
+                                    <input name="tryvehicule" id="tryvehicule1" value="option6" type="radio">
+                                    non
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Vous a-t-on proposé une solution de financement ?</label>
+                        <div class="col-sm-8">
+                            <div class="radio-inline">
+                                <label>
+                                    <input name="finance" id="finance" type="radio" data-toggle="collapse" data-target=".collapseOne:not(.in)"/> Oui
+                                </label>
+                            </div>
+                            <div class="radio-inline">
+                                <label>
+                                    <input name="finance" type="radio" data-toggle="collapse" data-target=".collapseOne.in" /> Non
+                                </label>
+                            </div>
+                            <div class="panel-group" id="accordion">
+                                <div class="collapseOne panel-collapse collapse">
+                                    <label for="" class="col-sm-3 control-label">Si oui, laquelle ?</label>
+                                    <div class="col-sm-6">
+                                        <input class="form-control" name="whatfinance" id="whatfinance" placeholder="" type="text">
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <hr>
-                        <!-- Add File Button -->
-                        <div class="form-group required">
-                            <label class="col-md-5 control-label" for="filebutton">Justificatif d'expérience</label>
-                            <div class="col-md-4">
-                                <input id="filebutton" name="filebutton" class="input-file" type="file">
-                                <br><span class="help-block">Format de fichier accepté: JPG, PDF</span><br>
-                                <small class="help-block"></small> <!-- Explanation about what kind of documents should the client upload -->
-                            </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-sm-3 control-label">Dans quel mesure conseilleriez-vous votre vendeur ou marchand ?</label>
+                        <div class="col-sm-7">
+                            <input id="ratingadvice" value="4">
                         </div>
-                        <!-- Terms of service Checkbox -->
-                        <div class="form-group">
-                            <label class="col-md-8 control-label" for="iagree"></label>
-                            <div class="col-md-12">
-                                <div class="checkbox">
-                                    <label for="iagree-0">
-                                        <input name="iagree" id="iagree-0" value="1" type="checkbox">
-                                        Je certifie que cet avis reflète ma propre expérience et mon opinion authentique sur ce Garage,
-                                        que je ne suis pas lié personnellement ni professionnellement à cet établissement et que je n'ai reçu aucune compensation financière ou autre de celui-ci pour écrire cet avis.
-                                        Je comprends que CarAdvisor applique une politique de tolérance zéro sur les faux avis
-                                    </label>
-                                </div>
-                            </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-sm-3 control-label">Donnez un conseil à votre professionnel :</label>
+                        <div class="col-sm-6">
+                            <textarea class="form-control" id="advicebox" name="advicebox" rows="5" placeholder="Votre message..."></textarea>
                         </div>
-                        <!-- Button - Save review -->
-                        <div class="form-group required">
-                            <label class="col-md-5 control-label" for="saveReviewButton"></label>
-                            <div class="col-md-4">
-                                <button id="saveReviewButton" name="saveReviewButton" class="btn btn-primary">Enregistrer</button>
-                            </div>
+                    </div>
+                </div>
+                <div class="form-group required">
+                    <div class="col-xs-12 text-center">
+                        <label class=" control-label" for="filebutton">Justificatif d'expérience</label>
+                    </div>
+                    <div class="col-xs-12 text-center">
+                        <input id="filebutton" name="filebutton" class="input-file center-block" type="file">
+                        <br><span class="help-block">Format de fichier accepté: JPG, PDF</span><br>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 text-justify">
+                        <div class="checkbox">
+                            <label class="agree" for="iagree-0">
+                                <input name="iagree" id="iagree-0" value="1" type="checkbox">
+                                Je certifie que cet avis reflète ma propre expérience et mon opinion authentique sur ce Garage,
+                                que je ne suis pas lié personnellement ni professionnellement à cet établissement et que je n'ai reçu aucune compensation financière ou autre de celui-ci pour écrire cet avis.
+                                Je comprends que CarAdvisor applique une politique de tolérance zéro sur les faux avis
+                            </label>
                         </div>
-
-        </fieldset>
-    </form>
-</div>
+                    </div>
+                </div>
+                <!-- Button - Save review -->
+                <div class="form-group required">
+                    <label class="control-label" for="saveReviewButton"></label>
+                    <div class="col-xs-12">
+                        <button id="saveReviewButton" name="saveReviewButton" class="btn btn-primary btn-block center-block" type="submit">Envoyer votre avis</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</section>

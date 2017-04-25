@@ -1,40 +1,50 @@
-<div class="container-fluid">
-    <div class="row footrow">
-        <div class="sitemap col-xs-12 col-md-4 ">
-            <p>Plan du site :</p>
-            <p class="plan"><a href="#logo">Accueil</a></p>
-            <p class="plan"><a href="../page/search.php">Recherche</a></p>
-            <p class="plan"><a href="../page/account.php">Mon compte</a></p>
-            <p class="plan"><a href="../page/review.php">Déposer un avis</a></p>
-            <p class="plan"><a href="#concept">Concept</a></p>
-            <p class="plan"><a href="../page/contact.php">Contactez-nous</a></p>
-        </div>
-        <div class="socialNetworks col-xs-12 col-md-4 text-center">
+    <div class="footer" id="footer">
+        <div class="container">
             <div class="row">
-                <div class="col-xs-12"><p>Retrouvez-nous sur :</p></div>
-                <div class="col-xs-4 text-right"><a href="#instagram"><i class=" fa fa-3x fa-instagram"></i></a></div>
-                <div class="col-xs-4"><a href="#facebook"><i class=" fa fa-3x fa-facebook"></i></a></div>
-                <div class="col-xs-4 text-left"><a href="#twitter"><i class=" fa fa-3x fa-twitter"></i></a></div>
-            </div>
-        </div>
-        <div class="newsLetters col-xs-12 col-md-4 text-center">
-            <p>Inscrivez-vous à notre newsletter :</p>
-            <form action="" method="POST" role="form">
-                <div class="form-group newsform">
-                    <input type="text" class="form-control" id="" placeholder="Votre adresse e-mail">
+                <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
+                    <h3> Plan du site </h3>
+                    <ul>
+                        <li> <a href="/?page=index#banner">Accueil</a> </li>
+                        <li> <a href="/?page=index#search">Recherche</a> </li>
+                        <li> <a href="/?page=account">Mon compte</a> </li>
+                        <li> <a href="/?page=index#review">Déposer un avis</a> </li>
+                        <li> <a href="/?page=index#about">Concept</a> </li>
+                        <li> <a href="/?page=contact">Contactez-nous</a> </li>
+                    </ul>
                 </div>
-                <button type="button" class="btn btn-default">OK</button>
-            </form>
+                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+                    <h3> Informations</h3>
+                    <ul>
+                        <li> <a class="mentions" href="/?page=legal">Mentions légales</a> </li>
+                        <li> <a class="mentions" href="/?page=cgu">CGU</a> </li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+                    <h3> Retrouvez-nous sur : </h3>
+                    <ul class="social">
+                        <li> <a href="https://www.instagram.com"><i class=" fa fa-2x fa-instagram"></i></a> </li>
+                        <li> <a href="https://www.facebook.com"><i class=" fa fa-2x fa-facebook"></i></a> </li>
+                        <li> <a href="https://www.twitter.com"><i class=" fa fa-2x fa-twitter"></i></a> </li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-7 col-sm-offset-0 col-xs-8 col-xs-offset-2 ">
+                    <h3> Inscrivez-vous à notre newsletter </h3>
+                    <ul>
+                        <li>
+                            <div class="input-append newsletter-box">
+                                <input type="text" class="form-control" id="" placeholder="Votre adresse e-mail">
+                                <button type="button" class="btn btn-info center-block">OK</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!--/.row-->
         </div>
+        <!--/.container-->
     </div>
-    <div class="row legal">
-        <div class="col-xs-6 text-right">
-            <p><a class="mentions" href="#mentions" data-toggle="modal">Mentions légales</a></p>
-            <?php include "../inc/legal_modal.php"?>
-        </div>
-        <div class="col-xs-6 text-left">
-            <p><a class="wcsxs" href="http://wildcodeschool.fr" target="_blank">&copy;WCS 2017</a></p>
-            <p><a class="wcsmd" href="http://wildcodeschool.fr" target="_blank">&copy;Wild Code School 2017</a></p>
-        </div>
+    <!--/.footer-->
+
+    <div class="footer-bottom">
+          <a href="https://wildcodeschool.fr/" class="wild"><p> &copy; Wild Code School 2017 </p></a>
     </div>
-</div>
