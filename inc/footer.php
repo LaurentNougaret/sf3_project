@@ -3,10 +3,10 @@
             <div class="row">
                 <div class="col-lg-2 col-md-2 col-sm-4 col-xs-6">
                     <h3> Plan du site </h3>
-                    <ul>
+                    <ul class="map">
                         <li> <a href="/?page=index#banner">Accueil</a> </li>
                         <li> <a href="/?page=index#search">Recherche</a> </li>
-                        <li> <a href="/?page=account">Mon compte</a> </li>
+                        <li> <a href="/?page=account">Votre profil</a> </li>
                         <li> <a href="/?page=index#review">Déposer un avis</a> </li>
                         <li> <a href="/?page=index#about">Concept</a> </li>
                         <li> <a href="/?page=contact">Contactez-nous</a> </li>
@@ -14,7 +14,7 @@
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
                     <h3> Informations</h3>
-                    <ul>
+                    <ul class="infos">
                         <li> <a class="mentions" href="/?page=legal">Mentions légales</a> </li>
                         <li> <a class="mentions" href="/?page=cgu">CGU</a> </li>
                     </ul>
@@ -33,7 +33,7 @@
                         <li>
                             <div class="input-append newsletter-box">
                                 <input type="text" class="form-control" id="" placeholder="Votre adresse e-mail">
-                                <button type="button" class="btn btn-info center-block">OK</button>
+                                <button type="submit" class="btn btn-info center-block">OK</button>
                             </div>
                         </li>
                     </ul>
