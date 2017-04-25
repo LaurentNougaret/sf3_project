@@ -94,7 +94,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xs-12 col-sm-6 col-sm-offset-3 text-center">
+            <div class="col-xs-12 col-sm-8 col-sm-offset-2 text-center">
                 <p class="needconnect">Merci de vous inscrire <a href="/?page=inscription">ici</a> ou de vous connecter <a href="#" data-toggle="modal" data-target="#login-modal">ici</a> pour déposer un avis.</p>
             </div>
         </div>
