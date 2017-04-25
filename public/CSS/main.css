@@ -26,7 +26,7 @@ body {
 \**********************************/
 /*  navbar color */
 .navbar {
-    background-color: #2d3142 !important;
+    background-color: rgba(45, 49, 66, 0.9);
     border: 1px solid #2d3142;
     letter-spacing: 1px;
 }
@@ -58,7 +58,10 @@ body {
 }
 
 .navbar ul li a:hover {
-    color: white !important;
+    color: #fff !important;
+    border-bottom: 1px solid #fff;
+    margin-bottom: 10px;
+    padding-bottom: 3px;
 }
 nav li a:focus{
     outline: none;
