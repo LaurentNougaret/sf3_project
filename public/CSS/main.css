@@ -49,6 +49,49 @@ body {
     letter-spacing: 3px;
 }
 
+@media (min-width: 768px) and (max-width: 910px) {
+    .navbar-header {
+        float: none;
+    }
+    .navbar-left,.navbar-right {
+        float: none !important;
+    }
+    .navbar-toggle {
+        display: block;
+    }
+    .navbar-collapse {
+        border-top: 1px solid transparent;
+        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    }
+    .navbar-fixed-top {
+        top: 0;
+        border-width: 0 0 1px;
+    }
+    .navbar-collapse.collapse {
+        display: none!important;
+    }
+    .navbar-nav {
+        float: none!important;
+        margin-top: 7.5px;
+    }
+    .navbar-nav>li {
+        float: none;
+    }
+    .navbar-nav>li>a {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .collapse.in{
+        display:block !important;
+    }
+}
+
+@media (max-width: 350px) {
+    .navbar .simplelogo1, .simplelogo2 {
+        font-size: 35px;
+    }
+}
+
 .navbar .simplelogo2 {
     color: #ff4756;
 }
@@ -171,7 +214,7 @@ nav li a:focus{
 
 #searchEngine input {
     height: 50px;
-    font-size: 13px;
+    font-size: 18px;
 }
 
 #searchEngine .btn-search {
@@ -238,15 +281,22 @@ nav li a:focus{
 
 /* End carousel */
 
-#slider .item blockquote {
+#slider .item {
     border-left: none;
     margin: 0;
 }
+#slider .item .review-pro {
+    font-weight: bold;
+}
 
-#slider .item blockquote p:before {
-    content: "\f10d";
+#slider .item .review {
     float: left;
     margin-right: 10px;
+    font-size: 20px!important;
+}
+
+#slider .item .review-author {
+    font-size: 16px;
 }
 
 #slider #quote-carousel img {
@@ -346,7 +396,7 @@ nav li a:focus{
     margin-top: 10%;
     margin-bottom: 20%;
     color: #BFC0C0;
-    font-size: 18px;
+    font-size: 22px;
 }
 
 #review .needconnect a {
@@ -388,6 +438,10 @@ nav li a:focus{
     background: url("../img/backg/about.jpg") no-repeat fixed center center;
     background-size: cover;
     height: 500px;
+}
+
+#about p {
+    font-size: 16px;
 }
 
 @media (max-width: 768px) {
@@ -554,9 +608,14 @@ footer {
     padding: 0 0 5px 0;
     display: block;
 }
-.footer a {
+.footer .map a, .footer .infos a, .footer .social a {
     color: white;
 }
+
+.footer .map a:hover, .footer .infos a:hover {
+    color: #BFC0C0;
+}
+
 .footer button {
     margin-top: 5%;
     border-radius: 4px;
