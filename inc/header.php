@@ -17,12 +17,17 @@
                 <a class="page-scroll" href="#page-top"></a>
             </li>
             <!-- If in index, use the scroll, if not use the link -->
+            <?php if($_GET['page'] != "index" and $_GET['page'] != ""): ?>
+                <li>
+                    <a class="page-scroll js-scrollTo" id="menu-review" href="/?page=index">Accueil</a>
+                </li>
+            <?php endif; ?>
             <?php if($_GET['page'] == "index" || $_GET['page'] == ""): ?>
             <li>
                 <a class="page-scroll js-scrollTo" id="menu-review" href="#review">Déposez un avis</a>
             </li>
             <?php endif; ?>
-            <?php if($_GET['page'] != "index" and $_GET['page'] != "" and $_GET['page'] != "pro_inscription" and $_GET['page'] != "pro_account" and $_GET['page'] != "pro_account_reviews" and $_GET['page'] != "pro_connection"  ): ?>
+            <?php if($_GET['page'] != "index" and $_GET['page'] != "" and $_GET['page'] != "pro_inscription" and $_GET['page'] != "pro_account" and $_GET['page'] != "pro_account_reviews" and $_GET['page'] != "pro_connection" and $_GET['page'] != "account" and $_GET['page'] != "account-cars"  and $_GET['page'] != "account-reviews"): ?>
                 <li>
                     <a class="page-scroll js-scrollTo" href="/?page=index#review">Déposez un avis</a>
                 </li>
