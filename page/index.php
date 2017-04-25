@@ -1,8 +1,8 @@
 <!-- Banner -->
 <section id="banner" class="banner">
     <div class="container">
-        <span class="background"></span>
-        <p>Le meilleur service auto en un seul clic !</p>
+        <span class="background"><div class="calque"></div></span>
+        <p>Le partage d’expérience du monde automobile.</p>
     </div>
 </section>
 <!-- / Banner -->

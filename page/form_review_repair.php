@@ -68,7 +68,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-3 control-label">Note globale</label>
                         <div class="col-sm-7">
-                            <input id="rating" value="3">
+                            <input id="rating" value="1">
                         </div>
                     </div>
                     <div class="form-group">
@@ -98,7 +98,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-3 control-label">Quel type d'accueil avez vous eu ?</label>
                         <div class="col-sm-7 example-01">
-                            <input name="ratingwelcome" id="ratingwelcome" value="4">
+                            <input name="ratingwelcome" id="ratingwelcome" value="1">
                         </div>
                     </div>
                     <div class="form-group">
@@ -127,7 +127,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-3 control-label">Délai de prise en charge de votre véhicule sur place:</label>
                         <div class="col-sm-7 example-01">
-                            <input name="ratingdelay" id="ratingdelay" value="3">
+                            <input name="ratingdelay" id="ratingdelay" value="1">
                         </div>
                     </div>
                     <div class="form-group">
@@ -241,13 +241,13 @@
                     <div class="form-group">
                         <label for="" class="col-sm-3 control-label">Dans quel état votre véhicule a-t-il été restitué ?</label>
                         <div class="col-sm-7">
-                            <input id="ratingclean" value="3">
+                            <input id="ratingclean" value="1">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="" class="col-sm-3 control-label">Dans quel mesure conseilleriez-vous votre professionnel ?</label>
                         <div class="col-sm-7">
-                            <input id="ratingadvice" value="3">
+                            <input id="ratingadvice" value="1">
                         </div>
                     </div>
                     <div class="form-group">
