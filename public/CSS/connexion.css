@@ -5,10 +5,14 @@
 .modal-header .modalTitle {
     font-family: 'Montserrat', sans-serif;
     font-size: 31px;
-    color: #2d3142;
+    color: #bfc0c0;
     font-weight: bold;
     letter-spacing: 3px;
     margin: 8px;
+}
+
+.modal-header .modalTitle span {
+    color: #ff4756;
 }
 .modal-header .close {
     outline: none;
