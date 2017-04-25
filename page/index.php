@@ -42,7 +42,6 @@
                         <?php foreach ($avis as $review): ?>
                             <!-- Quote 1 -->
                             <div class="item <?php if($review['id']==1): echo "active"; endif; ?>">
-                                <blockquote>
                                     <div class="row">
                                         <div class="col-sm-3 text-center">
                                             <img class="img-circle" src="img/photo_fondateur.png">
@@ -53,7 +52,6 @@
                                             <small><?php echo $review['firstname'] . " " . $review['lastname'] . ", " . $review['city']; ?></small>
                                         </div>
                                     </div>
-                                </blockquote>
                             </div>
                         <?php endforeach; ?>
                     </div>
