@@ -99,18 +99,21 @@
                     <div class="form-group col-xs-12 text-center update-photo">
                         <label class=" control-label" for="filebutton">Ajoutez une photo de votre établissement </label>
                         <div>
-                            <input id="filebutton" name="filebutton" class="input-file center-block" type="file">
-                            <br><span class="help-block">Format de fichier accepté: JPG, PDF</span><br>
+                            <input id="filebutton" name="filebutton" class="input-file center-block" type="file" accept=".jpg, .png, .jpeg">
+                            <br><span class="help-block">Formats de fichiers acceptés: JPG, JPEG, PNG.</span><br>
                         </div>
                     </div>
-                    <div class="col-xs-12 col-sm-6 center-block">
-                        <button id="save_proaccount" name="save_proaccount" class="btn btn-primary btn-block center-block save-pro-btn">Enregistrer</button>
-                    </div>
-                    <div class="col-xs-12 col-sm-6 center-block">
-                        <button id="delete_proaccount" name="delete_proaccount" class="btn btn-primary btn-block center-block delete-pro-btn">Supprimer votre profil</button>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <button type="submit" class="btn btn-primary save-pro-btn center-block">Enregistrer</button>
+                        </div>
+                        <div class="col-xs-8 col-xs-offset-2 text-center delete-pro-account">
+                            <p>Pour supprimer votre profil, veuillez cliquer <a href="" data-toggle="modal" data-target="#delete-account">ici.</a></p>
+                        </div>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </section>
+<?php include "../inc/modalDeleteAccount.php"?>
