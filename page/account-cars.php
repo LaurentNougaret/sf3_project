@@ -55,16 +55,9 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-6 col-sm-6 col-md-6">
+                <div class="col-xs-12">
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary pull-right modify-car">Modifier</button>
-                    </div>
-                </div>
-                <div class="col-xs-6 col-sm-6 col-md-6">
-                    <div class="form-group">
-                        <button type="button"
-                                class="btn btn-primary delete-car">Supprimer
-                        </button>
+                        <button type="submit" class="btn btn-primary center-block modify-car">Modifier</button>
                     </div>
                 </div>
             </div>

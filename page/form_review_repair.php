@@ -171,7 +171,7 @@
                         <div class="col-lg-8">
                             <div class="radio-inline">
                                 <label>
-                                    <input name="intervention" id="intervention" value="option1" checked="" type="radio">
+                                    <input name="intervention" id="intervention" value="option1"  type="radio">
                                     oui
                                 </label>
                             </div>
@@ -188,7 +188,7 @@
                         <div class="col-lg-8">
                             <div class="radio-inline">
                                 <label>
-                                    <input name="comunication" id="comuncation" value="option3" checked="" type="radio">
+                                    <input name="comunication" id="comuncation" value="option3"  type="radio">
                                     oui
                                 </label>
                             </div>
@@ -205,7 +205,7 @@
                         <div class="col-lg-8">
                             <div class="radio-inline">
                                 <label>
-                                    <input name="document" id="document" value="option5" checked="" type="radio">
+                                    <input name="document" id="document" value="option5" type="radio">
                                     oui
                                 </label>
                             </div>
@@ -222,7 +222,7 @@
                         <div class="col-lg-8">
                             <div class="radio-inline">
                                 <label>
-                                    <input name="quotation" id="quotation" value="option7" checked="" type="radio">
+                                    <input name="quotation" id="quotation" value="option7" type="radio">
                                     oui
                                 </label>
                             </div>
@@ -239,7 +239,7 @@
                         <div class="col-lg-8">
                             <div class="radio-inline">
                                 <label>
-                                    <input name="replace" id="replace" value="option9" checked="" type="radio">
+                                    <input name="replace" id="replace" value="option9" type="radio">
                                     oui
                                 </label>
                             </div>
@@ -256,7 +256,7 @@
                         <div class="col-sm-8">
                             <div class="radio-inline">
                                 <label>
-                                    <input name="delayreplace" id="delayreplace" type="radio" data-toggle="collapse" data-target=".collapseOne.in" checked=""/> Oui
+                                    <input name="delayreplace" id="delayreplace" type="radio" data-toggle="collapse" data-target=".collapseOne.in" /> Oui
                                 </label>
                             </div>
                             <div class="radio-inline">

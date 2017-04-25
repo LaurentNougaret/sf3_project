@@ -149,7 +149,7 @@
                         <div class="col-lg-8">
                             <div class="radio-inline">
                                 <label>
-                                    <input name="information" id="information" value="option1" checked="" type="radio">
+                                    <input name="information" id="information" value="option1" type="radio">
                                     oui
                                 </label>
                             </div>
@@ -166,7 +166,7 @@
                         <div class="col-lg-8">
                             <div class="radio-inline">
                                 <label>
-                                    <input name="try" id="try" value="option3" checked="" type="radio">
+                                    <input name="try" id="try" value="option3" type="radio">
                                     oui
                                 </label>
                             </div>
@@ -183,7 +183,7 @@
                         <div class="col-lg-8">
                             <div class="radio-inline">
                                 <label>
-                                    <input name="tryvehicule" id="tryvehicule" value="option5" checked="" type="radio">
+                                    <input name="tryvehicule" id="tryvehicule" value="option5" type="radio">
                                     oui
                                 </label>
                             </div>
@@ -205,7 +205,7 @@
                             </div>
                             <div class="radio-inline">
                                 <label>
-                                    <input name="finance" id="finance" type="radio" data-toggle="collapse" data-target=".collapseOne.in" checked=""/> Non
+                                    <input name="finance" id="finance" type="radio" data-toggle="collapse" data-target=".collapseOne.in" /> Non
                                 </label>
                             </div>
                             <div class="panel-group" id="accordion">
@@ -228,7 +228,7 @@
                             </div>
                             <div class="radio-inline">
                                 <label>
-                                    <input name="garanty" id="garanty" type="radio" data-toggle="collapse" data-target=".collapseOne1.in" checked=""/> Non
+                                    <input name="garanty" id="garanty" type="radio" data-toggle="collapse" data-target=".collapseOne1.in" /> Non
                                 </label>
                             </div>
                             <div class="panel-group" id="accordion">
