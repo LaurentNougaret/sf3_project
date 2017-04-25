@@ -6,7 +6,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                 </button>
-                <p class="modalTitle">CarAdvisor</p>
+                <p class="modalTitle">Car<span>Advisor</span></p>
             </div>
 
             <!-- Begin # DIV Form -->

@@ -41,22 +41,16 @@ body {
     border: none;
 }
 
-.navbar .simplelogo1 {
+.navbar .simplelogo1, .simplelogo2 {
     font-family: 'Montserrat', sans-serif;
     font-size: 41px;
     color: #BFC0C0;
     font-weight: bold;
     letter-spacing: 3px;
-    margin: 10px 0;
 }
 
 .navbar .simplelogo2 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 41px;
     color: #ff4756;
-    font-weight: bold;
-    letter-spacing: 3px;
-    margin: 10px 0;
 }
 
 .navbar ul {
@@ -82,7 +76,7 @@ nav li a:focus{
 }
 
 .navbar .navbar-brand {
-    padding: 5px 15px;
+    padding: 15px 15px;
 }
 
 /**********************************\
