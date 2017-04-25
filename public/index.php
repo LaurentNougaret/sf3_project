@@ -122,6 +122,7 @@ $file = $page . ".php";
     <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.1/js/star-rating.min.js'></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+    <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js'></script>
     <!-- Local JS -->
     <script type="text/javascript" src="js/rating.js"></script>
     <script type="text/javascript" src="js/slider.js"></script>
@@ -135,8 +136,7 @@ $file = $page . ".php";
     <script type="text/javascript" src="js/alerts.js"></script>
     <script type="text/javascript" src="js/closing_responsive_menu.js"></script>
     <!-- Datepicker -->
-    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.js'></script>
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js'></script>
-    <script src="js/datepicker.js"></script>
+
+    <script type="text/javascript" src="js/datepicker.js"></script>
 </body>
 </html>
