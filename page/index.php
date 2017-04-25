@@ -1,8 +1,8 @@
 <!-- Banner -->
 <section id="banner" class="banner">
     <div class="container">
-        <span class="background"></span>
-        <p>Le meilleur service auto en un seul clic !</p>
+        <span class="background"><div class="calque"></div></span>
+        <p>Le partage d’expérience du monde automobile.</p>
     </div>
 </section>
 <!-- / Banner -->
@@ -42,7 +42,6 @@
                         <?php foreach ($avis as $review): ?>
                             <!-- Quote 1 -->
                             <div class="item <?php if($review['id']==1): echo "active"; endif; ?>">
-                                <blockquote>
                                     <div class="row">
                                         <div class="col-sm-3 text-center">
                                             <img class="img-circle" src="img/photo_fondateur.png">
@@ -53,7 +52,6 @@
                                             <small><?php echo $review['firstname'] . " " . $review['lastname'] . ", " . $review['city']; ?></small>
                                         </div>
                                     </div>
-                                </blockquote>
                             </div>
                         <?php endforeach; ?>
                     </div>

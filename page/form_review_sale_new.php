@@ -68,7 +68,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-3 control-label">Note globale</label>
                         <div class="col-sm-7">
-                            <input name="rating" id="rating" value="0">
+                            <input name="rating" id="rating" value="1">
                         </div>
                     </div>
                     <div class="form-group">
@@ -100,13 +100,13 @@
                     <div class="form-group">
                         <label for="" class="col-sm-3 control-label">Quel type d'accueil avez vous eu ?</label>
                         <div class="col-sm-7">
-                            <input name="ratingwelcome" id="ratingwelcome" value="4">
+                            <input name="ratingwelcome" id="ratingwelcome" value="1">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="" class="col-sm-3 control-label">Délai pour avoir un renseignement sur le véhicule :</label>
                         <div class="col-sm-7 example-01">
-                            <input name="ratinginformation" id="ratinginformation" value="4">
+                            <input name="ratinginformation" id="ratinginformation" value="1">
                         </div>
                     </div>
                     <div class="form-group">
@@ -186,7 +186,7 @@
                     <div class="form-group">
                         <label for="" class="col-sm-3 control-label">Dans quel mesure conseilleriez-vous votre vendeur ou marchand ?</label>
                         <div class="col-sm-7">
-                            <input id="ratingadvice" value="4">
+                            <input id="ratingadvice" value="1">
                         </div>
                     </div>
                     <div class="form-group">
