@@ -42,18 +42,16 @@
                         <?php foreach ($avis as $review): ?>
                             <!-- Quote 1 -->
                             <div class="item <?php if($review['id']==1): echo "active"; endif; ?>">
-                                <blockquote>
-                                    <div class="row">
-                                        <div class="col-sm-3 text-center">
-                                            <img class="img-circle" src="img/photo_fondateur.png">
-                                        </div>
-                                        <div class="col-sm-9">
-                                            <h3><?php echo $review['proname']?></h3>
-                                            <p><?php echo $review['review']; ?></p>
-                                            <small><?php echo $review['firstname'] . " " . $review['lastname'] . ", " . $review['city']; ?></small>
-                                        </div>
+                                <div class="row">
+                                    <div class="col-sm-3 text-center">
+                                        <img class="img-circle" src="img/photo_fondateur.png">
                                     </div>
-                                </blockquote>
+                                    <div class="col-sm-9">
+                                        <h3><?php echo $review['proname']?></h3>
+                                        <p><?php echo $review['review']; ?></p>
+                                        <small><?php echo $review['firstname'] . " " . $review['lastname'] . ", " . $review['city']; ?></small>
+                                    </div>
+                                </div>
                             </div>
                         <?php endforeach; ?>
                     </div>

@@ -14,6 +14,7 @@ class BddManager
         if ($mysqli->connect_errno) {
             throw new \mysqli_sql_exception("Failed to connect to MySQL : (" . $mysqli->connect_errno . ") " . $mysqli->connect_error);
         }
+        $mysqli->set_charset("utf8");
         $this->connection = $mysqli;
     }
 
