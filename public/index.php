@@ -133,7 +133,6 @@ $file = $page . ".php";
     <script type="text/javascript" src="js/js_modal.js"></script>
     <script type="text/javascript" src="js/js_modalpro.js"></script>
     <script type="text/javascript" src="js/cookieconsent.js"></script>
-    <script type="text/javascript" src="js/alerts.js"></script>
     <script type="text/javascript" src="js/closing_responsive_menu.js"></script>
     <!-- Datepicker -->
 
