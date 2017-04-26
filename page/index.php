@@ -115,6 +115,7 @@
                     donner un avis sur un professionnel du secteur (concessionnaire, garagiste indépendant, centre-auto...).<br>
                     Basé sur un échange de témoignages et de notations vérifiés (certification AFNOR), <strong>CarAdvisor</strong> vous garantit
                     une totale transparence pour que vous puissiez choisir en toute simplicité qui s’occupera de votre véhicule.
+                    <br>   <span class="blind">.</span>
                 </p>
             </div>
             <div class="col-xs-10 col-xs-offset-1 col-sm-5 col-sm-offset-1 bloktext">

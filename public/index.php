@@ -22,7 +22,7 @@ $file = $page . ".php";
     <!-- Favicon -->
     <link rel="icon" type="img/png" href="img/favicon.ico" />
     <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto|Open+Sans" rel="stylesheet">
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
@@ -47,7 +47,6 @@ $file = $page . ".php";
     <link rel="stylesheet" type="text/css" href='//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css'>
     <!-- Datepicker -->
     <link rel='stylesheet prefetch' href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css'>
-    <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Open+Sans'>
     <link rel="stylesheet" href="CSS/datepicker.css">
     <title>
         <?php

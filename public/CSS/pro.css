@@ -94,3 +94,74 @@
         margin-bottom: 1em;
     }
 }
+
+.pro #myaccountOptions {
+margin: 5% 20% 8% 20%;
+}
+
+.pro .welcomePro {
+    text-align: center;
+    margin-bottom: 5%;
+}
+
+.pro .myaccountProAccessProfile {
+    background-color: white; !important;
+    color: #2d3142;
+    border-color: #5e5e5e;
+    text-align: center;
+}
+
+.pro .myaccountProAccessCompanyPage {
+    background-color: white; !important;
+    color: #2d3142;
+    border-color: #5e5e5e;
+    text-align: center;
+}
+
+.pro .myaccountProSettings {
+    background-color: white; !important;
+    color: #2d3142;
+    border-color: #5e5e5e;
+    text-align: center;
+}
+
+.pro .myaccountProReviews {
+    background-color: white; !important;
+    color: #2d3142;
+    border-color: #5e5e5e;
+    text-align: center;
+}
+
+.pro .myaccountUserAccessProfile {
+    background-color: white; !important;
+    color: #2d3142;
+    border-color: #5e5e5e;
+    text-align: center;
+}
+
+.pro .myaccountUserAccessCompanyPage {
+    background-color: white; !important;
+    color: #2d3142;
+    border-color: #5e5e5e;
+    text-align: center;
+}
+
+.pro .myaccountUserSettings {
+    background-color: white; !important;
+    color: #2d3142;
+    border-color: #5e5e5e;
+    text-align: center;
+}
+
+.pro .myaccountUserReviews {
+    background-color: white; !important;
+    color: #2d3142;
+    border-color: #5e5e5e;
+    text-align: center;
+}
+
+.color div:hover{
+    color: #ff4756;
+
+    transition: 0.5s ease;
+}
