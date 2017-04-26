@@ -144,17 +144,17 @@
         <hr>
         <div class="row">
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
-                <h3>La confiance</h3>
+                <h3>Confiance</h3>
                 <img class="img-responsive" src="img/picto/trust.png" alt="image de confiance"/>
                 <h4>... grâce à la transparence des avis</h4>
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
-                <h3>La fiabilité</h3>
+                <h3>Fiabilité</h3>
                 <img class="img-responsive" src="img/picto/reliability.png" alt="image de fiabilité"/>
                 <h4>... grâce à la vérification des avis</h4>
             </div>
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
-                <h3>La simplicité</h3>
+                <h3>Simplicité</h3>
                 <img class="img-responsive" src="img/picto/simplicity.png" alt="image de simplicité"/>
                 <h4>... déposez vos avis en un clic !</h4>
             </div>

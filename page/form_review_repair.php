@@ -263,10 +263,9 @@
                 <div class="form-group required">
                     <div class="col-xs-12 text-center">
                         <label class=" control-label" for="filebutton"><h4>Justificatif d'expérience</h4></label>
-                    </div>
-                    <div class="col-xs-12 text-center">
-                        <input id="filebutton" name="filebutton" class="input-file center-block" type="file" accept=".jpg, .pdf">
-                        <br><span class="help-block">Format de fichiers accepté: JPG, PDF.</span><br>
+
+                        <input id="filebutton" name="filebutton" class="input-file center-block" type="file" accept=".jpg, .pdf, .jpeg">
+                        <br><span class="help-block">Format de fichiers accepté: JPG, PDF, JPEG</span><br>
                     </div>
                 </div>
                 <div class="form-group">

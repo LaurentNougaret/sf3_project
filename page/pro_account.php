@@ -11,14 +11,20 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">
                             <div class="form-group">
-                                <label for="proname" class="visuallyhidden"></label>
-                                <input type="text" name="proname" id="proname" class="form-control" placeholder="Type de prestataire">
+                                <label for="profirstname" class="visuallyhidden"></label>
+                                <input type="text" name="profirstname" id="profirstname" class="form-control" placeholder="Nom Prestataire">
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-6">
                             <div class="form-group">
-                                <label for="profirstname" class="visuallyhidden"></label>
-                                <input type="text" name="profirstname" id="profirstname" class="form-control" placeholder="Nom Prestataire">
+                                <label for="select" class="control-label visuallyhidden"></label>
+                                <select class="form-control" name="select" id="select">
+                                    <option value="1">Concessionnaire</option>
+                                    <option value="2">Garagiste</option>
+                                    <option value="3">Agent</option>
+                                    <option value="3">Carrosserie</option>
+                                    <option value="3">Autre</option>
+                                </select>
                             </div>
                         </div>
                     </div>

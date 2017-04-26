@@ -22,7 +22,7 @@ $file = $page . ".php";
     <!-- Favicon -->
     <link rel="icon" type="img/png" href="img/favicon.ico" />
     <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto|Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto" rel="stylesheet">
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
@@ -40,6 +40,7 @@ $file = $page . ".php";
     <link rel="stylesheet" href="CSS/info.css">
     <link rel="stylesheet" href="CSS/account.css">
     <link rel="stylesheet" href="CSS/pro.css">
+    <link rel="stylesheet" href="CSS/datepicker.css">
     <!-- External CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
           integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -47,7 +48,7 @@ $file = $page . ".php";
     <link rel="stylesheet" type="text/css" href='//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css'>
     <!-- Datepicker -->
     <link rel='stylesheet prefetch' href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css'>
-    <link rel="stylesheet" href="CSS/datepicker.css">
+    <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Open+Sans'>
     <title>
         <?php
         switch ($page) {
@@ -136,7 +137,6 @@ $file = $page . ".php";
     <script type="text/javascript" src="js/cookieconsent.js"></script>
     <script type="text/javascript" src="js/closing_responsive_menu.js"></script>
     <!-- Datepicker -->
-
     <script type="text/javascript" src="js/datepicker.js"></script>
 </body>
 </html>

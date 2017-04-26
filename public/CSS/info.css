@@ -11,6 +11,11 @@
     font-size: 25px;
 }
 
+#info .label {
+    color: #1590c4;
+    background-color: transparent;
+}
+
 #info .title hr, #info .info hr, #info .reviews .underline {
     margin-bottom: 5%;
     border-top: 1px solid #ff4756;

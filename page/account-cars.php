@@ -2,7 +2,7 @@
     <div class="container">
         <form role="form" class="info">
             <div class="row">
-                <h3>Véhicule n°1</h3>
+                <h2 class="text-center">Véhicule n°1</h2>
                 <hr>
                 <div class="col-xs-12 col-sm-6 col-md-6 car1">
                     <div class="form-group">
@@ -62,7 +62,7 @@
                 </div>
             </div>
             <div class="row">
-                <h3>Véhicule n°2</h3>
+                <h2 class="text-center">Véhicule n°2</h2>
                 <hr>
                 <div class="col-xs-12 col-sm-6 col-md-6 car1">
                     <div class="form-group">
