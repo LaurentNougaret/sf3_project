@@ -61,6 +61,10 @@
     .modal-body .form-control {
         width: 100%;
     }
+
+    .modal-footer .btn-conn {
+        padding: 10px 10px
+    }
 }
 
 @media (min-width: 600px) and (max-width: 800px) {
