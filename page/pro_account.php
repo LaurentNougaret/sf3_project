@@ -11,7 +11,7 @@
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">
                             <div class="form-group">
-                                <label for="select" class="col-sm-3 control-label">Type de prestataire</label>
+                                <label for="select" class="col-sm-3 control-label"></label>
                                 <div class="col-sm-4">
                                     <select class="form-control" name="select" id="select">
                                         <option value="1">Concessionnaire</option>
