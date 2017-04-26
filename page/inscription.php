@@ -1,7 +1,7 @@
 <section id="signup">
     <div class="container">
         <div class="row">
-            <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 bloc">
+            <div class="col-xs-10 col-xs-offset-1 col-md-6 col-md-offset-3 bloc">
                 <form role="form">
                     <h2 class="text-center">Inscription</h2>
                     <hr>
@@ -123,7 +123,7 @@
                     <!--/ vehicule 2-->
 
                     <div class="row">
-                        <div id="inscrition-text-footer" class="col-xs-8 col-sm-12 col-md-12">
+                        <div id="inscrition-text-footer" class="col-xs-12 col-sm-12 text-justify">
                            En cliquant sur  <strong>Inscription</strong>, vous acceptez les <a href="/?page=cgu" target="_blank">Conditions d'utilisation</a> en vigueur sur ce site, y compris notre politique sur les cookies.
                         </div>
                     </div>

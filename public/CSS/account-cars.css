@@ -1,14 +1,10 @@
 #account-cars {
-    margin: 90px auto 30px auto;
+    margin: 90px auto 50px auto;
 }
 
 #account-cars hr {
     border: 1px solid #ff4756;
     margin: 2% 25% 5% 25%;
-}
-
-#account-cars h3 {
-    text-align: center;
 }
 
 #account-cars .delete-car, #account-cars .modify-car  {
