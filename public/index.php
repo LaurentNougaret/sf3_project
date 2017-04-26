@@ -40,6 +40,7 @@ $file = $page . ".php";
     <link rel="stylesheet" href="CSS/info.css">
     <link rel="stylesheet" href="CSS/account.css">
     <link rel="stylesheet" href="CSS/pro.css">
+    <link rel="stylesheet" href="CSS/datepicker.css">
     <!-- External CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
           integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
@@ -48,7 +49,6 @@ $file = $page . ".php";
     <!-- Datepicker -->
     <link rel='stylesheet prefetch' href='https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css'>
     <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Open+Sans'>
-    <link rel="stylesheet" href="CSS/datepicker.css">
     <title>
         <?php
         switch ($page) {
@@ -137,7 +137,6 @@ $file = $page . ".php";
     <script type="text/javascript" src="js/cookieconsent.js"></script>
     <script type="text/javascript" src="js/closing_responsive_menu.js"></script>
     <!-- Datepicker -->
-
     <script type="text/javascript" src="js/datepicker.js"></script>
 </body>
 </html>

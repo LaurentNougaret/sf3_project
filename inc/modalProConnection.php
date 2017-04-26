@@ -2,12 +2,12 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header" align="center">
-                <div class="modal-header" align="center">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                    </button>
-                    <p class="modalTitle">Car<span>Advisor</p>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                </button>
+                <p class="modalTitle">Car<span>Advisor</p>
             </div>
+
             <!-- Begin # DIV Form -->
             <div id="div-pro-forms">
                 <!-- Begin # Login Form -->
