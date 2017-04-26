@@ -72,6 +72,10 @@
     margin-bottom: -50px;
 }
 
+.forms #advicebox, .forms #reviewBox {
+    resize: none;
+}
+
 @media (max-width: 768px) {
     .forms .reviewform .title {
         margin-bottom: 1em;

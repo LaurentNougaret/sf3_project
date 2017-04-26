@@ -397,7 +397,7 @@ nav li a:focus{
 #review .needconnect {
     margin-top: 10%;
     margin-bottom: 20%;
-    color: #BFC0C0;
+    color: #909191;
     font-size: 22px;
 }
 
@@ -518,6 +518,10 @@ nav li a:focus{
 
     #values img {
         width: 50%;
+    }
+
+    #values .reliability {
+        margin-top: 3%;
     }
 }
 @media (min-width: 480px) and (max-width: 600px) {
