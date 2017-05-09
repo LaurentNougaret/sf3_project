@@ -15,8 +15,8 @@
                 <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
                     <h3> Informations</h3>
                     <ul class="infos">
-                        <li> <a class="mentions" href="/?page=legal">Mentions légales</a> </li>
-                        <li> <a class="mentions" href="/?page=cgu">CGU</a> </li>
+                        <li> <a class="mentions" href="/?page=legal" target="_blank">Mentions légales</a> </li>
+                        <li> <a class="mentions" href="/?page=cgu" target="_blank">CGU</a> </li>
                     </ul>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
