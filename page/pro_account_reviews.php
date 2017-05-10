@@ -2,11 +2,21 @@
     <div class="container">
         <div class="row" id="account-pro-reviews">
             <div class="col-xs-12 text-center">
-                <h2 class="pro_account">ACCES PROFESSIONNELS</h2>
+                <h2 class="pro_account">Accès Professionnels</h2>
             </div>
             <div class="col-xs-12">
                 <h2 class="text-center">Les Avis</h2>
                 <hr class="pro-review-underline">
+
+                <!-- Back to main page -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <a href="/?page=pro_account_home">
+                            <p><i class="fa fa-angle-double-left" aria-hidden="true"> </i>
+                                Revenir à Mon Compte</p><br>
+                        </a>
+                    </div>
+                </div>
                 <?php foreach ($avis as $key=> $review): ?>
                     <!-- Quote 1 -->
                     <div class="item <?php if ($review['id'] == 1): echo "active"; endif; ?>">

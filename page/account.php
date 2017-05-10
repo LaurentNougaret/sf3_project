@@ -8,6 +8,14 @@
                     </div>
                 </div>
                 <hr>
+                <div class="row">
+                    <div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-2 ">
+                        <a href="/?page=user_account_home">
+                            <p><i class="fa fa-angle-double-left" aria-hidden="true"> </i>
+                                Revenir à Mon Compte</p><br>
+                        </a>
+                    </div>
+                </div>
             <div class="row">
                 <div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-2 ">
                     <div class="form-group">
@@ -28,20 +36,6 @@
                         <label for="email" class="visuallyhidden"></label>
                         <input type="email" name="email" id="email" class="form-control"
                                placeholder="Email" tabindex="3">
-                    </div>
-                </div>
-                <div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-2 ">
-                    <div class="form-group">
-                        <input type="password" name="password" id="password" class="form-control"
-                               placeholder="Mot de passe" tabindex="4">
-                    </div>
-                </div>
-                <div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-0">
-                    <div class="form-group">
-                        <label for="password" class="visuallyhidden"></label>
-                        <input type="password" name="password_confirmation" id="password_confirmation"
-                               class="form-control" placeholder="Confirmez mot de passe"
-                               tabindex="5">
                     </div>
                 </div>
                 <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 ">
@@ -76,9 +70,6 @@
             <div class="row">
                 <div class="col-xs-12">
                     <button type="submit" class="btn btn-primary save-account center-block">Enregistrer</button>
-                </div>
-                <div class="col-xs-8 col-xs-offset-2 text-center delete-account">
-                    <p>Pour supprimer votre profil, veuillez cliquer <a href="" data-toggle="modal" data-target="#delete-account">ici.</a></p>
                 </div>
             </div>
             </form>

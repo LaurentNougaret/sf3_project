@@ -1,5 +1,5 @@
 .pro {
-    margin-top: 12%
+    margin-top: 8%
 }
 
 .pro .pro_account {
@@ -96,7 +96,7 @@
 }
 
 .pro #myaccountOptions {
-margin: 5% 20% 8% 20%;
+    margin: 5% 20% 8% 20%;
 }
 
 .pro .welcomePro {
@@ -162,6 +162,5 @@ margin: 5% 20% 8% 20%;
 
 .color div:hover{
     color: #ff4756;
-
     transition: 0.5s ease;
 }

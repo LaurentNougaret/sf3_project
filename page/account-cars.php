@@ -4,6 +4,15 @@
             <div class="row">
                 <h2 class="text-center">Véhicule n°1</h2>
                 <hr>
+                <!-- Back to main page -->
+                <div class="row">
+                    <div class="col-lg-5">
+                        <a href="/?page=user_account_home">
+                            <p><i class="fa fa-angle-double-left" aria-hidden="true"> </i>
+                                Revenir à Mon Compte</p><br>
+                        </a>
+                    </div>
+                </div>
                 <div class="col-xs-12 col-sm-6 col-md-6 car1">
                     <div class="form-group">
                         <label for="marque1" class="visuallyhidden"></label>

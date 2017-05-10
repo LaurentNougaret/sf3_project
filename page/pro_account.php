@@ -2,12 +2,21 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12 text-center">
-                <h2 class="pro_account">ACCES PROFESSIONNELS</h2>
+                <h2 class="pro_account">Accès Professionnels</h2>
             </div>
             <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3 bloc">
                 <form role="form">
                     <h2 class="text-center">Votre profil</h2>
                     <hr>
+                    <!-- Back to main page -->
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <a href="/?page=pro_account_home">
+                                <p><i class="fa fa-angle-double-left" aria-hidden="true"> </i>
+                                    Revenir à Mon Compte</p><br>
+                            </a>
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="col-xs-12 col-sm-6">
                             <div class="form-group">
@@ -33,20 +42,6 @@
                             <div class="form-group">
                                 <label for="proemail" class="visuallyhidden"></label>
                                 <input type="email" name="proemail" id="proemail" class="form-control" placeholder="Email">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-xs-12 col-sm-6">
-                            <div class="form-group">
-                                <label for="propassword" class="visuallyhidden"></label>
-                                <input type="password" name="propassword" id="propassword" class="form-control" placeholder="Mot de passe">
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-sm-6">
-                            <div class="form-group">
-                                <label for="propasswordconfirmation" class="visuallyhidden"></label>
-                                <input type="password" name="propasswordconfirmation" id="propasswordconfirmation" class="form-control" placeholder="Confirmez mot de passe">
                             </div>
                         </div>
                     </div>

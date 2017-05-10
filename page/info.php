@@ -6,8 +6,8 @@
         </div>
             <div class="col-xs-12 col-sm-7 text-left garage">
                 <img class="media-object img-rounded img-responsive"  src="http://i1248.photobucket.com/albums/hh481/ondine3/268cdd2f-a81d-42ee-b7b8-895a091e4b79_zpsk3iuquvw.jpg" alt="Garage" >
-                <p class="description">Vente et achat véhicule neuf ou d'occasion, réparation véhicules toutes marques, </p>
-                <input id="ratingadvice" value="1">
+                <p class="description">Vente et achat véhicule neuf ou d'occasion, réparation véhicules toutes marques, etc. </p>
+                <input id="ratingadvice" value="4">
             </div>
             <div class="col-xs-12 col-sm-5 info">
                 <h2>Informations</h2>
@@ -19,15 +19,14 @@
                     <p>Adresse : </p>
                     <address>
                         33 rue Creuzet<br>
-                        69007  Lyon
+                        69007  Lyon<br>
+                        Tél: 05 86 98 74 21
                     </address>
                 </div>
                 <div class="col-xs-6">
                     Horaires:<br>
-                    Du lundi au jeudi:<br>
+                    Du lundi au vendredi:<br>
                     8h à 12h | 14h à 19.<br>
-                    le vendredi:<br>
-                    8h à 12h | 14h à 18h.<br>
                     Le samedi:<br>
                     9h30 à 14h.<br>
                 </div>

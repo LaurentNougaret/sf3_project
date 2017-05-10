@@ -90,7 +90,7 @@
                             <label for="date" class="col-xs-12 col-sm-3 control-label wrapper">Date de l'achat</label>
                             <span class="outline-element-container">
                                 <input id="datepicker-input" type="text" class="rounded openemr-datepicker input-textbox outline-element incorrect"
-                                       placeholder="jj/mm/aaaa" objtype="7" name="action_element" objindex="" aria-label="Choisir la date">
+                                       placeholder="jj-mm-aaaa" objtype="7" name="action_element" objindex="" aria-label="Choisir la date">
                                 <span class="correct-incorrect-icon"> </span></span>
                             <div id="datepicker"></div>
                         </div>
