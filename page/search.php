@@ -1,7 +1,6 @@
 <section id="search">
     <div class="container searchpage">
         <div class="row">
-
             <!-- filtre petit ecran -->
                 <div  id="collapse-small" class="col-sm-3">
                     <div role="tablist" aria-multiselectable="true">
