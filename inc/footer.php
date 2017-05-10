@@ -27,7 +27,7 @@
                         <li> <a href="https://www.twitter.com"><i class=" fa fa-2x fa-twitter"></i></a> </li>
                     </ul>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-7 col-sm-offset-0 col-xs-8 col-xs-offset-2 ">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-sm-offset-3 col-xs-12">
                     <h3> Inscrivez-vous à notre newsletter </h3>
                     <ul>
                         <li>

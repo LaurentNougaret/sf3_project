@@ -250,7 +250,8 @@ nav li a:focus{
 #slider {
     background: url("../img/backg/about.jpg") no-repeat fixed center center;
     background-size: cover;
-    height: 400px;
+    height: 100%;
+    padding-bottom: 7%;
 }
 
 /* carousel */
@@ -282,7 +283,6 @@ nav li a:focus{
 }
 
 /* End carousel */
-
 #slider .item {
     border-left: none;
     margin: 0;
@@ -321,11 +321,8 @@ nav li a:focus{
     }
 }
 
-@media (max-width: 320px) {
-    #slider {
-        margin-top: 10vh;
-        height: 90vh;
-    }
+@media (max-width: 480px) {
+
     /* Previous button  */
     #slider #quote-carousel .carousel-control.left {
         left: 0;
@@ -634,6 +631,12 @@ footer {
     color: gray;
     text-decoration: none;
     outline: none;
+}
+
+@media (max-width: 750px) {
+    .footer input {
+        width: 80%;
+    }
 }
 
 /*** Bottom-to-top button ***/
