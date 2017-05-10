@@ -15,7 +15,7 @@
                     <div class="form-group">
                         <label for="modele1" class="visuallyhidden"></label>
                         <input type="text" name="modele1" id="modele1" class="form-control"
-                               placeholder="Modéle">
+                               placeholder="Modèle">
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-6">
@@ -75,7 +75,7 @@
                     <div class="form-group">
                         <label for="modele2" class="visuallyhidden"></label>
                         <input type="text" name="modele2" id="modele2" class="form-control"
-                               placeholder="Modéle">
+                               placeholder="Modèle">
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-6">

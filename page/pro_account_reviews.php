@@ -11,7 +11,6 @@
                     <!-- Quote 1 -->
                     <div class="item <?php if ($review['id'] == 1): echo "active"; endif; ?>">
                         <div class="col-xs-12 col-sm-8 col-sm-offset-2 review">
-                            <h3><?php echo $review['proname'] ?></h3>
                             <p class="text-justify"><?php echo $review['review']; ?></p>
                             <small><?php echo $review['firstname'] . " " . $review['lastname'] . ", " . $review['city']; ?></small>
                         </div>
