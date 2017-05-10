@@ -10,12 +10,8 @@
                         <div class="col-xs-12 col-sm-7 col-md-7 review">
                             <h3><?php echo $review['proname'] ?></h3>
                             <p class="text-justify"><?php echo $review['review']; ?></p>
-                            <small><?php echo $review['firstname'] . " " . $review['lastname'] . ", " . $review['city']; ?></small>
                         </div>
-                        <div class="col-xs-6 col-sm-2 ">
-                            <button type="submit" class="btn btn-primary center-block modify-review">Modifier</button>
-                        </div>
-                        <div class="col-xs-6 col-sm-2 col-sm-offset-1">
+                        <div class="col-xs-8 col-xs-offset-2 col-sm-2 col-sm-offset-1">
                             <button id="review_delete_btn" type="button" class="btn btn-primary center-block delete-review">Supprimer</button>
                         </div>
                     </div>
