@@ -38,3 +38,14 @@
     position: absolute;
     width: 1px;
 }
+
+.plus-vehicule {
+    display: inline-block;
+    padding-left: 10px;
+    outline: none!important;
+}
+
+.glyphicon-plus:before {
+    color: #ff4756;
+}
+

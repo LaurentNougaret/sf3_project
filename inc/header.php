@@ -33,12 +33,12 @@
                 </li>
             <?php endif; ?>
             <!-- Show inscription btn when on index, or empty url -->
-            <?php if($_GET['page'] == "index" || $_GET['page'] == ""): ?>
+            <?php if($_GET['page'] == "index" || $_GET['page'] == "" || $_GET['page'] == "search" || $_GET['page'] == "info"): ?>
             <li>
                 <a class="page-scroll " href="/?page=inscription">Inscription</a>
             </li>
             <?php endif; ?>
-            <?php if($_GET['page'] == "index" || $_GET['page'] == "inscription" || $_GET['page'] == ""): ?>
+            <?php if($_GET['page'] == "index" || $_GET['page'] == "inscription" || $_GET['page'] == "" || $_GET['page'] == "search" || $_GET['page'] == "info"): ?>
             <li>
                 <a href="#"  data-toggle="modal" data-target="#login-modal">Connexion</a>
             </li>
