@@ -262,8 +262,6 @@
                                     <button type="button" class="btn btn-info btn-md btn-block">Plus d'info</button>
                                 </a>
                             </div>
-
-
                         </div>
                         <hr>
                         <div class="list-group-item">
