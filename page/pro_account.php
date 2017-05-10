@@ -4,7 +4,7 @@
             <div class="col-xs-12 text-center">
                 <h2 class="pro_account">Accès Professionnels</h2>
             </div>
-            <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3 bloc">
+            <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3 bloc">
                 <form role="form">
                     <h2 class="text-center">Votre profil</h2>
                     <hr>

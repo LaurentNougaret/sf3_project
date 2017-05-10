@@ -24,7 +24,7 @@
                     <div class="form-group">
                         <label for="modele1" class="visuallyhidden"></label>
                         <input type="text" name="modele1" id="modele1" class="form-control"
-                               placeholder="Modéle">
+                               placeholder="Modèle">
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-6">
@@ -70,9 +70,10 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <h2 class="text-center">Véhicule n°2</h2>
-                <hr>
+            <div class="text-center"><a class="text-center" data-toggle="collapse" data-target="#demo"><span class="glyphicon glyphicon-plus"></span></a><h2 class="plus-vehicule">Véhicule n°2</h2></div>
+            <hr>
+            <div id="demo" class="collapse">
+                <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-6 car1">
                     <div class="form-group">
                         <label for="marque2" class="visuallyhidden"></label>
@@ -84,7 +85,7 @@
                     <div class="form-group">
                         <label for="modele2" class="visuallyhidden"></label>
                         <input type="text" name="modele2" id="modele2" class="form-control"
-                               placeholder="Modéle">
+                               placeholder="Modèle">
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-6">
@@ -137,7 +138,7 @@
                     </div>
                 </div>
             </div>
-
+            </div>
         </form>
     </div>
 </section>

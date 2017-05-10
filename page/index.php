@@ -92,12 +92,6 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-xs-12 col-sm-8 col-sm-offset-2 text-center">
-                <p class="needconnect">Merci de vous <a href="/?page=inscription">inscrire</a> ou de vous <a href="#" data-toggle="modal" data-target="#login-modal">connecter</a> pour déposer un avis.</p>
-            </div>
-        </div>
-
     </div>
 </section>
 <!-- / Leave opinion -->

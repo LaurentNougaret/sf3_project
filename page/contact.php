@@ -3,7 +3,9 @@
     <div class="row">
         <h1 class="text-center">Contactez-nous</h1>
         <hr>
-        <h4 class="contactWelcomePhrase"> Vous avez des questions, des suggestions ou des demandes? Envoyez-nous un message!</h4>
+        <div class="col-xs-10 col-xs-offset-1">
+            <h4 class="contactWelcomePhrase"> Vous avez des questions, des suggestions ou des demandes? Envoyez-nous un message!</h4>
+        </div>
         <div class="col-xs-10 col-xs-offset-1 col-md-5 offset-md-3">
             <form action="" method="post" role="form" class="form-horizontal formContact">
                 <fieldset>
