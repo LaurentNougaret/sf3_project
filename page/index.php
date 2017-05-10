@@ -136,17 +136,17 @@
         <h2>Nos valeurs</h2>
         <hr>
         <div class="row">
-            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 text-center">
                 <h3>Confiance</h3>
                 <img class="img-responsive" src="img/picto/trust.png" alt="image de confiance"/>
                 <h4>... grâce à la transparence des avis</h4>
             </div>
-            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 text-center">
                 <h3>Fiabilité</h3>
                 <img class="img-responsive" src="img/picto/reliability.png" alt="image de fiabilité"/>
                 <h4>... grâce à la vérification des avis</h4>
             </div>
-            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 text-center">
+            <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 text-center">
                 <h3>Simplicité</h3>
                 <img class="img-responsive" src="img/picto/simplicity.png" alt="image de simplicité"/>
                 <h4>... déposez vos avis en un clic !</h4>

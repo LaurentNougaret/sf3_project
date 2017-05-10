@@ -1,13 +1,12 @@
 <section id="account">
     <div class="container">
-        <div class="row">
-            <form role="form" class="info">
-                <div class="row text-center">
-                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        <h2>Votre profil</h2>
-                    </div>
-                </div>
-                <hr>
+        <div class="row text-center">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <h2>Votre profil</h2>
+            </div>
+        </div>
+        <hr>
+        <form role="form" class="info">
             <div class="row">
                 <div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-2 ">
                     <div class="form-group">
@@ -81,8 +80,7 @@
                     <p>Pour supprimer votre profil, veuillez cliquer <a href="" data-toggle="modal" data-target="#delete-account">ici.</a></p>
                 </div>
             </div>
-            </form>
-        </div>
+        </form>
     </div>
 </section>
 <?php include "../inc/modalDeleteAccount.php"?>
