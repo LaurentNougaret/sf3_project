@@ -502,6 +502,10 @@ nav li a:focus{
     #values img {
         width: 50%;
     }
+
+    #values .reliability {
+        margin-top: 3%;
+    }
 }
 @media (min-width: 480px) and (max-width: 600px) {
     #values h4 {

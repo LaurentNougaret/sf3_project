@@ -14,7 +14,7 @@
                 <form id="login-form">
                     <div class="modal-body">
                         <label for="login_username" class="visuallyhidden"></label>
-                        <input id="login_username" class="form-control" type="text" placeholder="Nom d'utilisateur" required>
+                        <input id="login_username" class="form-control" type="text" placeholder="Email" required>
                         <label for="login_password" class="visuallyhidden"></label>
                         <input id="login_password" class="form-control" type="password" placeholder="Mot de passe" required>
                         <div class="checkbox text-center">

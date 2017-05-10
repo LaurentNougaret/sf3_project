@@ -15,12 +15,12 @@
                 <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
                     <h3> Informations</h3>
                     <ul class="infos">
-                        <li> <a class="mentions" href="/?page=legal">Mentions légales</a> </li>
-                        <li> <a class="mentions" href="/?page=cgu">CGU</a> </li>
+                        <li> <a class="mentions" href="/?page=legal" target="_blank">Mentions légales</a> </li>
+                        <li> <a class="mentions" href="/?page=cgu" target="_blank">CGU</a> </li>
                     </ul>
                 </div>
-                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
-                    <h3> Retrouvez-nous sur : </h3>
+                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-8 col-xs-offset-2">
+                    <h3> Retrouvez-nous sur </h3>
                     <ul class="social">
                         <li> <a href="https://www.instagram.com"><i class=" fa fa-2x fa-instagram"></i></a> </li>
                         <li> <a href="https://www.facebook.com"><i class=" fa fa-2x fa-facebook"></i></a> </li>

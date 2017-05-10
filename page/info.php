@@ -7,7 +7,7 @@
             <div class="col-xs-12 col-sm-7 text-left garage">
                 <img class="media-object img-rounded img-responsive"  src="http://i1248.photobucket.com/albums/hh481/ondine3/268cdd2f-a81d-42ee-b7b8-895a091e4b79_zpsk3iuquvw.jpg" alt="Garage" >
                 <p class="description">Vente et achat véhicule neuf ou d'occasion, réparation véhicules toutes marques, </p>
-                <input id="ratingadvice" value="1">
+                <input id="ratingadvice" value="4">
             </div>
             <div class="col-xs-12 col-sm-5 info">
                 <h2>Informations</h2>

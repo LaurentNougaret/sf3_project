@@ -20,7 +20,9 @@
 .pro hr {
     border: 1px solid #ff4756;
 }
-
+.pro #account-pro-reviews .pro-review-underline {
+    margin-bottom: 20px;
+    }
 .pro .pro-review-underline {
     margin: 0 15%;
 }
@@ -87,6 +89,10 @@
 
 .pro #inscription-text-footer {
     text-align: justify;
+}
+
+.pro .pro-answer #comment {
+    resize: none;
 }
 
 @media (max-width: 768px) {
