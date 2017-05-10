@@ -1,9 +1,121 @@
 <section id="search">
     <div class="container searchpage">
         <div class="row">
-            <div class="col-sm-3">
-                <div class="well"><strong>Filtrer votre recherche</strong></div>
+
+            <!-- filtre petit ecran -->
+                <div  id="collapse-small" class="col-sm-3">
+                    <div role="tablist" aria-multiselectable="true">
+                        <!-- First Panel Start Here -->
+                        <div data-toggle="collapse" data-target="#demo2" class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingOne">
+                                <h4 class="panel-title">Localisation<span class="glyphicon glyphicon-chevron-down pull-right"></span></h4>
+                            </div>
+                            <div id="demo2" class="collapse panel-group" >
+                                <div class="panel-body">
+                                    <div class="list-group">
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" value="">Par ville</label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" value="">Par code postal</label>
+                                        </div>
+                                    </div>
+                                    <!-- List Group End Here -->
+                                </div>
+                            </div>
+                        </div>         <!-- first Panel End Here -->
+                        <!-- second Panel start Here -->
+                        <div data-toggle="collapse" data-target="#demo3"  class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingtwo">
+                                <h4 class="panel-title">Type de service<span class="glyphicon glyphicon-chevron-down pull-right"></span></h4>
+                            </div>
+                            <div id="demo3" class="collapse panel-group">
+                                <div class="panel-body">
+                                    <div class="list-group">
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" value="">Achats/ventes</label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" value="">Entretien</label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" value="">Réparation</label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" value="">Tous</label>
+                                        </div>
+                                    </div>
+                                    <!-- List Group End Here -->
+                                </div>
+                            </div>
+                        </div>         <!-- second Panel End Here -->
+                        <!-- Third Panel start Here -->
+                        <div data-toggle="collapse" data-target="#demo4" class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingthree">
+                                <h4 class="panel-title">Marque<span class="glyphicon glyphicon-chevron-down pull-right"></span></h4>
+                            </div>
+                            <div id="demo4" class="collapse panel-group">
+                                <div class="panel-body">
+                                    <div class="list-group">
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" value="">Renault</label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" value="">Citroen</label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" value="">Peugeot</label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" value="">Volkswagen</label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" value="">Audi</label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" value="">Autre</label>
+                                        </div>
+                                    </div>
+                                    <!-- List Group End Here -->
+                                </div>
+                            </div>
+                        </div>         <!-- third Panel End Here -->
+                        <!-- Forth  Panel start Here -->
+                        <div data-toggle="collapse" data-target="#demo5" class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingfour">
+                                <h4 class="panel-title">Note globale<span class="glyphicon glyphicon-chevron-down pull-right"></span></h4>
+                            </div>
+                            <div id="demo5" class="collapse panel-group">
+                                <div class="panel-body">
+                                    <div class="list-group">
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" value="">1 voiture</label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" value="">2 voitures</label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" value="">3 voitures</label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" value="">4 voitures</label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label><input type="checkbox" value="">5 voitures</label>
+                                        </div>
+                                    </div>
+                                    <!-- List Group End Here -->
+                                </div>
+                            </div>
+                        </div>         <!-- Forth Panel End Here -->
+                    </div>
+                </div><!-- /.sidebar column end here -->
+            <!-- / filtre petit ecran -->
+
+            <div  id="collapse-small2" class="col-sm-3">
+
                 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="well"><strong>Filtrer votre recherche</strong></div>
                     <!-- First Panel Start Here -->
                     <div class="panel panel-default">
                         <div class="panel-heading" role="tab" id="headingOne">
@@ -143,21 +255,15 @@
                                 <h2> 124
                                     <small> votes</small>
                                 </h2>
+                                <div class="note">
+                                    <input  id="ratingclean" value="1">
+                                </div>
                                 <a href="/?page=info">
                                     <button type="button" class="btn btn-info btn-md btn-block">Plus d'info</button>
                                 </a>
-                                <div class="stars">
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star-empty"></span>
-                                </div>
-                                <p> Average 3.9
-                                    <small> /</small>
-                                    5
-                                </p>
                             </div>
+
+
                         </div>
                         <hr>
                         <div class="list-group-item">
@@ -187,20 +293,12 @@
                                 <h2> 14
                                     <small> votes</small>
                                 </h2>
+                                <div class="note">
+                                    <input  id="ratingclean" value="1">
+                                </div
                                 <a href="/?page=info">
                                     <button type="button" class="btn btn-info btn-md btn-block">Plus d'info</button>
                                 </a>
-                                <div class="stars">
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star-empty"></span>
-                                </div>
-                                <p> Average 3.9
-                                    <small> /</small>
-                                    5
-                                </p>
                             </div>
                         </div>
                         <hr>
@@ -231,20 +329,12 @@
                                 <h2> 24
                                     <small> votes</small>
                                 </h2>
+                                <div class="note">
+                                    <input  id="ratingclean" value="1">
+                                </div
                                 <a href="/?page=info">
                                     <button type="button" class="btn btn-info btn-md btn-block">Plus d'info</button>
                                 </a>
-                                <div class="stars">
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star"></span>
-                                    <span class="glyphicon glyphicon-star-empty"></span>
-                                </div>
-                                <p> Average 3.9
-                                    <small> /</small>
-                                    5
-                                </p>
                             </div>
                         </div>
                     </div>
