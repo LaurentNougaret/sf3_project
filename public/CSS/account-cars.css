@@ -38,3 +38,11 @@
     position: absolute;
     width: 1px;
 }
+
+@media (max-width: 650px) {
+    #account-cars .delete-car, #account-cars .modify-car {
+        float: inherit !important;
+        margin: auto 25%;
+        width: 50%;
+    }
+}
