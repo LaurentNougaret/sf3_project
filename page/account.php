@@ -16,6 +16,8 @@
                         </a>
                     </div>
                 </div>
+        <hr>
+        <form role="form" class="info">
             <div class="row">
                 <div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-2 ">
                     <div class="form-group">
@@ -72,8 +74,7 @@
                     <button type="submit" class="btn btn-primary save-account center-block">Enregistrer</button>
                 </div>
             </div>
-            </form>
-        </div>
+        </form>
     </div>
 </section>
 <?php include "../inc/modalDeleteAccount.php"?>
