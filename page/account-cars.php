@@ -61,10 +61,11 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <h2 class="text-center">Véhicule n°2</h2>
-                <hr>
-                <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0 car1">
+            <div class="text-center"><a class="text-center" data-toggle="collapse" data-target="#demo"><span class="glyphicon glyphicon-plus"></span></a><h2 class="plus-vehicule">Véhicule n°2</h2></div>
+            <hr>
+            <div id="demo" class="collapse">
+                <div class="row">
+                <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-md-6 car1">
                     <div class="form-group">
                         <label for="marque2" class="visuallyhidden"></label>
                         <input type="text" name="marque2" id="marque2" class="form-control"
@@ -125,6 +126,7 @@
                         <button type="button" class="btn btn-primary delete-car">Supprimer</button>
                     </div>
                 </div>
+            </div>
             </div>
         </form>
     </div>
