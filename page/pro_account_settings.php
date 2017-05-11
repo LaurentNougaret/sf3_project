@@ -6,6 +6,7 @@
                 <hr class="pro-review-underline">
 
                 <div id="myaccountOptions" class="container color">
+                    <!-- Back to previous page -->
                     <div class="row">
                         <div class="col-lg-5">
                             <a href="javascript:history.back(-1)">
@@ -16,7 +17,7 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-3">
-                            <a href="/?page=user_change_password">
+                            <a href="/?page=pro_change_password">
                                 <div class="panel myaccountUserAccessProfile">
                                     <div class="panel-heading">
                                         <div class="row">

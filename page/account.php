@@ -1,7 +1,6 @@
 <section id="account">
     <div class="container">
         <div class="row">
-            <form role="form" class="info">
                 <div class="row text-center">
                     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                         <h2>Votre profil</h2>
@@ -9,14 +8,13 @@
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-2 ">
-                        <a href="/?page=user_account_home">
+                    <div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-2">
+                        <a href="javascript:history.back(-1)">
                             <p><i class="fa fa-angle-double-left" aria-hidden="true"> </i>
                                 Revenir à Mon Compte</p><br>
                         </a>
                     </div>
                 </div>
-        <hr>
         <form role="form" class="info">
             <div class="row">
                 <div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-2 ">

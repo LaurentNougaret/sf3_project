@@ -1,4 +1,4 @@
-<section id="account-reviews">
+<section id="pro">
     <div class="container">
         <div class="row">
             <div class="col-xs-10 col-xs-offset-1">
@@ -7,7 +7,7 @@
                 <!-- Back to main page -->
                 <div class="row">
                     <div class="col-lg-5">
-                        <a href="/?page=user_account_home">
+                        <a href="javascript:history.back(-1)">
                             <p><i class="fa fa-angle-double-left" aria-hidden="true"> </i>
                                 Revenir à Mon Compte</p><br>
                         </a>

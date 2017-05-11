@@ -11,7 +11,7 @@
                     <!-- Back to main page -->
                     <div class="row">
                         <div class="col-lg-5">
-                            <a href="/?page=pro_account_home">
+                            <a href="javascript:history.back(-1)">
                                 <p><i class="fa fa-angle-double-left" aria-hidden="true"> </i>
                                     Revenir à Mon Compte</p><br>
                             </a>
@@ -108,13 +108,9 @@
                         <div class="col-xs-12">
                             <button type="submit" class="btn btn-primary save-pro-btn center-block">Enregistrer</button>
                         </div>
-                        <div class="col-xs-8 col-xs-offset-2 text-center delete-pro-account">
-                            <p>Pour supprimer votre profil, veuillez cliquer <a href="" data-toggle="modal" data-target="#delete-account">ici.</a></p>
-                        </div>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </section>
-<?php include "../inc/modalDeleteAccount.php"?>

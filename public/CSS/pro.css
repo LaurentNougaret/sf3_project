@@ -2,6 +2,13 @@
     margin-top: 8%
 }
 
+/* this media query centers the premium block when screen is lg */
+@media (min-width: 1200px) {
+    .pro .premiumblock {
+        margin-left: 38%;
+    }
+}
+
 .pro .pro_account {
     color: #ff4756;
 }
