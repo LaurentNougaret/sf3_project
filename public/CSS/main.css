@@ -441,6 +441,9 @@ nav li a:focus{
     margin-top: 10%;
     margin-bottom: 5%;
 }
+#about .blind {
+    color: transparent;
+}
 
 #about .hauteurtitre {
     height: 90px;
