@@ -5,9 +5,9 @@
                 <h2 class="text-center">Paramètres</h2>
                 <hr class="pro-review-underline">
 
-                <div id="myaccountOptions" class="container color">
+                <div class="color">
                     <div class="row">
-                        <div class="col-lg-5">
+                        <div class="col-lg-5 col-xs-offset-2 col-sm-offset-3 col-md-offset-2">
                             <a href="/?page=user_account_home">
                                 <p><i class="fa fa-angle-double-left" aria-hidden="true"> </i>
                                 Revenir à Mon Compte</p><br>
@@ -15,7 +15,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-3">
+                        <div class="col-xs-8 col-xs-offset-2 col-lg-3 col-lg-offset-3">
                             <a href="/?page=user_change_password">
                                 <div class="panel myaccountUserAccessProfile">
                                     <div class="panel-heading">
@@ -32,7 +32,7 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="col-lg-3">
+                        <div class="col-xs-8 col-xs-offset-2 col-lg-3 col-lg-offset-0">
                             <a href="" data-toggle="modal" data-target="#delete-account">
                                 <div class="panel myaccountUserAccessCompanyPage">
                                     <div class="panel-heading">
@@ -54,4 +54,4 @@
             </div>
 </section>
 <?php include "../inc/modalDeleteAccount.php"?>
-<?php include "../inc/modalChangePassword.php"?>
+
