@@ -1,0 +1,90 @@
+#info {
+    margin-top: 100px;
+}
+
+#info .garage .description {
+    margin-top: 2em;
+}
+
+#info .garage .caption {
+    margin-top: -0.2em;
+    font-size: 25px;
+}
+
+#info .label {
+    color: #1590c4;
+    background-color: transparent;
+}
+
+#info .title hr, #info .info hr, #info .reviews .underline {
+    margin-bottom: 5%;
+    border-top: 1px solid #ff4756;
+}
+
+#info .info {
+    background-color: rgba(191, 192, 192, 0.1);
+    border-radius: 10px;
+    padding: 2% 2%;
+}
+
+#info .reviews {
+    margin-top: -15%;
+}
+
+@media (max-width: 768px) {
+    #info .reviews {
+        margin-top: 0;
+    }
+}
+
+#info .btn-block {
+    margin-top: 10%;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    border: 3px solid #ff4756;
+    background-color: #fff;
+    color: #ff4756;
+    font-size: 18px;
+    -o-transition:color .2s ease-out, background 0.2s ease-in;
+    -moz-transition:color .2s ease-out, background 0.2s ease-in;
+    -webkit-transition:color .2s ease-out, background 0.2s ease-in;
+}
+
+#info .btn-block:hover{
+    color: #fff;
+    background-color: #ff4756;
+}
+
+#info .reviews .quote {
+    margin-bottom: 3em;
+}
+
+#info .reviews .review hr {
+    border-top: 1px solid #bfc0c0;
+    margin: 0 20% 5% 20%;
+}
+
+/* Make google map iframe responsive */
+#info .info .googlemaps {
+    position: relative;
+    padding-bottom: 75%;
+    height: 0;
+    overflow: hidden;
+    margin-bottom: 2em;
+}
+
+#info .info .googlemaps iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* No iframe on mobile or small tablet potrait */
+@media (max-width: 600px) {
+    #info .info .googlemaps {
+        display: none;
+    }
+}

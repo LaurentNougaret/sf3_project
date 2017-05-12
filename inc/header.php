@@ -7,7 +7,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand page-scroll" href="/?page=index"><img src="/img/logo.png" alt="logo de Caradvisor"></a>
+        <a class="navbar-brand page-scroll" href="/?page=index"><p><span class="simplelogo1">Car</span><span class="simplelogo2">Advisor</span></p></a>
     </div>
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -16,18 +16,65 @@
             <li class="hidden">
                 <a class="page-scroll" href="#page-top"></a>
             </li>
+            <!-- If in index, use the scroll, if not use the link -->
+            <?php if($_GET['page'] != "index" and $_GET['page'] != ""): ?>
+                <li>
+                    <a class="page-scroll js-scrollTo" id="menu-review" href="/?page=index">Accueil</a>
+                </li>
+            <?php endif; ?>
+            <?php if($_GET['page'] == "index" || $_GET['page'] == ""): ?>
             <li>
-                <a class="page-scroll js-scrollTo" href="#review">Déposer un avis</a>
+                <a class="page-scroll js-scrollTo" id="menu-review" href="#review">Déposez un avis</a>
             </li>
+            <?php endif; ?>
+            <?php if($_GET['page'] != "index" and $_GET['page'] != "" and $_GET['page'] != "pro_inscription" and $_GET['page'] != "pro_account" and $_GET['page'] != "pro_account_reviews" and $_GET['page'] != "pro_connection" and $_GET['page'] != "account" and $_GET['page'] != "account-cars"  and $_GET['page'] != "account-reviews"): ?>
+                <li>
+                    <a class="page-scroll js-scrollTo" href="/?page=index#review">Déposez un avis</a>
+                </li>
+            <?php endif; ?>
+            <!-- Show inscription btn when on index, or empty url -->
+            <?php if($_GET['page'] == "index" || $_GET['page'] == "" || $_GET['page'] == "search" || $_GET['page'] == "info"): ?>
             <li>
-                <a class="page-scroll " href="#">Inscription</a>
+                <a class="page-scroll " href="/?page=inscription">Inscription</a>
             </li>
+            <?php endif; ?>
+            <?php if($_GET['page'] == "index" || $_GET['page'] == "inscription" || $_GET['page'] == "" || $_GET['page'] == "search" || $_GET['page'] == "info"): ?>
             <li>
-                <a class="page-scroll" href="#">Connexion</a>
+                <a href="#"  data-toggle="modal" data-target="#login-modal">Connexion</a>
             </li>
+            <?php endif; ?>
+            <?php if ($_GET['page'] == "account-reviews" || $_GET['page'] == "account-cars"): ?>
+                <li>
+                    <a class="page-scroll" href="/?page=account">Votre profil</a>
+                </li>
+            <?php endif; ?>
+            <?php if ($_GET['page'] == "account-cars" || $_GET['page'] == "account"): ?>
+                <li>
+                    <a class="page-scroll" href="/?page=account-reviews">Vos avis</a>
+                </li>
+            <?php endif; ?>
+            <?php if ($_GET['page'] == "account" || $_GET['page'] == "account-reviews"): ?>
+                <li>
+                    <a class="page-scroll" href="/?page=account-cars">Vos véhicules</a>
+                </li>
+            <?php endif; ?>
+            <?php if ($_GET['page'] != "pro_account" and $_GET['page'] != "pro_account_reviews"): ?>
             <li>
-                <a class="page-scroll" href="#">Professionnels</a>
+                <a href="#" class="page-scroll" data-toggle="modal" data-target="#login-modal-pro">Accès professionnels</a>
             </li>
+            <?php endif; ?>
+            <?php if ($_GET['page'] == "pro_account"): ?>
+            <li>
+                <a class="page-scroll" href="/?page=pro_account_reviews">Vos avis</a>
+            </li>
+            <?php endif; ?>
+            <?php if ($_GET['page'] == "pro_account_reviews"): ?>
+                <li>
+                    <a class="page-scroll" href="/?page=pro_account">Votre profil</a>
+                </li>
+            <?php endif; ?>
         </ul>
     </div>
 </nav>
+<?php include "modalConnection.php"?>
+<?php include "modalProConnection.php"?>
