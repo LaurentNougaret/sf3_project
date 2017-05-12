@@ -1,4 +1,4 @@
-<section id="pro">
+<section id="account-reviews">
     <div class="container">
         <div class="row">
             <div class="col-xs-10 col-xs-offset-1">
