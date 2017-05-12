@@ -11,7 +11,7 @@
                                 Revenir à Mon Compte</p><br>
                         </a>
                     </div>
-                </div>
+                </div>-->
             </div>
         </div>
         <form>
