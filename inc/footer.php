@@ -1,7 +1,7 @@
     <div class="footer" id="footer">
         <div class="container">
             <div class="row">
-                <div class="col-md-3 col-sm-4 col-xs-6">
+                <div class="col-md-2 col-sm-4 col-xs-6">
                     <h3> Plan du site </h3>
                     <ul class="map">
                         <li> <a href="/?page=index#banner">Accueil</a> </li>
@@ -27,7 +27,7 @@
                         <li> <a href="https://www.twitter.com"><i class=" fa fa-2x fa-twitter"></i></a> </li>
                     </ul>
                 </div>
-                <div class="col-md-3 col-md-offset-0 col-sm-6 col-sm-offset-3 col-xs-12">
+                <div class="col-md-4 col-md-offset-0 col-sm-6 col-sm-offset-3 col-xs-12">
                     <h3> Inscrivez-vous à notre newsletter </h3>
                     <ul>
                         <li>
