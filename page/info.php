@@ -3,6 +3,15 @@
         <div class="title">
             <h1>Garage Creuzet Automobile</h1>
             <hr>
+            <!-- Back to previous page -->
+            <div class="row">
+                <div class="col-lg-5">
+                    <a href="javascript:history.back(-1)">
+                        <p><i class="fa fa-angle-double-left" aria-hidden="true"> </i>
+                            Page Précédent</p><br>
+                    </a>
+                </div>
+            </div>
         </div>
         <div class="col-xs-12 col-sm-7 text-left garage">
             <img class="media-object img-rounded img-responsive"  src="http://i1248.photobucket.com/albums/hh481/ondine3/268cdd2f-a81d-42ee-b7b8-895a091e4b79_zpsk3iuquvw.jpg" alt="Garage" >
