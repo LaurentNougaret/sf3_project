@@ -55,4 +55,4 @@
             </div>
 </section>
 <?php include "../inc/modalDeleteAccount.php"?>
-<?php include "../inc/modalChangePassword.php"?>
+
