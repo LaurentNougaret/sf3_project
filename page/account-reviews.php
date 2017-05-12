@@ -4,6 +4,15 @@
             <div class="col-xs-10 col-xs-offset-1">
                 <h2 class="text-center">Vos avis</h2>
                 <hr>
+                <!-- Back to main page -->
+                <div class="row">
+                    <div class="col-lg-5">
+                        <a href="javascript:history.back(-1)">
+                            <p><i class="fa fa-angle-double-left" aria-hidden="true"> </i>
+                                Revenir à Mon Compte</p><br>
+                        </a>
+                    </div>
+                </div>
                 <?php foreach ($avis as $review): ?>
                     <!-- Quote 1 -->
                     <div class="item <?php if ($review['id'] == 1): echo "active"; endif; ?>">
