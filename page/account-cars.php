@@ -7,7 +7,7 @@
                 <!-- Back to main page -->
                 <div class="row">
                     <div class="col-lg-5">
-                        <a href="javascript:history.back(-1)">
+                        <a href="/?page=user_account_home">
                             <p><i class="fa fa-angle-double-left" aria-hidden="true"> </i>
                                 Revenir à Mon Compte</p><br>
                         </a>

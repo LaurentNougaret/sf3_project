@@ -7,6 +7,14 @@
             </div>
         </div>
         <div class="row">
+            <div class="col-lg-5">
+                <a href="/?page=pro_account_home">
+                    <p><i class="fa fa-angle-double-left" aria-hidden="true"> </i>
+                        Revenir à Mon Compte</p><br>
+                </a>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-xs-10 col-xs-offset-1 col-md-6 col-md-offset-3">
                 <div class="form-group">
                     <input type="password" name="password" id="password" class="form-control"
