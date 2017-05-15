@@ -2,9 +2,11 @@
 
 namespace CaradvisorBundle\Controller;
 
+use CaradvisorBundle\Entity\Contact;
 use CaradvisorBundle\Entity\Review;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 class MainController extends Controller
 {
@@ -56,9 +58,23 @@ class MainController extends Controller
     /**
      * @Route("/contact", name="contact")
      */
-    public function contactAction()
+    public function contactAction(Request $request)
     {
-        return $this->render('@Caradvisor/Default/contact.html.twig');
+        $contact = new Contact();
+        $form = $this->createForm('CaradvisorBundle\Form\ContactType', $contact);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($contact);
+            $em->flush();
+
+           return $this->redirectToRoute('home');//, array('id' => $contact->getId()));
+        }
+
+        return $this->render('@Caradvisor/Default/contact.html.twig', array(
+            'form' => $form->createView(),
+        ));
     }
     /**
      * @Route("/legal", name="legal")
