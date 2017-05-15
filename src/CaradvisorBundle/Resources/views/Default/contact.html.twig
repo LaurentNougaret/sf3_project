@@ -9,39 +9,18 @@
                 <h4 class="contactWelcomePhrase"> Vous avez des questions, des suggestions ou des demandes? Envoyez-nous un message!</h4>
             </div>
             <div class="col-xs-10 col-xs-offset-1 col-md-5 offset-md-3">
-                <form action="" method="post" role="form" class="form-horizontal formContact">
-                    <fieldset>
-                        <div class="form-group">
-                            <label for="surname" class="visuallyhidden"></label>
-                            <input class="form-control" name="surname" id="surname" placeholder="Nom" type="text">
-                        </div>
-                        <!-- Text area - Title of message -->
-                        <div class="form-group">
-                            <label for="name" class="visuallyhidden"></label>
-                            <input class="form-control" name="name" id="name" placeholder="Prénom" type="text">
-                        </div>
-                        <!-- Text area - E-mail -->
-                        <div class="form-group">
-                            <label for="email" class="visuallyhidden"></label>
-                            <input class="form-control" name="email" id="email" placeholder="E-mail" type="email">
-                        </div>
-                        <!-- Text area - Subject of the message -->
-                        <div class="form-group">
-                            <label for="subject" class="visuallyhidden"></label>
-                            <input class="form-control" name="subject" id="subject" placeholder="Objet" type="text">
-                        </div>
-                        <!-- Text area - Write message -->
-                        <div class="form-group">
-                            <label for="contactForm" class="visuallyhidden"></label>
-                            <textarea class="form-control" id="contactForm" name="contactForm" rows="8" placeholder="Laissez votre message"></textarea>
-                        </div>
-                        <!-- Button - Save review -->
-                        <div class="form-group">
-                            <label for="sendMessageButton" class="visuallyhidden"></label>
-                            <button type="submit" id="sendMessageButton" name="sendMessageButton" class="btn sendMessageButton center-block">Envoyer</button>
-                        </div>
-                    </fieldset>
-                </form>
+
+                {{ form_start(form) }}
+                {{ form_errors(form) }}
+
+                {{ form_row(form.contact.lastname) }}
+                {{ form_row(form.contact.firstname) }}
+                {{ form_row(form.contact.email) }}
+                {{ form_row(form.contact.subject) }}
+                {{ form_row(form.contact.message) }}
+
+                {{ form_end(form) }}
+
             </div>
             <div class="col-xs-12 col-md-5">
                 <div class="formContactDivAddress">
