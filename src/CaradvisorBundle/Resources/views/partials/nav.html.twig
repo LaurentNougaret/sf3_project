@@ -1,0 +1,57 @@
+{% block body %}
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="navbar-header page-scroll">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand page-scroll" href="{{ path('home') }}"><p><span class="simplelogo1">Car</span><span class="simplelogo2">Advisor</span></p></a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav navbar-right">
+            <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+            <li class="hidden">
+                <a class="page-scroll" href="#page-top"></a>
+            </li>
+            <!-- If in index, use the scroll, if not use the link -->
+            {% if app.request.get('page') != "" and  app.request.get('page') != "/"%}
+                <li>
+                    <a class="page-scroll js-scrollTo" id="menu-review" href="{{ path ('home') }}" >Accueil</a>
+                </li>
+            {% endif %}
+            {#
+            {% if app.request.get('page') == "index" or app.request.get('page') == "" %}
+                <li>
+                    <a class="page-scroll js-scrollTo" id="menu-review" href="{{ path ('home') }}#review">Déposez un avis</a>
+                </li>
+            {% endif %}
+            #}
+            {% if app.request.get('page') == "index" or app.request.get('page') == "" or app.request.get('page') == "results" or app.request.get('page') == "info" %}
+                <li>
+                    <a class="page-scroll js-scrollTo" href="{{ path ('home') }}#review">Déposez un avis</a>
+                </li>
+            {% endif %}
+            {% if app.request.get('page') == "index" or app.request.get('page') == "" or app.request.get('page') == "results" or app.request.get('page') == "info" %}
+                <li>
+                    <a class="page-scroll js-scrollTo" href="{{ path ('user_signup') }}">Inscription</a>
+                </li>
+            {% endif %}
+            {% if app.request.get('page') == "index" or app.request.get('page') == "signup" or app.request.get('page') == "" or app.request.get('page') == "info" or app.request.get('page') == "results" %}
+                <li>
+                    <a class="page-scroll js-scrollTo" href="{{ path ('home') }}#login-modal">Connexion</a>
+                </li>
+            {% endif %}
+            {% if app.request.get('page') == "account-reviews" or app.request.get('page') == "account-cars" %}
+                <li>
+                    <a class="page-scroll js-scrollTo" href="{{ path ('user') }}">Bienvenue {{ user.firstname }}</a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
+    {% include ('@Caradvisor/partials/pro_signin.html.twig')%}
+    {% include ('@Caradvisor/partials/user_signin.html.twig')%}
+{% endblock %}
