@@ -23,14 +23,13 @@ class ContactType extends AbstractType
                 'empty_data' => 'Laissez votre message',
                 'attr' => ['rows' => '5']
             ])
-            ->add('submit', SubmitType::class, ['label' => 'Envoyer'])
-            ->getForm();
+            ->add('save', SubmitType::class, ['label' => 'Envoyer']);
     }
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
-            'data_class' => 'CaradvisorBundle\Entity\Contact',
-        ));
+       // $resolver->setDefaults(array(
+        //    'data_class' => 'CaradvisorBundle\Entity\Contact',
+      //  ));
     }
 
     public function getBlockPrefix()
