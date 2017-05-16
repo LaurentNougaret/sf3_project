@@ -2,9 +2,12 @@
 
 namespace CaradvisorBundle\Controller;
 
-use CaradvisorBundle\Entity\Review;
+use CaradvisorBundle\Entity\Contact;
+use CaradvisorBundle\Form\ContactType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 class MainController extends Controller
 {
@@ -53,6 +56,35 @@ class MainController extends Controller
     {
         return $this->render('@Caradvisor/Reviews/repair.html.twig');
     }
+
+    /**
+     * @param Request $request
+     * @return Response
+     * @Route("/contact/add", name="add_contact")
+     */
+    public function addContactAction(Request $request)
+    {
+        $contact = new Contact();
+        $em = $this->getDoctrine()->getManager();
+        $form = $this->createForm(ContactType::class, $contact);
+
+        $form->handleRequest($request);
+        $result = "";
+        if ($form->isSubmitted()){
+            $em->persist($contact);
+            $em->flush();
+
+            $result = "ca marche";
+
+            //return $this->redirectToRoute('home');
+
+        }
+        return $this->render('@Caradvisor/Default/addcontact.html.twig', [
+            'form'      =>  $form->createView(),
+            'result'    =>  $result,
+        ]);
+    }
+
     /**
      * @Route("/contact", name="contact")
      */
@@ -60,6 +92,7 @@ class MainController extends Controller
     {
         return $this->render('@Caradvisor/Default/contact.html.twig');
     }
+
     /**
      * @Route("/legal", name="legal")
      */

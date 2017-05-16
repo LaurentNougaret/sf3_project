@@ -8,60 +8,59 @@ use Doctrine\ORM\Mapping as ORM;
  * Review
  *
  * @ORM\Table(name="review")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="CaradvisorBundle\Repository\ReviewRepository")
  */
 class Review
 {
     /**
-     * @var integer
+     * @var int
      *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="proname", type="string", length=100, nullable=false)
+     * @ORM\Column(name="proname", type="string", length=255)
      */
     private $proname;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="lastname", type="string", length=45, nullable=false)
+     * @ORM\Column(name="lastname", type="string", length=255)
      */
     private $lastname;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="firstname", type="string", length=45, nullable=false)
+     * @ORM\Column(name="firstname", type="string", length=255)
      */
     private $firstname;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="city", type="string", length=45, nullable=false)
+     * @ORM\Column(name="city", type="string", length=255)
      */
     private $city;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="review", type="text", length=65535, nullable=false)
+     * @ORM\Column(name="review", type="text")
      */
     private $review;
-
 
 
     /**
      * Get id
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -188,3 +187,4 @@ class Review
         return $this->review;
     }
 }
+
