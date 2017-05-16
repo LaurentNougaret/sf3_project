@@ -60,38 +60,26 @@ class MainController extends Controller
     /**
      * @param Request $request
      * @return Response
-     * @Route("/contact/add", name="add_contact")
+     * @Route("/contact", name="contact")
      */
-    public function addContactAction(Request $request)
+    public function contactAction(Request $request)
     {
         $contact = new Contact();
         $em = $this->getDoctrine()->getManager();
         $form = $this->createForm(ContactType::class, $contact);
 
         $form->handleRequest($request);
-        $result = "";
+
         if ($form->isSubmitted()){
             $em->persist($contact);
             $em->flush();
 
-            $result = "ca marche";
-
-            //return $this->redirectToRoute('home');
+            return $this->redirectToRoute('home');
 
         }
-        return $this->render('@Caradvisor/Default/addcontact.html.twig', [
+        return $this->render('@Caradvisor/Default/contact.html.twig', [
             'form'      =>  $form->createView(),
-            'result'    =>  $result,
-        ]);
-    }
-
-    /**
-     * @Route("/contact", name="contact")
-     */
-    public function contactAction()
-    {
-        return $this->render('@Caradvisor/Default/contact.html.twig');
-    }
+        ]);    }
 
     /**
      * @Route("/legal", name="legal")
