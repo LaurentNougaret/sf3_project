@@ -3,13 +3,11 @@
 namespace CaradvisorBundle\Controller;
 
 use CaradvisorBundle\Entity\Contact;
-use CaradvisorBundle\Entity\Review;
 use CaradvisorBundle\Form\ContactType;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 
 class MainController extends Controller
 {
@@ -23,7 +21,6 @@ class MainController extends Controller
             'reviews' => $reviews,
         ]);
     }
-
     /**
      * @Route("/results", name="results")
      */
@@ -31,7 +28,6 @@ class MainController extends Controller
     {
         return $this->render('@Caradvisor/Default/results.html.twig');
     }
-
     /**
      * @Route("/info", name="info")
      */
@@ -39,7 +35,6 @@ class MainController extends Controller
     {
         return $this->render('@Caradvisor/Default/info.html.twig');
     }
-
     /**
      * @Route("/review/new", name="review_new")
      */
@@ -47,7 +42,6 @@ class MainController extends Controller
     {
         return $this->render('@Caradvisor/Reviews/new.html.twig');
     }
-
     /**
      * @Route("/review/used", name="review_used")
      */
@@ -55,7 +49,6 @@ class MainController extends Controller
     {
         return $this->render('@Caradvisor/Reviews/used.html.twig');
     }
-
     /**
      * @Route("/review/repair", name="review_repair")
      */
@@ -68,26 +61,25 @@ class MainController extends Controller
      * @param Request $request
      * @return Response
      * @Route("/contact", name="contact")
-     * @Method({"POST", "GET"})
-     *
      */
     public function contactAction(Request $request)
     {
         $contact = new Contact();
+        $em = $this->getDoctrine()->getManager();
         $form = $this->createForm(ContactType::class, $contact);
+
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
+        if ($form->isSubmitted()){
             $em->persist($contact);
             $em->flush();
 
             return $this->redirectToRoute('home');
+
         }
-        return $this->render('@Caradvisor/Default/contact.html.twig', array(
-            'form' => $form->createView(),
-        ));
-    }
+        return $this->render('@Caradvisor/Default/contact.html.twig', [
+            'form'      =>  $form->createView(),
+        ]);    }
 
     /**
      * @Route("/legal", name="legal")
@@ -96,7 +88,6 @@ class MainController extends Controller
     {
         return $this->render('@Caradvisor/Default/legal.html.twig');
     }
-
     /**
      * @Route("/cgu", name="cgu")
      */

@@ -1,19 +1,19 @@
 /**
  * Created by diesel on 28/03/17.
  */
-jQuery(document).ready(function() {
+$(document).ready(function() {
     var offset = 250;
     var duration = 300;
-    jQuery(window).scroll(function() {
+    $(window).scroll(function() {
         if (jQuery(this).scrollTop() > offset) {
             jQuery('.back-to-top').fadeIn(duration);
         } else {
             jQuery('.back-to-top').fadeOut(duration);
         }
     });
-    jQuery('.back-to-top').click(function(event) {
-        event.preventDefault();
-        jQuery('html, body').animate({scrollTop: 0}, duration);
+    $('.back-to-top').click(function(event) {
+        //event.preventDefault();
+        $('html, body').animate({scrollTop: 0}, duration);
         return false;
     })
 });
