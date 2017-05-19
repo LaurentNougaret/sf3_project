@@ -154,6 +154,21 @@ class ReviewBuy
      */
     private $warranty;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="CaradvisorBundle\Entity\Pro", inversedBy="reviewBuys")
+     */
+    private $pro;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="CaradvisorBundle\Entity\User", inversedBy="reviewBuys")
+     */
+    private $user;
+
+    /**
+     * @ORM\OneToOne(targetEntity="answer")
+     * @ORM\JoinColumn(name="answer_id", referencedColumnName="id")
+     */
+    private $answer;
 
     /**
      * Get id
@@ -620,5 +635,76 @@ class ReviewBuy
     {
         return $this->warranty;
     }
-}
 
+    /**
+     * Set pro
+     *
+     * @param \CaradvisorBundle\Entity\Pro $pro
+     *
+     * @return ReviewBuy
+     */
+    public function setPro(\CaradvisorBundle\Entity\Pro $pro = null)
+    {
+        $this->pro = $pro;
+
+        return $this;
+    }
+
+    /**
+     * Get pro
+     *
+     * @return \CaradvisorBundle\Entity\Pro
+     */
+    public function getPro()
+    {
+        return $this->pro;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \CaradvisorBundle\Entity\User $user
+     *
+     * @return ReviewBuy
+     */
+    public function setUser(\CaradvisorBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \CaradvisorBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * Set answer
+     *
+     * @param \CaradvisorBundle\Entity\answer $answer
+     *
+     * @return ReviewBuy
+     */
+    public function setAnswer(\CaradvisorBundle\Entity\answer $answer = null)
+    {
+        $this->answer = $answer;
+
+        return $this;
+    }
+
+    /**
+     * Get answer
+     *
+     * @return \CaradvisorBundle\Entity\answer
+     */
+    public function getAnswer()
+    {
+        return $this->answer;
+    }
+}

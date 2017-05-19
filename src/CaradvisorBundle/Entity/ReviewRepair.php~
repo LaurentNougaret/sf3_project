@@ -807,28 +807,4 @@ class ReviewRepair
     {
         return $this->user;
     }
-
-    /**
-     * Set answer
-     *
-     * @param \CaradvisorBundle\Entity\Answer $answer
-     *
-     * @return ReviewRepair
-     */
-    public function setAnswer(\CaradvisorBundle\Entity\Answer $answer = null)
-    {
-        $this->answer = $answer;
-
-        return $this;
-    }
-
-    /**
-     * Get answer
-     *
-     * @return \CaradvisorBundle\Entity\Answer
-     */
-    public function getAnswer()
-    {
-        return $this->answer;
-    }
 }

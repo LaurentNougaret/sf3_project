@@ -5,12 +5,12 @@ namespace CaradvisorBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * ReviewRepair
+ * ReviewBuy
  *
- * @ORM\Table(name="review_repair")
- * @ORM\Entity(repositoryClass="CaradvisorBundle\Repository\ReviewRepairRepository")
+ * @ORM\Table(name="review_buy")
+ * @ORM\Entity(repositoryClass="CaradvisorBundle\Repository\ReviewBuyRepository")
  */
-class ReviewRepair
+class ReviewBuy
 {
     /**
      * @var int
@@ -73,9 +73,9 @@ class ReviewRepair
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="dateRepair", type="datetime")
+     * @ORM\Column(name="dateBuy", type="datetime")
      */
-    private $dateRepair;
+    private $dateBuy;
 
     /**
      * @var string
@@ -87,72 +87,37 @@ class ReviewRepair
     /**
      * @var string
      *
-     * @ORM\Column(name="typeRepair", type="string", length=255)
+     * @ORM\Column(name="informationDelayRating", type="decimal", precision=10, scale=2)
      */
-    private $typeRepair;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="appointmentDelay", type="integer")
-     */
-    private $appointmentDelay;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="onSpotDelayRating", type="decimal", precision=10, scale=2)
-     */
-    private $onSpotDelayRating;
+    private $informationDelayRating;
 
     /**
      * @var bool
      *
-     * @ORM\Column(name="explanationRepair", type="boolean")
+     * @ORM\Column(name="wantedInformation", type="boolean")
      */
-    private $explanationRepair;
+    private $wantedInformation;
 
     /**
      * @var bool
      *
-     * @ORM\Column(name="priceRepair", type="boolean")
+     * @ORM\Column(name="test", type="boolean")
      */
-    private $priceRepair;
+    private $test;
 
     /**
      * @var bool
      *
-     * @ORM\Column(name="authorizationRepair", type="boolean")
+     * @ORM\Column(name="wantedEngineTest", type="boolean")
      */
-    private $authorizationRepair;
+    private $wantedEngineTest;
 
     /**
      * @var bool
      *
-     * @ORM\Column(name="respectQuotationRepair", type="boolean")
+     * @ORM\Column(name="fundingSolution", type="boolean")
      */
-    private $respectQuotationRepair;
-
-    /**
-     * @var bool
-     *
-     * @ORM\Column(name="courtesyVehicle", type="boolean")
-     */
-    private $courtesyVehicle;
-
-    /**
-     * @var bool
-     *
-     * @ORM\Column(name="respectDelayRepair", type="boolean")
-     */
-    private $respectDelayRepair;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="conditionVehicleRating", type="decimal", precision=10, scale=2)
-     */
-    private $conditionVehicleRating;
+    private $fundingSolution;
 
     /**
      * @var string
@@ -183,17 +148,24 @@ class ReviewRepair
     private $dateReview;
 
     /**
-     * @ORM\ManyToOne(targetEntity="CaradvisorBundle\Entity\Pro", inversedBy="reviewRepairs")
+     * @var bool
+     *
+     * @ORM\Column(name="warranty", type="boolean")
+     */
+    private $warranty;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="CaradvisorBundle\Entity\Pro", inversedBy="reviewBuys")
      */
     private $pro;
 
     /**
-     * @ORM\ManyToOne(targetEntity="CaradvisorBundle\Entity\User", inversedBy="reviewRepairs")
+     * @ORM\ManyToOne(targetEntity="CaradvisorBundle\Entity\User", inversedBy="reviewBuys")
      */
     private $user;
 
     /**
-     * @ORM\OneToOne(targetEntity="CaradvisorBundle\Entity\Answer")
+     * @ORM\OneToOne(targetEntity="answer")
      * @ORM\JoinColumn(name="answer_id", referencedColumnName="id")
      */
     private $answer;
@@ -213,7 +185,7 @@ class ReviewRepair
      *
      * @param string $dealerType
      *
-     * @return ReviewRepair
+     * @return ReviewBuy
      */
     public function setDealerType($dealerType)
     {
@@ -237,7 +209,7 @@ class ReviewRepair
      *
      * @param string $dealerName
      *
-     * @return ReviewRepair
+     * @return ReviewBuy
      */
     public function setDealerName($dealerName)
     {
@@ -261,7 +233,7 @@ class ReviewRepair
      *
      * @param string $city
      *
-     * @return ReviewRepair
+     * @return ReviewBuy
      */
     public function setCity($city)
     {
@@ -285,7 +257,7 @@ class ReviewRepair
      *
      * @param integer $postalCode
      *
-     * @return ReviewRepair
+     * @return ReviewBuy
      */
     public function setPostalCode($postalCode)
     {
@@ -309,7 +281,7 @@ class ReviewRepair
      *
      * @param string $ratingGlobal
      *
-     * @return ReviewRepair
+     * @return ReviewBuy
      */
     public function setRatingGlobal($ratingGlobal)
     {
@@ -333,7 +305,7 @@ class ReviewRepair
      *
      * @param string $subject
      *
-     * @return ReviewRepair
+     * @return ReviewBuy
      */
     public function setSubject($subject)
     {
@@ -357,7 +329,7 @@ class ReviewRepair
      *
      * @param string $review
      *
-     * @return ReviewRepair
+     * @return ReviewBuy
      */
     public function setReview($review)
     {
@@ -377,27 +349,27 @@ class ReviewRepair
     }
 
     /**
-     * Set dateRepair
+     * Set dateBuy
      *
-     * @param \DateTime $dateRepair
+     * @param \DateTime $dateBuy
      *
-     * @return ReviewRepair
+     * @return ReviewBuy
      */
-    public function setDateRepair($dateRepair)
+    public function setDateBuy($dateBuy)
     {
-        $this->dateRepair = $dateRepair;
+        $this->dateBuy = $dateBuy;
 
         return $this;
     }
 
     /**
-     * Get dateRepair
+     * Get dateBuy
      *
      * @return \DateTime
      */
-    public function getDateRepair()
+    public function getDateBuy()
     {
-        return $this->dateRepair;
+        return $this->dateBuy;
     }
 
     /**
@@ -405,7 +377,7 @@ class ReviewRepair
      *
      * @param string $ratingWelcome
      *
-     * @return ReviewRepair
+     * @return ReviewBuy
      */
     public function setRatingWelcome($ratingWelcome)
     {
@@ -425,243 +397,123 @@ class ReviewRepair
     }
 
     /**
-     * Set typeRepair
+     * Set informationDelayRating
      *
-     * @param string $typeRepair
+     * @param string $informationDelayRating
      *
-     * @return ReviewRepair
+     * @return ReviewBuy
      */
-    public function setTypeRepair($typeRepair)
+    public function setInformationDelayRating($informationDelayRating)
     {
-        $this->typeRepair = $typeRepair;
+        $this->informationDelayRating = $informationDelayRating;
 
         return $this;
     }
 
     /**
-     * Get typeRepair
+     * Get informationDelayRating
      *
      * @return string
      */
-    public function getTypeRepair()
+    public function getInformationDelayRating()
     {
-        return $this->typeRepair;
+        return $this->informationDelayRating;
     }
 
     /**
-     * Set appointmentDelay
+     * Set wantedInformation
      *
-     * @param integer $appointmentDelay
+     * @param boolean $wantedInformation
      *
-     * @return ReviewRepair
+     * @return ReviewBuy
      */
-    public function setAppointmentDelay($appointmentDelay)
+    public function setWantedInformation($wantedInformation)
     {
-        $this->appointmentDelay = $appointmentDelay;
+        $this->wantedInformation = $wantedInformation;
 
         return $this;
     }
 
     /**
-     * Get appointmentDelay
-     *
-     * @return int
-     */
-    public function getAppointmentDelay()
-    {
-        return $this->appointmentDelay;
-    }
-
-    /**
-     * Set onSpotDelayRating
-     *
-     * @param string $onSpotDelayRating
-     *
-     * @return ReviewRepair
-     */
-    public function setOnSpotDelayRating($onSpotDelayRating)
-    {
-        $this->onSpotDelayRating = $onSpotDelayRating;
-
-        return $this;
-    }
-
-    /**
-     * Get onSpotDelayRating
-     *
-     * @return string
-     */
-    public function getOnSpotDelayRating()
-    {
-        return $this->onSpotDelayRating;
-    }
-
-    /**
-     * Set explanationRepair
-     *
-     * @param boolean $explanationRepair
-     *
-     * @return ReviewRepair
-     */
-    public function setExplanationRepair($explanationRepair)
-    {
-        $this->explanationRepair = $explanationRepair;
-
-        return $this;
-    }
-
-    /**
-     * Get explanationRepair
+     * Get wantedInformation
      *
      * @return bool
      */
-    public function getExplanationRepair()
+    public function getWantedInformation()
     {
-        return $this->explanationRepair;
+        return $this->wantedInformation;
     }
 
     /**
-     * Set priceRepair
+     * Set test
      *
-     * @param boolean $priceRepair
+     * @param boolean $test
      *
-     * @return ReviewRepair
+     * @return ReviewBuy
      */
-    public function setPriceRepair($priceRepair)
+    public function setTest($test)
     {
-        $this->priceRepair = $priceRepair;
+        $this->test = $test;
 
         return $this;
     }
 
     /**
-     * Get priceRepair
+     * Get test
      *
      * @return bool
      */
-    public function getPriceRepair()
+    public function getTest()
     {
-        return $this->priceRepair;
+        return $this->test;
     }
 
     /**
-     * Set authorizationRepair
+     * Set wantedEngineTest
      *
-     * @param boolean $authorizationRepair
+     * @param boolean $wantedEngineTest
      *
-     * @return ReviewRepair
+     * @return ReviewBuy
      */
-    public function setAuthorizationRepair($authorizationRepair)
+    public function setWantedEngineTest($wantedEngineTest)
     {
-        $this->authorizationRepair = $authorizationRepair;
+        $this->wantedEngineTest = $wantedEngineTest;
 
         return $this;
     }
 
     /**
-     * Get authorizationRepair
+     * Get wantedEngineTest
      *
      * @return bool
      */
-    public function getAuthorizationRepair()
+    public function getWantedEngineTest()
     {
-        return $this->authorizationRepair;
+        return $this->wantedEngineTest;
     }
 
     /**
-     * Set respectQuotationRepair
+     * Set fundingSolution
      *
-     * @param boolean $respectQuotationRepair
+     * @param boolean $fundingSolution
      *
-     * @return ReviewRepair
+     * @return ReviewBuy
      */
-    public function setRespectQuotationRepair($respectQuotationRepair)
+    public function setFundingSolution($fundingSolution)
     {
-        $this->respectQuotationRepair = $respectQuotationRepair;
+        $this->fundingSolution = $fundingSolution;
 
         return $this;
     }
 
     /**
-     * Get respectQuotationRepair
+     * Get fundingSolution
      *
      * @return bool
      */
-    public function getRespectQuotationRepair()
+    public function getFundingSolution()
     {
-        return $this->respectQuotationRepair;
-    }
-
-    /**
-     * Set courtesyVehicle
-     *
-     * @param boolean $courtesyVehicle
-     *
-     * @return ReviewRepair
-     */
-    public function setCourtesyVehicle($courtesyVehicle)
-    {
-        $this->courtesyVehicle = $courtesyVehicle;
-
-        return $this;
-    }
-
-    /**
-     * Get courtesyVehicle
-     *
-     * @return bool
-     */
-    public function getCourtesyVehicle()
-    {
-        return $this->courtesyVehicle;
-    }
-
-    /**
-     * Set respectDelayRepair
-     *
-     * @param boolean $respectDelayRepair
-     *
-     * @return ReviewRepair
-     */
-    public function setRespectDelayRepair($respectDelayRepair)
-    {
-        $this->respectDelayRepair = $respectDelayRepair;
-
-        return $this;
-    }
-
-    /**
-     * Get respectDelayRepair
-     *
-     * @return bool
-     */
-    public function getRespectDelayRepair()
-    {
-        return $this->respectDelayRepair;
-    }
-
-    /**
-     * Set conditionVehicleRating
-     *
-     * @param string $conditionVehicleRating
-     *
-     * @return ReviewRepair
-     */
-    public function setConditionVehicleRating($conditionVehicleRating)
-    {
-        $this->conditionVehicleRating = $conditionVehicleRating;
-
-        return $this;
-    }
-
-    /**
-     * Get conditionVehicleRating
-     *
-     * @return string
-     */
-    public function getConditionVehicleRating()
-    {
-        return $this->conditionVehicleRating;
+        return $this->fundingSolution;
     }
 
     /**
@@ -669,7 +521,7 @@ class ReviewRepair
      *
      * @param string $recommendProRating
      *
-     * @return ReviewRepair
+     * @return ReviewBuy
      */
     public function setRecommendProRating($recommendProRating)
     {
@@ -693,7 +545,7 @@ class ReviewRepair
      *
      * @param string $advice
      *
-     * @return ReviewRepair
+     * @return ReviewBuy
      */
     public function setAdvice($advice)
     {
@@ -717,7 +569,7 @@ class ReviewRepair
      *
      * @param string $attachedFile
      *
-     * @return ReviewRepair
+     * @return ReviewBuy
      */
     public function setAttachedFile($attachedFile)
     {
@@ -741,7 +593,7 @@ class ReviewRepair
      *
      * @param \DateTime $dateReview
      *
-     * @return ReviewRepair
+     * @return ReviewBuy
      */
     public function setDateReview($dateReview)
     {
@@ -761,11 +613,35 @@ class ReviewRepair
     }
 
     /**
+     * Set warranty
+     *
+     * @param boolean $warranty
+     *
+     * @return ReviewBuy
+     */
+    public function setWarranty($warranty)
+    {
+        $this->warranty = $warranty;
+
+        return $this;
+    }
+
+    /**
+     * Get warranty
+     *
+     * @return bool
+     */
+    public function getWarranty()
+    {
+        return $this->warranty;
+    }
+
+    /**
      * Set pro
      *
      * @param \CaradvisorBundle\Entity\Pro $pro
      *
-     * @return ReviewRepair
+     * @return ReviewBuy
      */
     public function setPro(\CaradvisorBundle\Entity\Pro $pro = null)
     {
@@ -789,7 +665,7 @@ class ReviewRepair
      *
      * @param \CaradvisorBundle\Entity\User $user
      *
-     * @return ReviewRepair
+     * @return ReviewBuy
      */
     public function setUser(\CaradvisorBundle\Entity\User $user = null)
     {
@@ -806,29 +682,5 @@ class ReviewRepair
     public function getUser()
     {
         return $this->user;
-    }
-
-    /**
-     * Set answer
-     *
-     * @param \CaradvisorBundle\Entity\Answer $answer
-     *
-     * @return ReviewRepair
-     */
-    public function setAnswer(\CaradvisorBundle\Entity\Answer $answer = null)
-    {
-        $this->answer = $answer;
-
-        return $this;
-    }
-
-    /**
-     * Get answer
-     *
-     * @return \CaradvisorBundle\Entity\Answer
-     */
-    public function getAnswer()
-    {
-        return $this->answer;
     }
 }
