@@ -193,6 +193,12 @@ class ReviewRepair
     private $user;
 
     /**
+     * @ORM\OneToOne(targetEntity="CaradvisorBundle\Entity\Answer")
+     * @ORM\JoinColumn(name="answer_id", referencedColumnName="id")
+     */
+    private $answer;
+
+    /**
      * Get id
      *
      * @return int
@@ -800,5 +806,29 @@ class ReviewRepair
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set answer
+     *
+     * @param \CaradvisorBundle\Entity\Answer $answer
+     *
+     * @return ReviewRepair
+     */
+    public function setAnswer(\CaradvisorBundle\Entity\Answer $answer = null)
+    {
+        $this->answer = $answer;
+
+        return $this;
+    }
+
+    /**
+     * Get answer
+     *
+     * @return \CaradvisorBundle\Entity\Answer
+     */
+    public function getAnswer()
+    {
+        return $this->answer;
     }
 }

@@ -165,6 +165,12 @@ class ReviewBuy
     private $user;
 
     /**
+     * @ORM\OneToOne(targetEntity="answer")
+     * @ORM\JoinColumn(name="answer_id", referencedColumnName="id")
+     */
+    private $answer;
+
+    /**
      * Get id
      *
      * @return int
@@ -676,5 +682,29 @@ class ReviewBuy
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set answer
+     *
+     * @param \CaradvisorBundle\Entity\answer $answer
+     *
+     * @return ReviewBuy
+     */
+    public function setAnswer(\CaradvisorBundle\Entity\answer $answer = null)
+    {
+        $this->answer = $answer;
+
+        return $this;
+    }
+
+    /**
+     * Get answer
+     *
+     * @return \CaradvisorBundle\Entity\answer
+     */
+    public function getAnswer()
+    {
+        return $this->answer;
     }
 }
