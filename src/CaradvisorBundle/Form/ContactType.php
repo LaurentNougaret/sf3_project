@@ -8,6 +8,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\SubmitButton;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class ContactType extends AbstractType
@@ -21,7 +22,7 @@ class ContactType extends AbstractType
             ->add('subject', TextType::class, ['empty_data' => 'Objet de votre message'])
             ->add('message', TextareaType::class, [
                 'empty_data' => 'Laissez votre message',
-                'attr' => ['rows' => '5']
+                'attr' => ['rows' => '5', 'placeholder' => 'Votre message', 'label' => false]
             ])
             ->add('save', SubmitType::class, ['label' => 'Envoyer']);
     }

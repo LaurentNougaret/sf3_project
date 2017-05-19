@@ -12,7 +12,7 @@ jQuery(document).ready(function() {
         }
     });
     jQuery('.back-to-top').click(function(event) {
-        event.preventDefault();
+        //event.preventDefault();
         jQuery('html, body').animate({scrollTop: 0}, duration);
         return false;
     })
