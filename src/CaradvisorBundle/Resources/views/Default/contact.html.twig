@@ -1,14 +1,15 @@
 {% extends ('@Caradvisor/index.html.twig') %}
 {% block body %}
-    <section id="contactPage">
-        <div class="container">
-            <div class="row">
-                <h1 class="text-center">Contactez-nous</h1>
-                <hr>
-                <div class="col-xs-10 col-xs-offset-1">
-                    <h4 class="contactWelcomePhrase"> Vous avez des questions, des suggestions ou des demandes? Envoyez-nous un message!</h4>
-                </div>
-                <div class="col-xs-10 col-xs-offset-1 col-md-5 offset-md-3">
+<section id="contactPage">
+    <div class="container">
+        <div class="row">
+            <h1 class="text-center">Contactez-nous</h1>
+            <hr>
+            <div class="col-xs-10 col-xs-offset-1">
+                <h4 class="contactWelcomePhrase"> Vous avez des questions, des suggestions ou des demandes? Envoyez-nous un message!</h4>
+            </div>
+            <div class="col-xs-10 col-xs-offset-1 col-md-5 offset-md-3">
+                <div class="formcontact">
                     {{ form_start(form) }}
                     {{ form_errors(form) }}
 
@@ -19,23 +20,23 @@
                     {{ form_row(form.message) }}
 
                     {{ form_end(form) }}
-
                 </div>
-                <div class="col-xs-12 col-md-5">
-                    <div class="formContactDivAddress">
-                        <h4> CarAdvisor </h4>
-                        <address>
-                            Siège social
-                            <br> C.A.
-                            <br>
-                            11, Avenue XYW
-                            <br>69800 LYON</address>
+            </div>
+            <div class="col-xs-12 col-md-5">
+                <div class="formContactDivAddress">
+                    <h4> CarAdvisor </h4>
+                    <address>
+                        Siège social
+                        <br> C.A.
                         <br>
-                        <p>Tel: 01.02.03.04.05</p>
-                        <p>E-mail: <a href="mailto:contact@caradvisor.com">contact@caradvisor.com</a></p>
-                    </div>
+                        11, Avenue XYW
+                        <br>69800 LYON</address>
+                    <br>
+                    <p>Tel: 01.02.03.04.05</p>
+                    <p>E-mail: <a href="mailto:contact@caradvisor.com">contact@caradvisor.com</a></p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 {% endblock %}

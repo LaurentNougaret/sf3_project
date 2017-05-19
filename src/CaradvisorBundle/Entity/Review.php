@@ -8,108 +8,58 @@ use Doctrine\ORM\Mapping as ORM;
  * Review
  *
  * @ORM\Table(name="review")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="CaradvisorBundle\Repository\ReviewRepository")
  */
 class Review
 {
     /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
      * @var string
      *
-     * @ORM\Column(name="proname", type="string", length=100, nullable=false)
+     * @ORM\Column(name="proname", type="string", length=255)
      */
     private $proname;
 
     /**
-     * @return string
+     * @var string
+     *
+     * @ORM\Column(name="lastname", type="string", length=255)
      */
-    public function getProname()
-    {
-        return $this->proname;
-    }
+    private $lastname;
 
     /**
-     * @param string $proname
-     * @return Review
+     * @var string
+     *
+     * @ORM\Column(name="firstname", type="string", length=255)
      */
-    public function setProname($proname)
-    {
-        $this->proname = $proname;
-        return $this;
-    }
+    private $firstname;
 
     /**
-     * @return string
+     * @var string
+     *
+     * @ORM\Column(name="city", type="string", length=255)
      */
-    public function getLastname()
-    {
-        return $this->lastname;
-    }
+    private $city;
 
     /**
-     * @param string $lastname
-     * @return Review
+     * @var string
+     *
+     * @ORM\Column(name="review", type="text")
      */
-    public function setLastname($lastname)
-    {
-        $this->lastname = $lastname;
-        return $this;
-    }
+    private $review;
+
 
     /**
-     * @return string
-     */
-    public function getFirstname()
-    {
-        return $this->firstname;
-    }
-
-    /**
-     * @param string $firstname
-     * @return Review
-     */
-    public function setFirstname($firstname)
-    {
-        $this->firstname = $firstname;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getCity()
-    {
-        return $this->city;
-    }
-
-    /**
-     * @param string $city
-     * @return Review
-     */
-    public function setCity($city)
-    {
-        $this->city = $city;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getReview()
-    {
-        return $this->review;
-    }
-
-    /**
-     * @param string $review
-     * @return Review
-     */
-    public function setReview($review)
-    {
-        $this->review = $review;
-        return $this;
-    }
-
-    /**
+     * Get id
+     *
      * @return int
      */
     public function getId()
@@ -118,51 +68,122 @@ class Review
     }
 
     /**
-     * @param int $id
+     * Set proname
+     *
+     * @param string $proname
+     *
      * @return Review
      */
-    public function setId($id)
+    public function setProname($proname)
     {
-        $this->id = $id;
+        $this->proname = $proname;
+
         return $this;
     }
 
     /**
-     * @var string
+     * Get proname
      *
-     * @ORM\Column(name="lastname", type="string", length=45, nullable=false)
+     * @return string
      */
-    private $lastname;
+    public function getProname()
+    {
+        return $this->proname;
+    }
 
     /**
-     * @var string
+     * Set lastname
      *
-     * @ORM\Column(name="firstname", type="string", length=45, nullable=false)
+     * @param string $lastname
+     *
+     * @return Review
      */
-    private $firstname;
+    public function setLastname($lastname)
+    {
+        $this->lastname = $lastname;
+
+        return $this;
+    }
 
     /**
-     * @var string
+     * Get lastname
      *
-     * @ORM\Column(name="city", type="string", length=45, nullable=false)
+     * @return string
      */
-    private $city;
+    public function getLastname()
+    {
+        return $this->lastname;
+    }
 
     /**
-     * @var string
+     * Set firstname
      *
-     * @ORM\Column(name="review", type="text", length=65535, nullable=false)
+     * @param string $firstname
+     *
+     * @return Review
      */
-    private $review;
+    public function setFirstname($firstname)
+    {
+        $this->firstname = $firstname;
+
+        return $this;
+    }
 
     /**
-     * @var integer
+     * Get firstname
      *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @return string
      */
-    private $id;
+    public function getFirstname()
+    {
+        return $this->firstname;
+    }
 
+    /**
+     * Set city
+     *
+     * @param string $city
+     *
+     * @return Review
+     */
+    public function setCity($city)
+    {
+        $this->city = $city;
 
+        return $this;
+    }
+
+    /**
+     * Get city
+     *
+     * @return string
+     */
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    /**
+     * Set review
+     *
+     * @param string $review
+     *
+     * @return Review
+     */
+    public function setReview($review)
+    {
+        $this->review = $review;
+
+        return $this;
+    }
+
+    /**
+     * Get review
+     *
+     * @return string
+     */
+    public function getReview()
+    {
+        return $this->review;
+    }
 }

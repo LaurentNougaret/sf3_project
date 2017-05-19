@@ -6,7 +6,7 @@ $(function() {
     var $msgAnimateTime = 150;
     var $msgShowTime = 2000;
 
-    $("form").submit(function () {
+    $("form_pro").submit(function () {
         switch(this.id) {
             case "login-pro-form":
                 var $lg_username=$('#login_pro_username').val();

@@ -2,6 +2,7 @@
 
 namespace CaradvisorBundle\Form;
 
+use CaradvisorBundle\Entity\Contact;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -15,21 +16,38 @@ class ContactType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('lastname', TextType::class, ['empty_data' => 'Nom'])
-            ->add('firstname', TextType::class, ['empty_data' => 'Prénom'])
-            ->add('email', EmailType::class, ['empty_data' => 'Email'])
-            ->add('subject', TextType::class, ['empty_data' => 'Objet de votre message'])
-            ->add('message', TextareaType::class, [
-                'empty_data' => 'Laissez votre message',
-                'attr' => ['rows' => '5']
+            ->add('lastname', TextType::class, [
+                'label' => false,
+                'attr' => ['placeholder' => 'Nom']
             ])
-            ->add('save', SubmitType::class, ['label' => 'Envoyer']);
+            ->add('firstname', TextType::class, [
+                'label' => false,
+                'attr' => ['placeholder' => 'Prénom']
+            ])
+            ->add('email', EmailType::class, [
+                'label' => false,
+                'attr' => ['placeholder' => 'Email']
+            ])
+            ->add('subject', TextType::class, [
+                'label' => false,
+                'attr' => ['placeholder' => 'Objet de votre message']
+            ])
+            ->add('message', TextareaType::class, [
+                'label' => false,
+                'attr' => [
+                    'rows' => '5',
+                    'style' => 'resize:none',
+                    'placeholder' => 'Laissez votre message',
+                ]
+            ])
+           ->add('submit', SubmitType::class, ['label' => 'Envoyer']);
     }
+
     public function configureOptions(OptionsResolver $resolver)
     {
-       // $resolver->setDefaults(array(
-        //    'data_class' => 'CaradvisorBundle\Entity\Contact',
-      //  ));
+        $resolver->setDefaults(array(
+            'data_class' => Contact::class,
+        ));
     }
 
     public function getBlockPrefix()

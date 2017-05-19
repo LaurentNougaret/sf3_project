@@ -8,7 +8,11 @@ use Doctrine\ORM\Mapping as ORM;
  * Contact
  *
  * @ORM\Table(name="contact")
+<<<<<<< HEAD
  * @ORM\Entity
+=======
+ * @ORM\Entity(repositoryClass="CaradvisorBundle\Repository\ContactRepository")
+>>>>>>> 54f177eec1d067b72d3d91a86906288f7b58673f
  */
 class Contact
 {
@@ -24,38 +28,62 @@ class Contact
     /**
      * @var string
      *
+<<<<<<< HEAD
      * @ORM\Column(name="lastname", type="string", length=255, nullable=false)
+=======
+     * @ORM\Column(name="lastname", type="string", length=255)
+>>>>>>> 54f177eec1d067b72d3d91a86906288f7b58673f
      */
     private $lastname;
 
     /**
      * @var string
      *
+<<<<<<< HEAD
      * @ORM\Column(name="firstname", type="string", length=255, nullable=false)
+=======
+     * @ORM\Column(name="firstname", type="string", length=255)
+>>>>>>> 54f177eec1d067b72d3d91a86906288f7b58673f
      */
     private $firstname;
 
     /**
      * @var string
      *
+<<<<<<< HEAD
      * @ORM\Column(name="email", type="string", length=255, nullable=false)
+=======
+     * @ORM\Column(name="email", type="string", length=255)
+>>>>>>> 54f177eec1d067b72d3d91a86906288f7b58673f
      */
     private $email;
 
     /**
      * @var string
      *
+<<<<<<< HEAD
      * @ORM\Column(name="subject", type="string", length=255, nullable=true)
+=======
+     * @ORM\Column(name="subject", type="string", length=255)
+>>>>>>> 54f177eec1d067b72d3d91a86906288f7b58673f
      */
     private $subject;
 
     /**
      * @var string
      *
+<<<<<<< HEAD
      * @ORM\Column(name="message", type="text", length=65535, nullable=false)
      */
     private $message;
 
+=======
+     * @ORM\Column(name="message", type="text")
+     */
+    private $message;
+
+
+>>>>>>> 54f177eec1d067b72d3d91a86906288f7b58673f
     /**
      * Get id
      *
@@ -67,6 +95,7 @@ class Contact
     }
 
     /**
+<<<<<<< HEAD
      * @return string
      */
     public function getLastname()
@@ -76,15 +105,26 @@ class Contact
 
     /**
      * @param string $lastname
+=======
+     * Set lastname
+     *
+     * @param string $lastname
+     *
+>>>>>>> 54f177eec1d067b72d3d91a86906288f7b58673f
      * @return Contact
      */
     public function setLastname($lastname)
     {
         $this->lastname = $lastname;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 54f177eec1d067b72d3d91a86906288f7b58673f
         return $this;
     }
 
     /**
+<<<<<<< HEAD
      * @return string
      */
     public function getFirstname()
@@ -94,15 +134,36 @@ class Contact
 
     /**
      * @param string $firstname
+=======
+     * Get lastname
+     *
+     * @return string
+     */
+    public function getLastname()
+    {
+        return $this->lastname;
+    }
+
+    /**
+     * Set firstname
+     *
+     * @param string $firstname
+     *
+>>>>>>> 54f177eec1d067b72d3d91a86906288f7b58673f
      * @return Contact
      */
     public function setFirstname($firstname)
     {
         $this->firstname = $firstname;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 54f177eec1d067b72d3d91a86906288f7b58673f
         return $this;
     }
 
     /**
+<<<<<<< HEAD
      * @return string
      */
     public function getEmail()
@@ -112,15 +173,36 @@ class Contact
 
     /**
      * @param string $email
+=======
+     * Get firstname
+     *
+     * @return string
+     */
+    public function getFirstname()
+    {
+        return $this->firstname;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
+     *
+>>>>>>> 54f177eec1d067b72d3d91a86906288f7b58673f
      * @return Contact
      */
     public function setEmail($email)
     {
         $this->email = $email;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 54f177eec1d067b72d3d91a86906288f7b58673f
         return $this;
     }
 
     /**
+<<<<<<< HEAD
      * @return string
      */
     public function getSubject()
@@ -130,15 +212,36 @@ class Contact
 
     /**
      * @param string $subject
+=======
+     * Get email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * Set subject
+     *
+     * @param string $subject
+     *
+>>>>>>> 54f177eec1d067b72d3d91a86906288f7b58673f
      * @return Contact
      */
     public function setSubject($subject)
     {
         $this->subject = $subject;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 54f177eec1d067b72d3d91a86906288f7b58673f
         return $this;
     }
 
     /**
+<<<<<<< HEAD
      * @return string
      */
     public function getMessage()
@@ -148,15 +251,36 @@ class Contact
 
     /**
      * @param string $message
+=======
+     * Get subject
+     *
+     * @return string
+     */
+    public function getSubject()
+    {
+        return $this->subject;
+    }
+
+    /**
+     * Set message
+     *
+     * @param string $message
+     *
+>>>>>>> 54f177eec1d067b72d3d91a86906288f7b58673f
      * @return Contact
      */
     public function setMessage($message)
     {
         $this->message = $message;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 54f177eec1d067b72d3d91a86906288f7b58673f
         return $this;
     }
 
     /**
+<<<<<<< HEAD
      * @param int $id
      * @return Contact
      */
@@ -169,3 +293,14 @@ class Contact
 
 }
 
+=======
+     * Get message
+     *
+     * @return string
+     */
+    public function getMessage()
+    {
+        return $this->message;
+    }
+}
+>>>>>>> 54f177eec1d067b72d3d91a86906288f7b58673f

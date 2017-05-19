@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Contact
  *
  * @ORM\Table(name="contact")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="CaradvisorBundle\Repository\ContactRepository")
  */
 class Contact
 {
@@ -24,37 +24,38 @@ class Contact
     /**
      * @var string
      *
-     * @ORM\Column(name="lastname", type="string", length=255, nullable=false)
+     * @ORM\Column(name="lastname", type="string", length=255)
      */
     private $lastname;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="firstname", type="string", length=255, nullable=false)
+     * @ORM\Column(name="firstname", type="string", length=255)
      */
     private $firstname;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=255, nullable=false)
+     * @ORM\Column(name="email", type="string", length=255)
      */
     private $email;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="subject", type="string", length=255, nullable=true)
+     * @ORM\Column(name="subject", type="string", length=255)
      */
     private $subject;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="message", type="text", length=65535, nullable=false)
+     * @ORM\Column(name="message", type="text")
      */
     private $message;
+
 
     /**
      * Get id
@@ -67,6 +68,22 @@ class Contact
     }
 
     /**
+     * Set lastname
+     *
+     * @param string $lastname
+     *
+     * @return Contact
+     */
+    public function setLastname($lastname)
+    {
+        $this->lastname = $lastname;
+
+        return $this;
+    }
+
+    /**
+     * Get lastname
+     *
      * @return string
      */
     public function getLastname()
@@ -75,16 +92,22 @@ class Contact
     }
 
     /**
-     * @param string $lastname
+     * Set firstname
+     *
+     * @param string $firstname
+     *
      * @return Contact
      */
-    public function setLastname($lastname)
+    public function setFirstname($firstname)
     {
-        $this->lastname = $lastname;
+        $this->firstname = $firstname;
+
         return $this;
     }
 
     /**
+     * Get firstname
+     *
      * @return string
      */
     public function getFirstname()
@@ -93,16 +116,22 @@ class Contact
     }
 
     /**
-     * @param string $firstname
+     * Set email
+     *
+     * @param string $email
+     *
      * @return Contact
      */
-    public function setFirstname($firstname)
+    public function setEmail($email)
     {
-        $this->firstname = $firstname;
+        $this->email = $email;
+
         return $this;
     }
 
     /**
+     * Get email
+     *
      * @return string
      */
     public function getEmail()
@@ -111,16 +140,22 @@ class Contact
     }
 
     /**
-     * @param string $email
+     * Set subject
+     *
+     * @param string $subject
+     *
      * @return Contact
      */
-    public function setEmail($email)
+    public function setSubject($subject)
     {
-        $this->email = $email;
+        $this->subject = $subject;
+
         return $this;
     }
 
     /**
+     * Get subject
+     *
      * @return string
      */
     public function getSubject()
@@ -129,42 +164,26 @@ class Contact
     }
 
     /**
-     * @param string $subject
+     * Set message
+     *
+     * @param string $message
+     *
      * @return Contact
      */
-    public function setSubject($subject)
+    public function setMessage($message)
     {
-        $this->subject = $subject;
+        $this->message = $message;
+
         return $this;
     }
 
     /**
+     * Get message
+     *
      * @return string
      */
     public function getMessage()
     {
         return $this->message;
     }
-
-    /**
-     * @param string $message
-     * @return Contact
-     */
-    public function setMessage($message)
-    {
-        $this->message = $message;
-        return $this;
-    }
-
-    /**
-     * @param int $id
-     * @return Contact
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-        return $this;
-    }
-
-
 }
