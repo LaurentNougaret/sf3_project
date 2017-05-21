@@ -683,4 +683,28 @@ class ReviewBuy
     {
         return $this->user;
     }
+
+    /**
+     * Set answer
+     *
+     * @param \CaradvisorBundle\Entity\answer $answer
+     *
+     * @return ReviewBuy
+     */
+    public function setAnswer(\CaradvisorBundle\Entity\answer $answer = null)
+    {
+        $this->answer = $answer;
+
+        return $this;
+    }
+
+    /**
+     * Get answer
+     *
+     * @return \CaradvisorBundle\Entity\answer
+     */
+    public function getAnswer()
+    {
+        return $this->answer;
+    }
 }
