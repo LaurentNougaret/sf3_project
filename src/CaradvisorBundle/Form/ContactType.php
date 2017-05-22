@@ -39,8 +39,7 @@ class ContactType extends AbstractType
                     'style' => 'resize:none',
                     'placeholder' => 'Laissez votre message',
                 ]
-            ])
-           ->add('submit', SubmitType::class, ['label' => 'Envoyer']);
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
