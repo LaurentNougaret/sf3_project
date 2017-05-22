@@ -28,7 +28,7 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface
             $user->setGender($faker->randomElement($array = ['H', 'F', 'Non précisé']));
             $user->setAddress($faker->address);
             $user->setCity($faker->city);
-            $user->setPostalCode($faker->postcode);
+            $user->setPostalCode($faker->regexify('[0-9]{1}[0-7]{1}[0-9]{2}0'));
             $user->setPhone($faker->regexify('0[0-9]{1}([0-9]{2}){4}'));
             $user->setBirthDate($faker->dateTime);
             $user->setUserType($faker->randomElement($array = ['Professionnel', 'Particulier']));
