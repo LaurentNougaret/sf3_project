@@ -29,7 +29,7 @@ class LoadReviewBuyData extends AbstractFixture implements OrderedFixtureInterfa
                 ]));
             $reviewBuy->setDealerName($faker->company);
             $reviewBuy->setCity($faker->city);
-            $reviewBuy->setPostalCode($faker->regexify('0[0-9]{1}([0-9]{2}){4}'));
+            $reviewBuy->setPostalCode($faker->regexify('[0-9]{1}[0-7]{1}[0-9]{2}0'));
             $reviewBuy->setRatingGlobal($faker->randomElement($array = [
                 '1',
                 '2',
@@ -75,6 +75,7 @@ class LoadReviewBuyData extends AbstractFixture implements OrderedFixtureInterfa
         }
         $manager->flush();
     }
+
     public function getOrder()
     {
         return 3;
