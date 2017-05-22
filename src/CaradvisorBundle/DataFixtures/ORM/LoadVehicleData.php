@@ -11,7 +11,7 @@ use Faker\Factory;
 
 class LoadVehicleData extends AbstractFixture implements OrderedFixtureInterface
 {
-    const MAX_VEHICLE = 5;
+    const MAX_VEHICLE = 30;
     /**
      * Load data fixtures with a passed EntityManager
      *
@@ -21,6 +21,7 @@ class LoadVehicleData extends AbstractFixture implements OrderedFixtureInterface
     {
         $faker = Factory::create('fr_FR');
         $faker->seed(1234);
+
         for ($i = 0; $i<self::MAX_VEHICLE; $i++) {
             $vehicle = new Vehicle();
             $vehicle->setBrand($faker->unique()->company);
@@ -30,6 +31,7 @@ class LoadVehicleData extends AbstractFixture implements OrderedFixtureInterface
             $vehicle->setRegistration($faker->regexify('[A-Z]{2}[-][0-9]{3}[-][A-Z]{2}'));
             $vehicle->setYear($faker->year);
             $vehicle->setEnergy($faker->randomElement($array = array('Gasoil', 'Essence', 'Electrique', 'Hybride')));
+            $vehicle->setUser($this->getReference("users_" . rand(0,9)));
 
             $manager->persist($vehicle);
         }
@@ -41,6 +43,6 @@ class LoadVehicleData extends AbstractFixture implements OrderedFixtureInterface
      */
     public function getOrder()
     {
-        return 1;
+        return 2;
     }
 }
