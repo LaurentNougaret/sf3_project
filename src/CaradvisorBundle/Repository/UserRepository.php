@@ -10,4 +10,5 @@ namespace CaradvisorBundle\Repository;
  */
 class UserRepository extends \Doctrine\ORM\EntityRepository
 {
+    
 }
