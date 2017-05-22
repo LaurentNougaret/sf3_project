@@ -41,6 +41,14 @@
     margin-right:20%;
 }
 
+.forms .bloc .row {
+    margin-bottom: 10px;
+}
+
+.forms .bloc .control-label {
+    padding-top: 3px;
+}
+
 .forms .reviewform .rating-container .caption {
     margin-top: -0.1em;
 }
@@ -56,10 +64,6 @@
 
 .forms .reviewform .empty-stars img {
     opacity: .1;
-}
-
-.forms .reviewform .help-block {
-    margin: 0;
 }
 
 .forms .reviewform .iagree {

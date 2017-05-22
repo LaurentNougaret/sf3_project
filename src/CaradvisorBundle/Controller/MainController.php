@@ -3,7 +3,9 @@
 namespace CaradvisorBundle\Controller;
 
 use CaradvisorBundle\Entity\Contact;
+use CaradvisorBundle\Entity\ReviewRepair;
 use CaradvisorBundle\Form\ContactType;
+use CaradvisorBundle\Form\ReviewRepairType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -50,11 +52,27 @@ class MainController extends Controller
         return $this->render('@Caradvisor/Reviews/used.html.twig');
     }
     /**
+     * @param Request $request
+     * @return Response
      * @Route("/review/repair", name="review_repair")
      */
-    public function reviewRepairAction()
+    public function addReviewRepairAction(Request $request)
     {
-        return $this->render('@Caradvisor/Reviews/repair.html.twig');
+        $reviewRepair = new ReviewRepair();
+        $em = $this->getDoctrine()->getManager();
+        $form = $this->createForm(ReviewRepairType::class, $reviewRepair);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted()){
+            $em->persist($reviewRepair);
+            $em->flush();
+
+            return $this->redirectToRoute('home');
+        }
+        return $this->render('@Caradvisor/Reviews/repair.html.twig', [
+            'form'  => $form->createView(),
+        ]);
     }
 
     /**
@@ -62,7 +80,7 @@ class MainController extends Controller
      * @return Response
      * @Route("/contact", name="contact")
      */
-    public function contactAction(Request $request)
+    public function addContactAction(Request $request)
     {
         $contact = new Contact();
         $em = $this->getDoctrine()->getManager();
@@ -78,8 +96,9 @@ class MainController extends Controller
 
         }
         return $this->render('@Caradvisor/Default/contact.html.twig', [
-            'form'      =>  $form->createView(),
-        ]);    }
+            'form'  =>  $form->createView(),
+        ]);
+    }
 
     /**
      * @Route("/legal", name="legal")
