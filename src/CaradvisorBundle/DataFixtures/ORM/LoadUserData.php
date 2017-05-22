@@ -36,6 +36,7 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface
             $user->setIsActive($faker->randomElement($array = ['0', '1']));
 
             $manager->persist($user);
+
             $this->setReference("users_" . $i, $user);
         }
         $manager->flush();

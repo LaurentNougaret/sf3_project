@@ -11,14 +11,14 @@ use Faker\Factory;
 
 class LoadReviewBuyData extends AbstractFixture implements OrderedFixtureInterface
 {
-    const REVIEWBUY = 50;
+    const REVIEWBUY_MAX = 50;
 
     public function load(ObjectManager $manager)
     {
         $faker = Factory::create('fr_FR');
         $faker->seed(1234);
 
-        for ($i = 0; $i < self::REVIEWBUY; $i++){
+        for ($i = 0; $i < self::REVIEWBUY_MAX; $i++){
             $reviewBuy = new ReviewBuy();
             $reviewBuy->setDealerType($faker->randomElement($array = [
                 'Garagiste',
@@ -69,7 +69,9 @@ class LoadReviewBuyData extends AbstractFixture implements OrderedFixtureInterfa
             $reviewBuy->setAdvice($faker->paragraph(3));
             $reviewBuy->setAttachedFile('http://aws-cf.caradisiac.com/prod/mesimages/142824/facture%20revision%202%20an%2036.800%20km.jpg');
             $reviewBuy->setDateReview($faker->dateTime);
+
             $reviewBuy->setUser($this->getReference("users_" . rand(0, LoadUserData::MAX_USER - 1)));
+            $reviewBuy->setUser($this->getReference("pros_" . rand(0, LoadProData::PRO_MAX - 1)));
 
             $manager->persist($reviewBuy);
         }
@@ -78,6 +80,6 @@ class LoadReviewBuyData extends AbstractFixture implements OrderedFixtureInterfa
 
     public function getOrder()
     {
-        return 3;
+        return 5;
     }
 }
