@@ -57,9 +57,9 @@ class Vehicle
     private $registration;
 
     /**
-     * @var \DateTime
+     * @var int
      *
-     * @ORM\Column(name="year", type="date")
+     * @ORM\Column(name="year", type="integer")
      */
     private $year;
 
@@ -208,7 +208,7 @@ class Vehicle
     /**
      * Set year
      *
-     * @param \DateTime $year
+     * @param integer $year
      *
      * @return Vehicle
      */
@@ -222,7 +222,7 @@ class Vehicle
     /**
      * Get year
      *
-     * @return \DateTime
+     * @return int
      */
     public function getYear()
     {

@@ -3,6 +3,7 @@
 namespace CaradvisorBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * ReviewRepair
@@ -171,7 +172,10 @@ class ReviewRepair
     /**
      * @var string
      *
-     * @ORM\Column(name="attachedFile", type="blob")
+     * @ORM\Column(name="attachedFile", type="string")
+     *
+     * @Assert\NotBlank(message="Fichiers acceptés : .jpg, .pdf, .png")
+     * @Assert\File(mimeTypes={"application/pdf", "application/jpg", "application/png"})
      */
     private $attachedFile;
 
@@ -830,5 +834,10 @@ class ReviewRepair
     public function getAnswer()
     {
         return $this->answer;
+    }
+
+    public function __construct()
+    {
+        $this->dateReview = new \DateTime();
     }
 }
