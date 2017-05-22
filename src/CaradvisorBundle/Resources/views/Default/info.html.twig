@@ -1,0 +1,111 @@
+{% extends ('@Caradvisor/index.html.twig') %}
+{% block body %}
+    <section id="info">
+        <div class="container">
+            <div class="title">
+                {% for pro in reviewsBuy %}
+                <h1>{{ pro.dealerName }}</h1>
+                <hr>
+                <!-- Back to results page -->
+                <div class="row">
+                    <div class="col-lg-5">
+                        <a href="{{ path('results') }}">
+                            <p>
+                                <i class="fa fa-angle-double-left" aria-hidden="true"> </i>
+                                Revenir aux résultats</p><br>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-7 text-left garage">
+                {% if picture == NULL %}
+                    <i class="fa fa-building-o" aria-hidden="true"></i>
+                {% else %}
+                    <img class="media-object img-rounded img-responsive"
+                         src="{{ asset(picture) }}"
+                         alt="{{ dealerName }}" />
+                {% endif %}
+                <p class="description">{{ description }}</p>
+                <!-- lier à bdd => --><input id="ratingadvice" value="4">
+            </div>
+            <div class="col-xs-12 col-sm-5 info">
+                <h2>Informations</h2>
+                <hr>
+                <div class="googlemaps">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2784.07694881635!2d4.84324061556704!3d45.74960327910534!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f4ea43d10e82bf%3A0x1ea55f4b5cc17646!2s33+Rue+Creuzet%2C+69007+Lyon!5e0!3m2!1sfr!2sfr!4v1492098930735" width="350" height="300" allowfullscreen></iframe>
+                </div>
+                <div class="col-xs-6">
+                    <p>Adresse : </p>
+                    <address>
+                        {{ address }}<br>
+                        {{ postalCode ~ " " ~ city }}
+                    </address>
+                    Tel : <a href="tel:{{ phone }}">{{ phone }}</a>
+                </div>
+                <div class="col-xs-6">
+                    <!-- General infos about company -->
+                </div>
+                {% endfor %}
+            </div>
+            <div class="col-xs-12 col-sm-7 reviews">
+                <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+                    <!-- Button to add a new review about this garage -->
+                    <div class="block-center">
+                        <a href="#" {#{{ path('review_buy') }}#}> <!-- lien correct?? -->
+                            <button type="button"
+                                    class="btn btn-primary btn-lg btn-block center-block">
+                                Déposer un avis
+                            </button>
+                        </a>
+                    </div>
+                </div>
+                <!-- List reviews-->
+                <div class="col-xs-12">
+                    <h2>Avis</h2>
+                    <hr class="underline">
+                    <table class="review">
+                        {# List reviews - Buy #}
+                        {% for user in reviewsBuy %}
+                        {% if user|length > 0 %}
+                        <thead>
+                        <tr>
+                            <th>
+                                {% if picture == NULL %} <!-- did we forget the user's photo?) -->
+                            <td><img class="img-circle img-responsive" src="{{ asset('img/photo_fondateur.png')}}"></td>
+                            {% else %}
+                                <td><img class="media-object img-rounded img-responsive"
+                                         src="{{ asset(picture) }}"{# no picture  in db for user #}
+                                         alt="{{ username }}" />
+                                </td>
+                            {% endif %}
+                            <th>{{ subject }}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td> {{ review }} </td>
+                        </tr>
+                        <tr>
+                            <td> <small> {{ firstName ~ " " ~ lastName ~ " " ~ city  }} </small> </td>
+                            <td> {#{{ dateReview.date|('d/m/Y') }}#} </td>
+                        </tr>
+                        {% else %}
+                            <p>Aucun résultat trouvé</p>
+                        {% endif %}
+                        {% endfor %}
+                        {%  for answer in reviewsBuy %}
+                        {% if answer > 0 %}
+                        <tr>
+                            <td>{{ answer }}</td>
+                            <td>{#{{ dateReview.date|('d/m/Y') }}#}</td>
+                        </tr>
+                        <hr>
+                        </tbody>
+                        {% endif %}
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
