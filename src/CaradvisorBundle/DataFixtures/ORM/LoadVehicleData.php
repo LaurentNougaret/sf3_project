@@ -31,7 +31,7 @@ class LoadVehicleData extends AbstractFixture implements OrderedFixtureInterface
             $vehicle->setRegistration($faker->regexify('[A-Z]{2}[-][0-9]{3}[-][A-Z]{2}'));
             $vehicle->setYear($faker->year);
             $vehicle->setEnergy($faker->randomElement($array = array('Gasoil', 'Essence', 'Electrique', 'Hybride')));
-            $vehicle->setUser($this->getReference("users_" . rand(0,9)));
+            $vehicle->setUser($this->getReference("users_" . rand(0, LoadUserData::MAX_USER - 1)));
 
             $manager->persist($vehicle);
         }
