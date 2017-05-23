@@ -26,7 +26,7 @@ class LoadProData extends AbstractFixture implements OrderedFixtureInterface
 
         for ($i = 0; $i < self::PRO_MAX; $i ++){
             $pro = new Pro();
-            $pro->setSiret($faker->regexify('\d{3}[- ]?\d{3}[- ]?\d{3}[- ]?\d{5}'));
+            $pro->setSiret($this->getRandomSiret());
             $pro->setDealerName($faker->company);
             $pro->setDealerType($faker->randomElement($array = [
                 'Garagiste',
@@ -61,5 +61,13 @@ class LoadProData extends AbstractFixture implements OrderedFixtureInterface
     public function getOrder()
     {
         return 2;
+    }
+
+    private function getRandomSiret()
+    {
+        return  rand(100, 999) . " " .
+            rand(100, 999) . " " .
+            rand(100, 999) . " " .
+            rand(10000, 99999);
     }
 }

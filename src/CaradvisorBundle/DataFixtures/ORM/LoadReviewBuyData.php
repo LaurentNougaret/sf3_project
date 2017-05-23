@@ -17,7 +17,7 @@ class LoadReviewBuyData extends AbstractFixture implements OrderedFixtureInterfa
     {
         $faker = Factory::create('fr_FR');
         $faker->seed(1234);
-
+        $totalAnswer = 0;
         for ($i = 0; $i < self::REVIEWBUY_MAX; $i++){
             $reviewBuy = new ReviewBuy();
             $reviewBuy->setDealerType($faker->randomElement($array = [
@@ -71,7 +71,13 @@ class LoadReviewBuyData extends AbstractFixture implements OrderedFixtureInterfa
             $reviewBuy->setDateReview($faker->dateTime);
 
             $reviewBuy->setUser($this->getReference("users_" . rand(0, LoadUserData::MAX_USER - 1)));
-            $reviewBuy->setUser($this->getReference("pros_" . rand(0, LoadProData::PRO_MAX - 1)));
+            $reviewBuy->setPro($this->getReference("pros_" . rand(0, LoadProData::PRO_MAX - 1)));
+
+            if ($totalAnswer < 10){
+                $reviewBuy->setAnswer($this->getReference("answers_" . $totalAnswer));
+                $totalAnswer++;
+            }
+
 
             $manager->persist($reviewBuy);
         }
@@ -80,6 +86,6 @@ class LoadReviewBuyData extends AbstractFixture implements OrderedFixtureInterfa
 
     public function getOrder()
     {
-        return 5;
+        return 6;
     }
 }
