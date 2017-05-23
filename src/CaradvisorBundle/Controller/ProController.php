@@ -56,12 +56,10 @@ class ProController extends Controller
      */
     public function reviewsAction(Pro $pro)
     {
-        //$proRepository = $this->getDoctrine()->getRepository('CaradvisorBundle:Pro');
-        //$data = $proRepository->getReview($proId->getId());
+        //$proRepository = $this->getDoctrine()->getRepository("CaradvisorBundle:Pro");
+        //$data = $proRepository->getReview('proId');
         return $this->render('@Caradvisor/Pro/reviews.html.twig', [
-            "data" => $pro->getReviewRepairs(),
-            //    $pro->getReviewBuys(),Amor m'a coder
-            //]
+            "data" => $pro->getReviewBuys(),
         ]);
     }
     /**

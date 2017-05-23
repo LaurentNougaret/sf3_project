@@ -24,38 +24,62 @@ class Contact
     /**
      * @var string
      *
+<<<<<<< HEAD
+     * @ORM\Column(name="lastname", type="string", length=255)
+=======
      * @ORM\Column(name="lastname", type="string", length=255, nullable=false)
+>>>>>>> ae3900e8f1da4e4f3e0583977df3c62794c1eb7e
      */
     private $lastname;
 
     /**
      * @var string
      *
+<<<<<<< HEAD
+     * @ORM\Column(name="firstname", type="string", length=255)
+=======
      * @ORM\Column(name="firstname", type="string", length=255, nullable=false)
+>>>>>>> ae3900e8f1da4e4f3e0583977df3c62794c1eb7e
      */
     private $firstname;
 
     /**
      * @var string
      *
+<<<<<<< HEAD
+     * @ORM\Column(name="email", type="string", length=255)
+=======
      * @ORM\Column(name="email", type="string", length=255, nullable=false)
+>>>>>>> ae3900e8f1da4e4f3e0583977df3c62794c1eb7e
      */
     private $email;
 
     /**
      * @var string
      *
+<<<<<<< HEAD
+     * @ORM\Column(name="subject", type="string", length=255)
+=======
      * @ORM\Column(name="subject", type="string", length=255, nullable=true)
+>>>>>>> ae3900e8f1da4e4f3e0583977df3c62794c1eb7e
      */
     private $subject;
 
     /**
      * @var string
      *
+<<<<<<< HEAD
+     * @ORM\Column(name="message", type="text")
+     */
+    private $message;
+
+
+=======
      * @ORM\Column(name="message", type="text", length=65535, nullable=false)
      */
     private $message;
 
+>>>>>>> ae3900e8f1da4e4f3e0583977df3c62794c1eb7e
     /**
      * Get id
      *
