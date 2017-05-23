@@ -9,10 +9,14 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="contact")
 <<<<<<< HEAD
+<<<<<<< HEAD
  * @ORM\Entity
 =======
  * @ORM\Entity(repositoryClass="CaradvisorBundle\Repository\ContactRepository")
 >>>>>>> 54f177eec1d067b72d3d91a86906288f7b58673f
+=======
+ * @ORM\Entity(repositoryClass="CaradvisorBundle\Repository\ContactRepository")
+>>>>>>> ae3900e8f1da4e4f3e0583977df3c62794c1eb7e
  */
 class Contact
 {
@@ -29,10 +33,14 @@ class Contact
      * @var string
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @ORM\Column(name="lastname", type="string", length=255, nullable=false)
 =======
      * @ORM\Column(name="lastname", type="string", length=255)
 >>>>>>> 54f177eec1d067b72d3d91a86906288f7b58673f
+=======
+     * @ORM\Column(name="lastname", type="string", length=255, nullable=false)
+>>>>>>> ae3900e8f1da4e4f3e0583977df3c62794c1eb7e
      */
     private $lastname;
 
@@ -40,10 +48,14 @@ class Contact
      * @var string
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @ORM\Column(name="firstname", type="string", length=255, nullable=false)
 =======
      * @ORM\Column(name="firstname", type="string", length=255)
 >>>>>>> 54f177eec1d067b72d3d91a86906288f7b58673f
+=======
+     * @ORM\Column(name="firstname", type="string", length=255, nullable=false)
+>>>>>>> ae3900e8f1da4e4f3e0583977df3c62794c1eb7e
      */
     private $firstname;
 
@@ -51,10 +63,14 @@ class Contact
      * @var string
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @ORM\Column(name="email", type="string", length=255, nullable=false)
 =======
      * @ORM\Column(name="email", type="string", length=255)
 >>>>>>> 54f177eec1d067b72d3d91a86906288f7b58673f
+=======
+     * @ORM\Column(name="email", type="string", length=255, nullable=false)
+>>>>>>> ae3900e8f1da4e4f3e0583977df3c62794c1eb7e
      */
     private $email;
 
@@ -62,10 +78,14 @@ class Contact
      * @var string
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @ORM\Column(name="subject", type="string", length=255, nullable=true)
 =======
      * @ORM\Column(name="subject", type="string", length=255)
 >>>>>>> 54f177eec1d067b72d3d91a86906288f7b58673f
+=======
+     * @ORM\Column(name="subject", type="string", length=255, nullable=true)
+>>>>>>> ae3900e8f1da4e4f3e0583977df3c62794c1eb7e
      */
     private $subject;
 
@@ -73,10 +93,14 @@ class Contact
      * @var string
      *
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> ae3900e8f1da4e4f3e0583977df3c62794c1eb7e
      * @ORM\Column(name="message", type="text", length=65535, nullable=false)
      */
     private $message;
 
+<<<<<<< HEAD
 =======
      * @ORM\Column(name="message", type="text")
      */
@@ -84,6 +108,8 @@ class Contact
 
 
 >>>>>>> 54f177eec1d067b72d3d91a86906288f7b58673f
+=======
+>>>>>>> ae3900e8f1da4e4f3e0583977df3c62794c1eb7e
     /**
      * Get id
      *
@@ -96,6 +122,7 @@ class Contact
 
     /**
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @return string
      */
     public function getLastname()
@@ -106,24 +133,34 @@ class Contact
     /**
      * @param string $lastname
 =======
+=======
+>>>>>>> ae3900e8f1da4e4f3e0583977df3c62794c1eb7e
      * Set lastname
      *
      * @param string $lastname
      *
+<<<<<<< HEAD
 >>>>>>> 54f177eec1d067b72d3d91a86906288f7b58673f
+=======
+>>>>>>> ae3900e8f1da4e4f3e0583977df3c62794c1eb7e
      * @return Contact
      */
     public function setLastname($lastname)
     {
         $this->lastname = $lastname;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 54f177eec1d067b72d3d91a86906288f7b58673f
+=======
+
+>>>>>>> ae3900e8f1da4e4f3e0583977df3c62794c1eb7e
         return $this;
     }
 
     /**
+<<<<<<< HEAD
 <<<<<<< HEAD
      * @return string
      */
@@ -135,6 +172,8 @@ class Contact
     /**
      * @param string $firstname
 =======
+=======
+>>>>>>> ae3900e8f1da4e4f3e0583977df3c62794c1eb7e
      * Get lastname
      *
      * @return string
@@ -149,20 +188,28 @@ class Contact
      *
      * @param string $firstname
      *
+<<<<<<< HEAD
 >>>>>>> 54f177eec1d067b72d3d91a86906288f7b58673f
+=======
+>>>>>>> ae3900e8f1da4e4f3e0583977df3c62794c1eb7e
      * @return Contact
      */
     public function setFirstname($firstname)
     {
         $this->firstname = $firstname;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 54f177eec1d067b72d3d91a86906288f7b58673f
+=======
+
+>>>>>>> ae3900e8f1da4e4f3e0583977df3c62794c1eb7e
         return $this;
     }
 
     /**
+<<<<<<< HEAD
 <<<<<<< HEAD
      * @return string
      */
@@ -174,6 +221,8 @@ class Contact
     /**
      * @param string $email
 =======
+=======
+>>>>>>> ae3900e8f1da4e4f3e0583977df3c62794c1eb7e
      * Get firstname
      *
      * @return string
@@ -188,20 +237,28 @@ class Contact
      *
      * @param string $email
      *
+<<<<<<< HEAD
 >>>>>>> 54f177eec1d067b72d3d91a86906288f7b58673f
+=======
+>>>>>>> ae3900e8f1da4e4f3e0583977df3c62794c1eb7e
      * @return Contact
      */
     public function setEmail($email)
     {
         $this->email = $email;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 54f177eec1d067b72d3d91a86906288f7b58673f
+=======
+
+>>>>>>> ae3900e8f1da4e4f3e0583977df3c62794c1eb7e
         return $this;
     }
 
     /**
+<<<<<<< HEAD
 <<<<<<< HEAD
      * @return string
      */
@@ -213,6 +270,8 @@ class Contact
     /**
      * @param string $subject
 =======
+=======
+>>>>>>> ae3900e8f1da4e4f3e0583977df3c62794c1eb7e
      * Get email
      *
      * @return string
@@ -227,20 +286,28 @@ class Contact
      *
      * @param string $subject
      *
+<<<<<<< HEAD
 >>>>>>> 54f177eec1d067b72d3d91a86906288f7b58673f
+=======
+>>>>>>> ae3900e8f1da4e4f3e0583977df3c62794c1eb7e
      * @return Contact
      */
     public function setSubject($subject)
     {
         $this->subject = $subject;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 54f177eec1d067b72d3d91a86906288f7b58673f
+=======
+
+>>>>>>> ae3900e8f1da4e4f3e0583977df3c62794c1eb7e
         return $this;
     }
 
     /**
+<<<<<<< HEAD
 <<<<<<< HEAD
      * @return string
      */
@@ -252,6 +319,8 @@ class Contact
     /**
      * @param string $message
 =======
+=======
+>>>>>>> ae3900e8f1da4e4f3e0583977df3c62794c1eb7e
      * Get subject
      *
      * @return string
@@ -266,20 +335,28 @@ class Contact
      *
      * @param string $message
      *
+<<<<<<< HEAD
 >>>>>>> 54f177eec1d067b72d3d91a86906288f7b58673f
+=======
+>>>>>>> ae3900e8f1da4e4f3e0583977df3c62794c1eb7e
      * @return Contact
      */
     public function setMessage($message)
     {
         $this->message = $message;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 54f177eec1d067b72d3d91a86906288f7b58673f
+=======
+
+>>>>>>> ae3900e8f1da4e4f3e0583977df3c62794c1eb7e
         return $this;
     }
 
     /**
+<<<<<<< HEAD
 <<<<<<< HEAD
      * @param int $id
      * @return Contact
@@ -294,6 +371,8 @@ class Contact
 }
 
 =======
+=======
+>>>>>>> ae3900e8f1da4e4f3e0583977df3c62794c1eb7e
      * Get message
      *
      * @return string
@@ -303,4 +382,7 @@ class Contact
         return $this->message;
     }
 }
+<<<<<<< HEAD
 >>>>>>> 54f177eec1d067b72d3d91a86906288f7b58673f
+=======
+>>>>>>> ae3900e8f1da4e4f3e0583977df3c62794c1eb7e

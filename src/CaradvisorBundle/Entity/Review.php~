@@ -9,19 +9,26 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="review")
 <<<<<<< HEAD
+<<<<<<< HEAD
  * @ORM\Entity
 =======
  * @ORM\Entity(repositoryClass="CaradvisorBundle\Repository\ReviewRepository")
 >>>>>>> 54f177eec1d067b72d3d91a86906288f7b58673f
+=======
+ * @ORM\Entity(repositoryClass="CaradvisorBundle\Repository\ReviewRepository")
+>>>>>>> ae3900e8f1da4e4f3e0583977df3c62794c1eb7e
  */
 class Review
 {
     /**
 <<<<<<< HEAD
+<<<<<<< HEAD
      * @var string
      *
      * @ORM\Column(name="proname", type="string", length=100, nullable=false)
 =======
+=======
+>>>>>>> ae3900e8f1da4e4f3e0583977df3c62794c1eb7e
      * @var int
      *
      * @ORM\Column(name="id", type="integer")
@@ -34,11 +41,15 @@ class Review
      * @var string
      *
      * @ORM\Column(name="proname", type="string", length=255)
+<<<<<<< HEAD
 >>>>>>> 54f177eec1d067b72d3d91a86906288f7b58673f
+=======
+>>>>>>> ae3900e8f1da4e4f3e0583977df3c62794c1eb7e
      */
     private $proname;
 
     /**
+<<<<<<< HEAD
 <<<<<<< HEAD
      * @return string
      */
@@ -50,6 +61,8 @@ class Review
     /**
      * @param string $proname
 =======
+=======
+>>>>>>> ae3900e8f1da4e4f3e0583977df3c62794c1eb7e
      * @var string
      *
      * @ORM\Column(name="lastname", type="string", length=255)
@@ -93,20 +106,28 @@ class Review
      *
      * @param string $proname
      *
+<<<<<<< HEAD
 >>>>>>> 54f177eec1d067b72d3d91a86906288f7b58673f
+=======
+>>>>>>> ae3900e8f1da4e4f3e0583977df3c62794c1eb7e
      * @return Review
      */
     public function setProname($proname)
     {
         $this->proname = $proname;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 54f177eec1d067b72d3d91a86906288f7b58673f
+=======
+
+>>>>>>> ae3900e8f1da4e4f3e0583977df3c62794c1eb7e
         return $this;
     }
 
     /**
+<<<<<<< HEAD
 <<<<<<< HEAD
      * @return string
      */
@@ -118,6 +139,8 @@ class Review
     /**
      * @param string $lastname
 =======
+=======
+>>>>>>> ae3900e8f1da4e4f3e0583977df3c62794c1eb7e
      * Get proname
      *
      * @return string
@@ -132,20 +155,28 @@ class Review
      *
      * @param string $lastname
      *
+<<<<<<< HEAD
 >>>>>>> 54f177eec1d067b72d3d91a86906288f7b58673f
+=======
+>>>>>>> ae3900e8f1da4e4f3e0583977df3c62794c1eb7e
      * @return Review
      */
     public function setLastname($lastname)
     {
         $this->lastname = $lastname;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 54f177eec1d067b72d3d91a86906288f7b58673f
+=======
+
+>>>>>>> ae3900e8f1da4e4f3e0583977df3c62794c1eb7e
         return $this;
     }
 
     /**
+<<<<<<< HEAD
 <<<<<<< HEAD
      * @return string
      */
@@ -157,6 +188,8 @@ class Review
     /**
      * @param string $firstname
 =======
+=======
+>>>>>>> ae3900e8f1da4e4f3e0583977df3c62794c1eb7e
      * Get lastname
      *
      * @return string
@@ -171,20 +204,28 @@ class Review
      *
      * @param string $firstname
      *
+<<<<<<< HEAD
 >>>>>>> 54f177eec1d067b72d3d91a86906288f7b58673f
+=======
+>>>>>>> ae3900e8f1da4e4f3e0583977df3c62794c1eb7e
      * @return Review
      */
     public function setFirstname($firstname)
     {
         $this->firstname = $firstname;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 54f177eec1d067b72d3d91a86906288f7b58673f
+=======
+
+>>>>>>> ae3900e8f1da4e4f3e0583977df3c62794c1eb7e
         return $this;
     }
 
     /**
+<<<<<<< HEAD
 <<<<<<< HEAD
      * @return string
      */
@@ -196,6 +237,8 @@ class Review
     /**
      * @param string $city
 =======
+=======
+>>>>>>> ae3900e8f1da4e4f3e0583977df3c62794c1eb7e
      * Get firstname
      *
      * @return string
@@ -210,20 +253,28 @@ class Review
      *
      * @param string $city
      *
+<<<<<<< HEAD
 >>>>>>> 54f177eec1d067b72d3d91a86906288f7b58673f
+=======
+>>>>>>> ae3900e8f1da4e4f3e0583977df3c62794c1eb7e
      * @return Review
      */
     public function setCity($city)
     {
         $this->city = $city;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> 54f177eec1d067b72d3d91a86906288f7b58673f
+=======
+
+>>>>>>> ae3900e8f1da4e4f3e0583977df3c62794c1eb7e
         return $this;
     }
 
     /**
+<<<<<<< HEAD
 <<<<<<< HEAD
      * @return string
      */
@@ -235,6 +286,8 @@ class Review
     /**
      * @param string $review
 =======
+=======
+>>>>>>> ae3900e8f1da4e4f3e0583977df3c62794c1eb7e
      * Get city
      *
      * @return string
@@ -249,12 +302,16 @@ class Review
      *
      * @param string $review
      *
+<<<<<<< HEAD
 >>>>>>> 54f177eec1d067b72d3d91a86906288f7b58673f
+=======
+>>>>>>> ae3900e8f1da4e4f3e0583977df3c62794c1eb7e
      * @return Review
      */
     public function setReview($review)
     {
         $this->review = $review;
+<<<<<<< HEAD
 <<<<<<< HEAD
         return $this;
     }
@@ -277,10 +334,14 @@ class Review
 =======
 
 >>>>>>> 54f177eec1d067b72d3d91a86906288f7b58673f
+=======
+
+>>>>>>> ae3900e8f1da4e4f3e0583977df3c62794c1eb7e
         return $this;
     }
 
     /**
+<<<<<<< HEAD
 <<<<<<< HEAD
      * @var string
      *
@@ -320,6 +381,8 @@ class Review
 
 
 =======
+=======
+>>>>>>> ae3900e8f1da4e4f3e0583977df3c62794c1eb7e
      * Get review
      *
      * @return string
@@ -328,5 +391,8 @@ class Review
     {
         return $this->review;
     }
+<<<<<<< HEAD
 >>>>>>> 54f177eec1d067b72d3d91a86906288f7b58673f
+=======
+>>>>>>> ae3900e8f1da4e4f3e0583977df3c62794c1eb7e
 }

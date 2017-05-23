@@ -455,6 +455,8 @@ nav li a:focus{
 }
 
 #about .hauteurtitre #photofondateur {
+    height: 32%;
+    width: 15%;
     left: 5%;
 }
 

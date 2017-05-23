@@ -24,38 +24,37 @@ class Contact
     /**
      * @var string
      *
-     * @ORM\Column(name="lastname", type="string", length=255)
+     * @ORM\Column(name="lastname", type="string", length=255, nullable=false)
      */
     private $lastname;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="firstname", type="string", length=255)
+     * @ORM\Column(name="firstname", type="string", length=255, nullable=false)
      */
     private $firstname;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=255)
+     * @ORM\Column(name="email", type="string", length=255, nullable=false)
      */
     private $email;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="subject", type="string", length=255)
+     * @ORM\Column(name="subject", type="string", length=255, nullable=true)
      */
     private $subject;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="message", type="text")
+     * @ORM\Column(name="message", type="text", length=65535, nullable=false)
      */
     private $message;
-
 
     /**
      * Get id

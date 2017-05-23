@@ -23,6 +23,7 @@ class MainController extends Controller
             'reviews' => $reviews,
         ]);
     }
+
     /**
      * @Route("/results", name="results")
      */
@@ -30,6 +31,7 @@ class MainController extends Controller
     {
         return $this->render('@Caradvisor/Default/results.html.twig');
     }
+
     /**
      * @Route("/info", name="info")
      */
@@ -37,6 +39,7 @@ class MainController extends Controller
     {
         return $this->render('@Caradvisor/Default/info.html.twig');
     }
+
     /**
      * @Route("/review/new", name="review_new")
      */
@@ -44,6 +47,7 @@ class MainController extends Controller
     {
         return $this->render('@Caradvisor/Reviews/new.html.twig');
     }
+
     /**
      * @Route("/review/used", name="review_used")
      */
@@ -51,6 +55,7 @@ class MainController extends Controller
     {
         return $this->render('@Caradvisor/Reviews/used.html.twig');
     }
+
     /**
      * @param Request $request
      * @return Response
@@ -79,8 +84,9 @@ class MainController extends Controller
      * @param Request $request
      * @return Response
      * @Route("/contact", name="contact")
+     *
      */
-    public function addContactAction(Request $request)
+    public function addcontactAction(Request $request)
     {
         $contact = new Contact();
         $em = $this->getDoctrine()->getManager();
@@ -88,7 +94,7 @@ class MainController extends Controller
 
         $form->handleRequest($request);
 
-        if ($form->isSubmitted()){
+        if ($form->isSubmitted() && $form->isValid()){
             $em->persist($contact);
             $em->flush();
 
@@ -107,6 +113,7 @@ class MainController extends Controller
     {
         return $this->render('@Caradvisor/Default/legal.html.twig');
     }
+
     /**
      * @Route("/cgu", name="cgu")
      */

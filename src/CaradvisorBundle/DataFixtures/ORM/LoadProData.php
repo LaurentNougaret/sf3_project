@@ -48,6 +48,8 @@ class LoadProData extends AbstractFixture implements OrderedFixtureInterface
                 '4',
                 '5',
             ]));
+            $pro->setEmail($faker->email);
+            $pro->setBrand($faker->company);
 
             $pro->setUser($this->getReference("users_" . rand(0, LoadUserData::MAX_USER - 1)));
 
@@ -65,9 +67,9 @@ class LoadProData extends AbstractFixture implements OrderedFixtureInterface
 
     private function getRandomSiret()
     {
-        return  rand(100, 999) . " " .
-            rand(100, 999) . " " .
-            rand(100, 999) . " " .
+        return  rand(100, 999) .
+            //rand(100, 999) .
+            rand(100, 999) .
             rand(10000, 99999);
     }
 }
