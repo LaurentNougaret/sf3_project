@@ -165,7 +165,7 @@ class ReviewBuy
     private $user;
 
     /**
-     * @ORM\OneToOne(targetEntity="answer")
+     * @ORM\OneToOne(targetEntity="CaradvisorBundle\Entity\Answer")
      * @ORM\JoinColumn(name="answer_id", referencedColumnName="id")
      */
     private $answer;

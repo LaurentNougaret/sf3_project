@@ -24,7 +24,7 @@ class Pro
     /**
      * @var int
      *
-     * @ORM\Column(name="siret", type="integer", unique=true)
+     * @ORM\Column(name="siret", type="bigint", length=13, unique=true)
      */
     private $siret;
 
@@ -106,7 +106,19 @@ class Pro
      */
     private $user;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=255)
+     */
+    private $email;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="brand", type="string", length=255)
+     */
+    private $brand;
     /**
      * Get id
      *
@@ -456,5 +468,41 @@ class Pro
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param string $email
+     * @return Pro
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getBrand()
+    {
+        return $this->brand;
+    }
+
+    /**
+     * @param string $brand
+     * @return Pro
+     */
+    public function setBrand($brand)
+    {
+        $this->brand = $brand;
+        return $this;
     }
 }
