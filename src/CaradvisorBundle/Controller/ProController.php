@@ -11,14 +11,14 @@ use Symfony\Component\HttpFoundation\Request;
 class ProController extends Controller
 {
     /**
-     * @Route("/pro/{proId}", name="pro")
-     * @param Pro $proId
+     * @Route("/pro/{pro}", name="pro")
+     * @param Pro $pro
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function indexAction(Pro $proId)
+    public function indexAction(Pro $pro)
     {
         return $this->render('@Caradvisor/Pro/home.html.twig', [
-            "pro" => $proId,
+            "pro" => $pro,
         ]);
     }
     /**
@@ -50,16 +50,16 @@ class ProController extends Controller
     }
 
     /**
-     * @Route("/pro/reviews/{proId}", name="pro_reviews")
-     * @param Pro $proId
+     * @Route("/pro/reviews/{pro}", name="pro_reviews")
+     * @param Pro $pro
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function reviewsAction(Pro $proId)
+    public function reviewsAction(Pro $pro)
     {
-        $proRepository = $this->getDoctrine()->getRepository("CaradvisorBundle:Pro");
-        $data = $proRepository->getReview('proId');
+        //$proRepository = $this->getDoctrine()->getRepository("CaradvisorBundle:Pro");
+        //$data = $proRepository->getReview('proId');
         return $this->render('@Caradvisor/Pro/reviews.html.twig', [
-            "data" => $data,
+            "data" => $pro->getReviewBuys(),
         ]);
     }
     /**
