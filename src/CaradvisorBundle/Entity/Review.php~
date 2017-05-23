@@ -8,20 +8,11 @@ use Doctrine\ORM\Mapping as ORM;
  * Review
  *
  * @ORM\Table(name="review")
-<<<<<<< HEAD
- * @ORM\Entity
-=======
  * @ORM\Entity(repositoryClass="CaradvisorBundle\Repository\ReviewRepository")
->>>>>>> ee94627a30b589fcc11eb798600d5e1ff2cbd5dc
  */
 class Review
 {
     /**
-<<<<<<< HEAD
-     * @var string
-     *
-     * @ORM\Column(name="proname", type="string", length=100, nullable=false)
-=======
      * @var int
      *
      * @ORM\Column(name="id", type="integer")
@@ -34,22 +25,10 @@ class Review
      * @var string
      *
      * @ORM\Column(name="proname", type="string", length=255)
->>>>>>> ee94627a30b589fcc11eb798600d5e1ff2cbd5dc
      */
     private $proname;
 
     /**
-<<<<<<< HEAD
-     * @return string
-     */
-    public function getProname()
-    {
-        return $this->proname;
-    }
-
-    /**
-     * @param string $proname
-=======
      * @var string
      *
      * @ORM\Column(name="lastname", type="string", length=255)
@@ -93,31 +72,16 @@ class Review
      *
      * @param string $proname
      *
->>>>>>> ee94627a30b589fcc11eb798600d5e1ff2cbd5dc
      * @return Review
      */
     public function setProname($proname)
     {
         $this->proname = $proname;
-<<<<<<< HEAD
-=======
 
->>>>>>> ee94627a30b589fcc11eb798600d5e1ff2cbd5dc
         return $this;
     }
 
     /**
-<<<<<<< HEAD
-     * @return string
-     */
-    public function getLastname()
-    {
-        return $this->lastname;
-    }
-
-    /**
-     * @param string $lastname
-=======
      * Get proname
      *
      * @return string
@@ -132,31 +96,16 @@ class Review
      *
      * @param string $lastname
      *
->>>>>>> ee94627a30b589fcc11eb798600d5e1ff2cbd5dc
      * @return Review
      */
     public function setLastname($lastname)
     {
         $this->lastname = $lastname;
-<<<<<<< HEAD
-=======
 
->>>>>>> ee94627a30b589fcc11eb798600d5e1ff2cbd5dc
         return $this;
     }
 
     /**
-<<<<<<< HEAD
-     * @return string
-     */
-    public function getFirstname()
-    {
-        return $this->firstname;
-    }
-
-    /**
-     * @param string $firstname
-=======
      * Get lastname
      *
      * @return string
@@ -171,31 +120,16 @@ class Review
      *
      * @param string $firstname
      *
->>>>>>> ee94627a30b589fcc11eb798600d5e1ff2cbd5dc
      * @return Review
      */
     public function setFirstname($firstname)
     {
         $this->firstname = $firstname;
-<<<<<<< HEAD
-=======
 
->>>>>>> ee94627a30b589fcc11eb798600d5e1ff2cbd5dc
         return $this;
     }
 
     /**
-<<<<<<< HEAD
-     * @return string
-     */
-    public function getCity()
-    {
-        return $this->city;
-    }
-
-    /**
-     * @param string $city
-=======
      * Get firstname
      *
      * @return string
@@ -210,31 +144,16 @@ class Review
      *
      * @param string $city
      *
->>>>>>> ee94627a30b589fcc11eb798600d5e1ff2cbd5dc
      * @return Review
      */
     public function setCity($city)
     {
         $this->city = $city;
-<<<<<<< HEAD
-=======
 
->>>>>>> ee94627a30b589fcc11eb798600d5e1ff2cbd5dc
         return $this;
     }
 
     /**
-<<<<<<< HEAD
-     * @return string
-     */
-    public function getReview()
-    {
-        return $this->review;
-    }
-
-    /**
-     * @param string $review
-=======
      * Get city
      *
      * @return string
@@ -249,77 +168,16 @@ class Review
      *
      * @param string $review
      *
->>>>>>> ee94627a30b589fcc11eb798600d5e1ff2cbd5dc
      * @return Review
      */
     public function setReview($review)
     {
         $this->review = $review;
-<<<<<<< HEAD
+
         return $this;
     }
 
     /**
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * @param int $id
-     * @return Review
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-=======
-
->>>>>>> ee94627a30b589fcc11eb798600d5e1ff2cbd5dc
-        return $this;
-    }
-
-    /**
-<<<<<<< HEAD
-     * @var string
-     *
-     * @ORM\Column(name="lastname", type="string", length=45, nullable=false)
-     */
-    private $lastname;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="firstname", type="string", length=45, nullable=false)
-     */
-    private $firstname;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="city", type="string", length=45, nullable=false)
-     */
-    private $city;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="review", type="text", length=65535, nullable=false)
-     */
-    private $review;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="id", type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
-     */
-    private $id;
-
-
-=======
      * Get review
      *
      * @return string
@@ -328,5 +186,4 @@ class Review
     {
         return $this->review;
     }
->>>>>>> ee94627a30b589fcc11eb798600d5e1ff2cbd5dc
 }

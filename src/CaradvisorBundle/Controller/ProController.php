@@ -3,7 +3,6 @@
 namespace CaradvisorBundle\Controller;
 
 use CaradvisorBundle\Entity\Pro;
-use CaradvisorBundle\Form\ContactType;
 use CaradvisorBundle\Form\ProProfileType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -12,11 +11,15 @@ use Symfony\Component\HttpFoundation\Request;
 class ProController extends Controller
 {
     /**
-     * @Route("/pro", name="pro")
+     * @Route("/pro/{proId}", name="pro")
+     * @param Pro $proId
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function indexAction()
+    public function indexAction(Pro $proId)
     {
-        return $this->render('@Caradvisor/Pro/home.html.twig');
+        return $this->render('@Caradvisor/Pro/home.html.twig', [
+            "pro" => $proId,
+        ]);
     }
     /**
      * @Route("/pro/signup", name="pro_signup")
@@ -45,12 +48,19 @@ class ProController extends Controller
             'form' => $form->createView(),
         ));
     }
+
     /**
-     * @Route("/pro/reviews", name="pro_reviews")
+     * @Route("/pro/reviews/{proId}", name="pro_reviews")
+     * @param Pro $proId
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function reviewsAction()
+    public function reviewsAction(Pro $proId)
     {
-        return $this->render('@Caradvisor/Pro/reviews.html.twig');
+        $proRepository = $this->getDoctrine()->getRepository("CaradvisorBundle:Pro");
+        $data = $proRepository->getReview('proId');
+        return $this->render('@Caradvisor/Pro/reviews.html.twig', [
+            "data" => $data,
+        ]);
     }
     /**
      * @Route("/pro/settings", name="pro_settings")

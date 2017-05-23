@@ -24,7 +24,7 @@ class Pro
     /**
      * @var int
      *
-     * @ORM\Column(name="siret", type="integer", unique=true)
+     * @ORM\Column(name="siret", type="bigint", length=13, unique=true)
      */
     private $siret;
 
