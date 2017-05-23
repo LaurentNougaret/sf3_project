@@ -106,6 +106,7 @@ class Pro
      */
     private $user;
 
+<<<<<<< HEAD
     /**
      * @var string
      *
@@ -120,6 +121,10 @@ class Pro
      */
     private $brand;
     /**
+=======
+
+    /**
+>>>>>>> ee94627a30b589fcc11eb798600d5e1ff2cbd5dc
      * Get id
      *
      * @return int
@@ -469,6 +474,7 @@ class Pro
     {
         return $this->user;
     }
+<<<<<<< HEAD
 
     /**
      * @return string
@@ -505,4 +511,6 @@ class Pro
         $this->brand = $brand;
         return $this;
     }
+=======
+>>>>>>> ee94627a30b589fcc11eb798600d5e1ff2cbd5dc
 }
