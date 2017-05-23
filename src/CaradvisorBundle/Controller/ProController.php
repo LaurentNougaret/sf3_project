@@ -2,8 +2,12 @@
 
 namespace CaradvisorBundle\Controller;
 
+use CaradvisorBundle\Entity\Pro;
+use CaradvisorBundle\Form\ContactType;
+use CaradvisorBundle\Form\ProProfileType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 class ProController extends Controller
 {
@@ -24,9 +28,22 @@ class ProController extends Controller
     /**
      * @Route("/pro/profile", name="pro_profile")
      */
-    public function profileAction()
+    public function profileAction(Request $request)
     {
-        return $this->render('@Caradvisor/Pro/profile.html.twig');
+        $pro = new Pro();
+        $form = $this->createForm(ProProfileType::class, $pro);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($pro);
+            $em->flush();
+
+            return $this->redirectToRoute('pro');
+        }
+        return $this->render('@Caradvisor/Pro/profile.html.twig', array(
+            'form' => $form->createView(),
+        ));
     }
     /**
      * @Route("/pro/reviews", name="pro_reviews")

@@ -16,25 +16,28 @@ class ContactType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('lastname', TextType::class, ['empty_data' => 'Nom'])
-            ->add('firstname', TextType::class, ['empty_data' => 'Prénom'])
-            ->add('email', EmailType::class, ['empty_data' => 'Email'])
-            ->add('subject', TextType::class, ['empty_data' => 'Objet de votre message'])
-            ->add('message', TextareaType::class, [
-                'empty_data' => 'Laissez votre message',
-                'attr' => ['rows' => '5', 'placeholder' => 'Votre message', 'label' => false]
-            ])
+            ->add('lastname', TextType::class, ['label' => false,
+                'attr' => ['placeholder' => 'Votre nom']])
+            ->add('firstname', TextType::class, ['label' => false,
+                'attr' => ['placeholder' => 'Votre prénom', ]])
+            ->add('email', EmailType::class, ['label' => false,
+                'attr' => ['placeholder' => 'Votre email']])
+            ->add('subject', TextType::class, ['label' => false,
+                'attr' => ['placeholder' => 'Sujet de votre message']])
+            ->add('message', TextareaType::class, ['label' => false,
+                'attr' => ['rows' => '5', 'placeholder' => 'Votre message']])
             ->add('save', SubmitType::class, ['label' => 'Envoyer']);
     }
+
     public function configureOptions(OptionsResolver $resolver)
     {
-       // $resolver->setDefaults(array(
-        //    'data_class' => 'CaradvisorBundle\Entity\Contact',
-      //  ));
+        $resolver->setDefaults(array(
+            'data_class' => 'CaradvisorBundle\Entity\Contact',
+        ));
     }
 
     public function getBlockPrefix()
     {
-        return 'caradvisor_bundle_contact';
+        return 'caradvisor_bundle_contact_type';
     }
 }
