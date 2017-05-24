@@ -2,23 +2,29 @@
 
 namespace CaradvisorBundle\Form;
 
-use CaradvisorBundle\Entity\ReviewRepair;
+use CaradvisorBundle\Entity\ReviewBuy;
+use Doctrine\DBAL\Types\DateType;
+use Doctrine\DBAL\Types\IntegerType;
+use Doctrine\DBAL\Types\TextType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
-use Symfony\Component\Form\Extension\Core\Type\IntegerType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ReviewRepairType extends AbstractType
+class ReviewBuyType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('repairBuyType',ChoiceType::class, [
+                'label' => false,
+                'choices' => [
+                    'Achat' => '1',
+                    "Neuf"  => '2'
+                ]
+            ])
             ->add('dealerType', ChoiceType::class, [
                 'label' => 'Type de prestataire',
                 'choices' => [
@@ -56,10 +62,10 @@ class ReviewRepairType extends AbstractType
                     'rows' => '7',
                     'style' => 'resize:none',
                     'placeholder' => 'Devrivez votre expérience',
-                    ]
+                ]
             ])
-            ->add('dateRepair', DateType::class, [
-                'label' => 'Date de l\'intervention',
+            ->add('dateBuy', DateType::class, [
+                'label' => 'Date de l\'achat',
                 'widget' => 'single_text',
                 // do not render as type="date", to avoid HTML5 date pickers
                 'html5' => false,
@@ -70,82 +76,29 @@ class ReviewRepairType extends AbstractType
                 ],
             ])
             ->add('ratingWelcome', ChoiceType::class, [
-                'label' => 'Quel type d\'accueil avez-vous eu ?',
                 'choices' => ['1' => 1, '2' => 2, '3' => 3, '4' => 4, '5' => 5],
                 'required'=>true,
                 'expanded'=>true,
                 'multiple'=>false,
             ])
-            ->add('typeRepair', TextType::class, [
-                'label' => 'Pour quel type d\'intervention votre véhicule a été pris en charge ?',
-                'attr'  => ['placeholder' => 'Changement de pneus, révision ...']
-            ])
-            ->add('appointmentDelay', IntegerType::class, [
-                'label' => 'Temps d\'attente pour avoir un rendez-vous :',
-            ])
-            ->add('onSpotDelayRating', ChoiceType::class, [
-                'label' => 'Délai de prise en charge de votre véhicule sur place :',
+            ->add('informationDelayRating',ChoiceType::class, [
+                'label' => 'Délai pour avoir un renseignement sur le véhicule : ',
                 'choices' => ['1' => 1, '2' => 2, '3' => 3, '4' => 4, '5' => 5],
                 'required'=>true,
                 'expanded'=>true,
                 'multiple'=>false,
             ])
-            ->add('explanationRepair', ChoiceType::class, [
-                'label' => 'Vous a-t-on bien expliqué le type d\'intervention que votre véhicule allait subir ?',
-                'choices' => [
-                    'oui' => 1,
-                    'non' => 2
-                ],
-                'required'=>true,
-                'expanded'=>true,
-                'multiple'=>false,
+            ->add('wantedInformation', IntegerType::class, [
+                'label' => 'Avez-vous eu les renseignements souhaités ?',
             ])
-            ->add('priceRepair', ChoiceType::class, [
-                'label' => 'Vous a-t-on bien communiqué le montant de l\'intervention ?',
-                'choices' => [
-                    'oui' => 1,
-                    'non' => 2
-                ],
-                'required'=>true,
-                'expanded'=>true,
-                'multiple'=>false,
+            ->add('test', IntegerType::class, [
+                'label' => 'Vous a-t-on proposé un essai ?',
             ])
-            ->add('authorizationRepair', ChoiceType::class, [
-                'label' => 'A-t-on bien respecté le devis ?',
-                'choices' => [
-                    'oui' => 1,
-                    'non' => 2
-                ],
-                'required'=>true,
-                'expanded'=>true,
-                'multiple'=>false,
+            ->add('wantedEngineTest', IntegerType::class, [
+                'label' => 'L\'essai était-il sur le véhicule souhaité (motorisation ?',
             ])
-            ->add('courtesyVehicle', ChoiceType::class, [
-                'label' => 'Vous a-t-on proposé un véhicule de remplacement ?',
-                'choices' => [
-                    'oui' => 1,
-                    'non' => 2
-                ],
-                'required'=>true,
-                'expanded'=>true,
-                'multiple'=>false,
-            ])
-            ->add('respectDelayRepair', ChoiceType::class, [
-                'label' => 'A-t-on bien respecté le délai de réparation ?',
-                'choices' => [
-                    'oui' => 1,
-                    'non' => 2
-                ],
-                'required'=>true,
-                'expanded'=>true,
-                'multiple'=>false,
-            ])
-             ->add('conditionVehicleRating', ChoiceType::class, [
-                'label' => 'Dans quel état votre véhicule a-t-il été restitué ?',
-                 'choices' => ['1' => 1, '2' => 2, '3' => 3, '4' => 4, '5' => 5],
-                 'required'=>true,
-                 'expanded'=>true,
-                 'multiple'=>false,
+            ->add('fundingSolution', IntegerType::class, [
+                'label' => 'Vous a-t-on proposé une solution de financement ?',
             ])
             ->add('recommendProRating', ChoiceType::class, [
                 'label' => 'Dans quel mesure conseilleriez-vous votre professionnel ?',
@@ -171,7 +124,7 @@ class ReviewRepairType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => ReviewRepair::class,
+            'data_class' => ReviewBuy::class,
         ));
     }
 
