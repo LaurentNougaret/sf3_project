@@ -3,7 +3,7 @@
 <section id="info">
     <div class="container">
         <div class="title">
-            {% for pro in reviewsBuy %}
+            {% for reviews in listProReviews %}
                 <h1>{{ pro.dealerName }}</h1>
             <hr>
             <!-- Back to results page -->
@@ -65,7 +65,7 @@
                 <hr class="underline">
                 <table class="review">
                     {# List reviews - Buy #}
-                    {% for user in reviewsBuy %}
+                    {% for pro in reviewsBuy %}
                          {% if user|length > 0 %}
                             <thead>
                                 <tr>

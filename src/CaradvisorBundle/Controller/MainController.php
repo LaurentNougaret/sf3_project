@@ -37,7 +37,10 @@ class MainController extends Controller
      */
     public function infoAction()
     {
-        return $this->render('@Caradvisor/Default/info.html.twig');
+        $reviewsBuy = $this->getDoctrine()->getRepository('CaradvisorBundle:ReviewBuy')->findAll();
+        return $this->render('@Caradvisor/Default/info.html.twig', [
+            'reviewsBuy'  => $reviewsBuy,
+        ]);
     }
 
     /**

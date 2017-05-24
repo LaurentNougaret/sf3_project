@@ -2,6 +2,7 @@
 
 namespace CaradvisorBundle\Controller;
 
+use CaradvisorBundle\CaradvisorBundle;
 use CaradvisorBundle\Entity\Pro;
 use CaradvisorBundle\Form\ProProfileType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -77,10 +78,25 @@ class ProController extends Controller
         return $this->render('@Caradvisor/Pro/password.html.twig');
     }
     /**
-     * @Route("/pro/info", name="pro_info")
+     * @Route("/info", name="info")
      */
     public function infoAction()
     {
-        return $this->render('@Caradvisor/Default/info.html.twig');
+        $proRepository = $this->getDoctrine()->getRepository("CaradvisorBundle:Pro");
+        $data = $proRepository->getReview('proId');
+        return $this->render('@Caradvisor/Default/info.html.twig', [
+            "data" => $data,
+        ]);
+    }
+
+    public function infoTestAction()
+    {
+        $repository = $this
+            ->getDoctrine()
+            ->getManager()
+            ->getRepository('CaradvisorBundle:Pro');
+
+        $listProReviews = $repository->getReview();
+
     }
 }
