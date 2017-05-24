@@ -28,23 +28,28 @@ class ProController extends Controller
     {
         return $this->render('@Caradvisor/Pro/signup.html.twig');
     }
+
     /**
-     * @Route("/pro/profile", name="pro_profile")
+     * @Route("/pro/profile/{pro}", name="pro_profile")
+     * @param Request $request
+     * @param Pro $pro
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
-    public function profileAction(Request $request)
+    public function profileAction(Request $request, Pro $pro)
     {
-        $pro = new Pro();
-        $form = $this->createForm(ProProfileType::class, $pro);
+        $Newpro = new Pro();
+        $form = $this->createForm(ProProfileType::class, $Newpro);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->persist($pro);
+            $em->persist($Newpro);
             $em->flush();
 
             return $this->redirectToRoute('pro');
         }
         return $this->render('@Caradvisor/Pro/profile.html.twig', array(
+            'pro' => $pro,
             'form' => $form->createView(),
         ));
     }
@@ -56,25 +61,35 @@ class ProController extends Controller
      */
     public function reviewsAction(Pro $pro)
     {
-        $proRepository = $this->getDoctrine()->getRepository("CaradvisorBundle:Pro");
-        $data = $proRepository->getReview('pro');
+        //$proRepository = $this->getDoctrine()->getRepository("CaradvisorBundle:Pro");
+        //$data = $proRepository->getReview('pro');
         return $this->render('@Caradvisor/Pro/reviews.html.twig', [
-            "data" => $pro->getReviewRepairs(),
+          'pro' => $pro
         ]);
     }
+
     /**
      * @Route("/pro/settings/{pro}", name="pro_settings")
+     * @param Pro $pro
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function settingsAction()
+    public function settingsAction(Pro $pro)
     {
-        return $this->render('@Caradvisor/Pro/settings.html.twig');
+        return $this->render('@Caradvisor/Pro/settings.html.twig', [
+            'pro' => $pro
+        ]);
     }
+
     /**
      * @Route("/pro/settings/password/{pro}", name="pro_password")
+     * @param Pro $pro
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function passwordAction()
+    public function passwordAction(Pro $pro)
     {
-        return $this->render('@Caradvisor/Pro/password.html.twig');
+        return $this->render('@Caradvisor/Pro/password.html.twig', [
+        "pro" => $pro,
+        ]);
     }
     /**
      * @Route("/pro/info/{pro}", name="pro_info")
