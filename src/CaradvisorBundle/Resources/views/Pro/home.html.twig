@@ -10,7 +10,7 @@
                     <div class="color">
                         <div class="row">
                             <div class="col-xs-8 col-xs-offset-2 col-lg-3 col-lg-offset-3">
-                                <a href=" {{ path('pro_profile', {'pro': pro.id}) }}">
+                                <a href="{{ path('pro_profile', {'pro': pro.id}) }}">
                                     <div class="panel myaccountProAccessProfile">
                                         <div class="panel-heading">
                                             <div class="row">
@@ -27,7 +27,7 @@
                                 </a>
                             </div>
                             <div class="col-xs-8 col-xs-offset-2 col-lg-3 col-lg-offset-0">
-                                <a href="/?page=info">
+                                <a href="{{ path('info') }}">
                                     <div class="panel myaccountProAccessCompanyPage">
                                         <div class="panel-heading">
                                             <div class="row">
@@ -46,7 +46,7 @@
                         </div>
                         <div class="row">
                             <div class="col-xs-8 col-xs-offset-2 col-lg-3 col-lg-offset-3">
-                                <a href="{{ path('pro_settings') }}">
+                                <a href="{{ path('pro_settings', {'pro': pro.id}) }}">
                                     <div class="panel myaccountProSettings">
                                         <div class="panel-heading">
                                             <div class="row">
@@ -80,25 +80,26 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-xs-8 col-xs-offset-2 col-lg-3 col-lg-offset-4 premiumblock">
-                                <a href="#">
-                                    <div class="panel myaccountProAccessProfile">
-                                        <div class="panel-heading">
-                                            <div class="row">
-                                                <div class="col-xs-12">
-                                                    <i class="fa fa-diamond fa-5x" aria-hidden="true"></i>
-                                                </div>
-                                                <div class="col-xs-12">
-                                                    <p class="announcement-heading"></p>
-                                                    <p class="announcement-text">Premium</p>
+                        <!-- Accès Premium -->
+                        <!--<div class="row">
+                                <div class="col-xs-8 col-xs-offset-2 col-lg-3 col-lg-offset-4 premiumblock">
+                                    <a href="#">
+                                        <div class="panel myaccountProAccessProfile">
+                                            <div class="panel-heading">
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <i class="fa fa-diamond fa-5x" aria-hidden="true"></i>
+                                                    </div>
+                                                    <div class="col-xs-12">
+                                                        <p class="announcement-heading"></p>
+                                                        <p class="announcement-text">Premium</p>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
+                                    </a>
+                                </div>
+                            </div> -->
                     </div>
                 </div>
             </div>

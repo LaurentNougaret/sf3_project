@@ -1,26 +1,25 @@
 {% extends ('@Caradvisor/index.html.twig') %}
 {% block body %}
-<section class="pro">
-    <div class="container">
-        <div class="row" id="account-pro-reviews">
-            <div class="col-xs-12 text-center">
-                <h2 class="pro_account">Accès Professionnels</h2>
-            </div>
-            <div class="col-xs-12">
-                <h2 class="text-center">Les Avis</h2>
-
-                <!-- Back to main page -->
-                <div class="row">
-                    <div class="col-lg-5 col-sm-offset-2">
-                        <a href="{{ path('pro', {'pro': pro.id})}}">
-                            <p><i class="fa fa-angle-double-left" aria-hidden="true"> </i>
-                                Revenir à Mon Compte
-                            </p>
-                        </a>
+    <section class="pro">
+        <div class="container">
+            <div class="row" id="account-pro-reviews">
+                <div class="col-xs-12 text-center">
+                    <h2 class="pro_account">Accès Professionnels</h2>
+                </div>
+                <div class="col-xs-12">
+                    <h2 class="text-center">Les Avis</h2>
+                    <!-- Back to main page -->
+                    <div class="row">
+                        <div class="col-lg-5 col-sm-offset-2">
+                            <a href="{{ path('pro', {'pro': pro.id})}}">
+                                <p><i class="fa fa-angle-double-left" aria-hidden="true"> </i>
+                                    Revenir à Mon Compte</p><br>
+                            </a>
+                        </div>
                     </div>
+                    <hr class="pro-review-underline">
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 {% endblock %}

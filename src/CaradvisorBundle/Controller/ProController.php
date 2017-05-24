@@ -37,13 +37,13 @@ class ProController extends Controller
      */
     public function profileAction(Request $request, Pro $pro)
     {
-        $pro = new Pro();
-        $form = $this->createForm(ProProfileType::class, $pro);
+        $Newpro = new Pro();
+        $form = $this->createForm(ProProfileType::class, $Newpro);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->persist($pro);
+            $em->persist($Newpro);
             $em->flush();
 
             return $this->redirectToRoute('pro');
@@ -65,22 +65,32 @@ class ProController extends Controller
             "pro" => $pro,
         ]);
     }
+
     /**
-     * @Route("/pro/settings", name="pro_settings")
+     * @Route("/pro/settings/{pro}", name="pro_settings")
+     * @param Pro $pro
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function settingsAction()
+    public function settingsAction(Pro $pro)
     {
-        return $this->render('@Caradvisor/Pro/settings.html.twig');
+        return $this->render('@Caradvisor/Pro/settings.html.twig', [
+            'pro' => $pro
+        ]);
+    }
+
+    /**
+     * @Route("/pro/settings/password/{pro}", name="pro_password")
+     * @param Pro $pro
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function passwordAction(Pro $pro)
+    {
+        return $this->render('@Caradvisor/Pro/password.html.twig', [
+        "pro" => $pro,
+        ]);
     }
     /**
-     * @Route("/pro/settings/password", name="pro_password")
-     */
-    public function passwordAction()
-    {
-        return $this->render('@Caradvisor/Pro/password.html.twig');
-    }
-    /**
-     * @Route("/pro/info", name="pro_info")
+     * @Route("/pro/info/{pro}", name="pro_info")
      */
     public function infoAction()
     {
