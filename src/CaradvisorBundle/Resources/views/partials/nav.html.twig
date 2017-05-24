@@ -20,17 +20,10 @@
                 <li>
                     <a class="page-scroll js-scrollTo" id="menu-review" href="{{ path ('home') }}" >Accueil</a>
                 </li>
-
-                {% if app.request.get('_route') == "home" %}
-                    <li>
-                        <a class="page-scroll js-scrollTo" id="menu-review" href="{{ path ('home') }}#review">Déposez un avis</a>
-                    </li>
-                {% endif %}
-
-                {% if app.request.get('_route') != "home" and app.request.get('_route') != "pro_profile" and app.request.get('_route') != "pro_review"
+                {% if app.request.get('_route') != "pro_profile" and app.request.get('_route') != "pro_review"
                 and app.request.get('_route') != "pro_settings" and app.request.get('_route') != "pro_password"  and app.request.get('_route') != "user_signup"%}
                     <li>
-                        <a class="page-scroll js-scrollTo" href="{{ path ('home') }}#review">Déposez un avis 2</a>
+                        <a class="page-scroll js-scrollTo" href="{{ path ('home') }}#review">Déposez un avis </a>
                     </li>
                 {% endif %}
                 {% if app.request.get('_route') == "home" or app.request.get('_route') == "" or app.request.get('_route') == "results" or app.request.get('_route') == "info" %}
