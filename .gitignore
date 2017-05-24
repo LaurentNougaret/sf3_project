@@ -14,3 +14,4 @@
 !var/SymfonyRequirements.php
 /vendor/
 /web/bundles/
+/home/ondine/Documents/Lyon-0217-caradvisor/src/CaradvisorBundle/Resources/views/Default/infoTEST.html.twig

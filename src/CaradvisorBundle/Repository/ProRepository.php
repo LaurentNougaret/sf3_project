@@ -8,7 +8,7 @@ class ProRepository extends \Doctrine\ORM\EntityRepository
      * @param int $pro_id
      * @return array
      */
-    public function getReview($pro_id)
+    public function getReviewBuys($pro_id)
     {
         $qb = $this->createQueryBuilder('p')
                    ->where('p.id = :pro_id')

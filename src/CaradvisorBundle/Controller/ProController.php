@@ -77,26 +77,4 @@ class ProController extends Controller
     {
         return $this->render('@Caradvisor/Pro/password.html.twig');
     }
-    /**
-     * @Route("/info", name="info")
-     */
-    public function infoAction()
-    {
-        $proRepository = $this->getDoctrine()->getRepository("CaradvisorBundle:Pro");
-        $data = $proRepository->getReview('proId');
-        return $this->render('@Caradvisor/Default/info.html.twig', [
-            "data" => $data,
-        ]);
-    }
-
-    public function infoTestAction()
-    {
-        $repository = $this
-            ->getDoctrine()
-            ->getManager()
-            ->getRepository('CaradvisorBundle:Pro');
-
-        $listProReviews = $repository->getReview();
-
-    }
 }
