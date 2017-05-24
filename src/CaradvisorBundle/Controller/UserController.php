@@ -25,29 +25,7 @@ class UserController extends Controller
         ]);
     }
 
-    /**
-     * @param Request $request
-     * @return Response
-     * @Route("/user/signup/", name="user_signup")
-     */
-    public function signupAction(Request $request)
-    {
-        $user = new User();
-        $em = $this->getDoctrine()->getManager();
-        $form = $this->createForm(UserSignupType::class, $user);
 
-        $form->handleRequest($request);
-
-        if($form->isSubmitted()){
-            $em->persist($user);
-            $em->flush();
-
-            return $this->redirectToRoute('user');
-        }
-        return $this->render('@Caradvisor/User/signup.html.twig',[
-            'form' => $form->createview(),
-        ]);
-    }
     /**
      * @Route("/user/car/{user}", name="user_car")
      * @param User $user

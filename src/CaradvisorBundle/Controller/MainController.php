@@ -25,6 +25,16 @@ class MainController extends Controller
     }
 
     /**
+     * @Route("/signup", name="user_signup")
+     */
+    public function signupAction()
+    {
+
+        return $this->render('@Caradvisor/Default/signup.html.twig');
+    }
+
+
+    /**
      * @Route("/results", name="results")
      */
     public function resultAction()
