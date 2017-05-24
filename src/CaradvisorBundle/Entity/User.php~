@@ -125,7 +125,7 @@ class User
     private $vehicles;
 
     /**
-     * @ORM\OneToMany(targetEntity="CaradvisorBundle\Entity\Pro", mappedBy="pro")
+     * @ORM\OneToMany(targetEntity="CaradvisorBundle\Entity\Pro", mappedBy="user")
      */
     private $pros;
 

@@ -28,10 +28,14 @@ class ProController extends Controller
     {
         return $this->render('@Caradvisor/Pro/signup.html.twig');
     }
+
     /**
-     * @Route("/pro/profile", name="pro_profile")
+     * @Route("/pro/profile/{pro}", name="pro_profile")
+     * @param Request $request
+     * @param Pro $pro
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function profileAction(Request $request)
+    public function profileAction(Request $request, Pro $pro)
     {
         $pro = new Pro();
         $form = $this->createForm(ProProfileType::class, $pro);
@@ -44,9 +48,10 @@ class ProController extends Controller
 
             return $this->redirectToRoute('pro');
         }
-        return $this->render('@Caradvisor/Pro/profile.html.twig', array(
-            'form' => $form->createView(),
-        ));
+        return $this->render('@Caradvisor/Pro/profile.html.twig', [
+            "form" => $form->createView(),
+            "pro" => $pro
+        ]);
     }
 
     /**
@@ -56,10 +61,8 @@ class ProController extends Controller
      */
     public function reviewsAction(Pro $pro)
     {
-        //$proRepository = $this->getDoctrine()->getRepository("CaradvisorBundle:Pro");
-        //$data = $proRepository->getReview('proId');
         return $this->render('@Caradvisor/Pro/reviews.html.twig', [
-            "data" => $pro->getReviewBuys(),
+            "pro" => $pro,
         ]);
     }
     /**

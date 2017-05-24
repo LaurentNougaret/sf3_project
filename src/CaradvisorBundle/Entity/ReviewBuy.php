@@ -24,6 +24,13 @@ class ReviewBuy
     /**
      * @var string
      *
+     * @ORM\Column(name="reviewBuyType", type="string", length=255)
+     */
+    private $repairBuyType;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="dealerType", type="string", length=255)
      */
     private $dealerType;
@@ -706,5 +713,29 @@ class ReviewBuy
     public function getAnswer()
     {
         return $this->answer;
+    }
+
+    /**
+     * Set repairBuyType
+     *
+     * @param string $repairBuyType
+     *
+     * @return ReviewBuy
+     */
+    public function setRepairBuyType($repairBuyType)
+    {
+        $this->repairBuyType = $repairBuyType;
+
+        return $this;
+    }
+
+    /**
+     * Get repairBuyType
+     *
+     * @return string
+     */
+    public function getRepairBuyType()
+    {
+        return $this->repairBuyType;
     }
 }
