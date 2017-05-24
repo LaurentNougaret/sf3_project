@@ -17,13 +17,15 @@
                      {% for review in data  %}
                       <div class="col-xs-12 col-sm-7 col-md-7 review">
                          <h3>{{ review.dealerName }}</h3>
-                        <p class="text-justify">{{ review.review }}</p>
+                         <p class="text-justify">{{ review.review }}</p>
+                         <p class="text-right">{{ review.dateReview|date('d-m-y') }}</p>
                       </div>
                      {% endfor %}
                      {% for review in beta %}
                       <div class="col-xs-12 col-sm-7 col-md-7 review">
                          <h3>{{ review.dealerName }}</h3>
                          <p class="text-justify">{{ review.review }}</p>
+                         <p class="text-right">{{ review.dateReview|date('d-m-y') }}</p>
                       </div>
                      {% endfor %}
                 </div>

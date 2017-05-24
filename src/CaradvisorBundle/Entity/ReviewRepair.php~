@@ -835,12 +835,9 @@ class ReviewRepair
     {
         return $this->answer;
     }
-<<<<<<< HEAD
-=======
 
     public function __construct()
     {
         $this->dateReview = new \DateTime();
     }
->>>>>>> a12ed185b1f6b81e9c68283e923de062477052cd
 }
