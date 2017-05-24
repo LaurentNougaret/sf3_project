@@ -1,81 +1,82 @@
 {% extends ('@Caradvisor/index.html.twig') %}
 {% block body %}
-<section class="pro">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 text-center">
-                <h2 class="pro_account">Accès Professionnels</h2>
-            </div>
-            <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3 bloc">
-                {{ form_start(form) }}
-                {{ form_errors(form) }}
-                <h2 class="text-center">Votre profil</h2>
-                <hr>
-                <!-- Back to main page -->
-                <div class="row">
-                    <div class="col-lg-5">
-                        <a href="{{ path('pro', {'pro': pro.id}) }}">
-                            <p><i class="fa fa-angle-double-left" aria-hidden="true"> </i>
+    <section class="pro">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h2 class="text-center">Votre profil</h2>
+                    <hr class="pro-review-underline"><br>
+                    <!-- Back to main page -->
+                    <div class="row">
+                        <div class="col-lg-5 col-sm-offset-2">
+                            <a href="{{ path('pro', {'pro': pro.id}) }}">
+                                <p><i class="fa fa-angle-double-left" aria-hidden="true"> </i>
                                 Revenir à Mon Compte</p><br>
-                        </a>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xs-offset-0 col-sm-offset-0 col-md-offset-2 col-lg-offset-2">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Garage ABC</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-3 col-lg-3 " align="center">
+                                        <i class="fa fa-user fa-5x" aria-hidden="true"></i>
+                                        <!-- <img src="" alt=""> -->
+                                    </div>
+                                    <div class=" col-md-9 col-lg-9 ">
+                                        <table class="table">
+                                            <tbody>
+                                            <tr>
+                                                <td>Nom de la societé:</td>
+                                                <td>Garage ABC</td>
+                                            </tr>
+                                            <tr>
+                                                <td>SIRET:</td>
+                                                <td>4312248935</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Type:</td>
+                                                <td>Concessionaire</td>
+                                            </tr>
+                                            <tr>
+                                            <tr>
+                                                <td>Adresse:</td>
+                                                <td>1 rue Delandine</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Code postal:</td>
+                                                <td>69000</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Ville:</td>
+                                                <td>Lyon</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Email:</td>
+                                                <td><a href="mailto:#">email@email.com</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Téléphone:</td>
+                                                <td>123-4567-890</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Description:</td>
+                                                <td>jhefdlqh dskfhzkjef kjdhflkzueh jgjhg<br>
+                                                    kdhfkjrhf jfhkeruh lsdkflerg
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="{{ path('pro_edit', {'pro': pro.id}) }}" class="btn btn-default center-block btn-send">Modifier profil</a>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-xs-12 col-sm-6">
-                        {{ form_row(form.dealerName) }}
-                    </div>
-                    <div class="col-xs-12 col-sm-6">
-                        {{ form_row(form.dealertype) }}
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-12">
-                        {{ form_row(form.email) }}
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-12">
-                        {{ form_row(form.address) }}
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-12 col-sm-6">
-                        {{ form_row(form.city) }}
-                    </div>
-                    <div class="col-xs-12 col-sm-6">
-                        {{ form_row(form.postalCode) }}
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-12 col-sm-6 col-md-6">
-                        {{ form_row(form.phone) }}
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-12 col-sm-6 col-md-6">
-                        {{ form_row(form.siret) }}
-                    </div>
-                    <div class="col-xs-12 col-sm-6 col-md-6">
-                        {{ form_row(form.brand) }}
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-12">
-                        {{ form_row(form.description) }}
-                    </div>
-                </div>
-                <div class="form-group col-xs-12 text-center update-photo">
-                    <label class=" control-label" for="filebutton">Ajoutez une photo de votre établissement </label>
-                    <div>
-                        <input id="filebutton" name="filebutton" class="input-file center-block" type="file"
-                               accept=".jpg, .png, .jpeg">
-                        <br><span class="help-block">Formats de fichiers acceptés: JPG, JPEG, PNG.</span><br>
-                    </div>
-                </div>
-                {{ form_row(form.save) }}
-                {{ form_end(form) }}
             </div>
-        </div>
-    </div>
-</section>
+    </section>
 {% endblock %}
