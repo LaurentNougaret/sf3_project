@@ -1,9 +1,44 @@
 {% extends '@Caradvisor/index.html.twig' %}
 {% block body %}
-    <h1>Welcome</h1>
-    <h1>Welcome</h1>
-    <h1>Welcome</h1>
-    {% for vehicle in data %}
-        {{ vehicle.brand }}<br/>
-    {% endfor %}
+<section id="account-cars">
+    <div class="container">
+            <div class="row">
+                <h2 class="text-center">Bonjour {% for user in alfa %}{{user.lastName}}{% endfor %}</h2>
+                <h2 class="text-center">Vos Véhicules</h2>
+                <hr>
+                <!-- Back to main page -->
+                <div class="row">
+                    <div class="col-lg-5">
+                        <a href="javascript:history.back(-1)">
+                            <p><i class="fa fa-angle-double-left" aria-hidden="true"> </i>
+                                Revenir à Mon Compte</p><br>
+                        </a>
+                    </div>
+                </div>
+            {% for vehicle in data %}
+                {{ vehicle.brand }}<br/>
+            {% endfor %}
+            <div class="text-center"><a class="text-center" data-toggle="collapse" data-target="#demo"><span class="glyphicon glyphicon-plus"></span></a><h4 class="plus-vehicule">Ajouter un véhicule</h4></div>
+            <hr>
+            <div id="demo" class="collapse">
+                <div class="row">
+                    <div class="col-xs-10 col-xs-offset-1 col-md-5 offset-md-3">
+                        {{ form_start(form) }}
+                        {{ form_errors(form) }}
+
+                        {{ form_row(form.brand) }}
+                        {{ form_row(form.model) }}
+                        {{ form_row(form.version) }}
+                        {{ form_row(form.kilometers) }}
+                        {{ form_row(form.registration) }}
+                        {{ form_row(form.year) }}
+                        {{ form_row(form.energy) }}
+
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}
