@@ -4,20 +4,16 @@ namespace CaradvisorBundle\Repository;
 
 class ProRepository extends \Doctrine\ORM\EntityRepository
 {
-    /**
-     * @param int $pro_id
-     * @return array
-     */
-    public function getReviewBuys($pro_id)
+
+    public function getReviewBuys()
     {
-        $qb = $this->createQueryBuilder('p')
-                   ->where('p.id = :pro_id')
-                   ->setParameter('pro_id', $pro_id)
-                   ->join('p.reviewBuys', 'rb')
-                   ->join('p.reviewRepairs', 'rr')
-                   ->select('p, rb, rr')
-                   ->getQuery();
-        return $qb->getResult();
+        $queryBuilder = $this->createQueryBuilder('p');
+
+        $query = $queryBuilder->getQuery();
+        $results = $query->getResult();
+
+        return $results;
+
 
     }
 }

@@ -12,7 +12,9 @@
 .pro .pro_account {
     color: #ff4756;
 }
-
+.pro td {
+    width: 12%;
+}
 .pro .visuallyhidden {
     border: 0;
     clip: rect(0 0 0 0);

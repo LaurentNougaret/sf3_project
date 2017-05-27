@@ -47,10 +47,22 @@ class MainController extends Controller
      */
     public function infoAction()
     {
-        $reviewsBuy = $this->getDoctrine()->getRepository('CaradvisorBundle:ReviewBuy')->findAll();
-        return $this->render('@Caradvisor/Default/info.html.twig', [
-            'reviewsBuy'  => $reviewsBuy,
-        ]);
+        $repository = $this
+            ->getDoctrine()
+            ->getManager()
+            ->getRepository('CaradvisorBundle:ReviewBuy')
+        ;
+
+        $listReviewsBuy = $repository->getReviewBuys('r');
+
+        foreach ($listReviewsBuy as $reviewBuy) {
+            echo $reviewBuy->getId();
+        }
+
+        return $this->render('@Caradvisor/Default/info.html.twig',
+            array(
+                'listReviewsBuy' => $listReviewsBuy
+            ));
     }
 
     /**

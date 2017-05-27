@@ -161,8 +161,10 @@ class ReviewBuy
      */
     private $warranty;
 
+    // Join Column: interdit la creation d'un review sans Pro
     /**
      * @ORM\ManyToOne(targetEntity="CaradvisorBundle\Entity\Pro", inversedBy="reviewBuys")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $pro;
 

@@ -23,28 +23,26 @@ class ProController extends Controller
     }
 
     /**
-     * @Route("/pro/edit/{pro}", name="pro_edit")
+     * @Route("/pro/edit/{id}", name="pro_edit")
      * @param Request $request
      * @param Pro $pro
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function editProfileAction(Request $request, Pro $pro)
+    public function editAction(Request $request, Pro $pro)
     {
-        $newpro = new Pro();
-        $form = $this->createForm(ProProfileType::class, $newpro);
-        $form->handleRequest($request);
+        $editForm = $this->createForm(ProProfileType::class, $pro);
+        $editForm->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($newpro);
-            $em->flush();
+        if ($editForm->isSubmitted() && $editForm->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('pro');
+            return $this->redirectToRoute('pro_profile', array(
+                'pro' => $pro->getId()
+            ));
         }
-        return $this->render('@Caradvisor/Pro/editprofile.html.twig', [
-            "form" => $form->createView(),
-            "pro" => $pro
-        ]);
+        return $this->render('@Caradvisor/Pro/editprofile.html.twig', array(
+            'edit_form' => $editForm->createView()
+        ));
     }
 
     /**
@@ -82,13 +80,7 @@ class ProController extends Controller
         "pro" => $pro,
         ]);
     }
-    /**
-     * @Route("/pro/info/{pro}", name="pro_info")
-     */
-    public function infoAction()
-    {
-        return $this->render('@Caradvisor/Default/info.html.twig');
-    }
+
     /**
      * @Route("/pro/profile/{pro}", name="pro_profile")
      */
