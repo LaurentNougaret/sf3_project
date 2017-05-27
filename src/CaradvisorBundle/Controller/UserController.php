@@ -53,16 +53,6 @@ class UserController extends Controller
     }
 
     /**
-     * @Route("/user/car/{user}/add", name="add_car")
-     * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
-     */
-    public function addCarAction(Request $request)
-    {
-
-    }
-
-    /**
      * @Route("/user/profile/{user}", name="user_profile")
      * @param User $user
      * @return Response
