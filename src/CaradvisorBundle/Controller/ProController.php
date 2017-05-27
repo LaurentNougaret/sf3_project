@@ -3,6 +3,8 @@
 namespace CaradvisorBundle\Controller;
 
 use CaradvisorBundle\Entity\Pro;
+use CaradvisorBundle\Entity\User;
+use CaradvisorBundle\Entity\Vehicle;
 use CaradvisorBundle\Form\ProProfileType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -37,13 +39,13 @@ class ProController extends Controller
      */
     public function profileAction(Request $request, Pro $pro)
     {
-        $Newpro = new Pro();
-        $form = $this->createForm(ProProfileType::class, $Newpro);
+        $newpro = new Pro();
+        $form = $this->createForm(ProProfileType::class, $newpro);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->persist($Newpro);
+            $em->persist($newpro);
             $em->flush();
 
             return $this->redirectToRoute('pro');
@@ -51,6 +53,21 @@ class ProController extends Controller
         return $this->render('@Caradvisor/Pro/profile.html.twig', [
             "form" => $form->createView(),
             "pro" => $pro
+        ]);
+    }
+
+    /**
+     * @Route("/pro/establishments/{pro}", name="pro_establishments")
+     * @param Pro $pro
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @internal param Vehicle $vehicle
+     */
+    public function establishmentsAction(Pro $pro)
+    {
+        return $this->render('@Caradvisor/Pro/establishments.html.twig', [
+            'pro' => $pro,
+            'data' => $pro ->getUser(),
+
         ]);
     }
 
@@ -88,12 +105,5 @@ class ProController extends Controller
         return $this->render('@Caradvisor/Pro/password.html.twig', [
         "pro" => $pro,
         ]);
-    }
-    /**
-     * @Route("/pro/info/{pro}", name="pro_info")
-     */
-    public function infoAction()
-    {
-        return $this->render('@Caradvisor/Default/info.html.twig');
     }
 }
