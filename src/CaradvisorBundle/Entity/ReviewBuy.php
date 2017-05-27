@@ -26,7 +26,7 @@ class ReviewBuy
      *
      * @ORM\Column(name="reviewBuyType", type="string", length=255)
      */
-    private $repairBuyType;
+    private $reviewBuyType;
 
     /**
      * @var string
@@ -718,13 +718,13 @@ class ReviewBuy
     /**
      * Set repairBuyType
      *
-     * @param string $repairBuyType
+     * @param string $reviewBuyType
      *
      * @return ReviewBuy
      */
-    public function setRepairBuyType($repairBuyType)
+    public function setReviewBuyType($reviewBuyType)
     {
-        $this->repairBuyType = $repairBuyType;
+        $this->reviewBuyType = $reviewBuyType;
 
         return $this;
     }
@@ -734,8 +734,8 @@ class ReviewBuy
      *
      * @return string
      */
-    public function getRepairBuyType()
+    public function getReviewBuyType()
     {
-        return $this->repairBuyType;
+        return $this->reviewBuyType;
     }
 }

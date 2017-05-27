@@ -187,8 +187,6 @@ class ReviewBuy
         return $this->id;
     }
 
-
-
     /**
      * Set dealerType
      *

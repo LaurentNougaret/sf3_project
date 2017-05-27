@@ -43,14 +43,6 @@ class MainController extends Controller
     }
 
     /**
-     * @Route("/info", name="info")
-     */
-    public function infoAction()
-    {
-        return $this->render('@Caradvisor/Default/info.html.twig');
-    }
-
-    /**
      * @Route("/review/new", name="review_new")
      */
     public function reviewNewAction()
