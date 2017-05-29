@@ -66,13 +66,13 @@ class ProController extends Controller
     {
         return $this->render('@Caradvisor/Pro/establishments.html.twig', [
             'pro' => $pro,
-            'data' => $pro ->getUser(),
+            'user' => $pro ->getUser(),
 
         ]);
     }
 
     /**
-     * @Route("/pro/reviews/{pro}", name="pro_reviews")
+     * @Route("/pro/establishments/reviews/{pro}", name="pro_reviews")
      * @param Pro $pro
      * @return \Symfony\Component\HttpFoundation\Response
      */

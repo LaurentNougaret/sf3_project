@@ -21,8 +21,8 @@
                 </div>
             </div>
             <div class="row">
-                {% for pro in data %}
-                    {{pro.user.dealertype }} {{ pro.user.dealername }}
+                {% for user in pro %}
+                    {{ user.pro.dealerType }} {{ user.pro.dealerName }}
                 {% endfor %}
             </div>
         </div>
