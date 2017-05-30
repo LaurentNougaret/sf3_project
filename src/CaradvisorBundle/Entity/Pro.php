@@ -119,6 +119,13 @@ class Pro
      * @ORM\Column(name="brand", type="string", length=255)
      */
     private $brand;
+
+    /**
+     * @ORM\OneToMany(targetEntity="CaradvisorBundle\Entity\Answer", mappedBy="pro")
+     */
+    private $answers;
+
+
     /**
      * Get id
      *
@@ -127,6 +134,24 @@ class Pro
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAnswers()
+    {
+        return $this->answers;
+    }
+
+    /**
+     * @param mixed $answers
+     * @return Pro
+     */
+    public function setAnswers($answers)
+    {
+        $this->answers = $answers;
+        return $this;
     }
 
     /**
@@ -504,5 +529,29 @@ class Pro
     {
         $this->brand = $brand;
         return $this;
+    }
+
+    /**
+     * Add answer
+     *
+     * @param \CaradvisorBundle\Entity\Answer $answer
+     *
+     * @return Pro
+     */
+    public function addAnswer(\CaradvisorBundle\Entity\Answer $answer)
+    {
+        $this->answers[] = $answer;
+
+        return $this;
+    }
+
+    /**
+     * Remove answer
+     *
+     * @param \CaradvisorBundle\Entity\Answer $answer
+     */
+    public function removeAnswer(\CaradvisorBundle\Entity\Answer $answer)
+    {
+        $this->answers->removeElement($answer);
     }
 }

@@ -2,9 +2,11 @@
 
 namespace CaradvisorBundle\Controller;
 
+use CaradvisorBundle\Entity\Answer;
 use CaradvisorBundle\Entity\Pro;
 use CaradvisorBundle\Entity\User;
 use CaradvisorBundle\Entity\Vehicle;
+use CaradvisorBundle\Form\AnswerType;
 use CaradvisorBundle\Form\ProProfileType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -58,30 +60,52 @@ class ProController extends Controller
 
     /**
      * @Route("/pro/establishments/{pro}", name="pro_establishments")
-     * @param Pro $pro
+     * @param User $user
      * @return \Symfony\Component\HttpFoundation\Response
-     * @internal param Vehicle $vehicle
      */
-    public function establishmentsAction(Pro $pro)
+    public function establishmentsAction( User $user)
     {
         return $this->render('@Caradvisor/Pro/establishments.html.twig', [
-            'pro' => $pro,
-            'data' => $pro ->getUser(),
-
+            'data' => $user->getPros(),
+            'user' => $user
         ]);
     }
 
     /**
-     * @Route("/pro/reviews/{pro}", name="pro_reviews")
+     * @Route("/pro/establishments/reviews/{pro}", name="pro_reviews")
      * @param Pro $pro
+     * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function reviewsAction(Pro $pro)
+    public function reviewsAction(Pro $pro, Request $request)
     {
+
+        $answer = new Answer();
+        $em = $this->getDoctrine()->getManager();
+        $form = $this->createForm(AnswerType::class, $answer);
+
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()){
+            $answer->setPro($pro);
+            $type = $request->request->get('type');
+            $id = $request->request->get('id');
+            if($type == 'repair') {
+                $repair = $em->getRepository('CaradvisorBundle:ReviewRepair')->find($id);
+                $answer->setReviewRepair($repair);
+            }
+            if($type == 'buy') {
+                $buy = $em->getRepository('CaradvisorBundle:ReviewBuy')->find($id);
+                $answer->setReviewBuy($buy);
+            }
+            $em->persist($answer);
+            $em->flush();
+        }
         return $this->render('@Caradvisor/Pro/reviews.html.twig', [
             'data' => $pro->getReviewRepairs(),
             'beta' => $pro->getReviewBuys(),
-            'pro' =>  $pro
+            'gama' => $pro->getAnswers(),
+            'pro' =>  $pro,
+            'form' => $form->createView(),
         ]);
     }
 

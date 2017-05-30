@@ -13,41 +13,74 @@
                 <h2 class="text-center">Les Avis</h2>
                 <!-- Back to main page -->
                 <div class="row">
-                    <div class="col-lg-offset-2">
-                        <a href="javascript:history.back(-1)">
+                    <div class="col-xs-10 col-xs-offset-1 col-md-6 col-md-offset-1">
+                        <a href="{{ path('pro', {'pro': pro.id}) }}">
                             <p><i class="fa fa-angle-double-left" aria-hidden="true"> </i>
                                 Revenir à Mon Compte</p><br>
                         </a>
                     </div>
                 </div>
+                <h3 class="text-center">Reviews Repair</h3>
                 <hr class="pro-review-underline">
-
-                {% for review in data  %}
+                {% for review in data %}
+                    {#{{ dump(review) }}#}
                 <!-- Quote 1 -->
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2 review">
                     <p class="text-justify">{{ review.review }}</p>
-                    <small>{{ review.user.lastname }} {{ review.user.firstname }}</small>
+                    <small>{{ review.user.lastname }} {{ review.user.firstname }} , {{ review.dateReview|date('d-m-y') }}</small>
+                  {% for review in gama %}
+                      {{ dump(review) }}
+                     <h1>{{ review.answer.message }}</h1>
+                      {% endfor %}
                 </div>
                 <div class="col-xs-12">
-                    <button type="submit" class="btn btn-primary center-block modify-pro-review" data-toggle="collapse" data-target="#answer-pro<?php echo $key; ?>">Répondre</button>
+                    <button type="submit" class="btn btn-primary center-block modify-pro-review" data-toggle="collapse" data-target="#answer-pro-{{ review.id }}">Répondre</button>
                     <hr class="pro-review-underline">
-                    <div id="answer-pro<?php echo $key; ?>" class="collapse">
+                    <div id="answer-pro-{{review.id}}" class="collapse">
                         <div class="col-xs-12 col-sm-8 col-sm-offset-2 pro-answer">
                             <div class="form-group">
-                                <label for="comment">Répondre à cet avis :</label>
-                                <textarea class="form-control" rows="8" id="comment"></textarea>
+                                {{ form_start(form) }}
+                                {{ form_errors(form) }}
+                                <input type="hidden" value="{{ review.id }}" name="id">
+                                <input type="hidden" value="repair" name="type">
+                                {{ form_row(form.message) }}
+                                {{ form_end(form) }}
                             </div>
                             <button type="submit" class="btn btn-default center-block btn-send">Envoyer</button>
                             <hr>
                         </div>
                     </div>
                 </div>
+                {% endfor %}
             </div>
-           {% endfor %}
+            <h3 class="text-center">Reviews buy</h3>
+            {% for review in beta %}
+            <!-- Quote 1 -->
+            <div class="col-xs-12 col-sm-8 col-sm-offset-2 review">
+                <p class="text-justify">{{ review.review }}</p>
+                <small>{{ review.user.lastname }} {{ review.user.firstname }} , {{ review.dateReview|date('d-m-y') }}</small>
+            </div>
+            <div class="col-xs-12">
+                <button type="submit" class="btn btn-primary center-block modify-pro-review" data-toggle="collapse" data-target="#answer-pro-{{ review.id }}">Répondre</button>
+                <hr class="pro-review-underline">
+                <div id="answer-pro-{{ review.id }}" class="collapse">
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2 pro-answer">
+                        <div class="form-group">
+                            {{ form_start(form) }}
+                            {{ form_errors(form) }}
+                            <input type="hidden" value="{{ review.id }}">
+                            <input type="hidden" value="buy" name="type">
+                            {{ form_row(form.message) }}
+                            {{ form_end(form) }}
+                        </div>
+                        <button type="submit" class="btn btn-default center-block btn-send">Envoyer</button>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            </div>
         </div>
-    </div>
-    </div>
-    </div>
     </div>
 </section>
 

@@ -119,6 +119,13 @@ class Pro
      * @ORM\Column(name="brand", type="string", length=255)
      */
     private $brand;
+
+    /**
+     * @ORM\OneToMany(targetEntity="CaradvisorBundle\Entity\Answer", mappedBy="pro")
+     */
+    private $answers;
+
+
     /**
      * Get id
      *
@@ -127,6 +134,24 @@ class Pro
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAnswers()
+    {
+        return $this->answers;
+    }
+
+    /**
+     * @param mixed $answers
+     * @return Pro
+     */
+    public function setAnswers($answers)
+    {
+        $this->answers = $answers;
+        return $this;
     }
 
     /**
