@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class UserController extends Controller
 {
-    // Homepage for user
+    // Homepage for user (p
     /**
      * @Route("/user/{user}", name="user")
      * @param User $user

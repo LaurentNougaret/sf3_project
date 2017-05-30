@@ -17,16 +17,28 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('userType', ChoiceType::class, [
+                'label' => false,
+                'choices' => ['Particulier' => 'Particulier', 'Professionnel' => 'Professionnel'],
+            ])
+            ->add('username', TextType::class, [
+                'label' => false,
+                'attr'  => ['placeholder' => 'Nom d\'utilisateur']
+            ])
             ->add('firstname', TextType::class, [
-                'label' => 'Prénom',
+                'label' => false,
                 'attr'  => ['placeholder' => 'Prénom'],
             ])
             ->add('lastname', TextType::class, [
-                'label' => 'Nom',
+                'label' => false,
                 'attr'  => ['placeholder' => 'Nom'],
             ])
+            ->add('birthdate', DateType::class, [
+                'label' => false,
+                'attr'  => ['placeholder' => 'Date de naissance']
+            ])
             ->add('gender', ChoiceType::class, [
-                'label' => 'Genre',
+                'label' => false,
                 'choices' => [
                     'Homme'        => 'Homme',
                     'Femme'        => 'Femme',
@@ -34,37 +46,25 @@ class UserType extends AbstractType
                     'Non Précisé'  => 'Non Précisé',
                 ]
             ])
-            ->add('username', TextType::class, [
-                'label' => 'Nom d\'utilisateur',
-                'attr'  => ['placeholder' => 'Nom d\'utilisateur']
-            ])
             ->add('email', EmailType::class, [
-                'label' => 'E-mail',
+                'label' => false,
                 'attr'  => ['placeholder' => 'Email'],
             ])
+            ->add('phone', IntegerType::class, [
+                'label' => false,
+                'attr'  => ['placeholder' => 'Numéro de téléphone']
+            ])
             ->add('address', TextType::class, [
-                'label' => 'Addresse',
+                'label' => false,
                 'attr'  => ['placeholder' => 'Adresse']
             ])
             ->add('city', TextType::class, [
-                'label' => 'Ville',
+                'label' => false,
                 'attr'  => ['placeholder' => 'Ville']
             ])
             ->add('postalCode', TextType::class, [
-                'label' => 'Code Postal',
+                'label' => false,
                 'attr'  => ['placeholder' => 'Code Postal']
-            ])
-            ->add('phone', IntegerType::class, [
-                'label' => 'Numéro de téléphone',
-                'attr'  => ['placeholder' => 'Numéro de téléphone']
-            ])
-            ->add('birthdate', DateType::class, [
-                'label' => 'Date de Naissance',
-                'attr'  => ['placeholder' => 'Date de naissance']
-            ])
-            ->add('userType', ChoiceType::class, [
-                'label' => 'Vous êtes un ',
-                'choices' => ['Particulier' => 'Particulier', 'Professionnel' => 'Professionnel'],
             ]);
     }
     public function configureOptions(OptionsResolver $resolver)
