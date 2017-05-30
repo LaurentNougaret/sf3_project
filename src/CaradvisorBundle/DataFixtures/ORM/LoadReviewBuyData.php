@@ -23,7 +23,7 @@ class LoadReviewBuyData extends AbstractFixture implements OrderedFixtureInterfa
             $reviewBuy->setReviewBuyType($faker->randomElement($array = [
                 'Neuf',
                 'Occasion',
-            ]));
+                ]));
             $reviewBuy->setDealerType($faker->randomElement($array = [
                 'Garagiste',
                 'Concessionnaire',
