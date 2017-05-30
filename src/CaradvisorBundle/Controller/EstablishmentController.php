@@ -2,15 +2,14 @@
 
 namespace CaradvisorBundle\Controller;
 
-use CaradvisorBundle\Entity\Pro;
-use CaradvisorBundle\Entity\User;
-use CaradvisorBundle\Form\UserType;
+use CaradvisorBundle\Entity\Establishment;
+use CaradvisorBundle\Form\ProProfileType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 
 
-class ProController extends Controller
+class EstablishmentController extends Controller
 {
     /**
      * @Route("/pro/{pro}", name="pro")
@@ -24,12 +23,12 @@ class ProController extends Controller
         ]);
     }
 
-    /* /**
+    /**
      * @Route("/pro/edit/{id}", name="pro_edit")
      * @param Request $request
      * @param Pro $pro
      * @return \Symfony\Component\HttpFoundation\Response
-     *
+     */
     public function editAction(Request $request, Pro $pro)
     {
         $editForm = $this->createForm(ProProfileType::class, $pro);
@@ -45,7 +44,7 @@ class ProController extends Controller
         return $this->render('@Caradvisor/Pro/editprofile.html.twig', array(
             'edit_form' => $editForm->createView()
         ));
-    }*/
+    }
 
     /**
      * @Route("/pro/establishments/{pro}", name="pro_establishments")
@@ -86,15 +85,25 @@ class ProController extends Controller
     }
 
     /**
-     * @Route("/pro/settings/password/{pro}", name="pro_password")
+     * @Route
      * @param Pro $pro
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function passwordAction(Pro $pro)
     {
         return $this->render('@Caradvisor/Pro/password.html.twig', [
-        "pro" => $pro,
+            "pro" => $pro,
         ]);
     }
 
+    /**
+     * @Route
+     */
+    public function profileAction(Pro $pro)
+    {
+
+        return $this->render('@Caradvisor/Pro/profile.html.twig', [
+            "pro" => $pro,
+        ]);
+    }
 }

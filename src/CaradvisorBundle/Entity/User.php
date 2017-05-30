@@ -3,6 +3,7 @@
 namespace CaradvisorBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 /**
  * User
@@ -138,6 +139,12 @@ class User
      * @ORM\OneToMany(targetEntity="CaradvisorBundle\Entity\ReviewBuy", mappedBy="user")
      */
     private $reviewBuys;
+
+    // added $picture in User after deleting it in Pro because of problems in Db
+    /**
+     * @ORM\Column(name="picture", type="blob")
+     */
+    private $picture;
 
     /**
      * Get id
@@ -633,5 +640,29 @@ class User
     public function getReviewBuys()
     {
         return $this->reviewBuys;
+    }
+
+    /**
+     * Set picture
+     *
+     * @param string $picture
+     *
+     * @return User
+     */
+    public function setPicture($picture)
+    {
+        $this->picture = $picture;
+
+        return $this;
+    }
+
+    /**
+     * Get picture
+     *
+     * @return string
+     */
+    public function getPicture()
+    {
+        return $this->picture;
     }
 }
