@@ -1,0 +1,36 @@
+{% extends '@Caradvisor/index.html.twig' %}
+{% block body %}
+    <section id="account-reviews">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-10 col-xs-offset-1">
+                    <h2 class="text-center">Vos avis</h2>
+                    <hr>
+            <div class="row">
+                        <div class="col-lg-5">
+                <a href="javascript:history.back(-1)">
+                    <p><i class="fa fa-angle-double-left" aria-hidden="true"> </i>
+                        Revenir à Mon Compte</p><br>
+                            </a>
+                        </div>
+                </div>
+                     {% for review in data  %}
+                      <div class="col-xs-12 col-sm-7 col-md-7 review">
+                         <h3>{{ review.dealerName }}</h3>
+                         <p class="text-justify">{{ review.review }}</p>
+                         <p class="text-right">{{ review.dateReview|date('d-m-y') }}</p>
+                      </div>
+                     {% endfor %}
+                     {% for review in beta %}
+                      <div class="col-xs-12 col-sm-7 col-md-7 review">
+                         <h3>{{ review.dealerName }}</h3>
+                         <p class="text-justify">{{ review.review }}</p>
+                         <p class="text-right">{{ review.dateReview|date('d-m-y') }}</p>
+                      </div>
+                     {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

@@ -1,0 +1,96 @@
+.forms .reviewform {
+    margin: 10% auto;
+}
+
+.forms .reviewform .btn-block {
+    font-size: 14px;
+    margin-top: 3em;
+    margin-bottom: 1em;
+    width: 15em;
+    height: 3em;
+    border-radius: 4px;
+    border: 3px solid #ff4756;
+    background-color: #fff;
+    color: #ff4756;
+    -o-transition:color .2s ease-out, background 0.2s ease-in;
+    -moz-transition:color .2s ease-out, background 0.2s ease-in;
+    -webkit-transition:color .2s ease-out, background 0.2s ease-in;
+}
+
+.forms .reviewform .btn-block:hover{
+    color: #fff;
+    background-color: #ff4756;
+}
+
+.forms .reviewform .btn-block:focus, .forms .btn-block:active {
+    outline: none !important;
+    border: 3px solid #ff4756 !important;
+}
+
+.forms .reviewform .bloc {
+    margin-top: 5%;
+    background-color: rgba(191, 192, 192, 0.05);
+    border-radius: 10px;
+    padding: 2% 0;
+}
+
+.forms .reviewform .bloc hr {
+    margin-bottom: 5%;
+    border-top: 1px solid #ff4756;
+    margin-left: 20%;
+    margin-right:20%;
+}
+
+.forms .bloc .row {
+    margin-bottom: 10px;
+}
+
+.forms .bloc .control-label {
+    padding-top: 3px;
+}
+
+.forms .reviewform .rating-container .caption {
+    margin-top: -0.1em;
+}
+
+.forms .reviewform .rating-md .label {
+    color: #1590c4;
+    background-color: transparent;
+}
+
+.forms .reviewform .rating-md {
+    margin-top: -20px;
+}
+
+.forms .reviewform .empty-stars img {
+    opacity: .1;
+}
+
+.forms .reviewform .iagree {
+    font-size: 12px;
+    margin-top: -10px;
+}
+
+.forms .reviewform #saveReviewButton {
+    margin-top: 0;
+    margin-bottom: -50px;
+}
+
+.forms #advicebox, .forms #reviewBox {
+    resize: none;
+}
+
+@media (max-width: 768px) {
+    .forms .reviewform .title {
+        margin-bottom: 1em;
+    }
+    .forms .reviewform .form-group {
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+    .forms .reviewform .btn-block {
+        margin-top: 1em;
+        margin-bottom: 1em;
+    }
+}
+

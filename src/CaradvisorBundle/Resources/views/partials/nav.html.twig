@@ -1,0 +1,58 @@
+{% block body %}
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand page-scroll" href="{{ path('home') }}"><p><span class="simplelogo1">Car</span><span class="simplelogo2">Advisor</span></p></a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                <li class="hidden">
+                    <a class="page-scroll" href="#page-top"></a>
+                </li>
+                <!-- If in index, use the scroll, if not use the link -->
+                <li>
+                    <a class="page-scroll js-scrollTo" id="menu-review" href="{{ path ('home') }}" >Accueil</a>
+                </li>
+                {% if app.request.get('_route') != "pro_profile" and app.request.get('_route') != "pro_review"
+                and app.request.get('_route') != "pro_settings" and app.request.get('_route') != "pro_password"  and app.request.get('_route') != "user_signup"%}
+                    <li>
+                        <a class="page-scroll js-scrollTo" href="{{ path ('home') }}#review">Déposez un avis </a>
+                    </li>
+                {% endif %}
+                {% if app.request.get('_route') == "home" or app.request.get('_route') == "" or app.request.get('_route') == "results" or app.request.get('_route') == "info" %}
+                    <li>
+                        <a class="page-scroll js-scrollTo" href="{{ path ('user_signup') }}">Inscription</a>
+                    </li>
+                {% endif %}
+                {% if app.request.get('_route') != "pro_profile" and app.request.get('_route') != "pro_review" and app.request.get('_route') != "pro_settings" and app.request.get('_route') != "pro_password"
+                and app.request.get('_route') != "user_signup" and app.request.get('_route') != "user_car" and app.request.get('_route') != "user_profile" and app.request.get('_route') != "user_reviews" and app.request.get('_route') != "user_settings"
+                and app.request.get('_route') != "user_password" %}
+                    <li>
+                        <a data-toggle="modal" data-target="#login-modal" href="{{ path ('home') }}#login-modal">Connexion</a>
+                    </li>
+                {% endif %}
+                {% if app.request.get('_route') != "pro_profile" and app.request.get('_route') != "pro_review" and app.request.get('_route') != "pro_settings" and app.request.get('_route') != "pro_password"
+                and app.request.get('_route') != "user_signup" and app.request.get('_route') != "user_car" and app.request.get('_route') != "user_profile" and app.request.get('_route') != "user_reviews" and app.request.get('_route') != "user_settings"
+                and app.request.get('_route') != "user_password"%}
+                    <li>
+                        <a  class="page-scroll" data-toggle="modal" data-target="#login-modal-pro" href="{{ path ('home') }}#login-modal-pro">Accés professionnels</a>
+                    </li>
+                {% endif %}
+                {% if app.request.get('_route') == "account-reviews" or app.request.get('_route') == "account-cars" %}
+                    <li>
+                        <a class="page-scroll js-scrollTo" href="{{ path ('user') }}">Bienvenue {{ user.firstname }}</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+    {% include ('@Caradvisor/partials/pro_signin.html.twig')%}
+    {% include ('@Caradvisor/partials/user_signin.html.twig')%}
+{% endblock %}
