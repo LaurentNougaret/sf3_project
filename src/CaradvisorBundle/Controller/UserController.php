@@ -4,7 +4,6 @@ namespace CaradvisorBundle\Controller;
 
 use CaradvisorBundle\Entity\User;
 use CaradvisorBundle\Entity\Vehicle;
-use CaradvisorBundle\Form\UserSignupType;
 use CaradvisorBundle\Form\VehicleType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -25,13 +24,11 @@ class UserController extends Controller
         ]);
     }
 
-
     /**
      * @Route("/user/car/{user}", name="user_car")
      * @param User $user
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      */
     public function carsAction(User $user,Request $request )
     {
@@ -53,16 +50,6 @@ class UserController extends Controller
     }
 
     /**
-     * @Route("/user/car/{user}/add", name="add_car")
-     * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
-     */
-    public function addCarAction(Request $request)
-    {
-
-    }
-
-    /**
      * @Route("/user/profile/{user}", name="user_profile")
      * @param User $user
      * @return Response
@@ -76,7 +63,7 @@ class UserController extends Controller
     /**
      * @Route("/user/reviews/{user}", name="user_reviews")
      * @param User $user
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
     public function reviewsAction(User $user)
     {
@@ -111,6 +98,4 @@ class UserController extends Controller
             'user' => $user
         ]);
     }
-
-
 }
