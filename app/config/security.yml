@@ -1,9 +1,16 @@
 # To get started with security, check out the documentation:
 # http://symfony.com/doc/current/security.html
 security:
+    encoders:
+        CaradvisorBundle\Entity\User:
+            algorithm: bcrypt
 
     # http://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
+        db_provider:
+            entity:
+                class: CaradvisorBundle:User
+                property: username
         in_memory:
             memory: ~
 
@@ -14,7 +21,10 @@ security:
             security: false
 
         main:
+            pattern: ^/
             anonymous: ~
+            http_basic: ~
+            provider: db_provider
             # activate different ways to authenticate
 
             # http://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
@@ -22,3 +32,4 @@ security:
 
             # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
             #form_login: ~
+

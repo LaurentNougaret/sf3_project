@@ -718,7 +718,7 @@ class ReviewBuy
     }
 
     /**
-     * Set repairBuyType
+     * Set reviewBuyType
      *
      * @param string $reviewBuyType
      *
@@ -732,7 +732,7 @@ class ReviewBuy
     }
 
     /**
-     * Get repairBuyType
+     * Get reviewBuyType
      *
      * @return string
      */
