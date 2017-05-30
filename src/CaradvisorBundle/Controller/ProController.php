@@ -51,6 +51,7 @@ class ProController extends Controller
     /**
      * @Route("/pro/establishments/{pro}", name="pro_establishments")
      * @param Pro $pro
+     * @param $em
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function ProsAction(Pro $pro)
@@ -58,7 +59,6 @@ class ProController extends Controller
         return $this->render('@Caradvisor/Pro/establishments.html.twig', [
             'pro' => $pro,
             'user' => $pro ->getUser(),
-
         ]);
     }
 

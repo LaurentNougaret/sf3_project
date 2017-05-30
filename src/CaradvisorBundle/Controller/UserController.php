@@ -8,6 +8,7 @@ use CaradvisorBundle\Form\UserSignupType;
 use CaradvisorBundle\Form\VehicleType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\File\Exception\AccessDeniedException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -84,6 +85,10 @@ class UserController extends Controller
     {
        //$user_idRepository = $this->getDoctrine()->getRepository('CaradvisorBundle:User');
        //$data = $user_idRepository->getReviewUser($user_id->getId());
+        if (!$this->get('security.context')->isGranted('ROLE_AUTEUR')) {
+            // Sinon on déclenche une exception « Accès interdit »
+            throw new AccessDeniedException('Accès limité aux auteurs.');
+        }
        return $this->render('@Caradvisor/User/reviews.html.twig', [
            'data' => $user_id->getReviewRepairs(),
            'beta' => $user_id->getReviewBuys(),
