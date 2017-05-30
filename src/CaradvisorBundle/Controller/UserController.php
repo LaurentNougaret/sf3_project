@@ -5,6 +5,7 @@ namespace CaradvisorBundle\Controller;
 use CaradvisorBundle\Entity\User;
 use CaradvisorBundle\Entity\Vehicle;
 use CaradvisorBundle\Form\UserSignupType;
+use CaradvisorBundle\Form\UserType;
 use CaradvisorBundle\Form\VehicleType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -13,6 +14,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class UserController extends Controller
 {
+    // Homepage for user (p
     /**
      * @Route("/user/{user}", name="user")
      * @param User $user
@@ -25,6 +27,43 @@ class UserController extends Controller
         ]);
     }
 
+    // User's profile page
+    /**
+     * @Route("/user/profile/{user}", name="user_profile")
+     * @param User $user
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function profileAction(User $user)
+    {
+
+        return $this->render('@Caradvisor/User/profile.html.twig', [
+            "user" => $user,
+        ]);
+    }
+
+    // Edit user's profile form
+    /**
+     * @Route("/user/profile/edit/{id}", name="user_edit")
+     * @param Request $request
+     * @param User $id
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function editAction(Request $request, User $id)
+    {
+        $editForm = $this->createForm(UserType::class, $id);
+        $editForm->handleRequest($request);
+
+        if ($editForm->isSubmitted() && $editForm->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('user_profile', array(
+                'user' => $id->getId()
+            ));
+        }
+        return $this->render('@Caradvisor/User/editprofile.html.twig', array(
+            'edit_form' => $editForm->createView()
+        ));
+    }
 
     /**
      * @Route("/user/car/{user}", name="user_car")
@@ -62,17 +101,6 @@ class UserController extends Controller
 
     }
 
-    /**
-     * @Route("/user/profile/{user}", name="user_profile")
-     * @param User $user
-     * @return Response
-     */
-    public function profileAction(User $user)
-    {
-        return $this->render('@Caradvisor/User/profile.html.twig',[
-            'user' => $user
-        ]);
-    }
     /**
      * @Route("/user/reviews/{user}", name="user_reviews")
      * @param User $user
