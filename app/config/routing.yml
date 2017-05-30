@@ -1,4 +1,0 @@
-caradvisor:
-    resource: "@CaradvisorBundle/Controller/"
-    type:     annotation
-    prefix:   /
