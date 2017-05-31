@@ -35,7 +35,7 @@
                 and app.request.get('_route') != "user_signup" and app.request.get('_route') != "user_car" and app.request.get('_route') != "user_profile" and app.request.get('_route') != "user_reviews" and app.request.get('_route') != "user_settings"
                 and app.request.get('_route') != "user_password" %}
                     <li>
-                        <a data-toggle="modal" data-target="#login-modal" href="{{ path ('home') }}#login-modal">Connexion</a>
+                        <a data-toggle="modal" {#data-target="#login-modal"#} href="{{ path ('login') }}">Connexion</a>
                     </li>
                 {% endif %}
                 {% if app.request.get('_route') != "pro_profile" and app.request.get('_route') != "pro_review" and app.request.get('_route') != "pro_settings" and app.request.get('_route') != "pro_password"
