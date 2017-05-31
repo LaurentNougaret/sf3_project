@@ -48,12 +48,12 @@ class ProProfileType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'CaradvisorBundle\Entity\Pro',
+            'data_class' => 'CaradvisorBundle\Entity\User',
         ));
     }
 
     public function getBlockPrefix()
     {
-        return 'caradvisor_bundle_pro_profile_type';
+        return 'caradvisor_bundle_user_profile_type';
     }
 }

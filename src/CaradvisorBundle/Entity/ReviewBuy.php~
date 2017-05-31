@@ -161,8 +161,10 @@ class ReviewBuy
      */
     private $warranty;
 
+    // Join Column: interdit la creation d'un review sans Pro
     /**
      * @ORM\ManyToOne(targetEntity="CaradvisorBundle\Entity\Pro", inversedBy="reviewBuys")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $pro;
 
@@ -172,11 +174,7 @@ class ReviewBuy
     private $user;
 
     /**
-<<<<<<< HEAD
-     * @ORM\OneToOne(targetEntity="Answer")
-=======
      * @ORM\OneToOne(targetEntity="CaradvisorBundle\Entity\Answer")
->>>>>>> 6fe9718db87a83d6c3f4096bf4c47220a36a7316
      * @ORM\JoinColumn(name="answer_id", referencedColumnName="id")
      */
     private $answer;
