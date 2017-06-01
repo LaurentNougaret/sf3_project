@@ -28,7 +28,7 @@ class SecurityController extends Controller
         //last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
 
-        return $this->render('@Caradvisor/Default/login.html.twig', [
+        return $this->render('@Caradvisor/Security/login.html.twig', [
             'last_username' => $lastUsername,
             'error'         => $error,
         ]);
@@ -70,7 +70,7 @@ class SecurityController extends Controller
                 ->setTo($user->getEmail())
                 ->setBody(
                     $this->renderView(
-                        "@Caradvisor/Default/registration.html.twig", [
+                        "@Caradvisor/Security/registration.html.twig", [
                             'userName' => $user->getUserName(),
                             'url' => $this->generateUrl("home", [], UrlGeneratorInterface::ABSOLUTE_URL)
                     ]),
@@ -81,7 +81,7 @@ class SecurityController extends Controller
 
             return $this->redirectToRoute('home');
         }
-        return $this->render('@Caradvisor/Default/signup.html.twig', [
+        return $this->render('@Caradvisor/Security/signup.html.twig', [
             'form'      => $form->createView(),
         ]);
     }

@@ -35,12 +35,12 @@
                     </div>
                     <div class="row">
                         <div id="inscrition-text-footer" class="col-xs-12 col-sm-12 text-justify">
-                            En cliquant sur  <strong>Inscription</strong>, vous acceptez les <a href="/?page=cgu" target="_blank">Conditions d'utilisation</a> en vigueur sur ce site, y compris notre politique sur les cookies.
+                            En cliquant sur  <strong>Inscription</strong>, vous acceptez les <a href="{{ path('cgu') }}" target="_blank">Conditions d'utilisation</a> en vigueur sur ce site, y compris notre politique sur les cookies.
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-12">
-                            <button id="inscription" name="inscription" class="btn btn-primary btn-block center-block" type="submit">Inscription</button>
+                            <button name="inscription" class="btn btn-primary btn-block center-block btn-red" type="submit">Inscription</button>
                         </div>
                     </div>
                     {{ form_row(form._token) }}

@@ -31,6 +31,8 @@ security:
             logout:
                 path: /logout
                 target: /
+            remember_me:
+                secret: '%secret%'
             provider: db_provider
             # activate different ways to authenticate
 

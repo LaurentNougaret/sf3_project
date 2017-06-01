@@ -9,6 +9,14 @@
     </section>
     <!-- / Banner -->
 
+
+
+    {#test btn logout : erase after placing btn in navbar#}
+    {% if is_granted('ROLE_PART') %}
+        <a href="{{ path('logout') }}"><button>Se déconnecter</button></a>
+    {% endif %}
+
+
     <!-- Search -->
     <section id="searchEngine">
         <div class="container">

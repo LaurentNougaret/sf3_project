@@ -13,15 +13,12 @@ use Symfony\Component\HttpFoundation\Response;
 class UserController extends Controller
 {
     /**
-     * @Route("/user/{user}", name="user")
-     * @param User $user
+     * @Route("/user", name="user")
      * @return Response
      */
-    public function indexAction(User $user)
+    public function indexAction()
     {
-        return $this->render('@Caradvisor/User/home.html.twig', [
-            "user" => $user,
-        ]);
+        return $this->render('@Caradvisor/User/home.html.twig');
     }
 
     /**
