@@ -117,6 +117,11 @@ class User implements UserInterface, \Serializable
     private $userType;
 
     /**
+     * @ORM\Column(name="roles", type="array")
+     */
+    private $roles = array();
+
+    /**
      * @var bool
      *
      * @ORM\Column(name="isActive", type="boolean")
@@ -534,11 +539,6 @@ class User implements UserInterface, \Serializable
         return null;
     }
 
-    public function getRoles()
-    {
-        return array('ROLE_USER');
-    }
-
     public function eraseCredentials()
     {
 
@@ -696,5 +696,29 @@ class User implements UserInterface, \Serializable
     public function getReviewBuys()
     {
         return $this->reviewBuys;
+    }
+
+    /**
+     * Get roles
+     *
+     * @return array
+     */
+    public function getRoles()
+    {
+        return array('ROLE_PART', 'ROLE_PRO');
+    }
+
+    /**
+     * Set roles
+     *
+     * @param array $roles
+     *
+     * @return User
+     */
+    public function setRoles($roles)
+    {
+        $this->roles = $roles;
+
+        return $this;
     }
 }
