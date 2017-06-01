@@ -360,11 +360,11 @@ class Pro
     /**
      * Add reviewBuy
      *
-     * @param \CaradvisorBundle\Entity\ReviewBuy $reviewBuy
+     * @param ReviewBuy $reviewBuy
      *
      * @return Pro
      */
-    public function addReviewBuy(\CaradvisorBundle\Entity\ReviewBuy $reviewBuy)
+    public function addReviewBuy(ReviewBuy $reviewBuy)
     {
         $this->reviewBuys[] = $reviewBuy;
 
@@ -374,9 +374,9 @@ class Pro
     /**
      * Remove reviewBuy
      *
-     * @param \CaradvisorBundle\Entity\ReviewBuy $reviewBuy
+     * @param ReviewBuy $reviewBuy
      */
-    public function removeReviewBuy(\CaradvisorBundle\Entity\ReviewBuy $reviewBuy)
+    public function removeReviewBuy(ReviewBuy $reviewBuy)
     {
         $this->reviewBuys->removeElement($reviewBuy);
     }
@@ -394,11 +394,11 @@ class Pro
     /**
      * Set user
      *
-     * @param \CaradvisorBundle\Entity\User $user
+     * @param User $user
      *
      * @return Pro
      */
-    public function setUser(\CaradvisorBundle\Entity\User $user = null)
+    public function setUser(User $user = null)
     {
         $this->user = $user;
 

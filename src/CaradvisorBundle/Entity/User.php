@@ -151,6 +151,26 @@ class User implements UserInterface, \Serializable
     private $reviewBuys;
 
     /**
+     * @var array
+     *
+     * @ORM\Column(name="roles", type="array")
+     */
+    private $roles;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="password_change_token", type="string", length=100, nullable=true)
+     */
+    private $passwordChangeToken;
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="password_change_limit_date", type="datetime", nullable=true)
+     */
+    private $passwordChangeLimitDate;
+
+    /**
      * Get id
      *
      * @return int
@@ -468,9 +488,11 @@ class User implements UserInterface, \Serializable
     }
 
     /**
-     * @return bool
+     * Get isActive
+     *
+     * @return boolean
      */
-    public function isActive()
+    public function getIsActive()
     {
         return $this->isActive;
     }
@@ -519,14 +541,46 @@ class User implements UserInterface, \Serializable
         $this->reviewBuys = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
-    /**
-     * Get isActive
-     *
-     * @return boolean
-     */
-    public function getIsActive()
+    public function getSalt()
     {
-        return $this->isActive;
+        return null;
+    }
+
+    /**
+     * @param array $roles
+     * @return User
+     */
+    public function setRoles($roles)
+    {
+        $this->roles = $roles;
+        return $this;
+    }
+
+    public function getRoles()
+    {
+        return array('ROLE_USER');
+    }
+
+    public function eraseCredentials()
+    {
+
+    }
+
+    public function serialize()
+    {
+        return serialize([
+            $this->id,
+            $this->userName,
+            $this->password,
+        ]);
+    }
+    public function unserialize($serialized)
+    {
+        list(
+            $this->id,
+            $this->userName,
+            $this->password,
+            ) = $this->unserialize($serialized);
     }
 
     /**
@@ -666,71 +720,38 @@ class User implements UserInterface, \Serializable
     }
 
     /**
-     * String representation of object
-     * @link http://php.net/manual/en/serializable.serialize.php
-     * @return string the string representation of the object or null
-     * @since 5.1.0
+     * @return string
      */
-    public function serialize()
+    public function getPasswordChangeToken()
     {
-        // TODO: Implement serialize() method.
+        return $this->passwordChangeToken;
     }
 
     /**
-     * Constructs the object
-     * @link http://php.net/manual/en/serializable.unserialize.php
-     * @param string $serialized <p>
-     * The string representation of the object.
-     * </p>
-     * @return void
-     * @since 5.1.0
+     * @param string $passwordChangeToken
+     * @return User
      */
-    public function unserialize($serialized)
+    public function setPasswordChangeToken($passwordChangeToken)
     {
-        // TODO: Implement unserialize() method.
+        $this->passwordChangeToken = $passwordChangeToken;
+        return $this;
     }
 
     /**
-     * Returns the roles granted to the user.
-     *
-     * <code>
-     * public function getRoles()
-     * {
-     *     return array('ROLE_USER');
-     * }
-     * </code>
-     *
-     * Alternatively, the roles might be stored on a ``roles`` property,
-     * and populated in any number of different ways when the user object
-     * is created.
-     *
-     * @return (Role|string)[] The user roles
+     * @return \DateTime
      */
-    public function getRoles()
+    public function getPasswordChangeLimitDate()
     {
-        // TODO: Implement getRoles() method.
+        return $this->passwordChangeLimitDate;
     }
 
     /**
-     * Returns the salt that was originally used to encode the password.
-     *
-     * This can return null if the password was not encoded using a salt.
-     *
-     * @return string|null The salt
+     * @param \DateTime $passwordChangeLimitDate
+     * @return User
      */
-    public function getSalt()
+    public function setPasswordChangeLimitDate($passwordChangeLimitDate)
     {
-        // TODO: Implement getSalt() method.
-    }
-
-    /**
-     * Removes sensitive data from the user.
-     *
-     * This is important if, at any given point, sensitive information like
-     * the plain-text password is stored on this object.
-     */
-    public function eraseCredentials()
-    {
-        // TODO: Implement eraseCredentials() method.
+        $this->passwordChangeLimitDate = $passwordChangeLimitDate;
+        return $this;
     }
 }

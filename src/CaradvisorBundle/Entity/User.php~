@@ -3,13 +3,9 @@
 namespace CaradvisorBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-<<<<<<< HEAD
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
-=======
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
->>>>>>> 21b4be7f064bbccc14a8efe0de0187bd0201b27f
 
 /**
  * User
@@ -154,11 +150,25 @@ class User implements UserInterface, \Serializable
      */
     private $reviewBuys;
 
-    // added $picture in User after deleting it in Pro because of problems in Db
     /**
-     * @ORM\Column(name="picture", type="blob")
+     * @var array
+     *
+     * @ORM\Column(name="roles", type="array")
      */
-    private $picture;
+    private $roles;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="password_change_token", type="string", length=100, nullable=true)
+     */
+    private $passwordChangeToken;
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="password_change_limit_date", type="datetime", nullable=true)
+     */
+    private $passwordChangeLimitDate;
 
     /**
      * Get id
@@ -243,6 +253,7 @@ class User implements UserInterface, \Serializable
     }
 
     /**
+     * @param string $plainpassword
      * @return mixed
      */
     public function getPlainpassword()
@@ -477,9 +488,11 @@ class User implements UserInterface, \Serializable
     }
 
     /**
-     * @return bool
+     * Get isActive
+     *
+     * @return boolean
      */
-    public function isActive()
+    public function getIsActive()
     {
         return $this->isActive;
     }
@@ -517,7 +530,6 @@ class User implements UserInterface, \Serializable
     {
         return $this->mailingList;
     }
-
     /**
      * Constructor
      */
@@ -529,19 +541,19 @@ class User implements UserInterface, \Serializable
         $this->reviewBuys = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
-    /**
-     * Get isActive
-     *
-     * @return boolean
-     */
-    public function getIsActive()
-    {
-        return $this->isActive;
-    }
-
     public function getSalt()
     {
         return null;
+    }
+
+    /**
+     * @param array $roles
+     * @return User
+     */
+    public function setRoles($roles)
+    {
+        $this->roles = $roles;
+        return $this;
     }
 
     public function getRoles()
@@ -562,14 +574,13 @@ class User implements UserInterface, \Serializable
             $this->password,
         ]);
     }
-
     public function unserialize($serialized)
     {
         list(
             $this->id,
             $this->userName,
             $this->password,
-        ) = $this->unserialize($serialized);
+            ) = $this->unserialize($serialized);
     }
 
     /**
@@ -709,26 +720,38 @@ class User implements UserInterface, \Serializable
     }
 
     /**
-     * Set picture
-     *
-     * @param string $picture
-     *
+     * @return string
+     */
+    public function getPasswordChangeToken()
+    {
+        return $this->passwordChangeToken;
+    }
+
+    /**
+     * @param string $passwordChangeToken
      * @return User
      */
-    public function setPicture($picture)
+    public function setPasswordChangeToken($passwordChangeToken)
     {
-        $this->picture = $picture;
-
+        $this->passwordChangeToken = $passwordChangeToken;
         return $this;
     }
 
     /**
-     * Get picture
-     *
-     * @return string
+     * @return \DateTime
      */
-    public function getPicture()
+    public function getPasswordChangeLimitDate()
     {
-        return $this->picture;
+        return $this->passwordChangeLimitDate;
+    }
+
+    /**
+     * @param \DateTime $passwordChangeLimitDate
+     * @return User
+     */
+    public function setPasswordChangeLimitDate($passwordChangeLimitDate)
+    {
+        $this->passwordChangeLimitDate = $passwordChangeLimitDate;
+        return $this;
     }
 }
