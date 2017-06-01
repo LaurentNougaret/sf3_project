@@ -17,13 +17,9 @@ class MainController extends Controller
      */
     public function indexAction()
     {
-        $userId = $this->getUser()->getId();
-
         $reviews = $this->getDoctrine()->getRepository('CaradvisorBundle:Review')->findAll();
-        $user = $this->getDoctrine()->getRepository('CaradvisorBundle:User')->find($userId);
         return $this->render('@Caradvisor/Default/home.html.twig', [
             'reviews' => $reviews,
-            'user'    => $user,
         ]);
     }
 

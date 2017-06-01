@@ -5,9 +5,6 @@ security:
         CaradvisorBundle\Entity\User:
             algorithm: bcrypt
 
-    role_hierarchy:
-        ROLE_ADMIN: [ROLE_PART, ROLE_PRO]
-
     # http://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
         db_provider:
@@ -42,9 +39,14 @@ security:
             # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
             #form_login: ~
 
+    role_hierarchy:
+        ROLE_PART: [IS_AUTHENTICATED_ANONYMOUSLY]
+        ROLE_PRO: [ROLE_PART]
+        ROLE_ADMIN: [ROLE_PART, ROLE_PRO]
+
     access_control:
         - { path: ^/, roles: IS_AUTHENTICATED_ANONYMOUSLY}
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY}
         #- { path: ^/dashboard, roles: IS_ATHENTICATED_REMEMBERED} il faudra changer pour ROLE_ADMIN
-        - { path: ^/admin, roles: ROLE_PRO }
-
+        - { path: ^/, roles: ROLE_USER }
+        - { path: ^/, roles: ROLE_PRO }

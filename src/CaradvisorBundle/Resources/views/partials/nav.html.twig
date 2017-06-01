@@ -16,24 +16,18 @@
                 <li>
                     <a href="{{ path('home') }}">Accueil</a>
                 </li>
-                {% if is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
-                    <li>
-                        <a href="{{ path('home') }}#reviews">Déposez un avis</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('user_signup') }}">Inscription</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('login') }}">Connexion</a>
-                    </li>
-                    {#
-                    <li>
-                        <a href="{{ path('user_signup') }}">Accès professionnel</a>
-                    </li>
-                    #}
-                {% endif %}
 
-                {% if is_granted('ROLE_PART') %}
+                {% if is_granted('ROLE_PRO') %}
+                    <li>
+                        <a>Bonjour {{ app.user.userName }}</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('user')}}">Mon profil</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('logout') }}">Deconnexion</a>
+                    </li>
+                {% elseif is_granted('ROLE_PART') %}
                     <li>
                         <a>Bonjour {{ app.user.userName }}</a>
                     </li>
@@ -41,13 +35,26 @@
                         <a href="{{ path('home') }}#reviews">Déposez un avis</a>
                     </li>
                     <li>
-                        <a href="{{ path('logout') }}">Deconnexion</a>
+                        <a href="{{ path('user')}}">Mon profil</a>
                     </li>
                     <li>
-
-                            <a href="{{ path('user')}}">Mon profil</a>
-
+                        <a href="{{ path('logout') }}">Deconnexion</a>
                     </li>
+                {% else %}
+                    <li>
+                        <a href="{{ path('home') }}#reviews">Déposez un avis</a>
+                    </li>
+                        <li>
+                            <a href="{{ path('user_signup') }}">Inscription</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('login') }}">Connexion</a>
+                        </li>
+                        {#
+                        <li>
+                            <a href="{{ path('user_signup') }}">Accès professionnel</a>
+                        </li>
+                        #}
                 {% endif %}
                 {#<li class="hidden">
                     <a class="page-scroll" href="#page-top"></a>
