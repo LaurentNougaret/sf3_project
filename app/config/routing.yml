@@ -3,8 +3,11 @@ caradvisor:
     type:     annotation
     prefix:   /
 
-login_check:
-    path: /login_check
+default_security_target:
+    path: /
 
-#logout:
-#    path: /logout
+#login_check:
+#   path: /login_check
+
+logout:
+    path: /logout

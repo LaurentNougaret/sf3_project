@@ -8,10 +8,18 @@ use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Faker\Factory;
+use Symfony\Component\DependencyInjection\ContainerAwareInterface;
+use Symfony\Component\DependencyInjection\Container;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
-class LoadUserData extends AbstractFixture implements OrderedFixtureInterface
+class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, ContainerAwareInterface
 {
     const MAX_USER = 11;
+
+    /**
+     * @var container
+     */
+    private $container;
 
     public function load(ObjectManager $manager)
     {
@@ -23,7 +31,7 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface
             $user->setFirstName($faker->firstName);
             $user->setLastName($faker->lastName);
             $user->setUserName($faker->userName);
-            $user->setPassword('carcar');
+            $user->setPassword(password_hash("carcar", PASSWORD_BCRYPT));
             $user->setEmail($faker->email);
             $user->setGender($faker->randomElement($array = ['H', 'F', 'Non précisé']));
             $user->setAddress($faker->address);
@@ -34,12 +42,18 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface
             $user->setUserType($faker->randomElement($array = ['Professionnel', 'Particulier']));
             $user->setMailingList($faker->randomElement($array = ['0', '1']));
             $user->setIsActive($faker->randomElement($array = ['0', '1']));
+            $user->setRoles($faker->randomElement($array = ['ROLE_PART', 'ROLE_PRO']));
 
             $manager->persist($user);
 
             $this->setReference("users_" . $i, $user);
         }
         $manager->flush();
+    }
+
+    public function setContainer(ContainerInterface $container = null)
+    {
+        $this->container = $container;
     }
 
     public function getOrder()

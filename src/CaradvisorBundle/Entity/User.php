@@ -530,6 +530,7 @@ class User implements UserInterface, \Serializable
     {
         return $this->mailingList;
     }
+
     /**
      * Constructor
      */
@@ -558,7 +559,7 @@ class User implements UserInterface, \Serializable
 
     public function getRoles()
     {
-        return array('ROLE_USER');
+        return array('ROLE_USER', 'ROLE_PRO');
     }
 
     public function eraseCredentials()
@@ -574,13 +575,14 @@ class User implements UserInterface, \Serializable
             $this->password,
         ]);
     }
+
     public function unserialize($serialized)
     {
         list(
             $this->id,
             $this->userName,
             $this->password,
-            ) = $this->unserialize($serialized);
+        ) = $this->unserialize($serialized);
     }
 
     /**

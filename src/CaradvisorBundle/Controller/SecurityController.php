@@ -16,10 +16,11 @@ class SecurityController extends Controller
 {
 
     /**
+     * @param Request $request
      * @return Response
      * @Route("/login", name="login")
      */
-    public function loginAction()
+    public function loginAction(Request $request)
     {
         $authenticationUtils = $this->get('security.authentication_utils');
 
@@ -61,26 +62,29 @@ class SecurityController extends Controller
             $user->setMailingList("");
             $user->setIsActive(1);
 
-
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
 
             $email = \Swift_Message::newInstance()
                 ->setSubject("Caradvisor : Confirmation d'inscription")
-                ->setFrom("contact@caradvisor.com")
+                ->setFrom("apitchen@gmail.com")
                 ->setTo($user->getEmail())
                 ->setBody(
                     $this->renderView(
-                        "@Caradvisor/Default/registration.html.twig"),
+                        "@Caradvisor/Default/registration.html.twig", [
+                            'userName' => $user->getUserName(),
+                            'url' => $this->generateUrl("home", [], UrlGeneratorInterface::ABSOLUTE_URL)
+                    ]),
                     'text/html'
                 );
 
             $this->get('mailer')->send($email);
+
             return $this->redirectToRoute('home');
         }
         return $this->render('@Caradvisor/Default/signup.html.twig', [
-            'form' => $form->createView()
+            'form'      => $form->createView(),
         ]);
     }
 
