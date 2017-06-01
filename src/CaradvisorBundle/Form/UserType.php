@@ -48,7 +48,7 @@ class UserType extends AbstractType
                 'second_options' => [
                     'label' => false,
                     'attr' => ['placeholder' => 'Confirmez le mot de passe']],
-                'invalid_message' => 'Les mots de passes doivent être identiques',
+                'invalid_message' => 'Les mots de passe doivent être identiques',
             ])
             ->add('email', EmailType::class, [
                 'label' => false,

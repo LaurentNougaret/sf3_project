@@ -6,8 +6,8 @@ caradvisor:
 default_security_target:
     path: /
 
-#login_check:
-#   path: /login_check
+login_check:
+   path: /login_check
 
 logout:
     path: /logout
