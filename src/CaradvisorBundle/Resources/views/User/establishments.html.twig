@@ -7,17 +7,16 @@
                     <h3 class="text-center">Mes établissements</h3>
                     <hr class="pro-review-underline"><br>
                     <!-- Back to main page -->
-                    <div class="row">
+                   {# <div class="row">
                         <div class="col-xs-10 col-xs-offset-1 col-md-6 col-md-offset-1">
                             <a href="{{ path('user', {'user': user.id}) }}">
                                 <p><i class="fa fa-angle-double-left" aria-hidden="true"> </i>
                                     Revenir à Mon Compte</p><br>
                             </a>
                         </div>
-                    </div>
+                    </div>#}
                     <table class="table table-hover table-bordered col-lg-9">
                         <thead class="thead-default">
-
                         <tr>
                             <th class="col-lg-6">Nom</th>
                             <th class="col-lg-4">Ville</th>
@@ -25,19 +24,23 @@
                             <th class="col-lg-1">Modifier</th>
                         </tr>
                         </thead>
-                        <tbody>
+                        <tbody>{% for pro in establishment %}
                         <tr>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td><i class="fa fa-comments fa-2x" aria-hidden="true"></i></td>
-                            <td><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></td>
+                            <td><a href="{{ path('establishment_profile',
+                                {'pro': pro.id, 'user': user.id}) }}">{{ pro.dealerName }}</a>
+                            </td>
+                            <td>{{ pro.city }}</td>
+                            <td>
+                                <i class="fa fa-comments fa-2x" aria-hidden="true"></i>
+                                </a>
+                            </td>
+                            <td><a href="{{ path('edit_establishment',
+                                {'pro': pro.id, 'user': user.id}) }}">
+                                <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
+                                </a>
+                            </td>
                         </tr>
-                        <tr>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td><i class="fa fa-comments fa-2x" aria-hidden="true"></i></td>
-                            <td><i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i></td>
-                        </tr>
+                        {% endfor %}
                         </tbody>
                     </table>
                 </div>

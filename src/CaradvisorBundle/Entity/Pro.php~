@@ -2,6 +2,7 @@
 
 namespace CaradvisorBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -89,6 +90,7 @@ class Pro
 
     /**
      * @ORM\ManyToOne(targetEntity="CaradvisorBundle\Entity\User", inversedBy="pros")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;
 
@@ -318,9 +320,10 @@ class Pro
      */
     public function __construct()
     {
-        $this->answers = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->reviewRepairs = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->reviewBuys = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->pros = new ArrayCollection();
+        $this->answers = new ArrayCollection();
+        $this->reviewRepairs = new ArrayCollection();
+        $this->reviewBuys = new ArrayCollection();
     }
 
     /**
@@ -360,11 +363,11 @@ class Pro
     /**
      * Add reviewBuy
      *
-     * @param \CaradvisorBundle\Entity\ReviewBuy $reviewBuy
+     * @param ReviewBuy $reviewBuy
      *
      * @return Pro
      */
-    public function addReviewBuy(\CaradvisorBundle\Entity\ReviewBuy $reviewBuy)
+    public function addReviewBuy(ReviewBuy $reviewBuy)
     {
         $this->reviewBuys[] = $reviewBuy;
 
@@ -374,9 +377,9 @@ class Pro
     /**
      * Remove reviewBuy
      *
-     * @param \CaradvisorBundle\Entity\ReviewBuy $reviewBuy
+     * @param ReviewBuy $reviewBuy
      */
-    public function removeReviewBuy(\CaradvisorBundle\Entity\ReviewBuy $reviewBuy)
+    public function removeReviewBuy(ReviewBuy $reviewBuy)
     {
         $this->reviewBuys->removeElement($reviewBuy);
     }
@@ -394,11 +397,11 @@ class Pro
     /**
      * Set user
      *
-     * @param \CaradvisorBundle\Entity\User $user
+     * @param User $user
      *
      * @return Pro
      */
-    public function setUser(\CaradvisorBundle\Entity\User $user = null)
+    public function setUser(User $user = null)
     {
         $this->user = $user;
 

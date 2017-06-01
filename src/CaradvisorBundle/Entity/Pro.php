@@ -2,6 +2,7 @@
 
 namespace CaradvisorBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -89,6 +90,7 @@ class Pro
 
     /**
      * @ORM\ManyToOne(targetEntity="CaradvisorBundle\Entity\User", inversedBy="pros")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;
 
@@ -318,9 +320,10 @@ class Pro
      */
     public function __construct()
     {
-        $this->answers = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->reviewRepairs = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->reviewBuys = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->pros = new ArrayCollection();
+        $this->answers = new ArrayCollection();
+        $this->reviewRepairs = new ArrayCollection();
+        $this->reviewBuys = new ArrayCollection();
     }
 
     /**
