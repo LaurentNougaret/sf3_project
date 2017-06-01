@@ -6,6 +6,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -23,6 +25,16 @@ class UserType extends AbstractType
                 'label' => false,
                 'attr'  => ['placeholder' => 'Nom d\'utilisateur']
             ])
+            ->add('plainpassword',RepeatedType::class, [
+                'type' => PasswordType::class,
+                'first_options' => [
+                    'label' => false,
+                    'attr' => ['placeholder' => 'Mot de passe']],
+                'second_options' => [
+                    'label' => false,
+                    'attr' => ['placeholder' => 'Confirmez le mot de passe']],
+                'invalid_message' => 'Les mots de passe doivent être identiques',
+            ])
 
             ->add('firstname', TextType::class, [
                 'label' => false,
@@ -39,10 +51,10 @@ class UserType extends AbstractType
             ->add('gender', ChoiceType::class, [
                 'label' => false,
                 'choices' => [
-                    'Homme'        => 'Homme',
-                    'Femme'        => 'Femme',
-                    'Autre'        => 'Autre',
-                    'Non Précisé'  => 'Non Précisé',
+                    'Homme'        => '1',
+                    'Femme'        => '2',
+                    'Autre'        => '3',
+                    'Non Précisé'  => '4',
                 ]
             ])
             ->add('email', EmailType::class, [

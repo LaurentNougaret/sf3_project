@@ -69,7 +69,11 @@ class Pro
      * @ORM\Column(name="phone", type="integer")
      */
     private $phone;
-
+    /**
+     * @var
+     * @ORM\Column(name="picture", type="blob")
+     */
+    private $picture;
     /**
      * @var string
      *
@@ -311,6 +315,24 @@ class Pro
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPicture()
+    {
+        return $this->picture;
+    }
+
+    /**
+     * @param mixed $picture
+     * @return Pro
+     */
+    public function setPicture($picture)
+    {
+        $this->picture = $picture;
+        return $this;
     }
 
     /**

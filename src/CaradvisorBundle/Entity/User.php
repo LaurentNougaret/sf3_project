@@ -582,7 +582,7 @@ class User implements UserInterface, \Serializable
             $this->id,
             $this->userName,
             $this->password,
-        ) = $this->unserialize($serialized);
+        ) = unserialize($serialized);
     }
 
     /**

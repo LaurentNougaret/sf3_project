@@ -56,10 +56,10 @@ class SecurityController extends Controller
             $user->setGender("Non précisé");
             $user->setAddress("");
             $user->setCity("");
-            $user->setPostalCode("");
+            $user->setPostalCode("00000");
             $user->setPhone("");
             $user->setBirthDate(new \DateTime());
-            $user->setMailingList("");
+            $user->setMailingList(0);
             $user->setIsActive(1);
 
             $em = $this->getDoctrine()->getManager();
