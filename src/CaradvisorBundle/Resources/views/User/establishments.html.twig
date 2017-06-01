@@ -31,6 +31,8 @@
                             </td>
                             <td>{{ pro.city }}</td>
                             <td>
+                                <a href="{{ path('reviews_establishment',
+                                {'pro': pro.id, 'user': user.id}) }}">
                                 <i class="fa fa-comments fa-2x" aria-hidden="true"></i>
                                 </a>
                             </td>
