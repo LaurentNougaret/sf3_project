@@ -45,11 +45,11 @@ class MainController extends Controller
             $user->setGender("Non précisé");
             $user->setAddress("");
             $user->setCity("");
-            $user->setPostalCode("");
-            $user->setPhone("");
+            $user->setPostalCode(0);
+            $user->setPhone(0);
             $user->setBirthDate(new \DateTime());
-            $user->setMailingList("");
-            $user->setIsActive("");
+            $user->setMailingList(0);
+            $user->setIsActive(1);
 
 
             $em = $this->getDoctrine()->getManager();

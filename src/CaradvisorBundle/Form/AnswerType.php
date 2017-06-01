@@ -20,10 +20,7 @@ class AnswerType extends AbstractType
                     'rows' => '6',
                     'style' => 'resize:none',
                     'placeholder' => 'Répondre à cet avis'
-                    ]])
-            ->add('submit', SubmitType::class, ['label' => 'Envoyer']
-
-        );
+                    ]]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

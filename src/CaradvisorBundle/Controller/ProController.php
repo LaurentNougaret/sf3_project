@@ -80,7 +80,8 @@ class ProController extends Controller
     public function reviewsAction(Pro $pro, Request $request)
     {
 
-        $answer = new Answer();
+
+        /*$answer = new Answer();
         $em = $this->getDoctrine()->getManager();
         $form = $this->createForm(AnswerType::class, $answer);
 
@@ -103,10 +104,9 @@ class ProController extends Controller
         return $this->render('@Caradvisor/Pro/reviews.html.twig', [
             'data' => $pro->getReviewRepairs(),
             'beta' => $pro->getReviewBuys(),
-            'gama' => $pro->getAnswers(),
             'pro' =>  $pro,
             'form' => $form->createView(),
-        ]);
+        ]);*/
     }
 
     /**
