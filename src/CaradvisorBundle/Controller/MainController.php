@@ -4,10 +4,8 @@ namespace CaradvisorBundle\Controller;
 
 use CaradvisorBundle\Entity\Contact;
 use CaradvisorBundle\Entity\ReviewRepair;
-use CaradvisorBundle\Entity\User;
 use CaradvisorBundle\Form\ContactType;
 use CaradvisorBundle\Form\ReviewRepairType;
-use CaradvisorBundle\Form\UserType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -28,53 +26,11 @@ class MainController extends Controller
 
     /**
      * @Route("/signup", name="user_signup")
-     * @param Request $request
-     * @return Response
      */
-    public function signUpAction(Request $request)
+    public function signupAction()
     {
-        $user = new User();
-        $form = $this->createForm(UserType::class, $user);
 
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()){
-            $password = $this->get('security.password_encoder')
-                ->encodePassword($user, $user->getPlainPassword());
-            $user->setPassword($password);
-            $user->setGender("Non précisé");
-            $user->setAddress("");
-            $user->setCity("");
-            $user->setPostalCode(0);
-            $user->setPhone(0);
-            $user->setBirthDate(new \DateTime());
-            $user->setMailingList(0);
-            $user->setIsActive(1);
-
-
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($user);
-            $em->flush();
-
-            $email = \Swift_Message::newInstance()
-                ->setSubject("Caradvisor : Confirmation d'inscription")
-                ->setFrom("contact@caradvisor.com")
-                ->setTo($user->getEmail())
-                ->setBody(
-                    $this->renderView(
-                        "@Caradvisor/Default/registration.html.twig"),
-                        'text/html'
-                    );
-
-            $this->get('mailer')->send($email);
-
-
-
-            return $this->redirectToRoute('home');
-        }
-        return $this->render('@Caradvisor/Default/signup.html.twig', [
-            'form' => $form->createView()
-        ]);
+        return $this->render('@Caradvisor/Default/signup.html.twig');
     }
 
 
@@ -84,6 +40,29 @@ class MainController extends Controller
     public function resultAction()
     {
         return $this->render('@Caradvisor/Default/results.html.twig');
+    }
+
+    /**
+     * @Route("/info", name="info")
+     */
+    public function infoAction()
+    {
+        $repository = $this
+            ->getDoctrine()
+            ->getManager()
+            ->getRepository('CaradvisorBundle:ReviewBuy')
+        ;
+
+        $listReviewsBuy = $repository->getReviewBuys('r');
+
+        foreach ($listReviewsBuy as $reviewBuy) {
+            echo $reviewBuy->getId();
+        }
+
+        return $this->render('@Caradvisor/Default/info.html.twig',
+            array(
+                'listReviewsBuy' => $listReviewsBuy
+            ));
     }
 
     /**

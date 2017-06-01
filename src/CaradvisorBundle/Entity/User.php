@@ -3,19 +3,15 @@
 namespace CaradvisorBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-use Symfony\Component\Security\Core\User\UserInterface;
-use Symfony\Component\Validator\Constraints as Assert;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 /**
  * User
  *
  * @ORM\Table(name="user")
- * @UniqueEntity(fields={"email"}, message="L'email est déjà pris")
- * @UniqueEntity(fields={"userName"}, message="Le nom d'utilisateur est déjà pris")
  * @ORM\Entity(repositoryClass="CaradvisorBundle\Repository\UserRepository")
  */
-class User implements UserInterface, \Serializable
+class User
 {
     /**
      * @var int
@@ -48,12 +44,6 @@ class User implements UserInterface, \Serializable
     private $userName;
 
     /**
-     * @Assert\NotBlank()
-     * @Assert\Length(max="4096")
-     */
-    private $plainpassword;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="password", type="string", length=255)
@@ -70,35 +60,35 @@ class User implements UserInterface, \Serializable
     /**
      * @var string
      *
-     * @ORM\Column(name="gender", type="string", length=255, nullable=true)
+     * @ORM\Column(name="gender", type="string", length=255)
      */
     private $gender;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="address", type="string", length=255, nullable=true)
+     * @ORM\Column(name="address", type="string", length=255)
      */
     private $address;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="city", type="string", length=255, nullable=true)
+     * @ORM\Column(name="city", type="string", length=255)
      */
     private $city;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="postalCode", type="integer", nullable=true)
+     * @ORM\Column(name="postalCode", type="integer")
      */
     private $postalCode;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="phone", type="string", length=255, nullable=true)
+     * @ORM\Column(name="phone", type="string", length=255)
      */
     private $phone;
 
@@ -149,6 +139,12 @@ class User implements UserInterface, \Serializable
      * @ORM\OneToMany(targetEntity="CaradvisorBundle\Entity\ReviewBuy", mappedBy="user")
      */
     private $reviewBuys;
+
+    // added $picture in User after deleting it in Pro because of problems in Db
+    /**
+     * @ORM\Column(name="picture", type="blob")
+     */
+    private $picture;
 
     /**
      * Get id
@@ -230,24 +226,6 @@ class User implements UserInterface, \Serializable
     public function getUserName()
     {
         return $this->userName;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPlainpassword()
-    {
-        return $this->plainpassword;
-    }
-
-    /**
-     * @param mixed $plainpassword
-     * @return User
-     */
-    public function setPlainpassword($plainpassword)
-    {
-        $this->plainpassword = $plainpassword;
-        return $this;
     }
 
     /**
@@ -507,7 +485,6 @@ class User implements UserInterface, \Serializable
     {
         return $this->mailingList;
     }
-
     /**
      * Constructor
      */
@@ -527,39 +504,6 @@ class User implements UserInterface, \Serializable
     public function getIsActive()
     {
         return $this->isActive;
-    }
-
-    public function getSalt()
-    {
-        return null;
-    }
-
-    public function getRoles()
-    {
-        return array('ROLE_USER');
-    }
-
-    public function eraseCredentials()
-    {
-
-    }
-
-    public function serialize()
-    {
-        return serialize([
-            $this->id,
-            $this->userName,
-            $this->password,
-        ]);
-    }
-
-    public function unserialize($serialized)
-    {
-        list(
-            $this->id,
-            $this->userName,
-            $this->password,
-        ) = $this->unserialize($serialized);
     }
 
     /**
@@ -696,5 +640,29 @@ class User implements UserInterface, \Serializable
     public function getReviewBuys()
     {
         return $this->reviewBuys;
+    }
+
+    /**
+     * Set picture
+     *
+     * @param string $picture
+     *
+     * @return User
+     */
+    public function setPicture($picture)
+    {
+        $this->picture = $picture;
+
+        return $this;
+    }
+
+    /**
+     * Get picture
+     *
+     * @return string
+     */
+    public function getPicture()
+    {
+        return $this->picture;
     }
 }

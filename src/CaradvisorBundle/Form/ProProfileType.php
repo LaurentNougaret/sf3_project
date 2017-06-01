@@ -22,11 +22,11 @@ class ProProfileType extends AbstractType
                 'attr' => ['placeholder' => 'Nom Prestataire']])
             ->add('dealertype', ChoiceType::class, ['label' => false,
                 'choices' => [
-                'Concessionnaire' => '1',
-                'Garagiste' => '2',
-                'Agent' => '3',
-                'Carosserie' => '4',
-                'Autre' => '5'],
+                'Concessionnaire' => 'Concessionnaire',
+                'Garagiste' => 'Garagiste',
+                'Agent' => 'Agent',
+                'Carrosserie' => 'Carrosserie',
+                'Autre' => 'Autre'],
                 'attr' => ['placeholder' => 'Type Prestataire']])
             ->add('email', EmailType::class, ['label' => false,
                 'attr' => ['placeholder' => 'Email']])
@@ -42,7 +42,7 @@ class ProProfileType extends AbstractType
                 'attr' => ['placeholder' => 'Marque']])
             ->add('description', TextareaType::class, ['label' => false,
                  'attr' => ['rows' => '6', 'placeholder' => 'Ajoutez une description de votre établissement', 'style' => 'resize = none']])
-            ->add('save', SubmitType::class, ['label' => 'Envoyer', 'attr' =>['class' => 'save-pro-btn center-block']]);
+            ->add('save', SubmitType::class, ['label' => 'Modifier', 'attr' =>['class' => 'save-pro-btn center-block']]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
