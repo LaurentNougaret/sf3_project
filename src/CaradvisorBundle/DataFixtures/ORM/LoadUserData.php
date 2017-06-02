@@ -39,7 +39,6 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
             $user->setPostalCode($faker->regexify('[0-9]{1}[0-7]{1}[0-9]{2}0'));
             $user->setPhone($faker->regexify('0[0-9]{1}([0-9]{2}){4}'));
             $user->setBirthDate($faker->dateTime);
-            $user->setUserType($faker->randomElement($array = ['Professionnel', 'Particulier']));
             $user->setMailingList($faker->randomElement($array = ['0', '1']));
             $user->setIsActive($faker->randomElement($array = ['0', '1']));
             if ($i%2 == 0) {

@@ -3,7 +3,9 @@
 namespace CaradvisorBundle\Form;
 
 use CaradvisorBundle\Entity\User;
+use CaradvisorBundle\Form\DataTransformer\StringToArrayTransformer;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\CallbackTransformer;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
@@ -16,12 +18,21 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class UserType extends AbstractType
 {
+   /* private $transformer;
+
+    public function __construct(StringToArrayTransformer $transformer)
+    {
+        $this->transformer = $transformer;
+    }*/
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('userType', ChoiceType::class, [
-                'label' => false,
-                'choices' => ['Particulier' => 'Particulier', 'Professionnel' => 'Professionnel'],
+            ->add('roles', ChoiceType::class, [
+                'label'     => false,
+                'choices'   => ['Particulier' => 'ROLE_PART', 'Professionnel' => 'ROLE_PRO'],
+                'multiple'  => false,
+                'expanded'  => false,
             ])
             ->add('username', TextType::class, [
                 'label' => false,
@@ -50,8 +61,8 @@ class UserType extends AbstractType
                 'attr'  => ['placeholder' => 'Date de naissance']
             ])
             ->add('gender', ChoiceType::class, [
-                'label' => false,
-                'choices' => [
+                'label'     => false,
+                'choices'   => [
                     'Homme'        => 'Homme',
                     'Femme'        => 'Femme',
                     'Autre'        => 'Autre',
@@ -78,6 +89,18 @@ class UserType extends AbstractType
                 'label' => false,
                 'attr'  => ['placeholder' => 'Code Postal']
             ]);
+
+        $builder->get('roles')
+            ->addModelTransformer(new CallbackTransformer(
+                function ($tagsAsArray) {
+                    // transform the array to a string
+                    return implode(', ', $tagsAsArray);
+                },
+                function ($tagsAsString) {
+                    // transform the string back to an array
+                    return explode(', ', $tagsAsString);
+                }
+            ));
     }
     public function configureOptions(OptionsResolver $resolver)
     {

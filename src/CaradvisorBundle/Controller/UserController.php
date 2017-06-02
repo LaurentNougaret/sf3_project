@@ -50,16 +50,16 @@ class UserController extends Controller
      * @param User $id
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function editAction(Request $request, User $id)
+    public function editAction(Request $request, User $user)
     {
-        $editForm = $this->createForm(UserType::class, $id);
+        $editForm = $this->createForm(UserType::class, $user);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('user_profile', array(
-                'user' => $id->getId()
+                'user' => $user,
             ));
         }
         return $this->render('@Caradvisor/User/editUser.html.twig', array(

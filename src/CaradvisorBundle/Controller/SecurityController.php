@@ -54,7 +54,7 @@ class SecurityController extends Controller
             $user->setAddress("");
             $user->setCity("");
             $user->setPostalCode("");
-            $user->setPhone("");
+            $user->setPhone(null);
             $user->setBirthDate(new \DateTime());
             $user->setMailingList("");
             $user->setIsActive(1);
@@ -77,7 +77,7 @@ class SecurityController extends Controller
                 );
 
             $this->get('mailer')->send($email);
-            $this->addFlash("notice-green", "Un email vous a été envoyé");
+            $this->addFlash("notice-green", "Un email vous a été envoyé, vous pouvez maintenant vous connecter.");
 
             return $this->redirectToRoute('home');
         }

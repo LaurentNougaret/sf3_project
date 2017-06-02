@@ -482,4 +482,28 @@ class Pro
     {
         return $this->ratingPro;
     }
+
+    /**
+     * Set picture
+     *
+     * @param string $picture
+     *
+     * @return Pro
+     */
+    public function setPicture($picture)
+    {
+        $this->picture = $picture;
+
+        return $this;
+    }
+
+    /**
+     * Get picture
+     *
+     * @return string
+     */
+    public function getPicture()
+    {
+        return $this->picture;
+    }
 }
