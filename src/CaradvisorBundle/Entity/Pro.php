@@ -127,6 +127,11 @@ class Pro
 
 
     /**
+     * @ORM\Column(name="picture", type="blob")
+     */
+    private $picture;
+
+    /**
      * Get id
      *
      * @return int
@@ -553,5 +558,29 @@ class Pro
     public function removeAnswer(\CaradvisorBundle\Entity\Answer $answer)
     {
         $this->answers->removeElement($answer);
+    }
+
+    /**
+     * Set picture
+     *
+     * @param string $picture
+     *
+     * @return Pro
+     */
+    public function setPicture($picture)
+    {
+        $this->picture = $picture;
+
+        return $this;
+    }
+
+    /**
+     * Get picture
+     *
+     * @return string
+     */
+    public function getPicture()
+    {
+        return $this->picture;
     }
 }

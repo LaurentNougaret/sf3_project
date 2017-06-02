@@ -12,8 +12,50 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav navbar-right">
-                <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
-                <li class="hidden">
+                {% if is_granted('ROLE_PRO') %}
+                    <li>
+                        <a>Bonjour {{ app.user.userName }}</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('home') }}">Accueil</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('user', {'user': app.user.id}) }}">Mon Compte</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('logout') }}">Deconnexion</a>
+                    </li>
+                {% elseif is_granted('ROLE_PART') %}
+                    <li>
+                        <a>Bonjour {{ app.user.userName }}</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('home') }}">Accueil</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('home') }}#review">Déposez un avis</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('user', {'user': app.user.id})}}">Mon Compte</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('logout') }}">Deconnexion</a>
+                    </li>
+                {% else %}
+                    <li>
+                        <a href="{{ path('home') }}">Accueil</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('home') }}#reviews">Déposez un avis</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('user_signup') }}">Inscription</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('login') }}">Connexion</a>
+                    </li>
+                {% endif %}
+                {#<li class="hidden">
                     <a class="page-scroll" href="#page-top"></a>
                 </li>
                 <!-- If in index, use the scroll, if not use the link -->
@@ -35,7 +77,7 @@
                 and app.request.get('_route') != "user_signup" and app.request.get('_route') != "user_car" and app.request.get('_route') != "user_profile" and app.request.get('_route') != "user_reviews" and app.request.get('_route') != "user_settings"
                 and app.request.get('_route') != "user_password" %}
                     <li>
-                        <a data-toggle="modal" data-target="#login-modal" href="{{ path ('home') }}#login-modal">Connexion</a>
+                        <a data-toggle="modal" #}{#data-target="#login-modal"#}{# href="{{ path ('login') }}">Connexion</a>
                     </li>
                 {% endif %}
                 {% if app.request.get('_route') != "pro_profile" and app.request.get('_route') != "pro_review" and app.request.get('_route') != "pro_settings" and app.request.get('_route') != "pro_password"
@@ -49,7 +91,7 @@
                     <li>
                         <a class="page-scroll js-scrollTo" href="{{ path ('user') }}">Bienvenue {{ user.firstname }}</a>
                     </li>
-                {% endif %}
+                {% endif %}#}
             </ul>
         </div>
     </nav>

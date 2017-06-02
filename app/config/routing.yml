@@ -2,3 +2,12 @@ caradvisor:
     resource: "@CaradvisorBundle/Controller/"
     type:     annotation
     prefix:   /
+
+default_security_target:
+    path: /
+
+login_check:
+   path: /login_check
+
+logout:
+    path: /logout

@@ -4,14 +4,19 @@ namespace CaradvisorBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * User
  *
  * @ORM\Table(name="user")
+ * @UniqueEntity(fields={"email"}, message="L'email est déjà pris")
+ * @UniqueEntity(fields={"userName"}, message="Le nom d'utilisateur est déjà pris")
  * @ORM\Entity(repositoryClass="CaradvisorBundle\Repository\UserRepository")
  */
-class User
+class User implements UserInterface, \Serializable
 {
     /**
      * @var int
@@ -44,6 +49,12 @@ class User
     private $userName;
 
     /**
+     * @Assert\NotBlank()
+     * @Assert\Length(max="4096")
+     */
+    private $plainpassword;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="password", type="string", length=255)
@@ -67,44 +78,44 @@ class User
     /**
      * @var string
      *
-     * @ORM\Column(name="address", type="string", length=255)
+     * @ORM\Column(name="address", type="string", length=255, nullable=true)
      */
     private $address;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="city", type="string", length=255)
+     * @ORM\Column(name="city", type="string", length=255, nullable=true)
      */
     private $city;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="postalCode", type="integer")
+     * @ORM\Column(name="postalCode", type="integer", nullable=true)
      */
     private $postalCode;
 
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="phone", type="string", length=255)
+     * @ORM\Column(name="phone", type="integer", nullable=true)
      */
     private $phone;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="birthDate", type="date")
+     * @ORM\Column(name="birthDate", type="date", nullable=true)
      */
     private $birthDate;
 
+
     /**
-     * @var string
-     *
-     * @ORM\Column(name="userType", type="string", length=255)
+     * @var array
+     * @ORM\Column(name="roles", type="array")
      */
-    private $userType;
+    private $roles = array();
 
     /**
      * @var bool
@@ -116,7 +127,7 @@ class User
     /**
      * @var bool
      *
-     * @ORM\Column(name="mailingList", type="boolean")
+     * @ORM\Column(name="mailingList", type="boolean", nullable=true)
      */
     private $mailingList;
 
@@ -142,7 +153,7 @@ class User
 
     // added $picture in User after deleting it in Pro because of problems in Db
     /**
-     * @ORM\Column(name="picture", type="blob")
+     * @ORM\Column(name="picture", type="blob", nullable=true)
      */
     private $picture;
 
@@ -226,6 +237,24 @@ class User
     public function getUserName()
     {
         return $this->userName;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPlainpassword()
+    {
+        return $this->plainpassword;
+    }
+
+    /**
+     * @param mixed $plainpassword
+     * @return User
+     */
+    public function setPlainpassword($plainpassword)
+    {
+        $this->plainpassword = $plainpassword;
+        return $this;
     }
 
     /**
@@ -421,30 +450,6 @@ class User
     }
 
     /**
-     * Set userType
-     *
-     * @param string $userType
-     *
-     * @return User
-     */
-    public function setUserType($userType)
-    {
-        $this->userType = $userType;
-
-        return $this;
-    }
-
-    /**
-     * Get userType
-     *
-     * @return string
-     */
-    public function getUserType()
-    {
-        return $this->userType;
-    }
-
-    /**
      * @return bool
      */
     public function isActive()
@@ -485,6 +490,31 @@ class User
     {
         return $this->mailingList;
     }
+
+    /**
+     * Set picture
+     *
+     * @param string $picture
+     *
+     * @return User
+     */
+    public function setPicture($picture)
+    {
+        $this->picture = $picture;
+
+        return $this;
+    }
+
+    /**
+     * Get picture
+     *
+     * @return string
+     */
+    public function getPicture()
+    {
+        return $this->picture;
+    }
+
     /**
      * Constructor
      */
@@ -504,6 +534,34 @@ class User
     public function getIsActive()
     {
         return $this->isActive;
+    }
+
+    public function getSalt()
+    {
+        return null;
+    }
+
+    public function eraseCredentials()
+    {
+
+    }
+
+    public function serialize()
+    {
+        return serialize([
+            $this->id,
+            $this->userName,
+            $this->password,
+        ]);
+    }
+
+    public function unserialize($serialized)
+    {
+        list(
+            $this->id,
+            $this->userName,
+            $this->password,
+        ) = unserialize($serialized);
     }
 
     /**
@@ -643,26 +701,26 @@ class User
     }
 
     /**
-     * Set picture
+     * Get roles
      *
-     * @param string $picture
-     *
-     * @return User
+     * @return array
      */
-    public function setPicture($picture)
+    public function getRoles()
     {
-        $this->picture = $picture;
-
-        return $this;
+        return $this->roles;
     }
 
     /**
-     * Get picture
+     * Set roles
      *
-     * @return string
+     * @param array $roles
+     *
+     * @return User
      */
-    public function getPicture()
+    public function setRoles($roles)
     {
-        return $this->picture;
+        $this->roles = $roles;
+
+        return $this;
     }
 }

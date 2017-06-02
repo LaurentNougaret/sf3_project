@@ -22,10 +22,6 @@
                                         <table class="table table-responsive" id="proProfile">
                                             <tbody>
                                             <tr>
-                                                <td>Type d'utilisateur:</td>
-                                                <td>{{ form_row(edit_form.userType) }}</td>
-                                            </tr>
-                                            <tr>
                                                 <td>Prénom:</td>
                                                 <td>{{ form_row(edit_form.firstname) }}</td>
                                             </tr>
@@ -74,11 +70,13 @@
                     </div>
                     <div class="row">
                         <div class="col-xs-12">
-                            <button type="submit" class="btn-lg btn-block save-pro-btn">Modifier</button>
+                            <a href="{{ path('user_profile', {'user': app.user.id}) }}">
+                                <button class="btn-lg btn-block save-pro-btn">Modifier</button>
+                            </a>
                         </div>
                     </div>
                     {{ form_row(edit_form._token) }}
-                    {{ form_end(edit_form)}}
+                    {{ form_end(edit_form, {'render_rest': false})}}
                 </div>
             </div>
         </div>
