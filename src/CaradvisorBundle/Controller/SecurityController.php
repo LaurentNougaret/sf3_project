@@ -51,7 +51,6 @@ class SecurityController extends Controller
             $password = $this->get('security.password_encoder')
                 ->encodePassword($user, $user->getPlainPassword());
             $user->setPassword($password);
-            $user->setGender("Non précisé");
             $user->setAddress("");
             $user->setCity("");
             $user->setPostalCode("");
@@ -78,6 +77,7 @@ class SecurityController extends Controller
                 );
 
             $this->get('mailer')->send($email);
+            $this->addFlash("notice-green", "Un email vous a été envoyé");
 
             return $this->redirectToRoute('home');
         }

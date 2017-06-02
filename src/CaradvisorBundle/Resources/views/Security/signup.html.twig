@@ -1,6 +1,8 @@
 {% extends ('@Caradvisor/index.html.twig') %}
 {% block body %}
 
+    {% include ('@Caradvisor/Elements/flashbag.html.twig') %}
+
     <section id="signup">
         <div class="container">
             <div class="row">
@@ -10,10 +12,10 @@
                     {{ form_start(form) }}
                     {{ form_errors(form) }}
                     <div class="col-xs-12 col-sm-6">
-                        {{ form_label(form.userType) }}
+                        {{ form_row(form.userType) }}
                     </div>
                     <div class="col-xs-12 col-sm-6">
-                        {{ form_widget(form.userType) }}
+                        {{ form_row(form.gender) }}
                     </div>
                     <div class="col-xs-12 col-sm-6">
                         {{ form_row(form.lastname) }}

@@ -29,6 +29,7 @@ class UserType extends AbstractType
             ])
             ->add('gender', ChoiceType::class, [
                 'label' => 'Genre',
+                'placeholder' => 'Choisissez',
                 'choices' => [
                     'Homme'        => 1,
                     'Femme'        => 2,
@@ -76,6 +77,7 @@ class UserType extends AbstractType
             ])
             ->add('userType', ChoiceType::class, [
                 'label' => 'Vous êtes un ',
+                'placeholder' => 'Choisissez',
                 'choices' => ['Particulier' => 1, 'Professionnel' => 2],
             ]);
 

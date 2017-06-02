@@ -1,0 +1,35 @@
+.mail h1, .mail p {
+    color: rgba(45, 49, 66, 0.9);
+}
+
+.mail .bloc {
+    background-color: rgba(45, 49, 66, 0.1);
+}
+
+.mail .head {
+    background-color: rgba(45, 49, 66, 0.9) !important;
+    height: 60px;
+}
+
+.mail .head strong {
+    font-size: 41px;
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 100px;
+}
+
+.mail strong {
+    color: #bfc0c0;
+}
+
+.mail span {
+    color: #ff4756;
+}
+
+.mail h1 {
+    margin: 100px 0 50px 0;
+    font-size: 30px;
+}
+
+.mail .team {
+    font-weight: 700;
+}

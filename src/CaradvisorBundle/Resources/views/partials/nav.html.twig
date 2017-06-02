@@ -12,17 +12,15 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav navbar-right">
-                <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
-                <li>
-                    <a href="{{ path('home') }}">Accueil</a>
-                </li>
-
                 {% if is_granted('ROLE_PRO') %}
                     <li>
                         <a>Bonjour {{ app.user.userName }}</a>
                     </li>
                     <li>
-                        <a href="{{ path('user')}}">Mon profil</a>
+                        <a href="{{ path('home') }}">Accueil</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('user')}}">Mon Compte</a>
                     </li>
                     <li>
                         <a href="{{ path('logout') }}">Deconnexion</a>
@@ -32,29 +30,30 @@
                         <a>Bonjour {{ app.user.userName }}</a>
                     </li>
                     <li>
+                        <a href="{{ path('home') }}">Accueil</a>
+                    </li>
+                    <li>
                         <a href="{{ path('home') }}#reviews">Déposez un avis</a>
                     </li>
                     <li>
-                        <a href="{{ path('user')}}">Mon profil</a>
+                        <a href="{{ path('user')}}">Mon Compte</a>
                     </li>
                     <li>
                         <a href="{{ path('logout') }}">Deconnexion</a>
                     </li>
                 {% else %}
                     <li>
+                        <a href="{{ path('home') }}">Accueil</a>
+                    </li>
+                    <li>
                         <a href="{{ path('home') }}#reviews">Déposez un avis</a>
                     </li>
-                        <li>
-                            <a href="{{ path('user_signup') }}">Inscription</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('login') }}">Connexion</a>
-                        </li>
-                        {#
-                        <li>
-                            <a href="{{ path('user_signup') }}">Accès professionnel</a>
-                        </li>
-                        #}
+                    <li>
+                        <a href="{{ path('user_signup') }}">Inscription</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('login') }}">Connexion</a>
+                    </li>
                 {% endif %}
                 {#<li class="hidden">
                     <a class="page-scroll" href="#page-top"></a>

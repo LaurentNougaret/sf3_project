@@ -40,8 +40,6 @@ security:
             #form_login: ~
 
     role_hierarchy:
-        ROLE_PART: [IS_AUTHENTICATED_ANONYMOUSLY]
-        ROLE_PRO: [ROLE_PART]
         ROLE_ADMIN: [ROLE_PART, ROLE_PRO]
 
     access_control:
