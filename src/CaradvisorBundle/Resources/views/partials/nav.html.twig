@@ -20,7 +20,7 @@
                         <a href="{{ path('home') }}">Accueil</a>
                     </li>
                     <li>
-                        <a href="{{ path('user')}}">Mon Compte</a>
+                        <a href="{{ path('user', {'user': app.user.id}) }}">Mon Compte</a>
                     </li>
                     <li>
                         <a href="{{ path('logout') }}">Deconnexion</a>
@@ -36,7 +36,7 @@
                         <a href="{{ path('home') }}#reviews">Déposez un avis</a>
                     </li>
                     <li>
-                        <a href="{{ path('user')}}">Mon Compte</a>
+                        <a href="{{ path('user', {'user': app.user.id})}}">Mon Compte</a>
                     </li>
                     <li>
                         <a href="{{ path('logout') }}">Deconnexion</a>

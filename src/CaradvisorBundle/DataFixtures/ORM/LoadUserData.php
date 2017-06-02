@@ -42,7 +42,11 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
             $user->setUserType($faker->randomElement($array = ['Professionnel', 'Particulier']));
             $user->setMailingList($faker->randomElement($array = ['0', '1']));
             $user->setIsActive($faker->randomElement($array = ['0', '1']));
-            $user->setRoles($faker->randomElement($array = ['ROLE_PART', 'ROLE_PRO']));
+            if ($i%2 == 0) {
+                $user->setRoles(['ROLE_PART']);
+            } else {
+                $user->setRoles(['ROLE_PRO']);
+            }
 
             $manager->persist($user);
 

@@ -158,7 +158,7 @@ class User implements UserInterface, \Serializable
 
     // added $picture in User after deleting it in Pro because of problems in Db
     /**
-     * @ORM\Column(name="picture", type="blob")
+     * @ORM\Column(name="picture", type="blob", nullable=true)
      */
     private $picture;
 
@@ -736,7 +736,7 @@ class User implements UserInterface, \Serializable
      */
     public function getRoles()
     {
-        return array('ROLE_PART', 'ROLE_PRO');
+        return $this->roles;
     }
 
     /**
