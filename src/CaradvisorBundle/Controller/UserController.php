@@ -5,8 +5,6 @@ namespace CaradvisorBundle\Controller;
 use CaradvisorBundle\Entity\Pro;
 use CaradvisorBundle\Entity\User;
 use CaradvisorBundle\Entity\Vehicle;
-use CaradvisorBundle\Form\ChangePasswordType;
-use CaradvisorBundle\Form\Model\ChangePassword;
 use CaradvisorBundle\Form\ProProfileType;
 use CaradvisorBundle\Form\UserSignupType;
 use CaradvisorBundle\Form\UserType;
@@ -15,6 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+
 
 class UserController extends Controller
 {
@@ -52,16 +51,16 @@ class UserController extends Controller
      * @param User $id
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function editAction(Request $request, User $id)
+    public function editAction(Request $request, User $user)
     {
-        $editForm = $this->createForm(UserType::class, $id);
+        $editForm = $this->createForm(UserType::class, $user);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('user_profile', array(
-                'user' => $id->getId()
+                'user' => $user,
             ));
         }
         return $this->render('@Caradvisor/User/editUser.html.twig', array(
@@ -77,7 +76,6 @@ class UserController extends Controller
      */
     public function settingsAction(User $user)
     {
-
         return $this->render('@Caradvisor/User/settings.html.twig',[
             'user' => $user
         ]);

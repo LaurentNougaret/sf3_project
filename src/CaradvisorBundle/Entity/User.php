@@ -50,6 +50,7 @@ class User implements UserInterface, Serializable
     private $userName;
 
     /**
+     * @Assert\NotBlank()
      * @Assert\Length(max="4096")
      */
     private $plainpassword;
@@ -85,44 +86,44 @@ class User implements UserInterface, Serializable
     /**
      * @var string
      *
-     * @ORM\Column(name="address", type="string", length=255)
+     * @ORM\Column(name="address", type="string", length=255, nullable=true)
      */
     private $address;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="city", type="string", length=255)
+     * @ORM\Column(name="city", type="string", length=255, nullable=true)
      */
     private $city;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="postalCode", type="integer")
+     * @ORM\Column(name="postalCode", type="integer", nullable=true)
      */
     private $postalCode;
 
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="phone", type="string", length=255)
+     * @ORM\Column(name="phone", type="integer", nullable=true)
      */
     private $phone;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="birthDate", type="date")
+     * @ORM\Column(name="birthDate", type="date", nullable=true)
      */
     private $birthDate;
 
+
     /**
-     * @var string
-     *
-     * @ORM\Column(name="userType", type="string", length=255)
+     * @var array
+     * @ORM\Column(name="roles", type="array")
      */
-    private $userType;
+    private $roles = array();
 
     /**
      * @var bool
@@ -134,7 +135,7 @@ class User implements UserInterface, Serializable
     /**
      * @var bool
      *
-     * @ORM\Column(name="mailingList", type="boolean")
+     * @ORM\Column(name="mailingList", type="boolean", nullable=true)
      */
     private $mailingList;
 
@@ -477,30 +478,6 @@ class User implements UserInterface, Serializable
     }
 
     /**
-     * Set userType
-     *
-     * @param string $userType
-     *
-     * @return User
-     */
-    public function setUserType($userType)
-    {
-        $this->userType = $userType;
-
-        return $this;
-    }
-
-    /**
-     * Get userType
-     *
-     * @return string
-     */
-    public function getUserType()
-    {
-        return $this->userType;
-    }
-
-    /**
      * Get isActive
      *
      * @return boolean
@@ -542,6 +519,30 @@ class User implements UserInterface, Serializable
     public function getMailingList()
     {
         return $this->mailingList;
+    }
+
+    /**
+     * Set picture
+     *
+     * @param string $picture
+     *
+     * @return User
+     */
+    public function setPicture($picture)
+    {
+        $this->picture = $picture;
+
+        return $this;
+    }
+
+    /**
+     * Get picture
+     *
+     * @return string
+     */
+    public function getPicture()
+    {
+        return $this->picture;
     }
 
     /**
@@ -734,94 +735,4 @@ class User implements UserInterface, Serializable
         return $this->reviewBuys;
     }
 
-    /**
-     * Set picture
-     *
-     * @param string $picture
-     *
-     * @return User
-     */
-    public function setPicture($picture)
-    {
-        $this->picture = $picture;
-
-        return $this;
-    }
-
-    /**
-     * Get picture
-     *
-     * @return string
-     */
-    public function getPicture()
-    {
-        return $this->picture;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPasswordChangeToken()
-    {
-        return $this->passwordChangeToken;
-    }
-
-    /**
-     * @param string $passwordChangeToken
-     * @return User
-     */
-    public function setPasswordChangeToken($passwordChangeToken)
-    {
-        $this->passwordChangeToken = $passwordChangeToken;
-        return $this;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getPasswordChangeLimitDate()
-    {
-        return $this->passwordChangeLimitDate;
-    }
-
-    /**
-     * @param \DateTime $passwordChangeLimitDate
-     * @return User
-     */
-    public function setPasswordChangeLimitDate($passwordChangeLimitDate)
-    {
-        $this->passwordChangeLimitDate = $passwordChangeLimitDate;
-        return $this;
-    }
-
-    public function generateToken()
-    {
-        $today = new \DateTime("now");
-        $string = $this->getUsername() . $this->getEmail() . $today->getTimestamp();
-        return sha1($string);
-    }
-
-    /**
-     * Set passwordCompare
-     *
-     * @param string $passwordCompare
-     *
-     * @return User
-     */
-    public function setPasswordCompare($passwordCompare)
-    {
-        $this->passwordCompare = $passwordCompare;
-
-        return $this;
-    }
-
-    /**
-     * Get passwordCompare
-     *
-     * @return string
-     */
-    public function getPasswordCompare()
-    {
-        return $this->passwordCompare;
-    }
 }

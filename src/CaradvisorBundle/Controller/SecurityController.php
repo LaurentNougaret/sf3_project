@@ -30,7 +30,7 @@ class SecurityController extends Controller
         //last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
 
-        return $this->render('@Caradvisor/Default/login.html.twig', [
+        return $this->render('@Caradvisor/Security/login.html.twig', [
             'last_username' => $lastUsername,
             'error'         => $error,
         ]);
@@ -52,11 +52,10 @@ class SecurityController extends Controller
             $password = $this->get('security.password_encoder')
                 ->encodePassword($user, $user->getPlainPassword());
             $user->setPassword($password);
-            $user->setGender("Non précisé");
             $user->setAddress("");
             $user->setCity("");
-            $user->setPostalCode("00000");
-            $user->setPhone("");
+            $user->setPostalCode("");
+            $user->setPhone(null);
             $user->setBirthDate(new \DateTime());
             $user->setMailingList(0);
             $user->setIsActive(1);
@@ -79,10 +78,11 @@ class SecurityController extends Controller
                 );
 
             $this->get('mailer')->send($email);
+            $this->addFlash("notice-green", "Un email vous a été envoyé, vous pouvez maintenant vous connecter.");
 
             return $this->redirectToRoute('home');
         }
-        return $this->render('@Caradvisor/Default/signup.html.twig', [
+        return $this->render('@Caradvisor/Security/signup.html.twig', [
             'form'      => $form->createView(),
         ]);
     }
