@@ -114,6 +114,11 @@ class Pro
     private $ratingPro;
 
     /**
+     * @ORM\Column(name="picture", type="blob", nullable=true)
+     */
+    private $picture;
+
+    /**
      * Get id
      *
      * @return int
@@ -476,5 +481,29 @@ class Pro
     public function getRatingPro()
     {
         return $this->ratingPro;
+    }
+
+    /**
+     * Set picture
+     *
+     * @param string $picture
+     *
+     * @return Pro
+     */
+    public function setPicture($picture)
+    {
+        $this->picture = $picture;
+
+        return $this;
+    }
+
+    /**
+     * Get picture
+     *
+     * @return string
+     */
+    public function getPicture()
+    {
+        return $this->picture;
     }
 }

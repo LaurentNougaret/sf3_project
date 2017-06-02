@@ -3,9 +3,7 @@
 namespace CaradvisorBundle\Controller;
 
 use CaradvisorBundle\Entity\Contact;
-use CaradvisorBundle\Entity\ReviewRepair;
 use CaradvisorBundle\Form\ContactType;
-use CaradvisorBundle\Form\ReviewRepairType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -23,16 +21,6 @@ class MainController extends Controller
             'reviews' => $reviews,
         ]);
     }
-
-    /**
-     * @Route("/signup", name="user_signup")
-     */
-    public function signupAction()
-    {
-
-        return $this->render('@Caradvisor/Default/signup.html.twig');
-    }
-
 
     /**
      * @Route("/results", name="results")
@@ -79,30 +67,6 @@ class MainController extends Controller
     public function reviewUsedAction()
     {
         return $this->render('@Caradvisor/Reviews/used.html.twig');
-    }
-
-    /**
-     * @param Request $request
-     * @return Response
-     * @Route("/review/repair", name="review_repair")
-     */
-    public function addReviewRepairAction(Request $request)
-    {
-        $reviewRepair = new ReviewRepair();
-        $em = $this->getDoctrine()->getManager();
-        $form = $this->createForm(ReviewRepairType::class, $reviewRepair);
-
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted()){
-            $em->persist($reviewRepair);
-            $em->flush();
-
-            return $this->redirectToRoute('home');
-        }
-        return $this->render('@Caradvisor/Reviews/repair.html.twig', [
-            'form'  => $form->createView(),
-        ]);
     }
 
     /**

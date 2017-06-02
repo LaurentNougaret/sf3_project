@@ -97,7 +97,7 @@ class UserController extends Controller
     /**
      * @Route("/user/vehicles/{user}", name="user_vehicle")
      * @param User $user
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      */
@@ -145,7 +145,7 @@ class UserController extends Controller
     /**
      * @Route("/user/reviews/{user}", name="user_reviews")
      * @param User $user
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
     public function reviewsAction(User $user)
     {

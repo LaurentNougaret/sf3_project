@@ -4,14 +4,19 @@ namespace CaradvisorBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * User
  *
  * @ORM\Table(name="user")
+ * @UniqueEntity(fields={"email"}, message="L'email est déjà pris")
+ * @UniqueEntity(fields={"userName"}, message="Le nom d'utilisateur est déjà pris")
  * @ORM\Entity(repositoryClass="CaradvisorBundle\Repository\UserRepository")
  */
-class User
+class User implements UserInterface, \Serializable
 {
     /**
      * @var int
@@ -42,6 +47,12 @@ class User
      * @ORM\Column(name="userName", type="string", length=255, unique=true)
      */
     private $userName;
+
+    /**
+     * @Assert\NotBlank()
+     * @Assert\Length(max="4096")
+     */
+    private $plainpassword;
 
     /**
      * @var string
@@ -107,6 +118,11 @@ class User
     private $userType;
 
     /**
+     * @ORM\Column(name="roles", type="array")
+     */
+    private $roles = array();
+
+    /**
      * @var bool
      *
      * @ORM\Column(name="isActive", type="boolean")
@@ -142,7 +158,7 @@ class User
 
     // added $picture in User after deleting it in Pro because of problems in Db
     /**
-     * @ORM\Column(name="picture", type="blob")
+     * @ORM\Column(name="picture", type="blob", nullable=true)
      */
     private $picture;
 
@@ -226,6 +242,24 @@ class User
     public function getUserName()
     {
         return $this->userName;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPlainpassword()
+    {
+        return $this->plainpassword;
+    }
+
+    /**
+     * @param mixed $plainpassword
+     * @return User
+     */
+    public function setPlainpassword($plainpassword)
+    {
+        $this->plainpassword = $plainpassword;
+        return $this;
     }
 
     /**
@@ -485,6 +519,7 @@ class User
     {
         return $this->mailingList;
     }
+
     /**
      * Constructor
      */
@@ -504,6 +539,34 @@ class User
     public function getIsActive()
     {
         return $this->isActive;
+    }
+
+    public function getSalt()
+    {
+        return null;
+    }
+
+    public function eraseCredentials()
+    {
+
+    }
+
+    public function serialize()
+    {
+        return serialize([
+            $this->id,
+            $this->userName,
+            $this->password,
+        ]);
+    }
+
+    public function unserialize($serialized)
+    {
+        list(
+            $this->id,
+            $this->userName,
+            $this->password,
+        ) = unserialize($serialized);
     }
 
     /**
@@ -640,6 +703,30 @@ class User
     public function getReviewBuys()
     {
         return $this->reviewBuys;
+    }
+
+    /**
+     * Get roles
+     *
+     * @return array
+     */
+    public function getRoles()
+    {
+        return array('ROLE_PART', 'ROLE_PRO');
+    }
+
+    /**
+     * Set roles
+     *
+     * @param array $roles
+     *
+     * @return User
+     */
+    public function setRoles($roles)
+    {
+        $this->roles = $roles;
+
+        return $this;
     }
 
     /**
