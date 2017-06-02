@@ -36,7 +36,6 @@ class SecurityController extends Controller
         ]);
     }
 
-
     /**
      * @Route("/signup", name="user_signup")
      * @param Request $request
@@ -72,7 +71,7 @@ class SecurityController extends Controller
                 ->setTo($user->getEmail())
                 ->setBody(
                     $this->renderView(
-                        "@Caradvisor/Default/registration.html.twig", [
+                        "@Caradvisor/Mail/registration.html.twig", [
                             'userName' => $user->getUserName(),
                             'url' => $this->generateUrl("home", [], UrlGeneratorInterface::ABSOLUTE_URL)
                     ]),
@@ -99,7 +98,7 @@ class SecurityController extends Controller
         $form = $this->createForm(ForgottenPasswordType::class, $user);
         $form->handleRequest($request);
         $message = "";
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted()) {
             /** @var User $newUser */
             $newUser= $em->getRepository("CaradvisorBundle:User")->findOneBy(["userName" => $user->getUserName()]);
             if ($newUser === null) {
@@ -113,7 +112,7 @@ class SecurityController extends Controller
                 $em->flush();
                 $email = \Swift_Message::newInstance()
                     ->setSubject('Caradvisor: réinitialisation du mot de passe')
-                    ->setFrom('admin@caradvisor.com')
+                    ->setFrom('apitchen@gmail.com')
                     ->setTo($newUser->getEmail())
                     ->setBody(
                         $this->renderView("@Caradvisor/Mail/forgottenPassword.html.twig", [
@@ -141,10 +140,11 @@ class SecurityController extends Controller
      * @Route("/reset/{token}", name="reset")
      * @return Response
      */
-    public function resetPasswordAction (Request $request, $token) {
+    public function resetPasswordAction (Request $request, $token)
+    {
         $message = "";
         $em = $this->getDoctrine()->getManager();
-        $user = $em->getRepository("CaradvisorBundle:User")->findOneBy(["passwordChangeToken =>< $token]"]);
+        $user = $em->getRepository("CaradvisorBundle:User")->findOneBy(["passwordChangeToken" => $token]);
         $today = new \DateTime("now");
         if ($user !== null && $user->getPasswordChangeLimitDate() > $today) {
             $user->setPassword("");
@@ -152,14 +152,15 @@ class SecurityController extends Controller
             $form->handleRequest($request);
             if ($form->isValid() && $form->isSubmitted()) {
                 $password = $user->getPassword();
-                $verificationPassword = $request->request->get("caradvisor_bundle_user_type")["passwordCompare"];
+                $verificationPassword = $request->request->get("caradvisor_bundle_user_signup_type")["passwordCompare"];
                 if ($password === $verificationPassword) {
                     $encoder = $this->get('security.password_encoder');
                     $encoded = $encoder->encodePassword($user, $user->getPassword());
                     $user->setPassword($encoded);
                     $user->setPasswordChangeLimitDate(null);
+                    $user->setPasswordChangeToken(null);
                     $em->flush();
-                    $this->addFlash("notice", "Votre mot de passe a bien été changé.");
+                    $this->addFlash("notice", "Votre mot de passe a bien été modifié.");
                     return $this->redirectToRoute('home');
                 } else {
                     $message = "Les mots de passe ne correspondent pas.";

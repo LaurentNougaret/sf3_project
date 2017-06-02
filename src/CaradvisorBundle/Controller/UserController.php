@@ -75,6 +75,7 @@ class UserController extends Controller
      */
     public function settingsAction(User $user)
     {
+
         return $this->render('@Caradvisor/User/settings.html.twig',[
             'user' => $user
         ]);
@@ -87,11 +88,11 @@ class UserController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function passwordAction()
+    public function passwordAction(User $id, Request $request)
     {
 
         return $this->render('@Caradvisor/User/password.html.twig', [
-            'user' => $form->createView(),
+            'form' => $form->createView(),
         ]);
     }
 

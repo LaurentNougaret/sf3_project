@@ -3,6 +3,7 @@
 namespace CaradvisorBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Serializable;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -15,7 +16,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @UniqueEntity(fields={"userName"}, message="Le nom d'utilisateur est déjà pris")
  * @ORM\Entity(repositoryClass="CaradvisorBundle\Repository\UserRepository")
  */
-class User implements UserInterface, \Serializable
+class User implements UserInterface, Serializable
 {
     /**
      * @var int
@@ -48,7 +49,7 @@ class User implements UserInterface, \Serializable
     private $userName;
 
     /**
-     * @Assert\NotBlank()
+     * @Assert\NotNull()
      * @Assert\Length(max="4096")
      */
     private $plainpassword;
@@ -755,5 +756,12 @@ class User implements UserInterface, \Serializable
     {
         $this->passwordChangeLimitDate = $passwordChangeLimitDate;
         return $this;
+    }
+
+    public function generateToken()
+    {
+        $today = new \DateTime("now");
+        $string = $this->getUsername() . $this->getEmail() . $today->getTimestamp();
+        return sha1($string);
     }
 }

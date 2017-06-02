@@ -1,17 +1,16 @@
 <?php
-
 namespace CaradvisorBundle\Form;
-
+use CaradvisorBundle\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-
 class UserType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -25,7 +24,7 @@ class UserType extends AbstractType
                 'label' => false,
                 'attr'  => ['placeholder' => 'Nom d\'utilisateur']
             ])
-            ->add('plainpassword',RepeatedType::class, [
+            ->add('plainpassword', RepeatedType::class, [
                 'type' => PasswordType::class,
                 'first_options' => [
                     'label' => false,
@@ -35,7 +34,6 @@ class UserType extends AbstractType
                     'attr' => ['placeholder' => 'Confirmez le mot de passe']],
                 'invalid_message' => 'Les mots de passe doivent être identiques',
             ])
-
             ->add('firstname', TextType::class, [
                 'label' => false,
                 'attr'  => ['placeholder' => 'Prénom'],
@@ -51,17 +49,17 @@ class UserType extends AbstractType
             ->add('gender', ChoiceType::class, [
                 'label' => false,
                 'choices' => [
-                    'Homme'        => '1',
-                    'Femme'        => '2',
-                    'Autre'        => '3',
-                    'Non Précisé'  => '4',
+                    'Homme'        => 'Homme',
+                    'Femme'        => 'Femme',
+                    'Autre'        => 'Autre',
+                    'Non Précisé'  => 'Non Précisé',
                 ]
             ])
             ->add('email', EmailType::class, [
                 'label' => false,
                 'attr'  => ['placeholder' => 'Email'],
             ])
-            ->add('phone', TextType::class, [
+            ->add('phone', IntegerType::class, [
                 'label' => false,
                 'attr'  => ['placeholder' => 'Numéro de téléphone']
             ])
@@ -84,7 +82,6 @@ class UserType extends AbstractType
             'data_class' => 'CaradvisorBundle\Entity\User',
         ));
     }
-
     public function getBlockPrefix()
     {
         return 'caradvisor_bundle_user_edit';
