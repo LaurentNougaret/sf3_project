@@ -45,21 +45,21 @@ class UserController extends Controller
 
     // User's profile page: Edit profile
     /**
-     * @Route("/user/profile/edit/{id}", name="user_edit")
+     * @Route("/user/profile/edit/{user}", name="user_edit")
      * @param Request $request
-     * @param User $id
+     * @param User $user
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function editAction(Request $request, User $id)
+    public function editAction(Request $request, User $user)
     {
-        $editForm = $this->createForm(UserType::class, $id);
+        $editForm = $this->createForm(UserType::class, $user);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('user_profile', array(
-                'user' => $id->getId()
+                'user' => $user->getId()
             ));
         }
         return $this->render('@Caradvisor/User/editUser.html.twig', array(
