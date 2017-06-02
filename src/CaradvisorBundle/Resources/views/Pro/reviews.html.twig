@@ -8,12 +8,11 @@
                 </div>
                 <div class="col-xs-12">
                     <h2 class="text-center">Les Avis</h2>
-                    <!-- Back to main page -->
                     <div class="row">
                         <div class="col-lg-5 col-sm-offset-2">
-                            <a href="{{ path('pro', {'pro': pro.id})}}">
+                            <a href="{{ path('user_establishments', {'pro': pro.id, 'user': user.id}) }}">
                                 <p><i class="fa fa-angle-double-left" aria-hidden="true"> </i>
-                                    Revenir à Mon Compte</p><br>
+                                    Revenir à mes établissements</p><br>
                             </a>
                         </div>
                     </div>

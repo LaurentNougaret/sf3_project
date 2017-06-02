@@ -2,6 +2,7 @@
 
 namespace CaradvisorBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -71,7 +72,7 @@ class Pro
     private $phone;
     /**
      * @var
-     * @ORM\Column(name="picture", type="blob")
+     * @ORM\Column(name="picture", type="blob", nullable=true)
      */
     private $picture;
     /**
@@ -93,6 +94,7 @@ class Pro
 
     /**
      * @ORM\ManyToOne(targetEntity="CaradvisorBundle\Entity\User", inversedBy="pros")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;
 
@@ -318,31 +320,14 @@ class Pro
     }
 
     /**
-     * @return mixed
-     */
-    public function getPicture()
-    {
-        return $this->picture;
-    }
-
-    /**
-     * @param mixed $picture
-     * @return Pro
-     */
-    public function setPicture($picture)
-    {
-        $this->picture = $picture;
-        return $this;
-    }
-
-    /**
      * Constructor
      */
     public function __construct()
     {
-        $this->answers = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->reviewRepairs = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->reviewBuys = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->pros = new ArrayCollection();
+        $this->answers = new ArrayCollection();
+        $this->reviewRepairs = new ArrayCollection();
+        $this->reviewBuys = new ArrayCollection();
     }
 
     /**
@@ -495,5 +480,29 @@ class Pro
     public function getRatingPro()
     {
         return $this->ratingPro;
+    }
+
+    /**
+     * Set picture
+     *
+     * @param string $picture
+     *
+     * @return Pro
+     */
+    public function setPicture($picture)
+    {
+        $this->picture = $picture;
+
+        return $this;
+    }
+
+    /**
+     * Get picture
+     *
+     * @return string
+     */
+    public function getPicture()
+    {
+        return $this->picture;
     }
 }

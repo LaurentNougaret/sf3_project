@@ -152,7 +152,7 @@ class SecurityController extends Controller
             $form->handleRequest($request);
             if ($form->isValid() && $form->isSubmitted()) {
                 $password = $user->getPassword();
-                $verificationPassword = $request->request->get("caradvisor_bundle_user_signup_type")["passwordCompare"];
+                $verificationPassword = $request->request->get("caradvisor_bundle_change_password_type")["passwordCompare"];
                 if ($password === $verificationPassword) {
                     $encoder = $this->get('security.password_encoder');
                     $encoded = $encoder->encodePassword($user, $user->getPassword());

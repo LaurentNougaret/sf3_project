@@ -4,6 +4,7 @@ namespace CaradvisorBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Serializable;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -49,7 +50,6 @@ class User implements UserInterface, Serializable
     private $userName;
 
     /**
-     * @Assert\NotNull()
      * @Assert\Length(max="4096")
      */
     private $plainpassword;
@@ -60,6 +60,13 @@ class User implements UserInterface, Serializable
      * @ORM\Column(name="password", type="string", length=255)
      */
     private $password;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="password_compare", type="string", length=255)
+     */
+    private $passwordCompare;
 
     /**
      * @var string
@@ -150,6 +157,11 @@ class User implements UserInterface, Serializable
      * @ORM\OneToMany(targetEntity="CaradvisorBundle\Entity\ReviewBuy", mappedBy="user")
      */
     private $reviewBuys;
+
+    /**
+     * @ORM\Column(name="picture", type="blob", nullable=true)
+     */
+    private $picture;
 
     /**
      * @var array
@@ -723,6 +735,30 @@ class User implements UserInterface, Serializable
     }
 
     /**
+     * Set picture
+     *
+     * @param string $picture
+     *
+     * @return User
+     */
+    public function setPicture($picture)
+    {
+        $this->picture = $picture;
+
+        return $this;
+    }
+
+    /**
+     * Get picture
+     *
+     * @return string
+     */
+    public function getPicture()
+    {
+        return $this->picture;
+    }
+
+    /**
      * @return string
      */
     public function getPasswordChangeToken()
@@ -763,5 +799,29 @@ class User implements UserInterface, Serializable
         $today = new \DateTime("now");
         $string = $this->getUsername() . $this->getEmail() . $today->getTimestamp();
         return sha1($string);
+    }
+
+    /**
+     * Set passwordCompare
+     *
+     * @param string $passwordCompare
+     *
+     * @return User
+     */
+    public function setPasswordCompare($passwordCompare)
+    {
+        $this->passwordCompare = $passwordCompare;
+
+        return $this;
+    }
+
+    /**
+     * Get passwordCompare
+     *
+     * @return string
+     */
+    public function getPasswordCompare()
+    {
+        return $this->passwordCompare;
     }
 }

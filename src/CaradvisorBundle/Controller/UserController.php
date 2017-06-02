@@ -7,6 +7,8 @@ use CaradvisorBundle\Entity\User;
 use CaradvisorBundle\Entity\Vehicle;
 use CaradvisorBundle\Form\ChangePasswordType;
 use CaradvisorBundle\Form\Model\ChangePassword;
+use CaradvisorBundle\Form\ProProfileType;
+use CaradvisorBundle\Form\UserSignupType;
 use CaradvisorBundle\Form\UserType;
 use CaradvisorBundle\Form\VehicleType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -85,12 +87,11 @@ class UserController extends Controller
 
     /**
      * @Route("/user/settings/password/{user}", name="user_password")
-     * @param Request $request
+     * @param User $user
      * @return Response
      */
-    public function passwordAction(User $id, Request $request)
+    public function passwordAction(User $user)
     {
-
         return $this->render('@Caradvisor/User/password.html.twig', [
             'form' => $form->createView(),
         ]);
@@ -165,56 +166,76 @@ class UserController extends Controller
     /**
      * @Route("/user/establishments/{user}", name="user_establishments")
      * @param User $user
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @param Pro $pro
+     * @return Response
      */
-    public function listEstablishmentsAction(User $user)
+    public function listEstablishmentsAction(User $user, Pro $pro)
     {
         return $this->render('@Caradvisor/User/establishments.html.twig', [
             'user' => $user,
+            'pro' => $pro,
+            'establishment' => $user->getPros(),
         ]);
     }
 
     // Professionals page: profile of an establishment
+
     /**
-     * @Route("/user/establishments/{user}/{pro}", name="establishment")
+     * @Route("/user/establishments/{user}/{pro}", name="establishment_profile")
      * @param User $user
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @param Pro $pro
+     * @return Response
      */
-    public function showEstablishmentProfileAction(User $user)
+    public function showEstablishmentProfileAction(User $user, Pro $pro)
     {
         return $this->render('@Caradvisor/Pro/profile.html.twig', [
             'user' => $user,
+            'pro' => $pro,
         ]);
     }
 
     // Professionals page: edit profile of an establishment
+
     /**
-     * @Route("/user/establishments/{user}/{pro}", name="edit_establishment")
+     * @Route("/user/establishments/edit/{user}/{pro}", name="edit_establishment")
+     * @param Request $request
+     * @param Pro $pro
      * @param User $user
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
-    public function editEstablishmentAction(User $user)
+    public function editEstablishmentAction(Request $request, Pro $pro, User $user)
     {
-        return $this->render('@Caradvisor/User/editEstab.html.twig', [
-            'user' => $user,
-        ]);
+        $editForm = $this->createForm(ProProfileType::class, $pro);
+        $editForm->handleRequest($request);
+
+        if ($editForm->isSubmitted() && $editForm->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('establishment_profile', array(
+                'user' => $user->getId(),
+                'pro' => $pro->getId(),
+            ));
+        }
+        return $this->render('@Caradvisor/User/editEstab.html.twig', array(
+            'edit_form' => $editForm->createView()
+        ));
     }
 
     // Professionals page: see reviews of an establishment
+
     /**
-     * @Route("/user/establishments/{user}/{pro}/reviews", name="reviews_establishment")
+     * @Route("/user/establishments/reviews/{user}/{pro}", name="reviews_establishment")
      * @param User $user
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @param Pro $pro
+     * @return Response
      */
-    public function listReviewsEstablishmentAction(User $user, Request $request)
+    public function listReviewsEstablishmentAction(User $user, Pro $pro)
     {
-        $estab = new Pro();
-        $em = $this->getDoctrine()->getManager();
-
-
-
-        return $this->render('@Caradvisor/Pro/reviews.html.twig', [
-            'user' => $user,
-        ]);
+       return $this->render('@Caradvisor/Pro/reviews.html.twig', [
+           'user' => $user,
+           'pro' => $pro,
+           'data' => $user->getReviewRepairs(),
+           'beta' => $user->getReviewBuys(),
+       ]);
     }
 }
