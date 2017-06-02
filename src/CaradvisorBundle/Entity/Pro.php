@@ -114,7 +114,7 @@ class Pro
     private $ratingPro;
 
     /**
-     * @ORM\Column(name="picture", type="blob", nullable=truegt )
+     * @ORM\Column(name="picture", type="blob", nullable=true )
      */
     private $picture;
 
