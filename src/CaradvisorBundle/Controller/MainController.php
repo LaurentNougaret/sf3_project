@@ -3,6 +3,7 @@
 namespace CaradvisorBundle\Controller;
 
 use CaradvisorBundle\Entity\Contact;
+use CaradvisorBundle\Entity\User;
 use CaradvisorBundle\Form\ContactType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
