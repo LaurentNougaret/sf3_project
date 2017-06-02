@@ -19,23 +19,9 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('firstname', TextType::class, [
+            ->add('userType', ChoiceType::class, [
                 'label' => false,
-                'attr'  => ['placeholder' => 'Prénom'],
-            ])
-            ->add('lastname', TextType::class, [
-                'label' => false,
-                'attr'  => ['placeholder' => 'Nom'],
-            ])
-            ->add('gender', ChoiceType::class, [
-                'label' => 'Genre',
-                'placeholder' => 'Choisissez',
-                'choices' => [
-                    'Homme'        => 1,
-                    'Femme'        => 2,
-                    'Non Précisé'  => 3,
-                    'Autre'        => 4,
-                ]
+                'choices' => ['Particulier' => 'Particulier', 'Professionnel' => 'Professionnel'],
             ])
             ->add('username', TextType::class, [
                 'label' => false,
@@ -51,9 +37,34 @@ class UserType extends AbstractType
                     'attr' => ['placeholder' => 'Confirmez le mot de passe']],
                 'invalid_message' => 'Les mots de passe doivent être identiques',
             ])
+            ->add('firstname', TextType::class, [
+                'label' => false,
+                'attr'  => ['placeholder' => 'Prénom'],
+            ])
+            ->add('lastname', TextType::class, [
+                'label' => false,
+                'attr'  => ['placeholder' => 'Nom'],
+            ])
+            ->add('birthdate', DateType::class, [
+                'label' => false,
+                'attr'  => ['placeholder' => 'Date de naissance']
+            ])
+            ->add('gender', ChoiceType::class, [
+                'label' => false,
+                'choices' => [
+                    'Homme'        => 'Homme',
+                    'Femme'        => 'Femme',
+                    'Autre'        => 'Autre',
+                    'Non Précisé'  => 'Non Précisé',
+                ]
+            ])
             ->add('email', EmailType::class, [
                 'label' => false,
                 'attr'  => ['placeholder' => 'Email'],
+            ])
+            ->add('phone', IntegerType::class, [
+                'label' => false,
+                'attr'  => ['placeholder' => 'Numéro de téléphone']
             ])
             ->add('address', TextType::class, [
                 'label' => false,
@@ -66,23 +77,8 @@ class UserType extends AbstractType
             ->add('postalCode', TextType::class, [
                 'label' => false,
                 'attr'  => ['placeholder' => 'Code Postal']
-            ])
-            ->add('phone', IntegerType::class, [
-                'label' => false,
-                'attr'  => ['placeholder' => 'Numéro de téléphone']
-            ])
-            ->add('birthdate', DateType::class, [
-                'label' => false,
-                'attr'  => ['placeholder' => 'Date de naissance']
-            ])
-            ->add('userType', ChoiceType::class, [
-                'label' => 'Vous êtes un ',
-                'placeholder' => 'Choisissez',
-                'choices' => ['Particulier' => 1, 'Professionnel' => 2],
             ]);
-
     }
-
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
@@ -92,6 +88,6 @@ class UserType extends AbstractType
 
     public function getBlockPrefix()
     {
-        return 'caradvisor_bundle_user_signup_type';
+        return 'caradvisor_bundle_user_edit';
     }
 }

@@ -2,6 +2,7 @@
 
 namespace CaradvisorBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -78,20 +79,6 @@ class Pro
     private $description;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="picture", type="blob")
-     */
-    private $picture;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="ratingPro", type="decimal", precision=10, scale=2)
-     */
-    private $ratingPro;
-
-    /**
      * @ORM\OneToMany(targetEntity="CaradvisorBundle\Entity\ReviewRepair", mappedBy="pro")
      */
     private $reviewRepairs;
@@ -103,6 +90,7 @@ class Pro
 
     /**
      * @ORM\ManyToOne(targetEntity="CaradvisorBundle\Entity\User", inversedBy="pros")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
      */
     private $user;
 
@@ -119,6 +107,12 @@ class Pro
      * @ORM\Column(name="brand", type="string", length=255)
      */
     private $brand;
+
+    /**
+     * @ORM\Column(name="ratingPro", type="decimal", precision=10, scale=2)
+     */
+    private $ratingPro;
+
     /**
      * Get id
      *
@@ -322,70 +316,24 @@ class Pro
     }
 
     /**
-     * Set picture
-     *
-     * @param string $picture
-     *
-     * @return Pro
-     */
-    public function setPicture($picture)
-    {
-        $this->picture = $picture;
-
-        return $this;
-    }
-
-    /**
-     * Get picture
-     *
-     * @return string
-     */
-    public function getPicture()
-    {
-        return $this->picture;
-    }
-
-    /**
-     * Set ratingPro
-     *
-     * @param string $ratingPro
-     *
-     * @return Pro
-     */
-    public function setRatingPro($ratingPro)
-    {
-        $this->ratingPro = $ratingPro;
-
-        return $this;
-    }
-
-    /**
-     * Get ratingPro
-     *
-     * @return string
-     */
-    public function getRatingPro()
-    {
-        return $this->ratingPro;
-    }
-    /**
      * Constructor
      */
     public function __construct()
     {
-        $this->answers = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->reviewRepairs = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->reviewBuys = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->pros = new ArrayCollection();
+        $this->answers = new ArrayCollection();
+        $this->reviewRepairs = new ArrayCollection();
+        $this->reviewBuys = new ArrayCollection();
     }
 
     /**
      * Add reviewRepair
      *
-     * @param \CaradvisorBundle\Entity\ReviewRepair $reviewRepair
+     * @param ReviewRepair $reviewRepair
      *
      * @return Pro
      */
-    public function addReviewRepair(\CaradvisorBundle\Entity\ReviewRepair $reviewRepair)
+    public function addReviewRepair(ReviewRepair $reviewRepair)
     {
         $this->reviewRepairs[] = $reviewRepair;
 
@@ -395,9 +343,9 @@ class Pro
     /**
      * Remove reviewRepair
      *
-     * @param \CaradvisorBundle\Entity\ReviewRepair $reviewRepair
+     * @param ReviewRepair $reviewRepair
      */
-    public function removeReviewRepair(\CaradvisorBundle\Entity\ReviewRepair $reviewRepair)
+    public function removeReviewRepair(ReviewRepair $reviewRepair)
     {
         $this->reviewRepairs->removeElement($reviewRepair);
     }
@@ -415,11 +363,11 @@ class Pro
     /**
      * Add reviewBuy
      *
-     * @param \CaradvisorBundle\Entity\ReviewBuy $reviewBuy
+     * @param ReviewBuy $reviewBuy
      *
      * @return Pro
      */
-    public function addReviewBuy(\CaradvisorBundle\Entity\ReviewBuy $reviewBuy)
+    public function addReviewBuy(ReviewBuy $reviewBuy)
     {
         $this->reviewBuys[] = $reviewBuy;
 
@@ -429,9 +377,9 @@ class Pro
     /**
      * Remove reviewBuy
      *
-     * @param \CaradvisorBundle\Entity\ReviewBuy $reviewBuy
+     * @param ReviewBuy $reviewBuy
      */
-    public function removeReviewBuy(\CaradvisorBundle\Entity\ReviewBuy $reviewBuy)
+    public function removeReviewBuy(ReviewBuy $reviewBuy)
     {
         $this->reviewBuys->removeElement($reviewBuy);
     }
@@ -449,11 +397,11 @@ class Pro
     /**
      * Set user
      *
-     * @param \CaradvisorBundle\Entity\User $user
+     * @param User $user
      *
      * @return Pro
      */
-    public function setUser(\CaradvisorBundle\Entity\User $user = null)
+    public function setUser(User $user = null)
     {
         $this->user = $user;
 
@@ -504,5 +452,29 @@ class Pro
     {
         $this->brand = $brand;
         return $this;
+    }
+
+    /**
+     * Set ratingPro
+     *
+     * @param string $ratingPro
+     *
+     * @return Pro
+     */
+    public function setRatingPro($ratingPro)
+    {
+        $this->ratingPro = $ratingPro;
+
+        return $this;
+    }
+
+    /**
+     * Get ratingPro
+     *
+     * @return string
+     */
+    public function getRatingPro()
+    {
+        return $this->ratingPro;
     }
 }
