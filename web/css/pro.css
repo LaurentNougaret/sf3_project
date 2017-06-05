@@ -263,3 +263,6 @@
     -moz-transition: color .2s ease-out, background 0.2s ease-in;
     -webkit-transition: color .2s ease-out, background 0.2s ease-in;
 }
+.card .card-action ul {
+    list-style-type: none;
+}
