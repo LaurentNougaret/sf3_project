@@ -702,35 +702,6 @@ class User implements UserInterface, \Serializable
 
     /**
      * Get roles
-<<<<<<< HEAD
-     *
-     * @return array
-     */
-    public function getRoles()
-    {
-        return array('ROLE_PART', 'ROLE_PRO');
-    }
-
-    /**
-     * Set roles
-     *
-     * @param array $roles
-     *
-     * @return User
-     */
-    public function setRoles($roles)
-    {
-        $this->roles = $roles;
-
-        return $this;
-    }
-
-    /**
-     * Set picture
-     *
-     * @param string $picture
-=======
->>>>>>> ce70eed82504e883c6804776f03c9a54e76dbf6f
      *
      * @return array
      */

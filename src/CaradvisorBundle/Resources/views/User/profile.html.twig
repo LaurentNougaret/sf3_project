@@ -64,7 +64,7 @@
                                             </tr>
                                             <tr>
                                                 <td>Email:</td>
-                                                <td><a href="mailto:#">{{ user.email }}</a></td>
+                                                <td>{{ user.email }}</td>
                                             </tr>
                                             <tr>
                                                 <td>Numero de Téléphone:</td>
@@ -76,7 +76,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="{{ path('user_edit', {'id': user.id}) }}"
+                        <a href="{{ path('user_profile', {'user': user.id}) }}"
                            class="btn btn-default center-block btn-send">
                             Modifier profil</a>
                     </div>
