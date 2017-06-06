@@ -51,12 +51,11 @@ class SecurityController extends Controller
             $password = $this->get('security.password_encoder')
                 ->encodePassword($user, $user->getPlainPassword());
             $user->setPassword($password);
-            $user->setAddress("");
-            $user->setCity("");
-            $user->setPostalCode("");
+            $user->setCity(null);
+            $user->setPostalCode(null);
             $user->setPhone(null);
             $user->setBirthDate(new \DateTime());
-            $user->setMailingList("");
+            $user->setMailingList(null);
             $user->setIsActive(1);
 
             $em = $this->getDoctrine()->getManager();

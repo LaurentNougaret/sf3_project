@@ -33,8 +33,6 @@ class UserController extends Controller
         ]);
     }
 
-<<<<<<< Temporary merge branch 1
-=======
     // User's profile page: Visualize profile
     /**
      * @Route("/user/profile/{user}", name="user_profile")

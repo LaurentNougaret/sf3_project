@@ -126,10 +126,6 @@ class Pro
     private $answers;
 
 
-    /**
-     * @ORM\Column(name="picture", type="blob")
-     */
-    private $picture;
 
     /**
      * Get id
@@ -560,27 +556,4 @@ class Pro
         $this->answers->removeElement($answer);
     }
 
-    /**
-     * Set picture
-     *
-     * @param string $picture
-     *
-     * @return Pro
-     */
-    public function setPicture($picture)
-    {
-        $this->picture = $picture;
-
-        return $this;
-    }
-
-    /**
-     * Get picture
-     *
-     * @return string
-     */
-    public function getPicture()
-    {
-        return $this->picture;
-    }
 }
