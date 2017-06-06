@@ -2,6 +2,7 @@
 
 namespace CaradvisorBundle\Controller;
 
+use CaradvisorBundle\Entity\Answer;
 use CaradvisorBundle\Entity\Pro;
 use CaradvisorBundle\Entity\User;
 use CaradvisorBundle\Entity\Vehicle;
@@ -234,5 +235,25 @@ class UserController extends Controller
            'data' => $user->getReviewRepairs(),
            'beta' => $user->getReviewBuys(),
        ]);
+    }
+
+    // Professionals page: answer to a client's review
+
+    /**
+     * @Route("/user/establishments/reviews/answer/{user}/{pro}", name="reviews_answer")
+     * @param Request $request
+     * @param User $user
+     * @param Pro $pro
+     * @return Response
+     */
+    public function answerReviewsAction(Request $request, User $user, Pro $pro)
+    {
+        return $this->render('@Caradvisor/User/EstabReviewsAnswer.html.twig', [
+            //'form'      => $form->createView(),
+            'user' => $user,
+            'pro' => $pro,
+            'data' => $user->getReviewRepairs(),
+            'beta' => $user->getReviewBuys(),
+        ]);
     }
 }

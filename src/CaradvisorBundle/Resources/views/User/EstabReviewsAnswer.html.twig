@@ -1,0 +1,72 @@
+{% extends ('@Caradvisor/index.html.twig') %}
+{% block body %}
+    <section class="pro">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h2 class="text-center">Réponse à l'avis</h2>
+                    <hr class="pro-review-underline"><br>
+                    <!-- Back to main page -->
+                    <div class="row">
+                        <div class="col-xs-10 col-xs-offset-2 col-md-6 col-md-offset-2">
+                            <a href="{{ path('user_establishments', {'pro': pro.id, 'user': user.id}) }}">
+                                <i class="icon-back fa fa-chevron-left" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Reply to client's review -->
+                    <div class="row">
+                        <div class="col-xs-8 col-xs-offset-2">
+                            <div class="ListReviewsByPro">
+                                <div class="reviews-content">
+                                    <p class="review-card-title">
+                                        {{ user.firstName ~ " " ~ user.lastName }}
+                                        ( {{ user.userName }} )
+                                    </p>
+                                    <p>Date de l'avis: 00/00/2017</p>
+                                </div>
+                                <div class="SeeReviewStars">
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                </div>
+
+                                <!-- Review made by client -->
+                                <div class="review-body">
+                                    <div class="card-review">
+                                        <p>...tomorrow we will run faster, stretch out our arms farther...
+                                            And then one fine morning&mdash; So we beat on, boats against the
+                                            current, borne back ceaselessly into the past.
+                                            tomorrow we will run faster, stretch out our arms farther...
+                                            And then one fine morning&mdash; So we beat on, boats against the
+                                            current, borne back ceaselessly into the And then one fine morning&mdash; So we beat on, boats against the
+                                            current, borne back ceaselessly into the</p>
+                                    </div>
+
+                                    <div class="card-review">
+                                        <div class="form-group">
+                                            <label for="AnswerReview"><p>Please write your answer to the client's review here</p></label>
+                                            <textarea class="form-control" id="AnswerReview" rows="8">
+                                                Hey devs! :) Client should be notified about the answer!
+                                            </textarea>
+                                        </div>
+                                    </div>
+
+                                        <div class="review-see-buttons">
+                                            <a class="ReplyToUserButton" href="{{ path('edit_establishment',
+                                            {'pro': pro.id, 'user': user.id}) }}">
+                                                <i class="fa fa-eye" aria-hidden="true"></i>
+                                                Envoyer
+                                            </a>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

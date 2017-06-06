@@ -15,9 +15,60 @@
                         </div>
                     </div>
 
+                    <!-- Start reviews list -->
+                    <div class="row">
+                        <div class="col-xs-8 col-xs-offset-2">
+                            <div class="ListReviewsByPro">
+                                <div class="reviews-content">
+                                    <p class="review-card-title">
+                                        {{ user.firstName ~ " " ~ user.lastName }}
+                                            ( {{ user.userName }} )
+                                    </p>
+                                    <p>Date de l'avis: 00/00/2017</p>
+                                </div>
+                                <div class="SeeReviewStars">
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                </div>
 
+                                <!-- Review made by client -->
+                                <div class="review-body">
+                                    <div class="card-review">
+                                    <p>...tomorrow we will run faster, stretch out our arms farther...
+                                    And then one fine morning&mdash; So we beat on, boats against the
+                                    current, borne back ceaselessly into the past.
+                                    tomorrow we will run faster, stretch out our arms farther...
+                                    And then one fine morning&mdash; So we beat on, boats against the
+                                    current, borne back ceaselessly into the And then one fine morning&mdash; So we beat on, boats against the
+                                        current, borne back ceaselessly into the</p>
+                                    </div>
+                                    <!-- Display button depending if answer was given or not -->
+                                    {% if is_granted('ROLE_PART') %}
+                                    <div class="review-see-buttons">
+                                        <a class="SeeAnswerReviewButton" href="{{ path('edit_establishment',
+                                        {'pro': pro.id, 'user': user.id}) }}">
+                                            <i class="fa fa-eye" aria-hidden="true"></i>
+                                            Voir réponse
+                                        </a>
+                                    </div>
+                                    {% elseif is_granted('ROLE_PRO') %}
+                                    <div class="review-see-buttons">
+                                    <a class="AnswerReviewButton" href="{{ path('reviews_answer',
+                                    {'pro': pro.id, 'user': user.id}) }}">
+                                        <i class="fa fa-reply" aria-hidden="true"></i>
+                                        Répondre
+                                    </a>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
                 </div>
             </div>
+        </div>
         </div>
     </section>
 {% endblock %}
