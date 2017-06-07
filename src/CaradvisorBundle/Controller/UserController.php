@@ -191,7 +191,7 @@ class UserController extends Controller
         return $this->render('@Caradvisor/User/reviewsEstab.html.twig', [
             'data' => $pro->getReviewRepairs(),
             'beta' => $pro->getReviewBuys(),
-            'pro' =>  $pro,
+            'pro' =>  $pro->getUser(),
 
 
         ]);
