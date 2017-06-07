@@ -54,9 +54,9 @@ class SecurityController extends Controller
             $user->setPassword($password);
             $user->setAddress("");
             $user->setCity("");
-            $user->setPostalCode("");
+            $user->setPostalCode("00000");
             $user->setPhone(null);
-            $user->setBirthDate(new \DateTime());
+            $user->setBirthDate(null);
             $user->setMailingList(0);
             $user->setIsActive(1);
 
@@ -72,7 +72,7 @@ class SecurityController extends Controller
                     $this->renderView(
                         "@Caradvisor/Mail/registration.html.twig", [
                             'userName' => $user->getUserName(),
-                            'url' => $this->generateUrl("home", [], UrlGeneratorInterface::ABSOLUTE_URL)
+                            'url' => $this->generateUrl('home', [], UrlGeneratorInterface::ABSOLUTE_URL)
                     ]),
                     'text/html'
                 );
@@ -80,7 +80,7 @@ class SecurityController extends Controller
             $this->get('mailer')->send($email);
             $this->addFlash("notice-green", "Un email vous a été envoyé, vous pouvez maintenant vous connecter.");
 
-            return $this->redirectToRoute('home');
+            return $this->redirectToRoute("/");
         }
         return $this->render('@Caradvisor/Security/signup.html.twig', [
             'form'      => $form->createView(),
@@ -151,11 +151,11 @@ class SecurityController extends Controller
             $form = $this->createForm(ChangePasswordType::class, $user);
             $form->handleRequest($request);
             if ($form->isValid() && $form->isSubmitted()) {
-                $password = $user->getPassword();
-                $verificationPassword = $request->request->get("caradvisor_bundle_change_password_type")["passwordCompare"];
+                $password = $user->getPlainpassword();
+                $verificationPassword = $request->request->get("caradvisor_bundle_change_password_type")["plainpassword"];
                 if ($password === $verificationPassword) {
                     $encoder = $this->get('security.password_encoder');
-                    $encoded = $encoder->encodePassword($user, $user->getPassword());
+                    $encoded = $encoder->encodePassword($user, $user->getPlainpassword());
                     $user->setPassword($encoded);
                     $user->setPasswordChangeLimitDate(null);
                     $user->setPasswordChangeToken(null);
@@ -170,8 +170,8 @@ class SecurityController extends Controller
                 "form" => $form->createView(),
                 "message" => $message,
             ]);
-            } else {
-            $this->addFlash("notice", "Cette demande de réinitialisation de mot de passe n'est plus valide.");
+        } else {
+            $this->addFlash("notice", "Cette demande de réinitialisation de mot de passe n'est pas valide.");
             return $this->redirectToRoute('home');
         }
     }

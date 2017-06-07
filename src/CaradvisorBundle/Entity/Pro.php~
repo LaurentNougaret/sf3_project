@@ -118,11 +118,6 @@ class Pro
     private $ratingPro;
 
     /**
-     * @ORM\Column(name="picture", type="blob")
-     */
-    private $picture;
-
-    /**
      * Get id
      *
      * @return int

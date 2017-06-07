@@ -4,7 +4,6 @@ namespace CaradvisorBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Serializable;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -61,13 +60,6 @@ class User implements UserInterface, Serializable
      * @ORM\Column(name="password", type="string", length=255)
      */
     private $password;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="password_compare", type="string", length=255)
-     */
-    private $passwordCompare;
 
     /**
      * @var string
@@ -163,13 +155,6 @@ class User implements UserInterface, Serializable
      * @ORM\Column(name="picture", type="blob", nullable=true)
      */
     private $picture;
-
-    /**
-     * @var array
-     *
-     * @ORM\Column(name="roles", type="array")
-     */
-    private $roles;
 
     /**
      * @var string
@@ -733,6 +718,49 @@ class User implements UserInterface, Serializable
     public function getReviewBuys()
     {
         return $this->reviewBuys;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPasswordChangeToken()
+    {
+        return $this->passwordChangeToken;
+    }
+
+    /**
+     * @param string $passwordChangeToken
+     * @return User
+     */
+    public function setPasswordChangeToken($passwordChangeToken)
+    {
+        $this->passwordChangeToken = $passwordChangeToken;
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getPasswordChangeLimitDate()
+    {
+        return $this->passwordChangeLimitDate;
+    }
+
+    /**
+     * @param \DateTime $passwordChangeLimitDate
+     * @return User
+     */
+    public function setPasswordChangeLimitDate($passwordChangeLimitDate)
+    {
+        $this->passwordChangeLimitDate = $passwordChangeLimitDate;
+        return $this;
+    }
+
+    public function generateToken()
+    {
+        $today = new \DateTime("now");
+        $string = $this->getUsername() . $this->getEmail() . $today->getTimestamp();
+        return sha1($string);
     }
 
 }
