@@ -225,7 +225,7 @@ class UserController extends Controller
     // Professionals page: see reviews of an establishment
 
     /**
-     * @Route("/user/establishments/reviews/{user}/{pro}", name="reviews_establishment")
+     * @Route("/user/establishments/reviews/{pro}", name="reviews_establishment")
      * @param User $user
      * @param Pro $pro
      * @return Response
@@ -233,10 +233,10 @@ class UserController extends Controller
     public function listReviewsEstablishmentAction(User $user, Pro $pro)
     {
        return $this->render('@Caradvisor/Pro/reviews.html.twig', [
-           'user' => $user,
-           'pro' => $pro,
            'data' => $pro->getReviewRepairs(),
-           'beta' => $pro->getReviewBuys()
+           'beta' => $pro->getReviewBuys(),
+           'user' => $user,
+           'pro' =>  $pro,
        ]);
     }
 
