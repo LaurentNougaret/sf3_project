@@ -4,19 +4,17 @@ namespace CaradvisorBundle\Controller;
 
 use CaradvisorBundle\Entity\Answer;
 use CaradvisorBundle\Entity\Pro;
-use CaradvisorBundle\Entity\ReviewBuy;
-use CaradvisorBundle\Entity\ReviewRepair;
 use CaradvisorBundle\Entity\User;
 use CaradvisorBundle\Entity\Vehicle;
 use CaradvisorBundle\Form\AnswerType;
 use CaradvisorBundle\Form\ProProfileType;
+use CaradvisorBundle\Form\UserSignupType;
 use CaradvisorBundle\Form\UserType;
 use CaradvisorBundle\Form\VehicleType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-
 
 class UserController extends Controller
 {
@@ -49,9 +47,9 @@ class UserController extends Controller
 
     // User's profile page: Edit profile
     /**
-     * @Route("/user/profile/edit/{id}", name="user_edit")
+     * @Route("/user/profile/edit/{user}", name="user_edit")
      * @param Request $request
-     * @param User $id
+     * @param User $user
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function editAction(Request $request, User $user)
@@ -63,7 +61,7 @@ class UserController extends Controller
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('user_profile', array(
-                'user' => $user,
+                'user' => $user->getId()
             ));
         }
         return $this->render('@Caradvisor/User/editUser.html.twig', array(
@@ -101,7 +99,7 @@ class UserController extends Controller
     /**
      * @Route("/user/vehicles/{user}", name="user_vehicle")
      * @param User $user
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      */
@@ -149,7 +147,7 @@ class UserController extends Controller
     /**
      * @Route("/user/reviews/{user}", name="user_reviews")
      * @param User $user
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
     public function reviewsAction(User $user)
     {
@@ -176,62 +174,6 @@ class UserController extends Controller
             'user' => $user,
             'pro' => $pro,
             'establishment' => $user->getPros(),
-        ]);
-    }
-
-    // Professionals page: see reviews of an establishment
-
-    /**
-     * @Route("/user/establishments/reviews/{pro}", name="pro_reviews")
-     * @param Pro $pro
-     * @return Response
-     */
-    public function reviewsestabAction(Pro $pro)
-    {
-        return $this->render('@Caradvisor/User/reviewsEstab.html.twig', [
-            'data' => $pro->getReviewRepairs(),
-            'beta' => $pro->getReviewBuys(),
-            'pro' =>  $pro->getUser(),
-
-
-        ]);
-    }
-
-    /**
-     * @Route("/user/establishments/reviews/answer/{user}/{pro}", name="answer")
-     * @param User $user
-     * @param Pro $pro
-     * @param ReviewRepair $reviewRepair
-     * @param Request $request
-     * @return Response
-     */
-    public function answerAction(User $user, Pro $pro, ReviewRepair $reviewRepair, Request $request)
-    {
-        $answer = new Answer();
-        $em = $this->getDoctrine()->getManager();
-        $form = $this->createForm(AnswerType::class, $answer);
-
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            $answer->setPro($pro);
-            $type = $request->request->get('type');
-            $id = $request->request->get('id');
-            if ($type == 'repair') {
-                $repair = $em->getRepository('CaradvisorBundle:ReviewRepair')->find($id);
-                $answer->setReviewRepair($repair);
-            }
-            if ($type == 'buy') {
-                $buy = $em->getRepository('CaradvisorBundle:ReviewBuy')->find($id);
-                $answer->setReviewBuy($buy);
-            }
-            $em->persist($answer);
-            $em->flush();
-        }
-        return $this->render('@Caradvisor/User/answerReviewEstab.html.twig', [
-            'user' => $user,
-            'pro' => $pro,
-            'reviewrepair' => $reviewRepair,
-            'form' =>$form->createView(),
         ]);
     }
 
@@ -274,14 +216,59 @@ class UserController extends Controller
             ));
         }
         return $this->render('@Caradvisor/User/editEstab.html.twig', array(
-            'edit_form' => $editForm->createView()
+            'edit_form' => $editForm->createView(),
+            'user' => $user,
+            'pro' => $pro
         ));
     }
 
+    // Professionals page: see reviews of an establishment
 
+    /**
+     * @Route("/user/establishments/reviews/{user}/{pro}", name="reviews_establishment")
+     * @param User $user
+     * @param Pro $pro
+     * @return Response
+     */
+    public function listReviewsEstablishmentAction(User $user, Pro $pro)
+    {
+       return $this->render('@Caradvisor/Pro/reviews.html.twig', [
+           'user' => $user,
+           'pro' => $pro,
+           'data' => $pro->getReviewRepairs(),
+           'beta' => $pro->getReviewBuys()
+       ]);
+    }
 
+    // Professionals page: answer to a client's review
 
+    /**
+     * @Route("/user/establishments/reviews/answer/{user}/{pro}", name="reviews_answer")
+     * @param Request $request
+     * @param User $user
+     * @param Pro $pro
+     * @param Answer $answer
+     * @return Response
+     */
+    public function answerReviewsAction(Request $request, User $user, Pro $pro, Answer $answer)
+    {
+       /* $answer = new Answer();
+        $form = $this->createForm(AnswerType::class, $user);
+        $form->handleRequest($request);
 
+        if ($form->isSubmitted() && $form->isValid()){
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->flush();
+        }*/
 
-
+        return $this->render('@Caradvisor/User/EstabReviewsAnswer.html.twig', [
+            //'form'      => $form->createView(),
+            'user' => $user,
+            'pro' => $pro,
+            'data' => $user->getReviewRepairs(),
+            'beta' => $user->getReviewBuys(),
+            'zed' => $answer
+        ]);
+    }
 }

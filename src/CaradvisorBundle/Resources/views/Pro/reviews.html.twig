@@ -1,0 +1,142 @@
+{% extends ('@Caradvisor/index.html.twig') %}
+{% block body %}
+    <section class="pro">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h2 class="text-center">Les avis</h2>
+                    <hr class="pro-review-underline"><br>
+                    <!-- Back to main page -->
+                    <div class="row">
+                        <div class="col-xs-10 col-xs-offset-2 col-md-6 col-md-offset-2">
+                            <a href="{{ path('user_establishments', {'pro': pro.id, 'user': user.id}) }}">
+                                <i class="icon-back fa fa-chevron-left fa-1x" aria-hidden="true"></i> </i>
+                            </a>
+                        </div>
+                    </div>
+            {% for review in data %}
+                   <div class="row">
+                        <div class="col-xs-8 col-xs-offset-2">
+                            <div class="ListReviewsByPro">
+                                <div class="reviews-content">
+                                    <p class="review-card-title">
+                                        {{ review.user.firstName ~ " " ~ review.user.lastName }}
+                                        ( {{ review.user.userName }} )
+                                    </p>
+                                    <p>Date de l'avis: {{ review.dateReview|date('d-m-y') }}</p>
+                                    <p>Titre: {#{{ review.review.subject }}#}</p>
+                                </div>
+                                <div class="SeeReviewStars">
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                </div>
+                        <!-- Review made by client -->
+                        <div class="review-body">
+                            <div class="card-review">
+                                <p>{{ review.review }}</p>
+                            </div>
+                        </div>
+                                <div class="review-see-buttons">
+                                    <a class="AnswerReviewButton" href="{{ path('reviews_answer',
+                                    {'pro': pro.id, 'user': user.id}) }}">
+                                        <i class="fa fa-reply" aria-hidden="true"></i>
+                                        Répondre
+                                    </a>
+                                </div>
+                                <div class="review-see-buttons">
+                                    
+                                    <h4>La réponse</h4>
+                                    <p>{{ user. }}</p>
+                                </div>
+                            </div>
+                        </div>
+                                {% endfor %}
+                        {#{% else %}
+                        <h4>La réponse</h4>
+                        <p>{{ review.answer.message }}</p>
+                        <small>{{ review.answer.date|date('d-m-y') }}</small>
+                        <hr>#}
+                            </div>
+                        </div>
+                   </div>
+                </div>
+    </section>
+
+{% endblock %}
+{#
+{% extends ('@Caradvisor/index.html.twig') %}
+{% block body %}
+    <section class="pro">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h2 class="text-center">Les avis</h2>
+                    <hr class="pro-review-underline"><br>
+                    <!-- Back to main page -->
+                    <div class="row">
+                        <div class="col-xs-10 col-xs-offset-2 col-md-6 col-md-offset-2">
+                            <a href="{{ path('user_establishments', {'pro': pro.id, 'user': user.id}) }}">
+                                <i class="icon-back fa fa-chevron-left fa-1x" aria-hidden="true"></i> </i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Start reviews list -->
+                    <div class="row">
+                        <div class="col-xs-8 col-xs-offset-2">
+                            <div class="ListReviewsByPro">
+                                <div class="reviews-content">
+                                    <p class="review-card-title">
+                                        {{ user.firstName ~ " " ~ user.lastName }}
+                                            ( {{ user.userName }} )
+                                    </p>
+                                    <p>Date de l'avis: 00/00/2017</p>
+                                </div>
+                                <div class="SeeReviewStars">
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                </div>
+
+                                <!-- Review made by client -->
+                                <div class="review-body">
+                                    <div class="card-review">
+                                    <p>...tomorrow we will run faster, stretch out our arms farther...
+                                    And then one fine morning&mdash; So we beat on, boats against the
+                                    current, borne back ceaselessly into the past.
+                                    tomorrow we will run faster, stretch out our arms farther...
+                                    And then one fine morning&mdash; So we beat on, boats against the
+                                    current, borne back ceaselessly into the And then one fine morning&mdash; So we beat on, boats against the
+                                        current, borne back ceaselessly into the</p>
+                                    </div>
+                                    <!-- Display button depending if answer was given or not -->
+                                    <div class="review-see-buttons">
+                                        <a class="SeeAnswerReviewButton" href="{{ path('edit_establishment',
+                                        {'pro': pro.id, 'user': user.id}) }}">
+                                            <i class="fa fa-eye" aria-hidden="true"></i>
+                                            Voir réponse
+                                        </a>
+                                    </div>
+                                    <div class="review-see-buttons">
+                                    <a class="AnswerReviewButton" href="{{ path('reviews_answer',
+                                    {'pro': pro.id, 'user': user.id}) }}">
+                                        <i class="fa fa-reply" aria-hidden="true"></i>
+                                        Répondre
+                                    </a>
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+{% endblock %}
+#}

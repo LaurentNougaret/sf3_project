@@ -16,10 +16,10 @@ class ProProfileType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('siret', TextType::class, ['label' => false,
-                'attr' => ['placeholder' => 'Numéro Siret']])
-            ->add('dealerName', TextType::class, ['label' => false,
-                'attr' => ['placeholder' => 'Nom Prestataire']])
+            /*->add('siret', TextType::class, ['label' => false,
+                'attr' => ['placeholder' => 'Numéro Siret']])*/
+            /*->add('dealerName', TextType::class, ['label' => false,
+                'attr' => ['placeholder' => 'Nom Prestataire']])*/
             ->add('dealertype', ChoiceType::class, ['label' => false,
                 'choices' => [
                 'Concessionnaire' => 'Concessionnaire',
@@ -38,8 +38,8 @@ class ProProfileType extends AbstractType
                 'attr' => [ 'placeholder' => 'Code postal']])
             ->add('phone', TextType::class, ['label' => false,
                 'attr' => [ 'placeholder' => 'Téléphone fixe']])
-            ->add('brand', TextType::class, ['label' => false,
-                'attr' => ['placeholder' => 'Marque']])
+            /*->add('brand', TextType::class, ['label' => false,
+                'attr' => ['placeholder' => 'Marque']])*/
             ->add('description', TextareaType::class, ['label' => false,
                  'attr' => ['rows' => '6', 'placeholder' => 'Ajoutez une description de votre établissement', 'style' => 'resize = none']])
             ->add('save', SubmitType::class, ['label' => 'Modifier', 'attr' =>['class' => 'save-pro-btn center-block']]);

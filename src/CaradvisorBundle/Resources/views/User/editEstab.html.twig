@@ -3,96 +3,61 @@
 <section class="pro">
     <div class="container">
         <div class="row">
-            {#<div class="col-xs-10 col-xs-offset-1 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3 bloc">
-                {{ form_start(edit_form) }}
-                {{ form_errors(edit_form) }}
+            <div class="col-xs-10 col-xs-offset-1">
                 <h2 class="text-center">Modifier profil</h2>
-                <hr>
+                <hr class="pro-review-underline">
                 <!-- Back to main page -->
                 <div class="row">
-                    <div class="col-lg-5 col-sm-offset-2">
-                        <a href="{{ path('establishment_profile', {'pro': pro.id, 'user': user.id}) }}">
-                            <p><i class="fa fa-angle-double-left" aria-hidden="true"> </i>
-                                Revenir à mes établissements</p><br>
+                    <div class="col-xs-10 col-xs-offset-2 col-md-6 col-md-offset-2">
+                        <a href="{{ path('user_establishments', {'pro': pro.id, 'user': user.id}) }}">
+                            <i class="icon-back fa fa-chevron-left" aria-hidden="true"></i>
                         </a>
                     </div>
-                </div>#}
-                <div class="col-xs-12">
+                </div>
+
+            <div class="row">
+                <div class="col-xs-8 col-xs-offset-2">
                     {{ form_start(edit_form) }}
                     {{ form_errors(edit_form) }}
-                    <h2 class="text-center">Modifier profil</h2>
-                    <hr class="pro-review-underline"><br>
-                    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 col-xs-offset-0 col-sm-offset-0 col-md-offset-2 col-lg-offset-2">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                            </div>
-                            <div class="panel-body">
-                                <div class="row">
-                                    <div class="col-md-3 col-lg-3 " align="center">
-                                        <i class="fa fa-user fa-5x" aria-hidden="true"></i>
-                                        <!-- <img src="" alt=""> -->
-                                    </div>
-                                    <div class="col-md-9 col-lg-9 ">
-                                        <table class="table table-responsive" id="proProfile">
-                                            <tbody>
-                                            <tr>
-                                                <td>Nom de la societé:</td>
-                                                <td>{{ form_row(edit_form.dealerName) }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Type de la societé:</td>
-                                                <td>{{ form_row(edit_form.dealertype) }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>E-mail:</td>
-                                                <td>{{ form_row(edit_form.email) }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Addresse</td>
-                                                <td>{{ form_row(edit_form.address) }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Ville:</td>
-                                                <td>{{ form_row(edit_form.city) }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Code postal:</td>
-                                                <td>{{ form_row(edit_form.postalCode) }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Téléphone:</td>
-                                                <td>{{ form_row(edit_form.phone) }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>SIRET:</td>
-                                                <td>{{ form_row(edit_form.siret) }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Marque:</td>
-                                                <td>{{ form_row(edit_form.brand) }}</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Description:</td>
-                                                <td>{{ form_row(edit_form.description) }}</td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
+                    <div class="card">
+                        <div class="card-image">
+                            <img class="img-responsive" src="{{ asset('img/garage.jpg') }}">
+                        </div><!-- card image -->
+
+                        <div class="card-content">
+                            <span class="card-title">
+                                Nom de la societé: {#{{ pro.dealerName }}#}
+                            </span>
+                        </div><!-- card content -->
+
+                        <!-- Info about establishment -->
+                        <div class="card-action">
+                            <ul>
+                            <!-- Company's name & Siret shouldn't be able to be changed by the user -->
+                                <li><p>Type: {{ form_row(edit_form.dealertype) }}</p></li>
+                                <li><p>Addresse: {{ form_row(edit_form.address) }}</p></li>
+                                <li><p>Code Postal: {{ form_row(edit_form.postalCode) }}</p></li>
+                                <li><p>Ville: {{ form_row(edit_form.city) }}</p></li>
+                                <li><p>E-mail: {{ form_row(edit_form.email) }}</p></li>
+                                <li><p>Téléphone: {{ form_row(edit_form.phone) }}</p></li>
+                                <li><p>Description: {{ form_row(edit_form.description) }}</p></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-                <div class="form-group col-xs-12 text-center update-photo">
+                <div class="col-xs-12 text-center">
                     <label class=" control-label" for="filebutton">Ajoutez une photo de votre établissement </label>
                     <div>
                         <input id="filebutton" name="filebutton" class="input-file center-block" type="file"
                                accept=".jpg, .png, .jpeg">
-                        <br><span class="help-block">Formats de fichiers acceptés: JPG, JPEG, PNG.</span><br>
+                        <br>
+                        <span class="help-block">Formats de fichiers acceptés: JPG, JPEG, PNG.</span>
                     </div>
                 </div>
+                {{ form_row(edit_form._token) }}
                 {{ form_row(edit_form.save) }}
-                {{ form_end(edit_form) }}
+                {{ form_end(edit_form, {'render_rest': false}) }}
+            </div>
             </div>
         </div>
     </div>
