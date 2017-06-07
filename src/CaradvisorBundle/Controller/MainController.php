@@ -17,7 +17,7 @@ class MainController extends Controller
      */
     public function indexAction()
     {
-        $reviews = $this->getDoctrine()->getRepository('CaradvisorBundle:Review')->findAll();
+        $reviews = $this->getDoctrine()->getRepository('CaradvisorBundle:ReviewBuy')->findAll();
         return $this->render('@Caradvisor/Default/home.html.twig', [
             'reviews' => $reviews,
         ]);

@@ -1,9 +1,6 @@
 <?php
-
 namespace CaradvisorBundle\Entity;
-
 use Doctrine\ORM\Mapping as ORM;
-
 /**
  * Answer
  *
@@ -20,62 +17,18 @@ class Answer
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
     /**
      * @var string
      *
      * @ORM\Column(name="message", type="text")
      */
     private $message;
-
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="datetime", type="datetime", nullable=true)
+     * @ORM\Column(name="date", type="datetime")
      */
     private $date;
-
-    public function __construct()
-    {
-        $this->date = new \DateTime();
-    }
-
-
-    /**
-     * @ORM\OneToOne(targetEntity="CaradvisorBundle\Entity\ReviewBuy")
-     * @ORM\JoinColumn(name="reviewBuy_id", referencedColumnName="id")
-     */
-    private $reviewBuy;
-
-    /**
-     * @ORM\OneToOne(targetEntity="CaradvisorBundle\Entity\ReviewRepair")
-     * @ORM\JoinColumn(name="reviewRepair_id", referencedColumnName="id")
-     */
-    private $reviewRepair;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="CaradvisorBundle\Entity\Pro", inversedBy="answers")
-     */
-    private $pro;
-
-    /**
-     * @return mixed
-     */
-    public function getPro()
-    {
-        return $this->pro;
-    }
-
-    /**
-     * @param mixed $pro
-     * @return Answer
-     */
-    public function setPro($pro)
-    {
-        $this->pro = $pro;
-        return $this;
-    }
-
     /**
      * Get id
      *
@@ -85,7 +38,6 @@ class Answer
     {
         return $this->id;
     }
-
     /**
      * Set message
      *
@@ -96,10 +48,8 @@ class Answer
     public function setMessage($message)
     {
         $this->message = $message;
-
         return $this;
     }
-
     /**
      * Get message
      *
@@ -109,7 +59,6 @@ class Answer
     {
         return $this->message;
     }
-
     /**
      * Set date
      *
@@ -120,10 +69,8 @@ class Answer
     public function setDate($date)
     {
         $this->date = $date;
-
         return $this;
     }
-
     /**
      * Get date
      *
@@ -133,41 +80,4 @@ class Answer
     {
         return $this->date;
     }
-
-    /**
-     * @return mixed
-     */
-    public function getReviewBuy()
-    {
-        return $this->reviewBuy;
-    }
-
-    /**
-     * @param mixed $reviewBuy
-     * @return Answer
-     */
-    public function setReviewBuy($reviewBuy)
-    {
-        $this->reviewBuy = $reviewBuy;
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getReviewRepair()
-    {
-        return $this->reviewRepair;
-    }
-
-    /**
-     * @param mixed $reviewRepair
-     * @return Answer
-     */
-    public function setReviewRepair($reviewRepair)
-    {
-        $this->reviewRepair = $reviewRepair;
-        return $this;
-    }
-
 }

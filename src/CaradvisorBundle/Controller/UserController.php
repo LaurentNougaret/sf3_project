@@ -4,6 +4,8 @@ namespace CaradvisorBundle\Controller;
 
 use CaradvisorBundle\Entity\Answer;
 use CaradvisorBundle\Entity\Pro;
+use CaradvisorBundle\Entity\ReviewBuy;
+use CaradvisorBundle\Entity\ReviewRepair;
 use CaradvisorBundle\Entity\User;
 use CaradvisorBundle\Entity\Vehicle;
 use CaradvisorBundle\Form\AnswerType;
@@ -225,7 +227,7 @@ class UserController extends Controller
     // Professionals page: see reviews of an establishment
 
     /**
-     * @Route("/user/establishments/reviews/{pro}", name="reviews_establishment")
+     * @Route("/user/establishments/reviews/{user}/{pro}", name="reviews_establishment")
      * @param User $user
      * @param Pro $pro
      * @return Response
@@ -243,32 +245,66 @@ class UserController extends Controller
     // Professionals page: answer to a client's review
 
     /**
-     * @Route("/user/establishments/reviews/answer/{user}/{pro}", name="reviews_answer")
-     * @param Request $request
+     * @Route("/user/establishments/reviews/answer/repair/{user}/{pro}", name="answer_repair")
      * @param User $user
      * @param Pro $pro
-     * @param Answer $answer
+     * @param ReviewRepair $reviewRepair
+     * @param ReviewBuy $reviewBuy
+     * @param Request $request
      * @return Response
      */
-    public function answerReviewsAction(Request $request, User $user, Pro $pro, Answer $answer)
+    public function answerRepairAction(User $user, Pro $pro, ReviewRepair $reviewRepair, Request $request)
     {
-       /* $answer = new Answer();
-        $form = $this->createForm(AnswerType::class, $user);
+        $answer = new Answer();
+        $em = $this->getDoctrine()->getManager();
+        $form = $this->createForm(AnswerType::class, $answer);
         $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()){
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($user);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $answer->setPro($pro);
+            $type = $request->request->get('type');
+            $id = $request->request->get('id');
+            $repair = $em->getRepository('CaradvisorBundle:ReviewRepair')->find($id);
+            $answer->setReviewRepair($repair);
+            $em->persist($answer);
             $em->flush();
-        }*/
-
-        return $this->render('@Caradvisor/User/EstabReviewsAnswer.html.twig', [
-            //'form'      => $form->createView(),
+        }
+        return $this->render('@Caradvisor/User/answerReviewEstabRepair.html.twig', [
             'user' => $user,
             'pro' => $pro,
-            'data' => $user->getReviewRepairs(),
-            'beta' => $user->getReviewBuys(),
-            'zed' => $answer
+            'reviewrepair' => $reviewRepair,
+            'form' =>$form->createView(),
         ]);
     }
+
+    /**
+     * @Route("/user/establishments/reviews/answer/buy/{user}/{pro}", name="answer_buy")
+     * @param User $user
+     * @param Pro $pro
+     * @param ReviewBuy $reviewBuy
+     * @param Request $request
+     * @return Response
+     */
+    public function answerBuyAction(User $user, Pro $pro, ReviewBuy $reviewBuy, Request $request)
+    {
+        $answer = new Answer();
+        $em = $this->getDoctrine()->getManager();
+        $form = $this->createForm(AnswerType::class, $answer);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $answer->setPro($pro);
+            $type = $request->request->get('type');
+            $id = $request->request->get('id');
+            $buy = $em->getRepository('CaradvisorBundle:ReviewBuy')->find($id);
+            $answer->setReviewBuy($buy);
+            $em->persist($answer);
+            $em->flush();
+        }
+        return $this->render('@Caradvisor/User/answerReviewEstabBuy.html.twig', [
+            'user' => $user,
+            'pro' => $pro,
+            'reviewbuy' => $reviewBuy,
+            'form' =>$form->createView(),
+        ]);
+    }
+
 }

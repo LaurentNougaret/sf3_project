@@ -1,0 +1,63 @@
+{% extends ('@Caradvisor/index.html.twig') %}
+{% block body %}
+    <section class="pro">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h2 class="text-center">Réponse à l'avis</h2>
+                    <hr class="pro-review-underline"><br>
+                    <!-- Back to main page -->
+                    <div class="row">
+                        <div class="col-xs-10 col-xs-offset-2 col-md-6 col-md-offset-2">
+                            <a href="{{ path('user_establishments', {'pro': pro.id, 'user': user.id}) }}">
+                                <i class="icon-back fa fa-chevron-left" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Reply to client's review -->
+                    <div class="row">
+                        <div class="col-xs-8 col-xs-offset-2">
+                            <div class="ListReviewsByPro">
+                                <div class="reviews-content">
+                                    <p class="review-card-title">
+                                        {{ user.firstName ~ " " ~ user.lastName }}
+                                        ( {{ user.userName }} )
+                                    </p>
+                                    <p>{{ reviewrepair.dateReview|date('d-m-y') }}</p>
+                                </div>
+                                <div class="SeeReviewStars">
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                </div>
+
+                                <!-- Review made by client -->
+                                <div class="review-body">
+                                    <div class="card-review">
+                                        <p>{{reviewrepair.review}}</p>
+                                    </div>
+
+                                    <div class="card-review">
+                                        <div class="form-group">
+                                            {{ form_start(form) }}
+                                            {{ form_errors(form) }}
+                                            <input type="hidden" value="{{ reviewrepair.id  }}" name="id">
+                                            <input type="hidden" value="repair" name="type">
+                                            {{ form_row(form.message) }}
+                                            <button type="submit" class="btn btn-default center-block btn-send">
+                                                Envoyer
+                                            </button>
+                                            {{ form_end(form) }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
