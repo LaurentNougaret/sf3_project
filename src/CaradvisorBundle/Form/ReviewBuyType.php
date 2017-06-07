@@ -3,13 +3,12 @@
 namespace CaradvisorBundle\Form;
 
 use CaradvisorBundle\Entity\ReviewBuy;
-use Doctrine\DBAL\Types\DateType;
-use Doctrine\DBAL\Types\IntegerType;
-use Doctrine\DBAL\Types\TextType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -35,7 +34,7 @@ class ReviewBuyType extends AbstractType
                     'Autre' => 5
                 ]
             ])
-            ->add('dealerName', IntegerType::class, [
+            ->add('dealerName', TextType::class, [
                 'label' => 'Nom',
                 'attr'  => ['placeholder' => 'Nom de la société']
             ])
@@ -88,17 +87,25 @@ class ReviewBuyType extends AbstractType
                 'expanded'=>true,
                 'multiple'=>false,
             ])
-            ->add('wantedInformation', IntegerType::class, [
+            ->add('wantedInformation', ChoiceType::class, [
                 'label' => 'Avez-vous eu les renseignements souhaités ?',
+                'choices' => ['oui' => 1, 'non' => 2]
             ])
-            ->add('test', IntegerType::class, [
+            ->add('test', ChoiceType::class, [
                 'label' => 'Vous a-t-on proposé un essai ?',
+                'choices' => ['oui' => 1, 'non' => 2]
             ])
-            ->add('wantedEngineTest', IntegerType::class, [
+            ->add('wantedEngineTest', ChoiceType::class, [
                 'label' => 'L\'essai était-il sur le véhicule souhaité (motorisation ?',
+                'choices' => ['oui' => 1, 'non' => 2]
             ])
-            ->add('fundingSolution', IntegerType::class, [
+            ->add('fundingSolution', ChoiceType::class, [
                 'label' => 'Vous a-t-on proposé une solution de financement ?',
+                'choices' => ['oui' => 1, 'non' => 2]
+            ])
+            ->add('warranty', ChoiceType::class, [
+                'label' => 'Vous a-t-on proposé une garantie ?',
+                'choices' => ['oui' => 1, 'non' => 2]
             ])
             ->add('recommendProRating', ChoiceType::class, [
                 'label' => 'Dans quel mesure conseilleriez-vous votre professionnel ?',

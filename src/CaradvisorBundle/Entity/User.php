@@ -110,12 +110,23 @@ class User implements UserInterface, \Serializable
      */
     private $birthDate;
 
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="mailingList", type="boolean", nullable=true)
+     */
+    private $mailingList;
+
+    // added $picture in User after deleting it in Pro because of problems in Db
+    /**
+     * @ORM\Column(name="picture", type="blob", nullable=true)
+     */
+    private $picture;
 
     /**
-     * @var array
-     * @ORM\Column(name="roles", type="array")
+     * @ORM\OneToMany(targetEntity="CaradvisorBundle\Entity\Vehicle", mappedBy="user")
      */
-    private $roles = array();
+    private $vehicles;
 
     /**
      * @var bool
@@ -125,16 +136,22 @@ class User implements UserInterface, \Serializable
     private $isActive;
 
     /**
-     * @var bool
-     *
-     * @ORM\Column(name="mailingList", type="boolean", nullable=true)
+     * @var array
+     * @ORM\Column(name="roles", type="array")
      */
-    private $mailingList;
+    private $roles = array();
 
     /**
-     * @ORM\OneToMany(targetEntity="CaradvisorBundle\Entity\Vehicle", mappedBy="user")
+     * @ORM\Column(name="token", type="string", length=255, nullable=true)
      */
-    private $vehicles;
+    private $token;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_limit_token", type="datetime", nullable=true)
+     */
+    private $dateLimitToken;
 
     /**
      * @ORM\OneToMany(targetEntity="CaradvisorBundle\Entity\Pro", mappedBy="user")
@@ -151,11 +168,17 @@ class User implements UserInterface, \Serializable
      */
     private $reviewBuys;
 
-    // added $picture in User after deleting it in Pro because of problems in Db
     /**
-     * @ORM\Column(name="picture", type="blob", nullable=true)
+     * Constructor
      */
-    private $picture;
+    public function __construct()
+    {
+        $this->isActive = false;
+        $this->vehicles = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->pros = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->reviewRepairs = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->reviewBuys = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -240,6 +263,30 @@ class User implements UserInterface, \Serializable
     }
 
     /**
+     * Set email
+     *
+     * @param string $email
+     *
+     * @return User
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
      * @return mixed
      */
     public function getPlainpassword()
@@ -279,30 +326,6 @@ class User implements UserInterface, \Serializable
     public function getPassword()
     {
         return $this->password;
-    }
-
-    /**
-     * Set email
-     *
-     * @param string $email
-     *
-     * @return User
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-
-        return $this;
-    }
-
-    /**
-     * Get email
-     *
-     * @return string
-     */
-    public function getEmail()
-    {
-        return $this->email;
     }
 
     /**
@@ -450,24 +473,6 @@ class User implements UserInterface, \Serializable
     }
 
     /**
-     * @return bool
-     */
-    public function isActive()
-    {
-        return $this->isActive;
-    }
-
-    /**
-     * @param bool $isActive
-     * @return User
-     */
-    public function setIsActive($isActive)
-    {
-        $this->isActive = $isActive;
-        return $this;
-    }
-
-    /**
      * Set mailingList
      *
      * @param boolean $mailingList
@@ -516,17 +521,6 @@ class User implements UserInterface, \Serializable
     }
 
     /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->vehicles = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->pros = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->reviewRepairs = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->reviewBuys = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
      * Get isActive
      *
      * @return boolean
@@ -534,6 +528,40 @@ class User implements UserInterface, \Serializable
     public function getIsActive()
     {
         return $this->isActive;
+    }
+
+    /**
+     * @param bool $isActive
+     * @return User
+     */
+    public function setIsActive($isActive)
+    {
+        $this->isActive = $isActive;
+        return $this;
+    }
+
+    /**
+     * Get roles
+     *
+     * @return array
+     */
+    public function getRoles()
+    {
+        return $this->roles;
+    }
+
+    /**
+     * Set roles
+     *
+     * @param array $roles
+     *
+     * @return User
+     */
+    public function setRoles($roles)
+    {
+        $this->roles = $roles;
+
+        return $this;
     }
 
     public function getSalt()
@@ -562,6 +590,47 @@ class User implements UserInterface, \Serializable
             $this->userName,
             $this->password,
         ) = unserialize($serialized);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getToken()
+    {
+        return $this->token;
+    }
+
+    /**
+     * @param mixed $token
+     * @return User
+     */
+    public function setToken($token)
+    {
+        $this->token = $token;
+        return $this;
+    }
+
+    public function generateToken()
+    {
+        return sha1(microtime() . $this->getEmail());
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDateLimitToken()
+    {
+        return $this->dateLimitToken;
+    }
+
+    /**
+     * @param mixed $dateLimitToken
+     * @return User
+     */
+    public function setDateLimitToken($dateLimitToken)
+    {
+        $this->dateLimitToken = $dateLimitToken;
+        return $this;
     }
 
     /**
@@ -698,29 +767,5 @@ class User implements UserInterface, \Serializable
     public function getReviewBuys()
     {
         return $this->reviewBuys;
-    }
-
-    /**
-     * Get roles
-     *
-     * @return array
-     */
-    public function getRoles()
-    {
-        return $this->roles;
-    }
-
-    /**
-     * Set roles
-     *
-     * @param array $roles
-     *
-     * @return User
-     */
-    public function setRoles($roles)
-    {
-        $this->roles = $roles;
-
-        return $this;
     }
 }

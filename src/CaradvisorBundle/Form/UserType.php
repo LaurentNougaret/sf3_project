@@ -3,10 +3,12 @@
 namespace CaradvisorBundle\Form;
 
 use CaradvisorBundle\Entity\User;
-use CaradvisorBundle\Form\DataTransformer\StringToArrayTransformer;
+use CaradvisorBundle\Entity\Vehicle;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\CallbackTransformer;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -18,13 +20,6 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class UserType extends AbstractType
 {
-   /* private $transformer;
-
-    public function __construct(StringToArrayTransformer $transformer)
-    {
-        $this->transformer = $transformer;
-    }*/
-
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
