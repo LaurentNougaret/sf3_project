@@ -64,10 +64,7 @@
 .pro .btn-send, .pro .modify-pro-review {
     width: 9em;
     font-size: 16px;
-    margin-top: 1em;
-    margin-bottom: 3em;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0.1em auto 3em;
     border-radius: 4px;
     border: 3px solid #ff4756;
     background-color: #fff;
@@ -214,14 +211,22 @@
     -webkit-transition: color .2s ease-out, background 0.2s ease-in;
 }
 
+/* User profile */
+
+.user-avatar {
+    position: absolute;
+    top: 5%;
+    left: 5%
+}
+
 /* List of Establishments page */
 
 .card {
     text-align: center;
     position: relative;
     font-family: 'Roboto', sans-serif;
-    margin-top: 10px;
-    margin-bottom: 8%;
+    margin-top: 0.5%;
+    margin-bottom: 4%;
     -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
     -moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
     box-shadow: 4px 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
@@ -298,6 +303,7 @@
 }
 
 /* --- Establishment: see reviews & answer pages: Buttons --- */
+
 .ListReviewsByPro .AnswerReviewButton {
     color: #999999;
     border: 1px solid #999999;
