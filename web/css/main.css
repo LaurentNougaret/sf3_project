@@ -521,7 +521,6 @@ nav li a:focus{
 /**********************************\
 10. footer
 \**********************************/
-/*** General parameters for the footer */
 .footer {
     padding-top: 10px;
     padding-bottom: 30px;
@@ -555,25 +554,6 @@ nav li a:focus{
 
 .footer .map a:hover, .footer .infos a:hover {
     color: #BFC0C0;
-}
-
-.footer button {
-    margin-top: 5%;
-    border-radius: 4px;
-    border: 3px solid #ff4756;
-    background-color: #2d3142;
-    font-weight: bold;
-    color: #ff4756;
-    -o-transition:color .2s ease-out, background 0.2s ease-in;
-    -moz-transition:color .2s ease-out, background 0.2s ease-in;
-    -webkit-transition:color .2s ease-out, background 0.2s ease-in;
-}
-
-.footer .btn-info:hover, .footer .btn-info:focus, .footer .btn-info:active {
-    color: #2d3142;
-    background-color: #ff4756;
-    border: 3px solid #ff4756;
-    outline: none;
 }
 
 .social li {
@@ -610,18 +590,6 @@ nav li a:focus{
     padding-top: 10px;
     margin-top: 10px;
     margin-bottom: -25px;
-}
-
-.footer-bottom a:hover, .footer-bottom a:focus {
-    color: gray;
-    text-decoration: none;
-    outline: none;
-}
-
-@media (max-width: 750px) {
-    .footer input {
-        width: 80%;
-    }
 }
 
 /*** Bottom-to-top button ***/
