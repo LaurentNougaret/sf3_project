@@ -721,6 +721,7 @@ class User implements UserInterface, Serializable
     }
 
     /**
+<<<<<<< HEAD
      * @return string
      */
     public function getPasswordCompare()
@@ -740,6 +741,11 @@ class User implements UserInterface, Serializable
 
     /**
      * @return string
+=======
+     * Get roles
+     *
+     * @return array
+>>>>>>> 4d0b82d7c579a6227f91846f05b24e4b082f8c13
      */
     public function getPasswordChangeToken()
     {

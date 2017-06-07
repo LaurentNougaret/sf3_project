@@ -36,6 +36,7 @@ class SecurityController extends Controller
         ]);
     }
 
+
     /**
      * @Route("/signup", name="user_signup")
      * @param Request $request
@@ -72,7 +73,7 @@ class SecurityController extends Controller
                     $this->renderView(
                         "@Caradvisor/Mail/registration.html.twig", [
                             'userName' => $user->getUserName(),
-                            'url' => $this->generateUrl('home', [], UrlGeneratorInterface::ABSOLUTE_URL)
+                            'url' => $this->generateUrl("home", [], UrlGeneratorInterface::ABSOLUTE_URL)
                     ]),
                     'text/html'
                 );
@@ -80,7 +81,7 @@ class SecurityController extends Controller
             $this->get('mailer')->send($email);
             $this->addFlash("notice-green", "Un email vous a été envoyé, vous pouvez maintenant vous connecter.");
 
-            return $this->redirectToRoute("/");
+            return $this->redirectToRoute('home');
         }
         return $this->render('@Caradvisor/Security/signup.html.twig', [
             'form'      => $form->createView(),

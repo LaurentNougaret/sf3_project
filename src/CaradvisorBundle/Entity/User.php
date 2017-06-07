@@ -762,5 +762,4 @@ class User implements UserInterface, Serializable
         $string = $this->getUsername() . $this->getEmail() . $today->getTimestamp();
         return sha1($string);
     }
-
 }

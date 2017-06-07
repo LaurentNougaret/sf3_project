@@ -2,9 +2,11 @@
 
 namespace CaradvisorBundle\Controller;
 
+use CaradvisorBundle\Entity\Answer;
 use CaradvisorBundle\Entity\Pro;
 use CaradvisorBundle\Entity\User;
 use CaradvisorBundle\Entity\Vehicle;
+use CaradvisorBundle\Form\AnswerType;
 use CaradvisorBundle\Form\ProProfileType;
 use CaradvisorBundle\Form\UserSignupType;
 use CaradvisorBundle\Form\UserType;
@@ -46,9 +48,9 @@ class UserController extends Controller
 
     // User's profile page: Edit profile
     /**
-     * @Route("/user/profile/edit/{id}", name="user_edit")
+     * @Route("/user/profile/edit/{user}", name="user_edit")
      * @param Request $request
-     * @param User $id
+     * @param User $user
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function editAction(Request $request, User $user)
@@ -60,7 +62,7 @@ class UserController extends Controller
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('user_profile', array(
-                'user' => $user,
+                'user' => $user->getId()
             ));
         }
         return $this->render('@Caradvisor/User/editUser.html.twig', array(
@@ -215,7 +217,9 @@ class UserController extends Controller
             ));
         }
         return $this->render('@Caradvisor/User/editEstab.html.twig', array(
-            'edit_form' => $editForm->createView()
+            'edit_form' => $editForm->createView(),
+            'user' => $user,
+            'pro' => $pro
         ));
     }
 
@@ -232,8 +236,40 @@ class UserController extends Controller
        return $this->render('@Caradvisor/Pro/reviews.html.twig', [
            'user' => $user,
            'pro' => $pro,
-           'data' => $user->getReviewRepairs(),
-           'beta' => $user->getReviewBuys(),
+           'data' => $pro->getReviewRepairs(),
+           'beta' => $pro->getReviewBuys()
        ]);
+    }
+
+    // Professionals page: answer to a client's review
+
+    /**
+     * @Route("/user/establishments/reviews/answer/{user}/{pro}", name="reviews_answer")
+     * @param Request $request
+     * @param User $user
+     * @param Pro $pro
+     * @param Answer $answer
+     * @return Response
+     */
+    public function answerReviewsAction(Request $request, User $user, Pro $pro, Answer $answer)
+    {
+       /* $answer = new Answer();
+        $form = $this->createForm(AnswerType::class, $user);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()){
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->flush();
+        }*/
+
+        return $this->render('@Caradvisor/User/EstabReviewsAnswer.html.twig', [
+            //'form'      => $form->createView(),
+            'user' => $user,
+            'pro' => $pro,
+            'data' => $user->getReviewRepairs(),
+            'beta' => $user->getReviewBuys(),
+            'zed' => $answer
+        ]);
     }
 }

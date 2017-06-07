@@ -1,0 +1,140 @@
+{% extends ('@Caradvisor/index.html.twig') %}
+{% block body %}
+    <section class="pro">
+        <div class="container">
+            <div class="row" id="account-pro-reviews">
+                <div class="col-xs-12">
+                    <h2 class="text-center">Les Avis</h2>
+                </div>
+                {#<div class="col-xs-10 col-xs-offset-1 col-md-6 col-md-offset-1">#}
+                {#<a href="{{ path('user',{'user': app.user.id}) }}">#}
+                {#<p><i class="fa fa-angle-double-left" aria-hidden="true"> </i>#}
+                {#Revenir à Mon Compte</p><br>#}
+                {#</a>#}
+                {#</div>#}
+            </div>
+            <div class="col-xs-12">
+                <h3 class="text-center">Avis réparation</h3>
+            </div>
+            {% for review in data %}
+                <div class="col-xs-12 col-sm-8 col-sm-offset-2 review">
+                    <h4>L'avis</h4>
+                    <p class="text-justify">{{ review.review }}</p>
+                    {#<small>{{ review.user.lastname }} {{ review.user.firstname }}, {{ review.dateReview|date('d-m-y') }}</small>#}
+                    <br><br><br>
+                    {% if review.answer is null %}
+                        <div class="col-xs-12">
+                            <button type="submit" class="btn btn-primary center-block modify-pro-review">Répondre</button>
+                        </div>
+                    {% else %}
+                        <h4>La réponse</h4>
+                        <p>{{ review.answer.message }}</p>
+                        <small>{{ review.answer.date|date('d-m-y') }}</small>
+                        <hr>
+                    {% endif %}
+                </div>
+            {% endfor %}
+            <div class="col-xs-12">
+                <h3 class="text-center">Avis réparation</h3>
+            </div>
+            {% for review in beta %}
+                <div class="col-xs-12 col-sm-8 col-sm-offset-2 review">
+                    <h4>L'avis</h4>
+                    <p class="text-justify">{{ review.review }}</p>
+                    {#<small>{{ review.user.lastname }} {{ review.user.firstname }}
+                    , {{ review.dateReview|date('d-m-y') }}</small>#}
+                    <br><br><br>
+                    {% if review.answer is null %}
+                        <div class="col-xs-12">
+                            <button type="submit" class="btn btn-primary center-block modify-pro-review">
+                                Répondre
+                            </button>
+                        </div>
+
+                    {% else %}
+                        <h4>La réponse</h4>
+                        <p>{{ review.answer.message }}</p>
+                        <small>{{ review.answer.date|date('d-m-y') }}</small>
+                        <hr>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+{% endblock %}
+
+{#
+{% extends ('@Caradvisor/index.html.twig') %}
+{% block body %}
+    <section class="pro">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h2 class="text-center">Réponse à l'avis</h2>
+                    <hr class="pro-review-underline"><br>
+                    <!-- Back to main page -->
+                    <div class="row">
+                        <div class="col-xs-10 col-xs-offset-2 col-md-6 col-md-offset-2">
+                            <a href="{{ path('user_establishments', {'pro': pro.id, 'user': user.id}) }}">
+                                <i class="icon-back fa fa-chevron-left" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Reply to client's review -->
+                    <div class="row">
+                        <div class="col-xs-8 col-xs-offset-2">
+                            <div class="ListReviewsByPro">
+                                <div class="reviews-content">
+                                    <p class="review-card-title">
+                                        {{ user.firstName ~ " " ~ user.lastName }}
+                                        ( {{ user.userName }} )
+                                    </p>
+                                    <p>Date de l'avis: 00/00/2017</p>
+                                </div>
+                                <div class="SeeReviewStars">
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                </div>
+
+                                <!-- Review made by client -->
+                                <div class="review-body">
+                                    <div class="card-review">
+                                        <p>...tomorrow we will run faster, stretch out our arms farther...
+                                            And then one fine morning&mdash; So we beat on, boats against the
+                                            current, borne back ceaselessly into the past.
+                                            tomorrow we will run faster, stretch out our arms farther...
+                                            And then one fine morning&mdash; So we beat on, boats against the
+                                            current, borne back ceaselessly into the And then one fine morning&mdash; So we beat on, boats against the
+                                            current, borne back ceaselessly into the</p>
+                                    </div>
+
+                                    <div class="card-review">
+                                        <div class="form-group">
+                                            <label for="AnswerReview"><p>Please write your answer to the client's review here</p></label>
+                                            <textarea class="form-control" id="AnswerReview" rows="8">
+                                                Hey devs! :) Client should be notified about the answer!
+                                            </textarea>
+                                        </div>
+                                    </div>
+
+                                        <div class="review-see-buttons">
+                                            <a class="ReplyToUserButton" href="{{ path('edit_establishment',
+                                            {'pro': pro.id, 'user': user.id}) }}">
+                                                <i class="fa fa-eye" aria-hidden="true"></i>
+                                                Envoyer
+                                            </a>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+#}
