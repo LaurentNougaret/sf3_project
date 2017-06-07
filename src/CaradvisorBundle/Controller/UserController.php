@@ -6,6 +6,7 @@ use CaradvisorBundle\Entity\Answer;
 use CaradvisorBundle\Entity\Pro;
 use CaradvisorBundle\Entity\User;
 use CaradvisorBundle\Entity\Vehicle;
+use CaradvisorBundle\Form\AnswerType;
 use CaradvisorBundle\Form\ProProfileType;
 use CaradvisorBundle\Form\UserSignupType;
 use CaradvisorBundle\Form\UserType;
@@ -215,7 +216,9 @@ class UserController extends Controller
             ));
         }
         return $this->render('@Caradvisor/User/editEstab.html.twig', array(
-            'edit_form' => $editForm->createView()
+            'edit_form' => $editForm->createView(),
+            'user' => $user,
+            'pro' => $pro
         ));
     }
 
@@ -232,8 +235,8 @@ class UserController extends Controller
        return $this->render('@Caradvisor/Pro/reviews.html.twig', [
            'user' => $user,
            'pro' => $pro,
-           'data' => $user->getReviewRepairs(),
-           'beta' => $user->getReviewBuys(),
+           'data' => $pro->getReviewRepairs(),
+           'beta' => $pro->getReviewBuys()
        ]);
     }
 
@@ -244,16 +247,28 @@ class UserController extends Controller
      * @param Request $request
      * @param User $user
      * @param Pro $pro
+     * @param Answer $answer
      * @return Response
      */
-    public function answerReviewsAction(Request $request, User $user, Pro $pro)
+    public function answerReviewsAction(Request $request, User $user, Pro $pro, Answer $answer)
     {
+       /* $answer = new Answer();
+        $form = $this->createForm(AnswerType::class, $user);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()){
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->flush();
+        }*/
+
         return $this->render('@Caradvisor/User/EstabReviewsAnswer.html.twig', [
             //'form'      => $form->createView(),
             'user' => $user,
             'pro' => $pro,
             'data' => $user->getReviewRepairs(),
             'beta' => $user->getReviewBuys(),
+            'zed' => $answer
         ]);
     }
 }
