@@ -3,7 +3,6 @@
 namespace CaradvisorBundle\Form;
 
 use CaradvisorBundle\Entity\User;
-use CaradvisorBundle\Form\DataTransformer\StringToArrayTransformer;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\CallbackTransformer;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -12,19 +11,13 @@ use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class UserType extends AbstractType
 {
-   /* private $transformer;
-
-    public function __construct(StringToArrayTransformer $transformer)
-    {
-        $this->transformer = $transformer;
-    }*/
-
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
@@ -88,7 +81,9 @@ class UserType extends AbstractType
             ->add('postalCode', TextType::class, [
                 'label' => false,
                 'attr'  => ['placeholder' => 'Code Postal']
-            ]);
+            ])
+            ->add('save', SubmitType::class, [
+                'label' => 'Modifier', 'attr' =>['class' => 'save-pro-btn center-block']]);
 
         $builder->get('roles')
             ->addModelTransformer(new CallbackTransformer(

@@ -8,6 +8,7 @@ use CaradvisorBundle\Entity\User;
 use CaradvisorBundle\Entity\Vehicle;
 use CaradvisorBundle\Form\AnswerType;
 use CaradvisorBundle\Form\ProProfileType;
+use CaradvisorBundle\Form\UserEditProfileType;
 use CaradvisorBundle\Form\UserSignupType;
 use CaradvisorBundle\Form\UserType;
 use CaradvisorBundle\Form\VehicleType;
@@ -50,11 +51,11 @@ class UserController extends Controller
      * @Route("/user/profile/edit/{user}", name="user_edit")
      * @param Request $request
      * @param User $user
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
     public function editAction(Request $request, User $user)
     {
-        $editForm = $this->createForm(UserType::class, $user);
+        $editForm = $this->createForm(UserEditProfileType::class, $user);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
@@ -65,7 +66,8 @@ class UserController extends Controller
             ));
         }
         return $this->render('@Caradvisor/User/editUser.html.twig', array(
-            'edit_form' => $editForm->createView()
+            'edit_form' => $editForm->createView(),
+            'user' => $user
         ));
     }
 
