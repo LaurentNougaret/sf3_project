@@ -10,9 +10,15 @@
                 </div>
             </div>
             <div class="row">
+                {% if (app.request.get('_route') == 'review_used') %}
                 <div class="col-xs-12 col-sm-3 col-sm-offset-2 col-md-3 col-md-offset-3">
-                    <a href="{{ path('review_buy') }}"><button type="button" class="btn btn-primary btn-lg btn-block center-block">ACHAT OCCASION</button></a>
+                    <a href="{{ path('review_new') }}"><button type="button" class="btn btn-primary btn-lg btn-block center-block">ACHAT NEUF</button></a>
                 </div>
+                {% elseif (app.request.get('_route') == 'review_new') %}
+                <div class="col-xs-12 col-sm-3 col-sm-offset-2 col-md-3 col-md-offset-3">
+                    <a href="{{ path('review_used') }}"><button type="button" class="btn btn-primary btn-lg btn-block center-block">ACHAT OCCASION</button></a>
+                </div>
+                {% endif %}
                 <div class="col-xs-12 col-sm-3 col-sm-offset-1 col-md-3 col-md-offset-0">
                     <a href="{{ path('review_repair') }}"><button type="button" class="btn btn-primary btn-lg btn-block center-block">ENTRETIEN / REPARATION</button></a>
                 </div>
@@ -63,9 +69,9 @@
                     {{ form_errors(form.review) }}
                 </div>
                 <div class="row">
-                    <div class="col-sm-3 control-label">{{ form_label(form.dateRepair) }}</div>
-                    <div class="col-sm-2">{{ form_widget(form.dateRepair) }}</div>
-                    {{ form_errors(form.dateRepair) }}
+                    <div class="col-sm-3 control-label">{{ form_label(form.dateBuy) }}</div>
+                    <div class="col-sm-2">{{ form_widget(form.dateBuy) }}</div>
+                    {{ form_errors(form.dateBuy) }}
                 </div>
             </div>
             <div class="bloc form-horizontal">
@@ -101,11 +107,13 @@
                     <div class="col-sm-6">{{ form_widget(form.fundingSolution) }}</div>
                     {{ form_errors(form.fundingSolution) }}
                 </div>
+                {% if (app.request.get('_route') == 'review_used') %}
                 <div class="row">
                     <div class="col-sm-3 control-label">{{ form_label(form.warranty) }}</div>
                     <div class="col-sm-6">{{ form_widget(form.warranty) }}</div>
                     {{ form_errors(form.warranty) }}
                 </div>
+                {% endif %}
                 <div class="row">
                     <div class="col-sm-3 control-label">{{ form_label(form.recommendProRating) }}</div>
                     <div class="col-sm-6">{{ form_widget(form.recommendProRating) }}</div>

@@ -17,13 +17,6 @@ class ReviewBuyType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('repairBuyType',ChoiceType::class, [
-                'label' => false,
-                'choices' => [
-                    'Achat' => 1,
-                    "Neuf"  => 2
-                ]
-            ])
             ->add('dealerType', ChoiceType::class, [
                 'label' => 'Type de prestataire',
                 'choices' => [
