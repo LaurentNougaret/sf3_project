@@ -440,6 +440,7 @@ nav li a:focus{
     height: 6em;
     left: 5%;
     cursor: pointer;
+    border-radius: 4px;
 }
 
 @media (max-width: 767px) {
