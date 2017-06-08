@@ -39,11 +39,7 @@
                                             <li><p>Description: {{ pro.description }}</p></li>
                                         </ul>
                                         <br>
-                                        <a href="{{ path('edit_establishment',
-                                        {'pro': pro.id, 'user': user.id}) }}">
-                                            <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
-                                        </a>
-                                        <a href="{{ path('reviews_establishment',
+                                        <a class="seeReviews" href="{{ path('reviews_establishment',
                                         {'pro': pro.id, 'user': user.id}) }}">
                                             <i class="fa fa-comments fa-2x" aria-hidden="true"></i>
                                         </a>

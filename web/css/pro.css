@@ -235,13 +235,12 @@
 .card .card-content {
     padding: 19px;
 }
-
 .card .card-content .card-title, .card-reveal .card-title{
     font-size: 20px;
     font-weight: 200;
 }
-
 .card .card-action{
+    text-align: left;
     padding: 20px;
     border-top: 1px solid rgba(160, 160, 160, 0.2);
 }
@@ -271,7 +270,9 @@
 .card .card-action ul {
     list-style-type: none;
 }
-
+.seeReviews {
+    text-align: center;
+}
 /* Establishment: see reviews page */
 
 .ListReviewsByPro {
