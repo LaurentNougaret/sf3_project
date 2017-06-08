@@ -262,7 +262,6 @@ class UserController extends Controller
         $form = $this->createForm(AnswerType::class, $answer);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $answer->setPro($pro);
             $type = $request->request->get('type');
             $id = $request->request->get('id');
             $repair = $em->getRepository('CaradvisorBundle:ReviewRepair')->find($id);

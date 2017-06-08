@@ -18,26 +18,25 @@
                    <div class="row">
                         <div class="col-xs-8 col-xs-offset-2">
                             <div class="ListReviewsByPro">
-                                <div class="reviews-content">
-                                    <h4>Avis réparation</h4>
-                                    <p class="review-card-title">
-                                        {{ review.user.firstName ~ " " ~ review.user.lastName }}
-                                        ( {{ review.user.userName }} )
-                                    </p>
-                                    <p>Date de l'avis: {{ review.dateReview|date('d-m-y') }}</p>
-                                    <p>Titre: {#{{ review.review.subject }}#}</p>
-                                </div>
-                                <div class="SeeReviewStars">
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                </div>
+                                <div class="review-establishment-header">
+                                    <div class="reviews-content">
+                                        <h4 class="review-card-title">Avis réparation</h4>
+                                        <p>
+                                            <i>{{ review.user.firstName ~ " " ~ review.user.lastName }}</i>, {{ review.user.city }}
+
+                                        </p>
+                                        <small>Posté le {{ review.dateReview|date('d-m-y') }}</small>
+                                        <h5><i class="fa fa-quote-left" aria-hidden="true"></i>  {{ review.subject }} <i class="fa fa-quote-right" aria-hidden="true"></i>
+                                        </h5>
+                                    </div>
+                                    <div class="SeeReviewStars">
+                                        <h4>{{ review.ratingGlobal }}</h4>
+                                    </div>
+                                 </div>
                         <!-- Review made by client -->
                         <div class="review-body">
                             <div class="card-review">
-                                <p>{{ review.review }}</p>
+                                <p class="review-establishment">{{ review.review }}</p>
                             </div>
                         </div>
                                 {% if review.answer is null %}
@@ -49,7 +48,7 @@
                                 </div>
                                 {% else %}
                                     <div class ="reviews-content">
-                                        <h4>La réponse</h4>
+                                        <h4 class="review-establishment-response">La réponse</h4>
                                         <p>{{ review.answer.message }}</p>
                                         <small>{{ review.answer.date|date('d-m-y') }}</small>
                                     </div>
@@ -62,25 +61,22 @@
                            <div class="col-xs-8 col-xs-offset-2">
                                <div class="ListReviewsByPro">
                                    <div class="reviews-content">
-                                       <h4>Avis Achat {{ review.reviewBuyType  }}</h4>
-                                       <p class="review-card-title">
-                                           {{ review.user.firstName ~ " " ~ review.user.lastName }}
-                                           ( {{ review.user.userName }} )
+                                       <h4 class="review-card-title">Avis Achat {{ review.reviewBuyType  }}</h4>
+                                       <p>
+                                           {{ review.user.firstName ~ " " ~ review.user.lastName }}, {{ review.user.city }}
+
                                        </p>
-                                       <p>Date de l'avis: {{ review.dateReview|date('d-m-y') }}</p>
-                                       <p>Titre: {{ review.subject }}</p>
+                                       <p>{{ review.dateReview|date('d-m-y') }}</p>
+                                       <h5><i class="fa fa-quote-left" aria-hidden="true"></i>  {{ review.subject }} <i class="fa fa-quote-right" aria-hidden="true"></i>
+                                       </h5>
                                    </div>
                                    <div class="SeeReviewStars">
-                                       <i class="fa fa-star" aria-hidden="true"></i>
-                                       <i class="fa fa-star" aria-hidden="true"></i>
-                                       <i class="fa fa-star" aria-hidden="true"></i>
-                                       <i class="fa fa-star" aria-hidden="true"></i>
-                                       <i class="fa fa-star" aria-hidden="true"></i>
+                                       <h4>{{ review.ratingGlobal }}</h4>
                                    </div>
                                    <!-- Review made by client -->
                                    <div class="review-body">
                                        <div class="card-review">
-                                           <p>{{ review.review }}</p>
+                                           <p class="review-establishment">{{ review.review }}</p>
                                        </div>
                                    </div>
                                    {% if review.answer is null %}
@@ -92,7 +88,7 @@
                                        </div>
                                    {% else %}
                                        <div class ="reviews-content">
-                                           <h4>La réponse</h4>
+                                           <h4 class="review-establishment-response">La réponse</h4>
                                            <p>{{ review.answer.message }}</p>
                                            <small>{{ review.answer.date|date('d-m-y') }}</small>
                                        </div>
