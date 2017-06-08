@@ -9,6 +9,7 @@ use CaradvisorBundle\Entity\Vehicle;
 use CaradvisorBundle\Form\AnswerType;
 use CaradvisorBundle\Form\ProProfileType;
 use CaradvisorBundle\Form\UserEditProfileType;
+use CaradvisorBundle\Form\UserProfileType;
 use CaradvisorBundle\Form\UserSignupType;
 use CaradvisorBundle\Form\UserType;
 use CaradvisorBundle\Form\VehicleType;
@@ -40,7 +41,6 @@ class UserController extends Controller
      */
     public function profileAction(User $user)
     {
-
         return $this->render('@Caradvisor/User/profile.html.twig', [
             "user" => $user,
         ]);
@@ -55,14 +55,14 @@ class UserController extends Controller
      */
     public function editAction(Request $request, User $user)
     {
-        $editForm = $this->createForm(UserEditProfileType::class, $user);
+        $editForm = $this->createForm(UserProfileType::class, $user);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('user_profile', array(
-                'user' => $user->getId()
+                'user' => $user
             ));
         }
         return $this->render('@Caradvisor/User/editUser.html.twig', array(

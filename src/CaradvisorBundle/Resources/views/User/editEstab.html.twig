@@ -14,7 +14,6 @@
                         </a>
                     </div>
                 </div>
-
             <div class="row">
                 <div class="col-xs-8 col-xs-offset-2">
                     {{ form_start(edit_form) }}
@@ -23,14 +22,12 @@
                         <div class="card-image">
                             <img class="img-responsive" src="{{ asset('img/garage.jpg') }}">
                         </div><!-- card image -->
-
                         <div class="card-content">
                             <span class="card-title">
                                 Nom de la societé: {#{{ pro.dealerName }}#}
                             </span>
                         </div><!-- card content -->
-
-                        <!-- Info about establishment -->
+                        <!-- Modify info about establishment -->
                         <div class="card-action">
                             <ul>
                             <!-- Company's name & Siret shouldn't be able to be changed by the user -->
@@ -45,19 +42,19 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xs-12 text-center">
-                    <label class=" control-label" for="filebutton">Ajoutez une photo de votre établissement </label>
-                    <div>
-                        <input id="filebutton" name="filebutton" class="input-file center-block" type="file"
-                               accept=".jpg, .png, .jpeg">
-                        <br>
-                        <span class="help-block">Formats de fichiers acceptés: JPG, JPEG, PNG.</span>
+                    <div class="col-xs-12 text-center">
+                        <label class=" control-label" for="filebutton">Ajoutez une photo de votre établissement </label>
+                        <div>
+                            <input id="filebutton" name="filebutton" class="input-file center-block" type="file"
+                                   accept=".jpg, .png, .jpeg">
+                            <br>
+                            <span class="help-block">Formats de fichiers acceptés: JPG, JPEG, PNG.</span>
+                        </div>
                     </div>
+                    {{ form_row(edit_form._token) }}
+                    {{ form_row(edit_form.save) }}
+                    {{ form_end(edit_form, {'render_rest': false}) }}
                 </div>
-                {{ form_row(edit_form._token) }}
-                {{ form_row(edit_form.save) }}
-                {{ form_end(edit_form, {'render_rest': false}) }}
-            </div>
             </div>
         </div>
     </div>

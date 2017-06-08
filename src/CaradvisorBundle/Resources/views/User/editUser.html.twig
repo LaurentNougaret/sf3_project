@@ -14,7 +14,6 @@
                             </a>
                         </div>
                     </div>
-
                     <div class="row">
                         <div class="col-xs-8 col-xs-offset-2">
                             {{ form_start(edit_form) }}
@@ -56,6 +55,7 @@
                         </div>
                         {{ form_row(edit_form._token) }}
                         {{ form_row(edit_form.save) }}
+                        {{ form_end(edit_form, {'render_rest': false}) }}
                     </div>
                 </div>
             </div>
