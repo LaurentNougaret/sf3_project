@@ -63,11 +63,6 @@ class SecurityController extends Controller
                 ->encodePassword($user, $user->getPlainPassword());
 
             $user->setPassword($password);
-            $user->setAddress("");
-            $user->setCity("");
-            $user->setPostalCode("");
-            $user->setPhone(null);
-            $user->setBirthDate(new \DateTime());
 
             $dateLimitToken = new \DateTime("now");
             $dateLimitToken->add(new \DateInterval("P1D"));

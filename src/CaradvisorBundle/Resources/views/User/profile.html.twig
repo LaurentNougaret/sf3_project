@@ -41,26 +41,26 @@
                                                 <td>Nom d'utilisateur:</td>
                                                 <td>{{ user.userName }}</td>
                                             </tr>
-                                            <tr>
+                                            {#<tr>
                                                 <td>Date de Naissance:</td>
-                                                <td>{{ user.birthDate|date('d/m/Y') }}
+                                                <td>{{ user.userProfile.birthDate }}
                                                 </td>
-                                            </tr>
+                                            </tr>#}
                                             <tr>
                                                 <td>Genre:</td>
                                                 <td>{{ user.gender}}</td>
                                             </tr>
                                             <tr>
                                                 <td>Adresse:</td>
-                                                <td>{{ user.address }}</td>
+                                                <td>{{ user.userProfile.address }}</td>
                                             </tr>
                                             <tr>
                                                 <td>Code postal:</td>
-                                                <td>{{ user.postalCode }}</td>
+                                                <td>{{ user.userProfile.postalCode }}</td>
                                             </tr>
                                             <tr>
                                                 <td>Ville:</td>
-                                                <td>{{ user.city }}</td>
+                                                <td>{{ user.userProfile.city }}</td>
                                             </tr>
                                             <tr>
                                                 <td>Email:</td>
@@ -68,7 +68,7 @@
                                             </tr>
                                             <tr>
                                                 <td>Numero de Téléphone:</td>
-                                                <td>{{ user.phone }}</td>
+                                                <td>{{ user.userProfile.phone }}</td>
                                             </tr>
                                             </tbody>
                                         </table>

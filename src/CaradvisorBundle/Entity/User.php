@@ -76,41 +76,6 @@ class User implements UserInterface, \Serializable
     private $gender;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="address", type="string", length=255, nullable=true)
-     */
-    private $address;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="city", type="string", length=255, nullable=true)
-     */
-    private $city;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="postalCode", type="integer", nullable=true)
-     */
-    private $postalCode;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="phone", type="integer", nullable=true)
-     */
-    private $phone;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="birthDate", type="date", nullable=true)
-     */
-    private $birthDate;
-
-    /**
      * @var bool
      *
      * @ORM\Column(name="mailingList", type="boolean", nullable=true)
@@ -152,6 +117,12 @@ class User implements UserInterface, \Serializable
      * @ORM\Column(name="date_limit_token", type="datetime", nullable=true)
      */
     private $dateLimitToken;
+
+    /**
+     * @ORM\OneToOne(targetEntity="CaradvisorBundle\Entity\UserProfile")
+     * @ORM\JoinColumn(name="userProfile_id", referencedColumnName="id")
+     */
+    private $userProfile;
 
     /**
      * @ORM\OneToMany(targetEntity="CaradvisorBundle\Entity\Pro", mappedBy="user")
@@ -350,126 +321,6 @@ class User implements UserInterface, \Serializable
     public function getGender()
     {
         return $this->gender;
-    }
-
-    /**
-     * Set address
-     *
-     * @param string $address
-     *
-     * @return User
-     */
-    public function setAddress($address)
-    {
-        $this->address = $address;
-
-        return $this;
-    }
-
-    /**
-     * Get address
-     *
-     * @return string
-     */
-    public function getAddress()
-    {
-        return $this->address;
-    }
-
-    /**
-     * Set city
-     *
-     * @param string $city
-     *
-     * @return User
-     */
-    public function setCity($city)
-    {
-        $this->city = $city;
-
-        return $this;
-    }
-
-    /**
-     * Get city
-     *
-     * @return string
-     */
-    public function getCity()
-    {
-        return $this->city;
-    }
-
-    /**
-     * Set postalCode
-     *
-     * @param integer $postalCode
-     *
-     * @return User
-     */
-    public function setPostalCode($postalCode)
-    {
-        $this->postalCode = $postalCode;
-
-        return $this;
-    }
-
-    /**
-     * Get postalCode
-     *
-     * @return int
-     */
-    public function getPostalCode()
-    {
-        return $this->postalCode;
-    }
-
-    /**
-     * Set phone
-     *
-     * @param string $phone
-     *
-     * @return User
-     */
-    public function setPhone($phone)
-    {
-        $this->phone = $phone;
-
-        return $this;
-    }
-
-    /**
-     * Get phone
-     *
-     * @return string
-     */
-    public function getPhone()
-    {
-        return $this->phone;
-    }
-
-    /**
-     * Set birthDate
-     *
-     * @param \DateTime $birthDate
-     *
-     * @return User
-     */
-    public function setBirthDate($birthDate)
-    {
-        $this->birthDate = $birthDate;
-
-        return $this;
-    }
-
-    /**
-     * Get birthDate
-     *
-     * @return \DateTime
-     */
-    public function getBirthDate()
-    {
-        return $this->birthDate;
     }
 
     /**
@@ -767,5 +618,29 @@ class User implements UserInterface, \Serializable
     public function getReviewBuys()
     {
         return $this->reviewBuys;
+    }
+
+    /**
+     * Set userProfile
+     *
+     * @param \CaradvisorBundle\Entity\UserProfile $userProfile
+     *
+     * @return User
+     */
+    public function setUserProfile(\CaradvisorBundle\Entity\UserProfile $userProfile = null)
+    {
+        $this->userProfile = $userProfile;
+
+        return $this;
+    }
+
+    /**
+     * Get userProfile
+     *
+     * @return \CaradvisorBundle\Entity\UserProfile
+     */
+    public function getUserProfile()
+    {
+        return $this->userProfile;
     }
 }

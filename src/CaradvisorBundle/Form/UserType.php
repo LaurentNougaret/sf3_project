@@ -51,10 +51,6 @@ class UserType extends AbstractType
                 'label' => false,
                 'attr'  => ['placeholder' => 'Nom'],
             ])
-            ->add('birthdate', DateType::class, [
-                'label' => false,
-                'attr'  => ['placeholder' => 'Date de naissance']
-            ])
             ->add('gender', ChoiceType::class, [
                 'label'     => false,
                 'choices'   => [
@@ -67,22 +63,6 @@ class UserType extends AbstractType
             ->add('email', EmailType::class, [
                 'label' => false,
                 'attr'  => ['placeholder' => 'Email'],
-            ])
-            ->add('phone', IntegerType::class, [
-                'label' => false,
-                'attr'  => ['placeholder' => 'Numéro de téléphone']
-            ])
-            ->add('address', TextType::class, [
-                'label' => false,
-                'attr'  => ['placeholder' => 'Adresse']
-            ])
-            ->add('city', TextType::class, [
-                'label' => false,
-                'attr'  => ['placeholder' => 'Ville']
-            ])
-            ->add('postalCode', TextType::class, [
-                'label' => false,
-                'attr'  => ['placeholder' => 'Code Postal']
             ]);
 
         $builder->get('roles')

@@ -37,7 +37,6 @@ class UserController extends Controller
      */
     public function profileAction(User $user)
     {
-
         return $this->render('@Caradvisor/User/profile.html.twig', [
             "user" => $user,
         ]);
