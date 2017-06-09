@@ -127,6 +127,13 @@ class ReviewBuy
     private $fundingSolution;
 
     /**
+     * @var bool
+     *
+     * @ORM\Column(name="warranty", type="boolean", nullable=true)
+     */
+    private $warranty;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="recommendProRating", type="decimal", precision=10, scale=2)
@@ -153,13 +160,6 @@ class ReviewBuy
      * @ORM\Column(name="dateReview", type="datetime")
      */
     private $dateReview;
-
-    /**
-     * @var bool
-     *
-     * @ORM\Column(name="warranty", type="boolean")
-     */
-    private $warranty;
 
     // Join Column: interdit la creation d'un review sans Pro
     /**
@@ -526,6 +526,30 @@ class ReviewBuy
     }
 
     /**
+     * Set warranty
+     *
+     * @param boolean $warranty
+     *
+     * @return ReviewBuy
+     */
+    public function setWarranty($warranty)
+    {
+        $this->warranty = $warranty;
+
+        return $this;
+    }
+
+    /**
+     * Get warranty
+     *
+     * @return bool
+     */
+    public function getWarranty()
+    {
+        return $this->warranty;
+    }
+
+    /**
      * Set recommendProRating
      *
      * @param string $recommendProRating
@@ -619,30 +643,6 @@ class ReviewBuy
     public function getDateReview()
     {
         return $this->dateReview;
-    }
-
-    /**
-     * Set warranty
-     *
-     * @param boolean $warranty
-     *
-     * @return ReviewBuy
-     */
-    public function setWarranty($warranty)
-    {
-        $this->warranty = $warranty;
-
-        return $this;
-    }
-
-    /**
-     * Get warranty
-     *
-     * @return bool
-     */
-    public function getWarranty()
-    {
-        return $this->warranty;
     }
 
     /**

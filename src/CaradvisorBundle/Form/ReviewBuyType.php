@@ -68,6 +68,7 @@ class ReviewBuyType extends AbstractType
                 ],
             ])
             ->add('ratingWelcome', ChoiceType::class, [
+                'label' => 'Quel type d\'accueil avez-vous eu ?',
                 'choices' => ['1' => 1, '2' => 2, '3' => 3, '4' => 4, '5' => 5],
                 'required'=>true,
                 'expanded'=>true,
@@ -82,23 +83,38 @@ class ReviewBuyType extends AbstractType
             ])
             ->add('wantedInformation', ChoiceType::class, [
                 'label' => 'Avez-vous eu les renseignements souhaités ?',
-                'choices' => ['oui' => 1, 'non' => 2]
+                'choices' => ['oui' => 1, 'non' => 2],
+                'required'=>true,
+                'expanded'=>true,
+                'multiple'=>false,
             ])
             ->add('test', ChoiceType::class, [
                 'label' => 'Vous a-t-on proposé un essai ?',
-                'choices' => ['oui' => 1, 'non' => 2]
+                'choices' => ['oui' => 1, 'non' => 2],
+                'required'=>true,
+                'expanded'=>true,
+                'multiple'=>false,
             ])
             ->add('wantedEngineTest', ChoiceType::class, [
                 'label' => 'L\'essai était-il sur le véhicule souhaité (motorisation ?',
-                'choices' => ['oui' => 1, 'non' => 2]
+                'choices' => ['oui' => 1, 'non' => 2],
+                'required'=>true,
+                'expanded'=>true,
+                'multiple'=>false,
             ])
             ->add('fundingSolution', ChoiceType::class, [
                 'label' => 'Vous a-t-on proposé une solution de financement ?',
-                'choices' => ['oui' => 1, 'non' => 2]
+                'choices' => ['oui' => 1, 'non' => 2],
+                'required'=>true,
+                'expanded'=>true,
+                'multiple'=>false,
             ])
             ->add('warranty', ChoiceType::class, [
                 'label' => 'Vous a-t-on proposé une garantie ?',
-                'choices' => ['oui' => 1, 'non' => 2]
+                'choices' => ['oui' => 1, 'non' => 2],
+                'required'=>true,
+                'expanded'=>true,
+                'multiple'=>false,
             ])
             ->add('recommendProRating', ChoiceType::class, [
                 'label' => 'Dans quel mesure conseilleriez-vous votre professionnel ?',
