@@ -3,13 +3,12 @@
 namespace CaradvisorBundle\Form;
 
 use CaradvisorBundle\Entity\ReviewBuy;
-use Doctrine\DBAL\Types\DateType;
-use Doctrine\DBAL\Types\IntegerType;
-use Doctrine\DBAL\Types\TextType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -18,13 +17,6 @@ class ReviewBuyType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('repairBuyType',ChoiceType::class, [
-                'label' => false,
-                'choices' => [
-                    'Achat' => 1,
-                    "Neuf"  => 2
-                ]
-            ])
             ->add('dealerType', ChoiceType::class, [
                 'label' => 'Type de prestataire',
                 'choices' => [
@@ -35,7 +27,7 @@ class ReviewBuyType extends AbstractType
                     'Autre' => 5
                 ]
             ])
-            ->add('dealerName', IntegerType::class, [
+            ->add('dealerName', TextType::class, [
                 'label' => 'Nom',
                 'attr'  => ['placeholder' => 'Nom de la société']
             ])
@@ -76,6 +68,7 @@ class ReviewBuyType extends AbstractType
                 ],
             ])
             ->add('ratingWelcome', ChoiceType::class, [
+                'label' => 'Quel type d\'accueil avez-vous eu ?',
                 'choices' => ['1' => 1, '2' => 2, '3' => 3, '4' => 4, '5' => 5],
                 'required'=>true,
                 'expanded'=>true,
@@ -88,17 +81,40 @@ class ReviewBuyType extends AbstractType
                 'expanded'=>true,
                 'multiple'=>false,
             ])
-            ->add('wantedInformation', IntegerType::class, [
+            ->add('wantedInformation', ChoiceType::class, [
                 'label' => 'Avez-vous eu les renseignements souhaités ?',
+                'choices' => ['oui' => 1, 'non' => 2],
+                'required'=>true,
+                'expanded'=>true,
+                'multiple'=>false,
             ])
-            ->add('test', IntegerType::class, [
+            ->add('test', ChoiceType::class, [
                 'label' => 'Vous a-t-on proposé un essai ?',
+                'choices' => ['oui' => 1, 'non' => 2],
+                'required'=>true,
+                'expanded'=>true,
+                'multiple'=>false,
             ])
-            ->add('wantedEngineTest', IntegerType::class, [
+            ->add('wantedEngineTest', ChoiceType::class, [
                 'label' => 'L\'essai était-il sur le véhicule souhaité (motorisation ?',
+                'choices' => ['oui' => 1, 'non' => 2],
+                'required'=>true,
+                'expanded'=>true,
+                'multiple'=>false,
             ])
-            ->add('fundingSolution', IntegerType::class, [
+            ->add('fundingSolution', ChoiceType::class, [
                 'label' => 'Vous a-t-on proposé une solution de financement ?',
+                'choices' => ['oui' => 1, 'non' => 2],
+                'required'=>true,
+                'expanded'=>true,
+                'multiple'=>false,
+            ])
+            ->add('warranty', ChoiceType::class, [
+                'label' => 'Vous a-t-on proposé une garantie ?',
+                'choices' => ['oui' => 1, 'non' => 2],
+                'required'=>true,
+                'expanded'=>true,
+                'multiple'=>false,
             ])
             ->add('recommendProRating', ChoiceType::class, [
                 'label' => 'Dans quel mesure conseilleriez-vous votre professionnel ?',

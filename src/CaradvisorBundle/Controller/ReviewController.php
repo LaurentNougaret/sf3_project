@@ -2,12 +2,15 @@
 
 namespace CaradvisorBundle\Controller;
 
+use CaradvisorBundle\Entity\ReviewBuy;
 use CaradvisorBundle\Entity\ReviewRepair;
+use CaradvisorBundle\Form\ReviewBuyType;
 use CaradvisorBundle\Form\ReviewRepairType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+
 
 class ReviewController extends Controller
 {
@@ -18,20 +21,77 @@ class ReviewController extends Controller
      */
     public function addReviewRepairAction(Request $request)
     {
+        $this->denyAccessUnlessGranted('ROLE_PART', null, 'Vous ne pouvez pas déposez d\'avis avec votre compte professionnel');
+
         $reviewRepair = new ReviewRepair();
-        $em = $this->getDoctrine()->getManager();
         $form = $this->createForm(ReviewRepairType::class, $reviewRepair);
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted()){
+            $em = $this->getDoctrine()->getManager();
             $em->persist($reviewRepair);
             $em->flush();
 
             return $this->redirectToRoute('home');
         }
         return $this->render('@Caradvisor/Reviews/repair.html.twig', [
-            'form'  => $form->createView(),
+            'form'          => $form->createView(),
+            'reviewRepair'  => $reviewRepair,
+        ]);
+    }
+
+    /**
+     * @param Request $request
+     * @return Response
+     * @Route("/review/buy/new", name="review_new")
+     */
+    public function addReviewNewAction(Request $request) {
+        $this->denyAccessUnlessGranted('ROLE_PART', null, 'Vous ne pouvez pas déposez d\'avis avec votre compte professionnel');
+
+        $reviewBuy = new ReviewBuy();
+        $form = $this->createForm(ReviewBuyType::class, $reviewBuy);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted()) {
+            $reviewBuy->setReviewBuyType('Neuf');
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($reviewBuy);
+            $em->flush;
+
+            return $this->redirectToRoute('home');
+        }
+        return $this->render('@Caradvisor/Reviews/buy.html.twig',[
+            'form'      => $form->createView(),
+            'reviewBuy' => $reviewBuy,
+        ]);
+    }
+
+    /**
+     * @param Request $request
+     * @return Response
+     * @Route("/review/buy/used", name="review_used")
+     */
+    public function addReviewUsedAction(Request $request) {
+        $this->denyAccessUnlessGranted('ROLE_PART', null, 'Vous ne pouvez pas déposez d\'avis avec votre compte professionnel');
+
+        $reviewBuy = new ReviewBuy();
+        $form = $this->createForm(ReviewBuyType::class, $reviewBuy);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted()) {
+            $reviewBuy->setReviewBuyType('Occasion');
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($reviewBuy);
+            $em->flush;
+
+            return $this->redirectToRoute('home');
+        }
+        return $this->render('@Caradvisor/Reviews/buy.html.twig',[
+            'form'      => $form->createView(),
+            'reviewBuy' => $reviewBuy,
         ]);
     }
 }

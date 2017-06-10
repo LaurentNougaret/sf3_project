@@ -29,7 +29,7 @@ class ReviewRepairType extends AbstractType
                     'Autre' => '5'
                 ]
             ])
-            ->add('dealerName', IntegerType::class, [
+            ->add('dealerName', TextType::class, [
                 'label' => 'Nom',
                 'attr'  => ['placeholder' => 'Nom de la société']
             ])
@@ -92,50 +92,35 @@ class ReviewRepairType extends AbstractType
             ])
             ->add('explanationRepair', ChoiceType::class, [
                 'label' => 'Vous a-t-on bien expliqué le type d\'intervention que votre véhicule allait subir ?',
-                'choices' => [
-                    'oui' => 1,
-                    'non' => 2
-                ],
+                'choices' => ['oui' => 1, 'non' => 2],
                 'required'=>true,
                 'expanded'=>true,
                 'multiple'=>false,
             ])
             ->add('priceRepair', ChoiceType::class, [
                 'label' => 'Vous a-t-on bien communiqué le montant de l\'intervention ?',
-                'choices' => [
-                    'oui' => 1,
-                    'non' => 2
-                ],
+                'choices' => ['oui' => 1, 'non' => 2],
                 'required'=>true,
                 'expanded'=>true,
                 'multiple'=>false,
             ])
             ->add('authorizationRepair', ChoiceType::class, [
                 'label' => 'A-t-on bien respecté le devis ?',
-                'choices' => [
-                    'oui' => 1,
-                    'non' => 2
-                ],
+                'choices' => ['oui' => 1, 'non' => 2],
                 'required'=>true,
                 'expanded'=>true,
                 'multiple'=>false,
             ])
             ->add('courtesyVehicle', ChoiceType::class, [
                 'label' => 'Vous a-t-on proposé un véhicule de remplacement ?',
-                'choices' => [
-                    'oui' => 1,
-                    'non' => 2
-                ],
+                'choices' => ['oui' => 1, 'non' => 2],
                 'required'=>true,
                 'expanded'=>true,
                 'multiple'=>false,
             ])
             ->add('respectDelayRepair', ChoiceType::class, [
                 'label' => 'A-t-on bien respecté le délai de réparation ?',
-                'choices' => [
-                    'oui' => 1,
-                    'non' => 2
-                ],
+                'choices' => ['oui' => 1, 'non' => 2],
                 'required'=>true,
                 'expanded'=>true,
                 'multiple'=>false,

@@ -3,15 +3,17 @@
 namespace CaradvisorBundle\Form;
 
 use CaradvisorBundle\Entity\User;
+use CaradvisorBundle\Entity\Vehicle;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\CallbackTransformer;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -61,9 +63,7 @@ class UserType extends AbstractType
             ->add('email', EmailType::class, [
                 'label' => false,
                 'attr'  => ['placeholder' => 'Email'],
-            ])
-            ->add('save', SubmitType::class, [
-                'label' => 'Modifier', 'attr' =>['class' => 'save-pro-btn center-block']]);
+            ]);
 
         $builder->get('roles')
             ->addModelTransformer(new CallbackTransformer(
@@ -86,6 +86,6 @@ class UserType extends AbstractType
 
     public function getBlockPrefix()
     {
-        return 'caradvisor_bundle_user_signup';
+        return 'caradvisor_bundle_user_edit';
     }
 }

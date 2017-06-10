@@ -52,9 +52,15 @@ class UserProfile
     /**
      * @var \DateTime
      *
+<<<<<<< HEAD
      * @ORM\Column(name="birthDate", type="datetime")
      */
     private $birthDate;
+=======
+     * @ORM\Column(name="birthdate", type="date")
+     */
+    private $birthdate;
+>>>>>>> cf2ab9943d75ea7488d393855e59d7c2f8dae1d9
 
     /**
      * Get id
@@ -163,6 +169,7 @@ class UserProfile
     }
 
     /**
+<<<<<<< HEAD
      * Set birthDate
      *
      * @param \DateTime $birthDate
@@ -172,11 +179,23 @@ class UserProfile
     public function setBirthDate($birthDate)
     {
         $this->birthDate = $birthDate;
+=======
+     * Set birthdate
+     *
+     * @param \DateTime $birthdate
+     *
+     * @return UserProfile
+     */
+    public function setBirthdate($birthdate)
+    {
+        $this->birthdate = $birthdate;
+>>>>>>> cf2ab9943d75ea7488d393855e59d7c2f8dae1d9
 
         return $this;
     }
 
     /**
+<<<<<<< HEAD
      * Get birthDate
      *
      * @return \DateTime
@@ -210,3 +229,14 @@ class UserProfile
         return $this->user;
     }
 }
+=======
+     * Get birthdate
+     *
+     * @return \DateTime
+     */
+    public function getBirthdate()
+    {
+        return $this->birthdate;
+    }
+}
+>>>>>>> cf2ab9943d75ea7488d393855e59d7c2f8dae1d9

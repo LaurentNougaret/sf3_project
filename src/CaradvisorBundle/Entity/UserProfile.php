@@ -52,9 +52,9 @@ class UserProfile
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="birthDate", type="datetime")
+     * @ORM\Column(name="birthdate", type="date")
      */
-    private $birthDate;
+    private $birthdate;
 
     /**
      * Get id
@@ -163,50 +163,26 @@ class UserProfile
     }
 
     /**
-     * Set birthDate
+     * Set birthdate
      *
-     * @param \DateTime $birthDate
+     * @param \DateTime $birthdate
      *
      * @return UserProfile
      */
-    public function setBirthDate($birthDate)
+    public function setBirthdate($birthdate)
     {
-        $this->birthDate = $birthDate;
+        $this->birthdate = $birthdate;
 
         return $this;
     }
 
     /**
-     * Get birthDate
+     * Get birthdate
      *
      * @return \DateTime
      */
-    public function getBirthDate()
+    public function getBirthdate()
     {
-        return $this->birthDate;
-    }
-
-    /**
-     * Set user
-     *
-     * @param \CaradvisorBundle\Entity\User $user
-     *
-     * @return UserProfile
-     */
-    public function setUser(\CaradvisorBundle\Entity\User $user = null)
-    {
-        $this->user = $user;
-
-        return $this;
-    }
-
-    /**
-     * Get user
-     *
-     * @return \CaradvisorBundle\Entity\User
-     */
-    public function getUser()
-    {
-        return $this->user;
+        return $this->birthdate;
     }
 }

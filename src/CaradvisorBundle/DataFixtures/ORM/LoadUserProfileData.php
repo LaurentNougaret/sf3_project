@@ -2,27 +2,24 @@
 
 namespace CaradvisorBundle\DataFixtures\ORM;
 
-
 use CaradvisorBundle\Entity\UserProfile;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Faker\Factory;
-use Symfony\Component\DependencyInjection\Container;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class LoadUserProfileData extends AbstractFixture implements OrderedFixtureInterface
 {
-    const MAX_USER = 11;
-
-    private $container;
+    const MAX_USER_PROFILE = 11;
 
     public function load(ObjectManager $manager)
     {
+
+
         $faker = Factory::create('fr_FR');
         $faker->seed(1234);
 
-        for ($i = 0; $i < self::MAX_USER; $i++){
+        for ($i = 0; $i < self::MAX_USER_PROFILE; $i++) {
             $userProfile = new UserProfile();
             $userProfile->setAddress($faker->address);
             $userProfile->setCity($faker->city);
@@ -32,14 +29,10 @@ class LoadUserProfileData extends AbstractFixture implements OrderedFixtureInter
 
             $manager->persist($userProfile);
 
-            $this->setReference("userProfiles_" . $i, $userProfile);
+            $this->setReference('userProfiles_' . $i, $userProfile);
+
         }
         $manager->flush();
-    }
-
-    public function setContainer(ContainerInterface $container = null)
-    {
-        $this->container = $container;
     }
 
     public function getOrder()

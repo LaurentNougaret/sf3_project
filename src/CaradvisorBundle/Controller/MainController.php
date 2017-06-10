@@ -55,22 +55,6 @@ class MainController extends Controller
     }
 
     /**
-     * @Route("/review/new", name="review_new")
-     */
-    public function reviewNewAction()
-    {
-        return $this->render('@Caradvisor/Reviews/new.html.twig');
-    }
-
-    /**
-     * @Route("/review/used", name="review_used")
-     */
-    public function reviewUsedAction()
-    {
-        return $this->render('@Caradvisor/Reviews/used.html.twig');
-    }
-
-    /**
      * @param Request $request
      * @return Response
      * @Route("/contact", name="contact")
