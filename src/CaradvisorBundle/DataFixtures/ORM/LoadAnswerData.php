@@ -38,6 +38,6 @@ class LoadAnswerData extends AbstractFixture implements OrderedFixtureInterface
 
     public function getOrder()
     {
-        return 4;
+        return 5;
     }
 }

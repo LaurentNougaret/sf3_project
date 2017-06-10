@@ -5,13 +5,10 @@ namespace CaradvisorBundle\Controller;
 use CaradvisorBundle\Entity\Answer;
 use CaradvisorBundle\Entity\Pro;
 use CaradvisorBundle\Entity\User;
+use CaradvisorBundle\Entity\UserProfile;
 use CaradvisorBundle\Entity\Vehicle;
-use CaradvisorBundle\Form\AnswerType;
 use CaradvisorBundle\Form\ProProfileType;
-use CaradvisorBundle\Form\UserEditProfileType;
 use CaradvisorBundle\Form\UserProfileType;
-use CaradvisorBundle\Form\UserSignupType;
-use CaradvisorBundle\Form\UserType;
 use CaradvisorBundle\Form\VehicleType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -29,7 +26,7 @@ class UserController extends Controller
     public function indexAction(User $user)
     {
         return $this->render('@Caradvisor/User/home.html.twig', [
-            "user" => $user,
+            "user" => $user->getId(),
         ]);
     }
 
@@ -37,37 +34,38 @@ class UserController extends Controller
     /**
      * @Route("/user/profile/{user}", name="user_profile")
      * @param User $user
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
     public function profileAction(User $user)
     {
         return $this->render('@Caradvisor/User/profile.html.twig', [
-            "user" => $user,
+            "user" => $user->getId(),
         ]);
     }
 
     // User's profile page: Edit profile
+
     /**
-     * @Route("/user/profile/edit/{user}", name="user_edit")
+     * @Route("/user/profile/edit/{userProfile}", name="user_edit")
      * @param Request $request
-     * @param User $user
+     * @param UserProfile $userProfile
      * @return Response
      */
-    public function editAction(Request $request, User $user)
+    public function editAction(Request $request, UserProfile $userProfile)
     {
-        $editForm = $this->createForm(UserProfileType::class, $user);
+        $editForm = $this->createForm(UserProfileType::class, $userProfile);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('user_profile', array(
-                'user' => $user
+                'userProfile' => $userProfile
             ));
         }
         return $this->render('@Caradvisor/User/editUser.html.twig', array(
             'edit_form' => $editForm->createView(),
-            'user' => $user
+            'userProfile' => $userProfile
         ));
     }
 

@@ -16,30 +16,14 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class UserType extends AbstractType
+class UserProfileType1 extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('roles', ChoiceType::class, [
-                'label'     => false,
-                'choices'   => ['Particulier' => 'ROLE_PART', 'Professionnel' => 'ROLE_PRO'],
-                'multiple'  => false,
-                'expanded'  => false,
-            ])
             ->add('username', TextType::class, [
                 'label' => false,
                 'attr'  => ['placeholder' => 'Nom d\'utilisateur']
-            ])
-            ->add('plainpassword', RepeatedType::class, [
-                'type' => PasswordType::class,
-                'first_options' => [
-                    'label' => false,
-                    'attr' => ['placeholder' => 'Mot de passe']],
-                'second_options' => [
-                    'label' => false,
-                    'attr' => ['placeholder' => 'Confirmez le mot de passe']],
-                'invalid_message' => 'Les mots de passe doivent être identiques',
             ])
             ->add('firstname', TextType::class, [
                 'label' => false,
@@ -48,6 +32,10 @@ class UserType extends AbstractType
             ->add('lastname', TextType::class, [
                 'label' => false,
                 'attr'  => ['placeholder' => 'Nom'],
+            ])
+            ->add('birthdate', DateType::class, [
+                'label' => false,
+                'attr'  => ['placeholder' => 'Date de naissance']
             ])
             ->add('gender', ChoiceType::class, [
                 'label'     => false,
@@ -62,30 +50,31 @@ class UserType extends AbstractType
                 'label' => false,
                 'attr'  => ['placeholder' => 'Email'],
             ])
+            ->add('phone', IntegerType::class, [
+                'label' => false,
+                'attr'  => ['placeholder' => 'Numéro de téléphone']
+            ])
+            ->add('address', TextType::class, [
+                'label' => false,
+                'attr'  => ['placeholder' => 'Adresse']
+            ])
+            ->add('city', TextType::class, [
+                'label' => false,
+                'attr'  => ['placeholder' => 'Ville']
+            ])
+            ->add('postalCode', TextType::class, [
+                'label' => false,
+                'attr'  => ['placeholder' => 'Code Postal']
+            ])
             ->add('save', SubmitType::class, [
-                'label' => 'Modifier', 'attr' =>['class' => 'save-pro-btn center-block']]);
-
-        $builder->get('roles')
-            ->addModelTransformer(new CallbackTransformer(
-                function ($tagsAsArray) {
-                    // transform the array to a string
-                    return implode(', ', $tagsAsArray);
-                },
-                function ($tagsAsString) {
-                    // transform the string back to an array
-                    return explode(', ', $tagsAsString);
-                }
-            ));
+                'label' => 'Enregistrer', 'attr' =>['class' => 'save-pro-btn center-block']
+            ]);
     }
-    public function configureOptions(OptionsResolver $resolver)
+
+    /*public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
             'data_class' => User::class,
         ));
-    }
-
-    public function getBlockPrefix()
-    {
-        return 'caradvisor_bundle_user_signup';
-    }
+    }*/
 }

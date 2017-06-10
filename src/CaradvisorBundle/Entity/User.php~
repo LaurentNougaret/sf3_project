@@ -3,7 +3,6 @@
 namespace CaradvisorBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -16,6 +15,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @UniqueEntity(fields={"userName"}, message="Le nom d'utilisateur est déjà pris")
  * @ORM\Entity(repositoryClass="CaradvisorBundle\Repository\UserRepository")
  */
+
 class User implements UserInterface, \Serializable
 {
     /**
@@ -26,136 +26,91 @@ class User implements UserInterface, \Serializable
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
     /**
      * @var string
      *
      * @ORM\Column(name="firstName", type="string", length=255)
      */
     private $firstName;
-
     /**
      * @var string
      *
      * @ORM\Column(name="lastName", type="string", length=255)
      */
     private $lastName;
-
     /**
      * @var string
      *
      * @ORM\Column(name="userName", type="string", length=255, unique=true)
      */
     private $userName;
-
     /**
      * @Assert\NotBlank()
      * @Assert\Length(max="4096")
      */
     private $plainpassword;
-
     /**
      * @var string
      *
      * @ORM\Column(name="password", type="string", length=255)
      */
     private $password;
-
     /**
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=255)
      */
     private $email;
-
     /**
      * @var string
      *
      * @ORM\Column(name="gender", type="string", length=255)
      */
     private $gender;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="address", type="string", length=255, nullable=true)
-     */
-    private $address;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="city", type="string", length=255, nullable=true)
-     */
-    private $city;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="postalCode", type="integer", nullable=true)
-     */
-    private $postalCode;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(name="phone", type="integer", nullable=true)
-     */
-    private $phone;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="birthDate", type="date", nullable=true)
-     */
-    private $birthDate;
-
-
     /**
      * @var array
      * @ORM\Column(name="roles", type="array")
      */
     private $roles = array();
-
     /**
      * @var bool
      *
      * @ORM\Column(name="isActive", type="boolean")
      */
     private $isActive;
-
     /**
      * @var bool
      *
      * @ORM\Column(name="mailingList", type="boolean", nullable=true)
      */
     private $mailingList;
-
     /**
      * @ORM\OneToMany(targetEntity="CaradvisorBundle\Entity\Vehicle", mappedBy="user")
      */
     private $vehicles;
-
     /**
      * @ORM\OneToMany(targetEntity="CaradvisorBundle\Entity\Pro", mappedBy="user")
      */
     private $pros;
-
     /**
      * @ORM\OneToMany(targetEntity="CaradvisorBundle\Entity\ReviewRepair", mappedBy="user")
      */
     private $reviewRepairs;
-
     /**
      * @ORM\OneToMany(targetEntity="CaradvisorBundle\Entity\ReviewBuy", mappedBy="user")
      */
     private $reviewBuys;
-
     // added $picture in User after deleting it in Pro because of problems in Db
     /**
      * @ORM\Column(name="picture", type="blob", nullable=true)
      */
     private $picture;
+
+    /**
+     * @ORM\OneToOne(targetEntity="UserProfile")
+     * @ORM\JoinColumn(name="userProfile_id", referencedColumnName="id")
+     */
+    private $userProfile;
 
     /**
      * Get id
@@ -166,7 +121,6 @@ class User implements UserInterface, \Serializable
     {
         return $this->id;
     }
-
     /**
      * Set firstName
      *
@@ -177,10 +131,8 @@ class User implements UserInterface, \Serializable
     public function setFirstName($firstName)
     {
         $this->firstName = $firstName;
-
         return $this;
     }
-
     /**
      * Get firstName
      *
@@ -190,7 +142,6 @@ class User implements UserInterface, \Serializable
     {
         return $this->firstName;
     }
-
     /**
      * Set lastName
      *
@@ -201,10 +152,8 @@ class User implements UserInterface, \Serializable
     public function setLastName($lastName)
     {
         $this->lastName = $lastName;
-
         return $this;
     }
-
     /**
      * Get lastName
      *
@@ -214,7 +163,6 @@ class User implements UserInterface, \Serializable
     {
         return $this->lastName;
     }
-
     /**
      * Set userName
      *
@@ -225,10 +173,8 @@ class User implements UserInterface, \Serializable
     public function setUserName($userName)
     {
         $this->userName = $userName;
-
         return $this;
     }
-
     /**
      * Get userName
      *
@@ -238,7 +184,6 @@ class User implements UserInterface, \Serializable
     {
         return $this->userName;
     }
-
     /**
      * @return mixed
      */
@@ -246,7 +191,6 @@ class User implements UserInterface, \Serializable
     {
         return $this->plainpassword;
     }
-
     /**
      * @param mixed $plainpassword
      * @return User
@@ -256,7 +200,6 @@ class User implements UserInterface, \Serializable
         $this->plainpassword = $plainpassword;
         return $this;
     }
-
     /**
      * Set password
      *
@@ -267,10 +210,8 @@ class User implements UserInterface, \Serializable
     public function setPassword($password)
     {
         $this->password = $password;
-
         return $this;
     }
-
     /**
      * Get password
      *
@@ -280,7 +221,6 @@ class User implements UserInterface, \Serializable
     {
         return $this->password;
     }
-
     /**
      * Set email
      *
@@ -291,10 +231,8 @@ class User implements UserInterface, \Serializable
     public function setEmail($email)
     {
         $this->email = $email;
-
         return $this;
     }
-
     /**
      * Get email
      *
@@ -304,7 +242,6 @@ class User implements UserInterface, \Serializable
     {
         return $this->email;
     }
-
     /**
      * Set gender
      *
@@ -315,10 +252,8 @@ class User implements UserInterface, \Serializable
     public function setGender($gender)
     {
         $this->gender = $gender;
-
         return $this;
     }
-
     /**
      * Get gender
      *
@@ -328,127 +263,6 @@ class User implements UserInterface, \Serializable
     {
         return $this->gender;
     }
-
-    /**
-     * Set address
-     *
-     * @param string $address
-     *
-     * @return User
-     */
-    public function setAddress($address)
-    {
-        $this->address = $address;
-
-        return $this;
-    }
-
-    /**
-     * Get address
-     *
-     * @return string
-     */
-    public function getAddress()
-    {
-        return $this->address;
-    }
-
-    /**
-     * Set city
-     *
-     * @param string $city
-     *
-     * @return User
-     */
-    public function setCity($city)
-    {
-        $this->city = $city;
-
-        return $this;
-    }
-
-    /**
-     * Get city
-     *
-     * @return string
-     */
-    public function getCity()
-    {
-        return $this->city;
-    }
-
-    /**
-     * Set postalCode
-     *
-     * @param integer $postalCode
-     *
-     * @return User
-     */
-    public function setPostalCode($postalCode)
-    {
-        $this->postalCode = $postalCode;
-
-        return $this;
-    }
-
-    /**
-     * Get postalCode
-     *
-     * @return int
-     */
-    public function getPostalCode()
-    {
-        return $this->postalCode;
-    }
-
-    /**
-     * Set phone
-     *
-     * @param string $phone
-     *
-     * @return User
-     */
-    public function setPhone($phone)
-    {
-        $this->phone = $phone;
-
-        return $this;
-    }
-
-    /**
-     * Get phone
-     *
-     * @return string
-     */
-    public function getPhone()
-    {
-        return $this->phone;
-    }
-
-    /**
-     * Set birthDate
-     *
-     * @param \DateTime $birthDate
-     *
-     * @return User
-     */
-    public function setBirthDate($birthDate)
-    {
-        $this->birthDate = $birthDate;
-
-        return $this;
-    }
-
-    /**
-     * Get birthDate
-     *
-     * @return \DateTime
-     */
-    public function getBirthDate()
-    {
-        return $this->birthDate;
-    }
-
     /**
      * @return bool
      */
@@ -456,7 +270,6 @@ class User implements UserInterface, \Serializable
     {
         return $this->isActive;
     }
-
     /**
      * @param bool $isActive
      * @return User
@@ -466,7 +279,6 @@ class User implements UserInterface, \Serializable
         $this->isActive = $isActive;
         return $this;
     }
-
     /**
      * Set mailingList
      *
@@ -477,10 +289,8 @@ class User implements UserInterface, \Serializable
     public function setMailingList($mailingList)
     {
         $this->mailingList = $mailingList;
-
         return $this;
     }
-
     /**
      * Get mailingList
      *
@@ -490,7 +300,6 @@ class User implements UserInterface, \Serializable
     {
         return $this->mailingList;
     }
-
     /**
      * Set picture
      *
@@ -501,10 +310,8 @@ class User implements UserInterface, \Serializable
     public function setPicture($picture)
     {
         $this->picture = $picture;
-
         return $this;
     }
-
     /**
      * Get picture
      *
@@ -514,18 +321,17 @@ class User implements UserInterface, \Serializable
     {
         return $this->picture;
     }
-
     /**
      * Constructor
      */
     public function __construct()
     {
+        /* ????? $this->userProfile = new ArrayCollection(); */
         $this->vehicles = new \Doctrine\Common\Collections\ArrayCollection();
         $this->pros = new \Doctrine\Common\Collections\ArrayCollection();
         $this->reviewRepairs = new \Doctrine\Common\Collections\ArrayCollection();
         $this->reviewBuys = new \Doctrine\Common\Collections\ArrayCollection();
     }
-
     /**
      * Get isActive
      *
@@ -535,17 +341,13 @@ class User implements UserInterface, \Serializable
     {
         return $this->isActive;
     }
-
     public function getSalt()
     {
         return null;
     }
-
     public function eraseCredentials()
     {
-
     }
-
     public function serialize()
     {
         return serialize([
@@ -554,16 +356,14 @@ class User implements UserInterface, \Serializable
             $this->password,
         ]);
     }
-
     public function unserialize($serialized)
     {
         list(
             $this->id,
             $this->userName,
             $this->password,
-        ) = unserialize($serialized);
+            ) = unserialize($serialized);
     }
-
     /**
      * Add vehicle
      *
@@ -574,10 +374,8 @@ class User implements UserInterface, \Serializable
     public function addVehicle(\CaradvisorBundle\Entity\Vehicle $vehicle)
     {
         $this->vehicles[] = $vehicle;
-
         return $this;
     }
-
     /**
      * Remove vehicle
      *
@@ -587,7 +385,6 @@ class User implements UserInterface, \Serializable
     {
         $this->vehicles->removeElement($vehicle);
     }
-
     /**
      * Get vehicles
      *
@@ -597,7 +394,6 @@ class User implements UserInterface, \Serializable
     {
         return $this->vehicles;
     }
-
     /**
      * Add pro
      *
@@ -608,10 +404,8 @@ class User implements UserInterface, \Serializable
     public function addPro(\CaradvisorBundle\Entity\Pro $pro)
     {
         $this->pros[] = $pro;
-
         return $this;
     }
-
     /**
      * Remove pro
      *
@@ -621,7 +415,6 @@ class User implements UserInterface, \Serializable
     {
         $this->pros->removeElement($pro);
     }
-
     /**
      * Get pros
      *
@@ -631,7 +424,6 @@ class User implements UserInterface, \Serializable
     {
         return $this->pros;
     }
-
     /**
      * Add reviewRepair
      *
@@ -642,10 +434,8 @@ class User implements UserInterface, \Serializable
     public function addReviewRepair(\CaradvisorBundle\Entity\ReviewRepair $reviewRepair)
     {
         $this->reviewRepairs[] = $reviewRepair;
-
         return $this;
     }
-
     /**
      * Remove reviewRepair
      *
@@ -655,7 +445,6 @@ class User implements UserInterface, \Serializable
     {
         $this->reviewRepairs->removeElement($reviewRepair);
     }
-
     /**
      * Get reviewRepairs
      *
@@ -665,7 +454,6 @@ class User implements UserInterface, \Serializable
     {
         return $this->reviewRepairs;
     }
-
     /**
      * Add reviewBuy
      *
@@ -676,10 +464,8 @@ class User implements UserInterface, \Serializable
     public function addReviewBuy(\CaradvisorBundle\Entity\ReviewBuy $reviewBuy)
     {
         $this->reviewBuys[] = $reviewBuy;
-
         return $this;
     }
-
     /**
      * Remove reviewBuy
      *
@@ -689,7 +475,6 @@ class User implements UserInterface, \Serializable
     {
         $this->reviewBuys->removeElement($reviewBuy);
     }
-
     /**
      * Get reviewBuys
      *
@@ -699,7 +484,6 @@ class User implements UserInterface, \Serializable
     {
         return $this->reviewBuys;
     }
-
     /**
      * Get roles
      *
@@ -709,7 +493,6 @@ class User implements UserInterface, \Serializable
     {
         return $this->roles;
     }
-
     /**
      * Set roles
      *
@@ -720,7 +503,30 @@ class User implements UserInterface, \Serializable
     public function setRoles($roles)
     {
         $this->roles = $roles;
+        return $this;
+    }
+
+    /**
+     * Set userProfile
+     *
+     * @param \CaradvisorBundle\Entity\UserProfile $userProfile
+     *
+     * @return User
+     */
+    public function setUserProfile(\CaradvisorBundle\Entity\UserProfile $userProfile = null)
+    {
+        $this->userProfile = $userProfile;
 
         return $this;
+    }
+
+    /**
+     * Get userProfile
+     *
+     * @return \CaradvisorBundle\Entity\UserProfile
+     */
+    public function getUserProfile()
+    {
+        return $this->userProfile;
     }
 }
