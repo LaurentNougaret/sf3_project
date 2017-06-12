@@ -24,7 +24,7 @@
                                 </span>
 
                                 <div class="card-content">
-                                    <span class="card-title">{{ user.firstname ~ " " ~ user.lastname }}</a></span>
+                                    <span class="card-title">{{ user.firstName ~ " " ~ user.lastName }}</a></span>
                                 </div><!-- card content -->
 
                                 <!-- Modify user's info -->
@@ -35,7 +35,7 @@
                                         <li><p>Nom d'utilisateur: {{ form_row(edit_form.username) }}</p></li>
                                         <li><p>Date de naissance: {{ form_row(edit_form.birthdate) }}</p></li>
                                         <li><p>Genre: {{ form_row(edit_form.gender) }}</p></li>
-                                        <li><p>Adresse: {{ form_row(edit_form.address) }}</p></li>
+                                        {#<li><p>Adresse: {{ form_row(edit_form.address) }}</p></li>#}
                                         <li><p>Code postal: {{ form_row(edit_form.postalCode) }}</p></li>
                                         <li><p>Ville: {{ form_row(edit_form.city) }}</p></li>
                                         <li><p>E-mail: {{ form_row(edit_form.email) }}</p></li>

@@ -63,7 +63,8 @@ class UserType extends AbstractType
             ->add('email', EmailType::class, [
                 'label' => false,
                 'attr'  => ['placeholder' => 'Email'],
-            ]);
+            ])
+            /*->add('userProfile', TextType::class)*/;
 
         $builder->get('roles')
             ->addModelTransformer(new CallbackTransformer(
@@ -80,7 +81,7 @@ class UserType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => User::class,
+            'data_class' => null,
         ));
     }
 

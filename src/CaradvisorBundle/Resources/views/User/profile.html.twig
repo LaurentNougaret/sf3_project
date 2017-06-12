@@ -32,13 +32,15 @@
                                         <li><p>Prénom: {{ user.firstName }}</p></li>
                                         <li><p>Nom: {{ user.lastName }}</p></li>
                                         <li><p>Nom d'utilisateur: {{ user.userName }}</p></li>
-                                        <li><p>Date de naissance: {{ user.birthDate|date('d/m/Y') }}</p></li>
+
+                                        {# Using "default" Twig filter to set default value if it's undefined or empty #}
+                                        <li><p>Date de naissance: {{ userProfile.birthdate|default('') }}</p></li>
                                         <li><p>Genre: {{ user.gender}}</p></li>
-                                        <li><p>Adresse: {{ user.address }}</p></li>
-                                        <li><p>Code postal: {{ user.postalCode }}</p></li>
-                                        <li><p>Ville: {{ user.city }}</p></li>
+                                        <li><p>Adresse: {{ userProfile.address|default('') }}</p></li>
+                                        <li><p>Code postal: {{ userProfile.postalCode|default('') }}</p></li>
+                                        <li><p>Ville: {{ userProfile.city|default('') }}</p></li>
                                         <li><p>E-mail: {{ user.email }}</p></li>
-                                        <li><p>Téléphone: {{ user.phone }}</p></li>
+                                        <li><p>Téléphone: {{ userProfile.phone|default('') }}</p></li>
                                     </ul>
                                 </div>
                             </div>

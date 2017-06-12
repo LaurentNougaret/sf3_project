@@ -21,34 +21,9 @@ class UserProfileType1 extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('username', TextType::class, [
-                'label' => false,
-                'attr'  => ['placeholder' => 'Nom d\'utilisateur']
-            ])
-            ->add('firstname', TextType::class, [
-                'label' => false,
-                'attr'  => ['placeholder' => 'Prénom'],
-            ])
-            ->add('lastname', TextType::class, [
-                'label' => false,
-                'attr'  => ['placeholder' => 'Nom'],
-            ])
             ->add('birthdate', DateType::class, [
                 'label' => false,
                 'attr'  => ['placeholder' => 'Date de naissance']
-            ])
-            ->add('gender', ChoiceType::class, [
-                'label'     => false,
-                'choices'   => [
-                    'Homme'        => 'Homme',
-                    'Femme'        => 'Femme',
-                    'Autre'        => 'Autre',
-                    'Non Précisé'  => 'Non Précisé',
-                ]
-            ])
-            ->add('email', EmailType::class, [
-                'label' => false,
-                'attr'  => ['placeholder' => 'Email'],
             ])
             ->add('phone', IntegerType::class, [
                 'label' => false,

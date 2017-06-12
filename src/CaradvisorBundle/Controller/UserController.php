@@ -26,7 +26,7 @@ class UserController extends Controller
     public function indexAction(User $user)
     {
         return $this->render('@Caradvisor/User/home.html.twig', [
-            "user" => $user->getId(),
+            "user" => $user
         ]);
     }
 
@@ -39,33 +39,34 @@ class UserController extends Controller
     public function profileAction(User $user)
     {
         return $this->render('@Caradvisor/User/profile.html.twig', [
-            "user" => $user->getId(),
+            "user" => $user,
+            "userProfile" => $user->getUserProfile(),
         ]);
     }
 
     // User's profile page: Edit profile
 
     /**
-     * @Route("/user/profile/edit/{userProfile}", name="user_edit")
+     * @Route("/user/profile/edit/{user}", name="user_edit")
      * @param Request $request
-     * @param UserProfile $userProfile
+     * @param User $user
      * @return Response
      */
-    public function editAction(Request $request, UserProfile $userProfile)
+    public function editAction(Request $request, User $user)
     {
-        $editForm = $this->createForm(UserProfileType::class, $userProfile);
+        $editForm = $this->createForm(UserProfileType::class, $user);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('user_profile', array(
-                'userProfile' => $userProfile
+                'user' => $user
             ));
         }
         return $this->render('@Caradvisor/User/editUser.html.twig', array(
             'edit_form' => $editForm->createView(),
-            'userProfile' => $userProfile
+            'user' => $user
         ));
     }
 
