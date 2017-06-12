@@ -34,7 +34,7 @@ class UserType extends AbstractType
                 'label' => false,
                 'attr'  => ['placeholder' => 'Nom d\'utilisateur']
             ])
-            ->add('plainpassword', RepeatedType::class, [
+            /*->add('plainpassword', RepeatedType::class, [
                 'type' => PasswordType::class,
                 'first_options' => [
                     'label' => false,
@@ -43,7 +43,7 @@ class UserType extends AbstractType
                     'label' => false,
                     'attr' => ['placeholder' => 'Confirmez le mot de passe']],
                 'invalid_message' => 'Les mots de passe doivent être identiques',
-            ])
+            ])*/
             ->add('firstname', TextType::class, [
                 'label' => false,
                 'attr'  => ['placeholder' => 'Prénom'],

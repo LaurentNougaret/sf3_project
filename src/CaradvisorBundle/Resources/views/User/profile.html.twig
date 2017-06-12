@@ -33,7 +33,8 @@
                                         <li><p>Nom: {{ user.lastName }}</p></li>
                                         <li><p>Nom d'utilisateur: {{ user.userName }}</p></li>
 
-                                        {# Using "default" Twig filter to set default value if it's undefined or empty #}
+                                        {# Using "default" Twig filter to set default value if it's undefined or empty
+                                        <li><p>Date de naissance: {{ userProfile.birthdate|default('') }}</p></li> #}
                                         <li><p>Date de naissance: {{ userProfile.birthdate|default('') }}</p></li>
                                         <li><p>Genre: {{ user.gender}}</p></li>
                                         <li><p>Adresse: {{ userProfile.address|default('') }}</p></li>

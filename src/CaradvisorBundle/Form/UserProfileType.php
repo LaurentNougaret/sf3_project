@@ -17,7 +17,7 @@ class UserProfileType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
             $builder
-                ->add('birthdate', DateType::class, [
+                ->add('birthdate', IntegerType::class, [
                     'label' => false,
                     'attr' => ['placeholder' => 'Date de naissance']
                 ])

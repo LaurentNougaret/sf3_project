@@ -50,12 +50,6 @@ class User implements UserInterface, \Serializable
     private $userName;
 
     /**
-     * @Assert\NotBlank()
-     * @Assert\Length(max="4096")
-     */
-    private $plainpassword;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="password", type="string", length=255)
@@ -120,7 +114,7 @@ class User implements UserInterface, \Serializable
     private $dateLimitToken;
 
     /**
-     * @ORM\OneToOne(targetEntity="CaradvisorBundle\Entity\UserProfile")
+     * @ORM\OneToOne(targetEntity="CaradvisorBundle\Entity\UserProfile", cascade={"persist"})
      * @ORM\JoinColumn(name="userProfile_id", referencedColumnName="id")
      */
     private $userProfile;
@@ -256,24 +250,6 @@ class User implements UserInterface, \Serializable
     public function getEmail()
     {
         return $this->email;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getPlainpassword()
-    {
-        return $this->plainpassword;
-    }
-
-    /**
-     * @param mixed $plainpassword
-     * @return User
-     */
-    public function setPlainpassword($plainpassword)
-    {
-        $this->plainpassword = $plainpassword;
-        return $this;
     }
 
     /**

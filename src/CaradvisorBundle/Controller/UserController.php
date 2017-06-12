@@ -51,24 +51,23 @@ class UserController extends Controller
      * @Route("/user/profile/edit/{user}", name="user_edit")
      * @param Request $request
      * @param User $user
-     * @param UserProfile $userProfile
      * @return Response
      */
-    public function editAction(Request $request, User $user, UserProfile $userProfile)
+    public function editAction(Request $request, User $user)
     {
-        $editForm = $this->createForm(UserProfileType::class, $userProfile);
+        $editForm = $this->createForm(UserType::class, $user);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('user_profile', array(
-                'user' => $user
+                'user' => $user->getId()
             ));
         }
         return $this->render('@Caradvisor/User/editUser.html.twig', array(
             'edit_form' => $editForm->createView(),
-            'user' => $user->getUserProfile(),
+            'user' => $user,
         ));
     }
 
