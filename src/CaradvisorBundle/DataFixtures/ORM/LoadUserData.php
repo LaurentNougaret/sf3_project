@@ -34,11 +34,6 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
             $user->setPassword(password_hash("carcar", PASSWORD_BCRYPT));
             $user->setEmail($faker->email);
             $user->setGender($faker->randomElement($array = ['H', 'F', 'Non précisé']));
-            $user->setAddress($faker->address);
-            $user->setCity($faker->city);
-            $user->setPostalCode($faker->regexify('[0-9]{1}[0-7]{1}[0-9]{2}0'));
-            $user->setPhone($faker->regexify('0[0-9]{1}([0-9]{2}){4}'));
-            $user->setBirthDate($faker->dateTime);
             $user->setMailingList($faker->randomElement($array = ['0', '1']));
             $user->setIsActive($faker->randomElement($array = ['0', '1']));
             if ($i%2 == 0) {
@@ -46,6 +41,8 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
             } else {
                 $user->setRoles(['ROLE_PRO']);
             }
+
+            $user->setUserProfile($this->getReference('userProfiles_' . $i));
 
             $manager->persist($user);
 
@@ -61,6 +58,6 @@ class LoadUserData extends AbstractFixture implements OrderedFixtureInterface, C
 
     public function getOrder()
     {
-        return 1;
+        return 2;
     }
 }

@@ -90,6 +90,6 @@ class LoadReviewBuyData extends AbstractFixture implements OrderedFixtureInterfa
 
     public function getOrder()
     {
-        return 6;
+        return 7;
     }
 }

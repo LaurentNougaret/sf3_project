@@ -3,10 +3,12 @@
 namespace CaradvisorBundle\Form;
 
 use CaradvisorBundle\Entity\User;
-use CaradvisorBundle\Form\DataTransformer\StringToArrayTransformer;
+use CaradvisorBundle\Entity\Vehicle;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\CallbackTransformer;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -31,7 +33,7 @@ class UserType extends AbstractType
                 'label' => false,
                 'attr'  => ['placeholder' => 'Nom d\'utilisateur']
             ])
-            ->add('plainpassword', RepeatedType::class, [
+            ->add('password', RepeatedType::class, [
                 'type' => PasswordType::class,
                 'first_options' => [
                     'label' => false,
@@ -49,10 +51,6 @@ class UserType extends AbstractType
                 'label' => false,
                 'attr'  => ['placeholder' => 'Nom'],
             ])
-            ->add('birthdate', DateType::class, [
-                'label' => false,
-                'attr'  => ['placeholder' => 'Date de naissance']
-            ])
             ->add('gender', ChoiceType::class, [
                 'label'     => false,
                 'choices'   => [
@@ -65,22 +63,6 @@ class UserType extends AbstractType
             ->add('email', EmailType::class, [
                 'label' => false,
                 'attr'  => ['placeholder' => 'Email'],
-            ])
-            ->add('phone', IntegerType::class, [
-                'label' => false,
-                'attr'  => ['placeholder' => 'Numéro de téléphone']
-            ])
-            ->add('address', TextType::class, [
-                'label' => false,
-                'attr'  => ['placeholder' => 'Adresse']
-            ])
-            ->add('city', TextType::class, [
-                'label' => false,
-                'attr'  => ['placeholder' => 'Ville']
-            ])
-            ->add('postalCode', TextType::class, [
-                'label' => false,
-                'attr'  => ['placeholder' => 'Code Postal']
             ]);
 
         $builder->get('roles')

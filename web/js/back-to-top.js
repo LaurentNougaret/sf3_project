@@ -1,6 +1,3 @@
-/**
- * Created by diesel on 28/03/17.
- */
 $(document).ready(function() {
     var offset = 250;
     var duration = 300;

@@ -3,3 +3,9 @@
         {{ flash_message }}
     </div>
 {% endfor %}
+
+{% for flash_message in app.session.flashbag.get('notice-red') %}
+    <div class="alert alert-error" style="margin-top: 100px;">
+        {{ flash_message }}
+    </div>
+{% endfor %}

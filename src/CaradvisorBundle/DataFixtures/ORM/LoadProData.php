@@ -62,7 +62,7 @@ class LoadProData extends AbstractFixture implements OrderedFixtureInterface
 
     public function getOrder()
     {
-        return 2;
+        return 3;
     }
 
     private function getRandomSiret()

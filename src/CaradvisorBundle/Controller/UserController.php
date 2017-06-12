@@ -41,7 +41,6 @@ class UserController extends Controller
      */
     public function profileAction(User $user)
     {
-
         return $this->render('@Caradvisor/User/profile.html.twig', [
             "user" => $user,
         ]);
@@ -287,7 +286,7 @@ class UserController extends Controller
             $em->flush();
         }*/
 
-        return $this->render('@Caradvisor/User/EstabReviewsAnswer.html.twig', [
+        return $this->render('estabReviewsAnswer.html.twig', [
             //'form'      => $form->createView(),
             'user' => $user,
             'pro' => $pro,

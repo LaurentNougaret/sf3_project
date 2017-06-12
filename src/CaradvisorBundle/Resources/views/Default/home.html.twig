@@ -72,33 +72,73 @@
     <!-- / Slider -->
 
     <!-- Leave opinion -->
-    <section id="review" >
-        <div class="container" >
-            <div class="row">
-                <div class="col-xs-12 col-md-12">
-                    <h2><span>Déposer</span> vos Avis</h2>
-                    <hr>
+    {% if is_granted('ROLE_PRO') %}
+    {% elseif is_granted('ROLE_PART') %}
+        <section id="review" >
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-md-12">
+                        <h2><span>Déposer</span> vos Avis</h2>
+                        <hr>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-4">
+                        <h3 class="text-center">Vous venez de faire réparer votre véhicule ?</h3>
+                        <div class="block-center">
+                            <a href="{{ path('review_repair') }}"><button type="button" class="btn btn-primary btn-lg btn-block center-block">Cliquez ici</button></a>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-4">
+                        <h3 class="text-center">Vous venez d'acquérir un véhicule neuf ?</h3>
+                        <div class="block-center">
+                            <a href="{{ path('review_new') }}" ><button type="button" class="btn btn-primary btn-lg btn-block center-block">Cliquez ici</button></a>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-4 ">
+                        <h3 class="text-center">Vous venez d'acquérir un véhicule d'occasion ?</h3>
+                        <div class="block-center">
+                            <a href="{{ path('review_used') }}"><button type="button" class="btn btn-primary btn-lg btn-block center-block">Cliquez ici</button></a>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-4">
-                    <div class="block-center">
-                        <a href="{{ path('review_repair') }}"><button type="button" class="btn btn-primary btn-lg btn-block center-block">ENTRETIEN / REPARATION</button></a>
+        </section>
+    {% elseif is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
+        <section id="review" >
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6">
+                        <h2 class="text-center">Vous êtes un<br><span>professionnel</span> ?</h2>
+                        <hr>
+                        <h4 class="text-center">Vous pouvez ajouter un établissement<br>en vous inscrivant</h4>
+                        <a href="{{ path('login') }}"><button type="button" class="btn btn-primary btn-lg btn-block center-block">Cliquez ici</button></a>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <h2 class="text-center">Vous êtes un<br><span>particulier</span> ?</h2>
+                        <hr>
+                        <h4 class="text-center">Vous pouvez ajouter un avis<br>en vous inscrivant</h4>
+                        <a href="{{ path('login') }}"><button type="button" class="btn btn-primary btn-lg btn-block center-block">Cliquez ici</button></a>
                     </div>
                 </div>
-                <div class="col-xs-12 col-md-4">
-                    <div class="block-center">
-                        <a href="{{ path('review_new') }}" ><button type="button" class="btn btn-primary btn-lg btn-block center-block">ACHAT NEUF</button></a>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-12 col-md-4 ">
-                    <div class="block-center">
-                        <a href="{{ path('review_used') }}"><button type="button" class="btn btn-primary btn-lg btn-block center-block">ACHAT OCCASION</button></a>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+                        <hr>
+                        <h3 class="text-center">Rejoignez la communauté CarAdvsisor</h3>
+                        <div class="text-center">
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="glyphicon glyphicon-star"></span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    {% endif %}
+
+
     <!-- / Leave opinion -->
 
     <!-- About -->
@@ -106,9 +146,7 @@
         <div class="container">
             <div class="row ">
                 <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0 bloktext">
-                    <div class="hauteurtitre">
-                        <h2>À propos de <br>CarAdvisor</h2>
-                    </div>
+                    <h2 class="hauteurtitre">À propos de <br>CarAdvisor</h2>
                     <p class="text-justify">
                         <strong>CarAdvisor</strong> est le premier site automobile complètement indépendant qui vous permet de
                         donner un avis sur un professionnel du secteur (concessionnaire, garagiste indépendant, centre-auto...).<br>
@@ -118,10 +156,8 @@
                     </p>
                 </div>
                 <div class="col-xs-10 col-xs-offset-1 col-sm-5 col-sm-offset-1 bloktext">
-                    <div class="hauteurtitre text-right">
-                        <h2>Le fondateur</h2>
-                        <img class="img-circle responsive" src="{{ asset('img/photo_fondateur.png') }}" alt="photo du fondateur" id="photofondateur">
-                    </div>
+                    <h2 class="hauteurtitre text-right">Le fondateur</h2>
+                    <img src="{{ asset('img/photo_fondateur.png') }}" alt="photo du fondateur" id="founderPhoto">
                     <p class="text-justify ">
                         Fort d’une expérience de plus de 20 ans dans le monde de l’automobile, <strong>Olivier Jacquet</strong> est un professionnel de l’animation
                         et de la gestion de réseau automobile. <br>
@@ -160,5 +196,8 @@
             </div>
         </div>
     </section>
+    <a href="#banner" class="back-to-top">
+        <i class="fa fa-arrow-circle-up" aria-hidden="true"></i>
+    </a>
     <!-- /Values -->
 {% endblock %}
