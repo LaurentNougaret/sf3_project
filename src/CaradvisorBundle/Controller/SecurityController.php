@@ -2,9 +2,12 @@
 
 namespace CaradvisorBundle\Controller;
 
+use CaradvisorBundle\Entity\Pro;
 use CaradvisorBundle\Entity\User;
 use CaradvisorBundle\Entity\Vehicle;
+use CaradvisorBundle\Form\ProProfileType;
 use CaradvisorBundle\Form\UserType;
+use CaradvisorBundle\Form\VehicleType;
 use Faker\Provider\DateTime;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -48,6 +51,8 @@ class SecurityController extends Controller
     {
         $user = new User();
 
+        $signup = $request->getSession();
+
         $form = $this->createForm(UserType::class, $user);
 
         $form->handleRequest($request);
@@ -68,9 +73,13 @@ class SecurityController extends Controller
             $dateLimitToken->add(new \DateInterval("P1D"));
             $user->setDateLimitToken($dateLimitToken);
 
+            $signup->set('role', $user->getRoles());
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
+
+            $signup->set('id', $user->getId());
 
             $email = \Swift_Message::newInstance()
                 ->setSubject("Caradvisor : Confirmation d'inscription")
@@ -91,10 +100,67 @@ class SecurityController extends Controller
             $this->get('mailer')->send($email);
             $this->addFlash("notice-green", "Un email vous a été envoyé, vous pouvez maintenant vous connecter.");
 
-            return $this->redirectToRoute('home');
+            return $this->redirectToRoute('signupSecond');
         }
         return $this->render('@Caradvisor/Security/signup.html.twig', [
             'form'      => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @return RedirectResponse|Response
+     * @Route("/signup-2", name="signupSecond")
+     * @param Request $request
+     */
+    public function signupSecondAction(Request $request)
+    {
+        $signup = $request->getSession();
+
+        $role = $signup->get('role');
+        $id = $signup->get('id');
+
+        $user = $this->getDoctrine()->getRepository(User::class)->find($id);
+
+        if ($role == ['ROLE_PART']) {
+            $vehicle = new Vehicle();
+
+            $form = $this->createForm(VehicleType::class, $vehicle);
+
+            $form->handleRequest($request);
+
+            if ($form->isSubmitted() && $form->isValid()) {
+                $vehicle->setUser($user);
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($vehicle);
+                $em->flush();
+
+                return $this->redirectToRoute('home');
+            }
+            return $this->render('@Caradvisor/Security/signupSecond.html.twig', [
+                'form'      => $form->createView(),
+                'vehicle'   => $vehicle,
+            ]);
+        }
+
+        $pro = new Pro();
+
+        $form = $this->createForm(ProProfileType::class, $pro);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $pro->setUser($user);
+            $pro->setRatingPro(0);
+            $pro->setPicture("");
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($pro);
+            $em->flush();
+
+            return $this->redirectToRoute('home');
+        }
+        return $this->render('@Caradvisor/Security/signupSecond.html.twig', [
+            'form'      => $form->createView(),
+            'pro'       => $pro,
         ]);
     }
 

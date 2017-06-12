@@ -19,7 +19,7 @@ class ProProfileType extends AbstractType
             ->add('siret', TextType::class, ['label' => false,
                 'attr' => ['placeholder' => 'Numéro Siret']])
             ->add('dealerName', TextType::class, ['label' => false,
-                'attr' => ['placeholder' => 'Nom Prestataire']])
+                'attr' => ['placeholder' => 'Nom Établissement']])
             ->add('dealertype', ChoiceType::class, ['label' => false,
                 'choices' => [
                 'Concessionnaire' => 'Concessionnaire',
@@ -41,8 +41,7 @@ class ProProfileType extends AbstractType
             ->add('brand', TextType::class, ['label' => false,
                 'attr' => ['placeholder' => 'Marque']])
             ->add('description', TextareaType::class, ['label' => false,
-                 'attr' => ['rows' => '6', 'placeholder' => 'Ajoutez une description de votre établissement', 'style' => 'resize = none']])
-            ->add('save', SubmitType::class, ['label' => 'Modifier', 'attr' =>['class' => 'save-pro-btn center-block']]);
+                 'attr' => ['rows' => '6', 'placeholder' => 'Ajoutez une description de votre établissement', 'style' => 'resize = none']]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
