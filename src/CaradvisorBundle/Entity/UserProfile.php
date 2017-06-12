@@ -185,4 +185,28 @@ class UserProfile
     {
         return $this->birthdate;
     }
+
+    /**
+     * Set user
+     *
+     * @param \CaradvisorBundle\Entity\User $user
+     *
+     * @return UserProfile
+     */
+    public function setUser(\CaradvisorBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \CaradvisorBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
 }

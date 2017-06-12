@@ -3,6 +3,7 @@
 namespace CaradvisorBundle\Form;
 
 use CaradvisorBundle\Entity\User;
+use CaradvisorBundle\Entity\UserProfile;
 use CaradvisorBundle\Entity\Vehicle;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -64,7 +65,7 @@ class UserType extends AbstractType
                 'label' => false,
                 'attr'  => ['placeholder' => 'Email'],
             ])
-            /*->add('userProfile', TextType::class)*/;
+            ->add('userProfile', UserProfileType::class);
 
         $builder->get('roles')
             ->addModelTransformer(new CallbackTransformer(
@@ -81,7 +82,7 @@ class UserType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => null,
+            'data_class' => User::class,
         ));
     }
 

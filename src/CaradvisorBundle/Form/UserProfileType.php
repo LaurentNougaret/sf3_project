@@ -36,9 +36,6 @@ class UserProfileType extends AbstractType
                 ->add('postalCode', TextType::class, [
                     'label' => false,
                     'attr' => ['placeholder' => 'Code Postal']
-                ])
-                ->add('save', SubmitType::class, [
-                    'label' => 'Enregistrer', 'attr' => ['class' => 'save-pro-btn center-block']
                 ]);
         }
 
