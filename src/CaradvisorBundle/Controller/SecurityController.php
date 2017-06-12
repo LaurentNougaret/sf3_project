@@ -3,7 +3,7 @@
 namespace CaradvisorBundle\Controller;
 
 use CaradvisorBundle\Entity\User;
-use CaradvisorBundle\Form\ChangePasswordType;
+use CaradvisorBundle\Form\ResetPasswordType;
 use CaradvisorBundle\Form\ForgottenPasswordType;
 use CaradvisorBundle\Form\UserType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -51,7 +51,7 @@ class SecurityController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()){
             $password = $this->get('security.password_encoder')
-                ->encodePassword($user, $user->getPlainPassword());
+                ->encodePassword($user, $user->getPassword());
             $user->setPassword($password);
             $user->setAddress("");
             $user->setCity("");
@@ -93,16 +93,18 @@ class SecurityController extends Controller
      * @return Response
      * @Route("/forgotten", name="forgotten")
      */
-    public function forgottenAction(Request $request) {
+    public function forgottenAction(Request $request)
+    {
         $user = new User();
         $em = $this->getDoctrine()->getManager();
         $form = $this->createForm(ForgottenPasswordType::class, $user);
         $form->handleRequest($request);
         $message = "";
-        if ($form->isSubmitted()) {
+        if ($form->isSubmitted() && $form->isValid()){
             /** @var User $newUser */
-            $newUser= $em->getRepository("CaradvisorBundle:User")->findOneBy(["userName" => $user->getUserName()]);
-            if ($newUser === null) {
+            $newUser = $em->getRepository("CaradvisorBundle:User")->findOneBy(["email" => $user->getEmail()]);
+
+            if (null === $newUser){
                 $message = "Nous n'avons pas trouvé cet utilisateur";
             } else {
                 $newUser->setPasswordChangeToken($newUser->generateToken());
@@ -112,20 +114,20 @@ class SecurityController extends Controller
                 $em->persist($newUser);
                 $em->flush();
                 $email = \Swift_Message::newInstance()
-                    ->setSubject('Caradvisor: réinitialisation du mot de passe')
+                    ->setSubject('Caradvisor : réinitialisation du mot de passe')
                     ->setFrom('apitchen@gmail.com')
                     ->setTo($newUser->getEmail())
                     ->setBody(
                         $this->renderView("@Caradvisor/Mail/forgottenPassword.html.twig", [
                             "resetPasswordLink" => $this->generateUrl("reset", [
                                 "token" => $newUser->getPasswordChangeToken(),
-                                ],
+                            ],
                                 UrlGeneratorInterface::ABSOLUTE_URL),
-                            ]),
-                    'text/html'
+                        ]),
+                        'text/html'
                     );
                 $this->get('mailer')->send($email);
-                $this->addFlash("notice", "Un mail a été envoyé à l'adresse de l'utilisateur.");
+                $this->addFlash("notice-green", "Un mail a été envoyé à l'adresse de l'utilisateur.");
                 return $this->redirectToRoute('home');
             }
         }
@@ -135,45 +137,46 @@ class SecurityController extends Controller
             "message" => $message,
         ]);
     }
+
     /**
      * @param Request $request
      * @param string $token
      * @Route("/reset/{token}", name="reset")
      * @return Response
      */
-    public function resetPasswordAction (Request $request, $token)
+    public function resetPasswordAction(Request $request, $token)
     {
         $message = "";
         $em = $this->getDoctrine()->getManager();
         $user = $em->getRepository("CaradvisorBundle:User")->findOneBy(["passwordChangeToken" => $token]);
         $today = new \DateTime("now");
-        if ($user !== null && $user->getPasswordChangeLimitDate() > $today) {
+        if (null !== $user && $user->getPasswordChangeLimitDate() > $today) {
             $user->setPassword("");
-            $form = $this->createForm(ChangePasswordType::class, $user);
+            $form = $this->createForm(ResetPasswordType::class, $user);
             $form->handleRequest($request);
-            if ($form->isValid() && $form->isSubmitted()) {
-                $password = $user->getPlainpassword();
-                $verificationPassword = $request->request->get("caradvisor_bundle_change_password_type")["plainpassword"];
+            if ($form->isSubmitted() && $form->isValid()) {
+                $password = $user->getPassword();
+                $verificationPassword = $request->request->get("caradvisor_bundle_user_type")["passwordCompare"];
                 if ($password === $verificationPassword) {
                     $encoder = $this->get('security.password_encoder');
-                    $encoded = $encoder->encodePassword($user, $user->getPlainpassword());
+                    $encoded = $encoder->encodePassword($user, $user->getPassword());
                     $user->setPassword($encoded);
                     $user->setPasswordChangeLimitDate(null);
                     $user->setPasswordChangeToken(null);
                     $em->flush();
-                    $this->addFlash("notice", "Votre mot de passe a bien été modifié.");
-                    return $this->redirectToRoute('home');
+                    $this->addFlash("notice-green", "Votre mot de passe a bien été modifié.");
+                    return $this->redirectToRoute("home");
                 } else {
                     $message = "Les mots de passe ne correspondent pas.";
                 }
             }
-            return $this->render("@Caradvisor/Security/passwordProcess.html.twig", [
+            return $this->render("@Caradvisor/Security/passwordReset.html.twig", [
                 "form" => $form->createView(),
                 "message" => $message,
             ]);
         } else {
             $this->addFlash("notice", "Cette demande de réinitialisation de mot de passe n'est pas valide.");
-            return $this->redirectToRoute('home');
+            return $this->redirectToRoute("home");
         }
     }
 }

@@ -7,12 +7,14 @@ use Serializable;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Security\Core\Validator\Constraints as SecurityAssert;
+
 
 /**
  * User
  *
  * @ORM\Table(name="user")
- * @UniqueEntity(fields={"email"}, message="L'email est déjà pris")
+ * @UniqueEntity(fields={"email"}, message="L'email est déjà pris", groups={"registration"})
  * @UniqueEntity(fields={"userName"}, message="Le nom d'utilisateur est déjà pris")
  * @ORM\Entity(repositoryClass="CaradvisorBundle\Repository\UserRepository")
  */
@@ -49,8 +51,10 @@ class User implements UserInterface, Serializable
     private $userName;
 
     /**
-     * @Assert\NotBlank()
-     * @Assert\Length(max="4096")
+     * @Assert\Length(
+     *     min = 8,
+     *     minMessage = "Le mot de passe doit contenir au moins 8 caractères"
+     * )
      */
     private $plainpassword;
 
@@ -58,13 +62,28 @@ class User implements UserInterface, Serializable
      * @var string
      *
      * @ORM\Column(name="password", type="string", length=255)
+     * @Assert\Length(
+     *     min = 8,
+     *     minMessage = "Le mot de passe doit contenir au moins 8 caractères"
+     * )
+     * * @SecurityAssert\UserPassword(
+     *     message = "Le mot de passe entré ne correspond au mot de passe actuel"
+     * )
      */
     private $password;
 
     /**
+     * @Assert\Length(
+     *     min = 6,
+     *     minMessage = "Le mot de passe doit contenir au moins 8 caractères"
+     * )
+     */
+    protected $newPassword;
+
+    /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=255)
+     * @ORM\Column(name="email", type="string", length=255, unique=true)
      */
     private $email;
 
@@ -293,6 +312,25 @@ class User implements UserInterface, Serializable
     {
         return $this->password;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getNewPassword()
+    {
+        return $this->newPassword;
+    }
+
+    /**
+     * @param mixed $newPassword
+     * @return User
+     */
+    public function setNewPassword($newPassword)
+    {
+        $this->newPassword = $newPassword;
+        return $this;
+    }
+
 
     /**
      * Set email

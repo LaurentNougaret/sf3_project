@@ -14,21 +14,19 @@ class ForgottenPasswordType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('userName', TextType::class, ['label' => false, 'attr' => [
-                'placeholder' => 'Entrez votre identifiant']])
-            ->add('save', SubmitType::class, ['label' => 'Envoyer', 'attr' => [
-                'class' => 'passwordButton']]);
+            ->add('email', TextType::class, ['label' => false, 'attr' => ['placeholder' => 'Entrez votre mail']])
+            ->add('submit', SubmitType::class, ['label' => false, 'attr' => ['placeholder' => 'Réinitialiser', 'class' => 'passwordButton']]);
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults([
+        $resolver->setDefaults(array(
             'data_class' => User::class
-            ]);
+        ));
     }
 
     public function getBlockPrefix()
     {
-        return 'caradvisor_bundle_forgotten_password';
+        return 'caradvisor_bundle_user_type';
     }
 }

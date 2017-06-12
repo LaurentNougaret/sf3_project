@@ -15,25 +15,33 @@ class ChangePasswordType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('plainpassword', RepeatedType::class, [
-                'type' => PasswordType::class,
-                'first_options' => [
-                    'label' => false,
-                    'attr' => ['placeholder' => 'Mot de passe']],
-                'second_options' => [
-                    'label' => false,
-                    'attr' => ['placeholder' => 'Confirmez le mot de passe']],
-                'invalid_message' => 'Les mots de passe doivent être identiques',
+            ->add('Password', PasswordType::class, [
+                'label' => false,
+                'attr'  => ['placeholder' => 'Entrez votre mot de passe actuel']
             ])
-            ->add('save', SubmitType::class, ['label' => false, 'attr' => [
-                'placeholder' => 'Réinitialiser', 'class' => 'btn btn-primary btn-lg btn-block btn-conn btn-pass']]);
+            ->add('newPassword', RepeatedType::class, [
+            'type' => PasswordType::class,
+            'first_options' => [
+                'label' => false,
+                'attr' => ['placeholder' => 'Entrez votre nouveau mot de passe']],
+            'second_options' => [
+                'label' => false,
+                'attr' => ['placeholder' => 'Confirmez le mot de passe']],
+            'invalid_message' => 'Les mots de passe doivent être identiques',
+            ])
+            ->add('submit', SubmitType::class, [
+                'label' => false,
+                'attr'  => ['placeholder' => 'Enregistrer']
+            ])
+            ;
+
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults([
+        $resolver->setDefaults(array(
             'data_class' => User::class
-        ]);
+        ));
     }
 
     public function getBlockPrefix()
