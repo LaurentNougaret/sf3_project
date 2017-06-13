@@ -48,7 +48,7 @@ class ReviewController extends Controller
             $em->persist($reviewRepair);
             $em->flush();
 
-            //return $this->redirectToRoute('home');
+            return $this->redirectToRoute('home');
         }
         return $this->render('@Caradvisor/Reviews/repair.html.twig', [
             'form'          => $form->createView(),
