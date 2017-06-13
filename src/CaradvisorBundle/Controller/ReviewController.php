@@ -2,10 +2,12 @@
 
 namespace CaradvisorBundle\Controller;
 
+use CaradvisorBundle\Entity\Pro;
 use CaradvisorBundle\Entity\ReviewBuy;
 use CaradvisorBundle\Entity\ReviewRepair;
 use CaradvisorBundle\Form\ReviewBuyType;
 use CaradvisorBundle\Form\ReviewRepairType;
+use CaradvisorBundle\Repository\ReviewRepairRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,6 +19,7 @@ class ReviewController extends Controller
     /**
      * @param Request $request
      * @return Response
+     * @internal param ReviewRepair $reviewRepair
      * @Route("/review/repair", name="review_repair")
      */
     public function addReviewRepairAction(Request $request)
@@ -24,16 +27,28 @@ class ReviewController extends Controller
         $this->denyAccessUnlessGranted('ROLE_PART', null, 'Vous ne pouvez pas déposez d\'avis avec votre compte professionnel');
 
         $reviewRepair = new ReviewRepair();
+
         $form = $this->createForm(ReviewRepairType::class, $reviewRepair);
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted()){
+            $reviewRepair->setDateReview(new \DateTime());
             $em = $this->getDoctrine()->getManager();
+
+            $dealerName = $form['dealerName']->getData();
+            $city = $form['city']->getData();
+            $postalCode = $form['postalCode']->getData();
+
+            $repository = $this->getDoctrine()->getRepository(Pro::class);
+
+            $proId = $repository->findProIdByName($dealerName, $city, $postalCode)[0];
+            $reviewRepair->setPro($proId);
+            $reviewRepair->setUser($this->getUser());
             $em->persist($reviewRepair);
             $em->flush();
 
-            return $this->redirectToRoute('home');
+            //return $this->redirectToRoute('home');
         }
         return $this->render('@Caradvisor/Reviews/repair.html.twig', [
             'form'          => $form->createView(),
@@ -58,7 +73,7 @@ class ReviewController extends Controller
             $reviewBuy->setReviewBuyType('Neuf');
             $em = $this->getDoctrine()->getManager();
             $em->persist($reviewBuy);
-            $em->flush;
+            $em->flush();
 
             return $this->redirectToRoute('home');
         }
@@ -85,7 +100,7 @@ class ReviewController extends Controller
             $reviewBuy->setReviewBuyType('Occasion');
             $em = $this->getDoctrine()->getManager();
             $em->persist($reviewBuy);
-            $em->flush;
+            $em->flush();
 
             return $this->redirectToRoute('home');
         }

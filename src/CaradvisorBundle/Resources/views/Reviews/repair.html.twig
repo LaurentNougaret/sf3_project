@@ -49,7 +49,7 @@
                 <hr>
                 <div class="row">
                     <div class="col-sm-3 control-label">{{ form_label(form.ratingGlobal) }}</div>
-                    <div class="col-sm-3 rating">{{ form_widget(form.ratingGlobal) }}</div>
+                    <div class="col-sm-3">{{ form_widget(form.ratingGlobal) }}</div>
                     {{ form_errors(form.ratingGlobal) }}
                 </div>
                 <div class="row">
@@ -105,6 +105,11 @@
                     <div class="col-sm-3 control-label">{{ form_label(form.authorizationRepair) }}</div>
                     <div class="col-sm-6">{{ form_widget(form.authorizationRepair) }}</div>
                     {{ form_errors(form.authorizationRepair) }}
+                </div>
+                <div class="row">
+                    <div class="col-sm-3 control-label">{{ form_label(form.respectQuotationRepair) }}</div>
+                    <div class="col-sm-6">{{ form_widget(form.respectQuotationRepair) }}</div>
+                    {{ form_errors(form.respectQuotationRepair) }}
                 </div>
                 <div class="row">
                     <div class="col-sm-3 control-label">{{ form_label(form.courtesyVehicle) }}</div>

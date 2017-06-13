@@ -22,11 +22,11 @@ class ReviewRepairType extends AbstractType
             ->add('dealerType', ChoiceType::class, [
                 'label' => 'Type de prestataire',
                 'choices' => [
-                    'Concessionnaire' => '1',
-                    'Garagiste' => '2',
-                    'Agent' => '3',
-                    'Carrossier' => '4',
-                    'Autre' => '5'
+                    'Concessionnaire' => 'Concessionnaire',
+                    'Garagiste' => 'Garagiste',
+                    'Agent' => 'Agent',
+                    'Carrossier' => 'Carrossier',
+                    'Autre' => 'Autre'
                 ]
             ])
             ->add('dealerName', TextType::class, [
@@ -61,12 +61,9 @@ class ReviewRepairType extends AbstractType
             ->add('dateRepair', DateType::class, [
                 'label' => 'Date de l\'intervention',
                 'widget' => 'single_text',
-                // do not render as type="date", to avoid HTML5 date pickers
-                'html5' => false,
-                // add a class that can be selected in JavaScript
                 'attr' => [
-                    'class' => 'js-datepicker',
-                    'placeholder' => 'jj-mm-aaaa',
+                    'placeholder'   => 'jj-mm-aaaa',
+                    'format'        => 'dd-MM-yyyy',
                 ],
             ])
             ->add('ratingWelcome', ChoiceType::class, [
@@ -105,6 +102,13 @@ class ReviewRepairType extends AbstractType
                 'multiple'=>false,
             ])
             ->add('authorizationRepair', ChoiceType::class, [
+                'label' => 'Vous a-t-on fait signer un document permettant l\'intervention ?',
+                'choices' => ['oui' => 1, 'non' => 2],
+                'required'=>true,
+                'expanded'=>true,
+                'multiple'=>false,
+            ])
+            ->add('respectQuotationRepair', ChoiceType::class, [
                 'label' => 'A-t-on bien respecté le devis ?',
                 'choices' => ['oui' => 1, 'non' => 2],
                 'required'=>true,
