@@ -7,7 +7,6 @@ use CaradvisorBundle\Entity\ReviewBuy;
 use CaradvisorBundle\Entity\ReviewRepair;
 use CaradvisorBundle\Form\ReviewBuyType;
 use CaradvisorBundle\Form\ReviewRepairType;
-use CaradvisorBundle\Repository\ReviewRepairRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -19,7 +18,6 @@ class ReviewController extends Controller
     /**
      * @param Request $request
      * @return Response
-     * @internal param ReviewRepair $reviewRepair
      * @Route("/review/repair", name="review_repair")
      */
     public function addReviewRepairAction(Request $request)
@@ -71,7 +69,20 @@ class ReviewController extends Controller
 
         if ($form->isSubmitted()) {
             $reviewBuy->setReviewBuyType('Neuf');
+            $reviewBuy->setDateReview(new \DateTime());
+
             $em = $this->getDoctrine()->getManager();
+
+            $dealerName = $form['dealerName']->getData();
+            $city = $form['city']->getData();
+            $postalCode = $form['postalCode']->getData();
+
+            $repository = $this->getDoctrine()->getRepository(Pro::class);
+
+            $proId = $repository->findProIdByName($dealerName, $city, $postalCode)[0];
+            $reviewBuy->setPro($proId);
+            $reviewBuy->setUser($this->getUser());
+
             $em->persist($reviewBuy);
             $em->flush();
 
@@ -98,7 +109,20 @@ class ReviewController extends Controller
 
         if ($form->isSubmitted()) {
             $reviewBuy->setReviewBuyType('Occasion');
+            $reviewBuy->setDateReview(new \DateTime());
+
             $em = $this->getDoctrine()->getManager();
+
+            $dealerName = $form['dealerName']->getData();
+            $city = $form['city']->getData();
+            $postalCode = $form['postalCode']->getData();
+
+            $repository = $this->getDoctrine()->getRepository(Pro::class);
+
+            $proId = $repository->findProIdByName($dealerName, $city, $postalCode)[0];
+            $reviewBuy->setPro($proId);
+            $reviewBuy->setUser($this->getUser());
+
             $em->persist($reviewBuy);
             $em->flush();
 
