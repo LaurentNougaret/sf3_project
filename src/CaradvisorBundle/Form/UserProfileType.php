@@ -2,14 +2,11 @@
 
 namespace CaradvisorBundle\Form;
 
-use CaradvisorBundle\Entity\User;
 use CaradvisorBundle\Entity\UserProfile;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\Extension\Core\Type\IntegerType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -19,26 +16,31 @@ class UserProfileType extends AbstractType
     {
             $builder
                 ->add('birthdate', BirthdayType::class, [
+                    'required' => false,
                     'label' => false,
                     'attr' => ['placeholder' => 'Date de naissance']
                 ])
-                ->add('phone', IntegerType::class, [
+                ->add('phone', NumberType::class, [
+                    'required' => false,
                     'label' => false,
                     'attr' => ['placeholder' => 'Numéro de téléphone']
                 ])
                 ->add('address', TextType::class, [
+                    'required' => false,
                     'label' => false,
                     'attr' => ['placeholder' => 'Adresse']
                 ])
                 ->add('city', TextType::class, [
+                    'required' => false,
                     'label' => false,
                     'attr' => ['placeholder' => 'Ville']
                 ])
                 ->add('postalCode', TextType::class, [
+                    'required' => false,
                     'label' => false,
                     'attr' => ['placeholder' => 'Code Postal']
                 ]);
-        }
+    }
 
     public function configureOptions(OptionsResolver $resolver)
     {

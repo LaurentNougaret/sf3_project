@@ -40,19 +40,23 @@
                                         <li><p>Ville: {{ form_row(edit_form.userProfile.city) }}</p></li>
                                         <li><p>E-mail: {{ form_row(edit_form.email) }}</p></li>
                                         <li><p>Téléphone: {{ form_row(edit_form.userProfile.phone) }}</p></li>
+                                        {#<li><p>Pour valider vos modifications, veuillez insérer votre mot de passe:</p></li>
+                                        <li><p>{{ form_row(edit_form.password) }}</p></li>#}
+
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xs-12 text-center">
-                            <label class=" control-label" for="filebutton">Ajoutez une photo de votre établissement </label>
+                        <!-- Add picture or avatar -->
+                        {#<div class="col-xs-12 text-center">
+                            <label class=" control-label" for="filebutton">Ajoutez une photo ou avatar </label>
                             <div>
                                 <input id="filebutton" name="filebutton" class="input-file center-block" type="file"
                                        accept=".jpg, .png, .jpeg">
                                 <br>
                                 <span class="help-block">Formats de fichiers acceptés: JPG, JPEG, PNG.</span>
                             </div>
-                        </div>
+                        </div>#}
                         <div class="col-xs-12">
                             <button type="submit" class="btn btn-primary center-block modify-pro-review">
                                 Envoyer
