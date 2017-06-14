@@ -29,10 +29,10 @@
                         {{ form_row(form.username) }}
                     </div>
                     <div class="col-xs-12">
-                        {{ form_row(form.plainpassword.first) }}
+                        {{ form_row(form.password.first) }}
                     </div>
                     <div class="col-xs-12">
-                        {{ form_row(form.plainpassword.second) }}
+                        {{ form_row(form.password.second) }}
                     </div>
                     <div class="row">
                         <div id="inscrition-text-footer" class="col-xs-12 col-sm-12 text-justify">
@@ -46,7 +46,7 @@
                     </div>
                     {{ form_row(form._token) }}
 
-                    {{ form_end(form) }}
+                    {{ form_end(form, {'render_rest': false}) }}
                 </div>
             </div>
         </div>

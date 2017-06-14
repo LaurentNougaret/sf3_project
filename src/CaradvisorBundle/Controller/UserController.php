@@ -7,6 +7,8 @@ use CaradvisorBundle\Entity\Pro;
 use CaradvisorBundle\Entity\User;
 use CaradvisorBundle\Entity\UserProfile;
 use CaradvisorBundle\Entity\Vehicle;
+use CaradvisorBundle\Form\AnswerType;
+use CaradvisorBundle\Form\ChangePasswordType;
 use CaradvisorBundle\Form\ProProfileType;
 use CaradvisorBundle\Form\UserProfileType;
 use CaradvisorBundle\Form\UserType;
@@ -85,16 +87,40 @@ class UserController extends Controller
     }
 
     // User's settings page: Change Password
+
     /**
      * @Route("/user/settings/password/{user}", name="user_password")
-     * @param User $user
+     * @param Request $request
      * @return Response
+     * @internal param User $user
      */
-    public function passwordAction(User $user)
+    public function changePasswordAction(Request $request)
     {
-        return $this->render('@Caradvisor/User/password.html.twig', [
-            'user' => $user
-        ]);
+        $user = new User();
+        $em = $this->getDoctrine()->getManager();
+        $form = $this->createForm(ChangePasswordType::class, $user);
+        $form->handleRequest($request);
+        $message = "";
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $password = $user->getPassword();
+            $verificationPassword = $request->request->get("caradvisor_bundle_reset_password_type")["newPassword"];
+            if ($password === $verificationPassword) {
+                $encoder = $this->get('security.password_encoder');
+                $encoded = $encoder->encodePassword($user, $user->getPassword());
+                $user->setPassword($encoded);
+                $em->flush();
+                $this->addFlash("notice", "Votre mot de passe a bien été modifié.");
+                return $this->redirectToRoute("home");
+            } else {
+                $message = "Les mots de passe ne correspondent pas.";
+            }
+        return $this->render('CaradvisorBundle:Security:passwordReset.html.twig', [
+            'form' => $form->createView(),
+            "message" => $message,
+            ]);
+        }
+        return $this->redirectToRoute("home");
     }
 
     // User's show vehicles
@@ -264,7 +290,7 @@ class UserController extends Controller
             $em->flush();
         }*/
 
-        return $this->render('@Caradvisor/User/EstabReviewsAnswer.html.twig', [
+        return $this->render('estabReviewsAnswer.html.twig', [
             //'form'      => $form->createView(),
             'user' => $user,
             'pro' => $pro,

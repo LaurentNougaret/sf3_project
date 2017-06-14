@@ -4,16 +4,14 @@ namespace CaradvisorBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
-
 /**
  * User
  *
  * @ORM\Table(name="user")
- * @UniqueEntity(fields={"email"}, message="L'email est déjà pris")
+ * @UniqueEntity(fields={"email"}, message="L'email est déjà pris", groups={"registration"})
  * @UniqueEntity(fields={"userName"}, message="Le nom d'utilisateur est déjà pris")
  * @ORM\Entity(repositoryClass="CaradvisorBundle\Repository\UserRepository")
  */
@@ -140,10 +138,10 @@ class User implements UserInterface, \Serializable
     public function __construct()
     {
         $this->isActive = false;
-        $this->vehicles = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->pros = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->reviewRepairs = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->reviewBuys = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->vehicles = new ArrayCollection();
+        $this->pros = new ArrayCollection();
+        $this->reviewRepairs = new ArrayCollection();
+        $this->reviewBuys = new ArrayCollection();
     }
 
     /**

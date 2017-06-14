@@ -70,7 +70,11 @@ class Pro
      * @ORM\Column(name="phone", type="integer")
      */
     private $phone;
-
+    /**
+     * @var
+     * @ORM\Column(name="picture", type="blob", nullable=true)
+     */
+    private $picture;
     /**
      * @var string
      *
@@ -112,11 +116,6 @@ class Pro
      * @ORM\Column(name="ratingPro", type="decimal", precision=10, scale=2)
      */
     private $ratingPro;
-
-    /**
-     * @ORM\Column(name="picture", type="blob", nullable=true )
-     */
-    private $picture;
 
     /**
      * Get id

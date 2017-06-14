@@ -185,6 +185,7 @@ class UserProfile
     {
         return $this->birthdate;
     }
+<<<<<<< HEAD
 
     /**
      * Set user
@@ -209,4 +210,6 @@ class UserProfile
     {
         return $this->user;
     }
+=======
+>>>>>>> 2664fa32f11d18fca7b1fe0295a4e3097ead0171
 }

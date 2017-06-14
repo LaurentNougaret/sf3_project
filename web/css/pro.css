@@ -37,6 +37,13 @@
 .pro td {
     width: 12%;
 }
+
+.pro .pro-icons {
+
+    margin: 10% -2% 10% 3%;
+}
+
+
 .pro .visuallyhidden {
     border: 0;
     clip: rect(0 0 0 0);
@@ -51,6 +58,7 @@
 .pro hr {
     border: 1px solid #ff4756;
 }
+
 .pro #account-pro-reviews .pro-review-underline {
     margin-bottom: 20px;
 }
