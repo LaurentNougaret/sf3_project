@@ -40,7 +40,7 @@ class ReviewController extends Controller
 
             $repository = $this->getDoctrine()->getRepository(Pro::class);
 
-            $proId = $repository->findProIdByName($dealerName, $city, $postalCode)[0];
+            $proId = $repository->findProIdByName($dealerName)[0];
             $reviewRepair->setPro($proId);
             $reviewRepair->setUser($this->getUser());
             $em->persist($reviewRepair);
@@ -79,7 +79,7 @@ class ReviewController extends Controller
 
             $repository = $this->getDoctrine()->getRepository(Pro::class);
 
-            $proId = $repository->findProIdByName($dealerName, $city, $postalCode)[0];
+            $proId = $repository->findProIdByName($dealerName)[0];
             $reviewBuy->setPro($proId);
             $reviewBuy->setUser($this->getUser());
 
@@ -119,7 +119,7 @@ class ReviewController extends Controller
 
             $repository = $this->getDoctrine()->getRepository(Pro::class);
 
-            $proId = $repository->findProIdByName($dealerName, $city, $postalCode)[0];
+            $proId = $repository->findProIdByName($dealerName)[0];
             $reviewBuy->setPro($proId);
             $reviewBuy->setUser($this->getUser());
 

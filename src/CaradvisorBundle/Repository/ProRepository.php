@@ -13,25 +13,19 @@ class ProRepository extends \Doctrine\ORM\EntityRepository
         $results = $query->getResult();
 
         return $results;
-
-
     }
 
     /**
      * @param $dealerName
-     * @param $city
-     * @param $postalCode
      * @return array
      */
-    public function findProIdByName($dealerName, $city, $postalCode)
+    public function findProIdByName($dealerName)
     {
+        $dealerName = '%' . $dealerName . '%';
         $qb = $this->createQueryBuilder('p')
-            ->where('p.dealerName = :dealerName')
-            ->andWhere('p.city = :city')
-            ->andWhere('p.postalCode = :postalCode')
+            ->select('p.dealerName', 'p.city', 'p.postalCode')
+            ->where('p.dealerName LIKE :dealerName')
             ->setParameter('dealerName', $dealerName)
-            ->setParameter('city', $city)
-            ->setParameter('postalCode', $postalCode)
             ->getQuery();
         return $qb->getResult();
     }
