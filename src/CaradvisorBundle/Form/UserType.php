@@ -34,12 +34,15 @@ class UserType extends AbstractType
                 'label' => false,
                 'attr'  => ['placeholder' => 'Nom d\'utilisateur']
             ])
-            ->add('password', RepeatedType::class, [
+            ->add('plainpassword', RepeatedType::class, [
+                'required' => false,
                 'type' => PasswordType::class,
                 'first_options' => [
+                    'required' => false,
                     'label' => false,
                     'attr' => ['placeholder' => 'Mot de passe']],
                 'second_options' => [
+                    'required' => false,
                     'label' => false,
                     'attr' => ['placeholder' => 'Confirmez le mot de passe']],
                 'invalid_message' => 'Les mots de passe doivent être identiques',

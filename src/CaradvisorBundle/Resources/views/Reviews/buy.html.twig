@@ -145,7 +145,7 @@
             <div class="col-xs-12">
                 <button class="btn btn-primary btn-block center-block" type="submit">Envoyer votre avis</button>
             </div>
-            {{ form_end(form) }}
+            {{ form_end(form, {'render_rest': false}) }}
         </div>
     </section>
 {% endblock %}

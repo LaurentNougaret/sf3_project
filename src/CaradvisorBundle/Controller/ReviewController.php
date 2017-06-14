@@ -2,6 +2,7 @@
 
 namespace CaradvisorBundle\Controller;
 
+use CaradvisorBundle\Entity\Pro;
 use CaradvisorBundle\Entity\ReviewBuy;
 use CaradvisorBundle\Entity\ReviewRepair;
 use CaradvisorBundle\Form\ReviewBuyType;
@@ -24,12 +25,24 @@ class ReviewController extends Controller
         $this->denyAccessUnlessGranted('ROLE_PART', null, 'Vous ne pouvez pas déposez d\'avis avec votre compte professionnel');
 
         $reviewRepair = new ReviewRepair();
+
         $form = $this->createForm(ReviewRepairType::class, $reviewRepair);
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted()){
+            $reviewRepair->setDateReview(new \DateTime());
             $em = $this->getDoctrine()->getManager();
+
+            $dealerName = $form['dealerName']->getData();
+            $city = $form['city']->getData();
+            $postalCode = $form['postalCode']->getData();
+
+            $repository = $this->getDoctrine()->getRepository(Pro::class);
+
+            $proId = $repository->findProIdByName($dealerName, $city, $postalCode)[0];
+            $reviewRepair->setPro($proId);
+            $reviewRepair->setUser($this->getUser());
             $em->persist($reviewRepair);
             $em->flush();
 
@@ -56,9 +69,22 @@ class ReviewController extends Controller
 
         if ($form->isSubmitted()) {
             $reviewBuy->setReviewBuyType('Neuf');
+            $reviewBuy->setDateReview(new \DateTime());
+
             $em = $this->getDoctrine()->getManager();
+
+            $dealerName = $form['dealerName']->getData();
+            $city = $form['city']->getData();
+            $postalCode = $form['postalCode']->getData();
+
+            $repository = $this->getDoctrine()->getRepository(Pro::class);
+
+            $proId = $repository->findProIdByName($dealerName, $city, $postalCode)[0];
+            $reviewBuy->setPro($proId);
+            $reviewBuy->setUser($this->getUser());
+
             $em->persist($reviewBuy);
-            $em->flush;
+            $em->flush();
 
             return $this->redirectToRoute('home');
         }
@@ -83,9 +109,22 @@ class ReviewController extends Controller
 
         if ($form->isSubmitted()) {
             $reviewBuy->setReviewBuyType('Occasion');
+            $reviewBuy->setDateReview(new \DateTime());
+
             $em = $this->getDoctrine()->getManager();
+
+            $dealerName = $form['dealerName']->getData();
+            $city = $form['city']->getData();
+            $postalCode = $form['postalCode']->getData();
+
+            $repository = $this->getDoctrine()->getRepository(Pro::class);
+
+            $proId = $repository->findProIdByName($dealerName, $city, $postalCode)[0];
+            $reviewBuy->setPro($proId);
+            $reviewBuy->setUser($this->getUser());
+
             $em->persist($reviewBuy);
-            $em->flush;
+            $em->flush();
 
             return $this->redirectToRoute('home');
         }

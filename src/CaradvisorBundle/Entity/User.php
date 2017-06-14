@@ -6,6 +6,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * User
@@ -48,6 +49,11 @@ class User implements UserInterface, \Serializable
     private $userName;
 
     /**
+     * @Assert\Length(max="4096")
+     */
+    private $plainpassword;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="password", type="string", length=255)
@@ -75,7 +81,6 @@ class User implements UserInterface, \Serializable
      */
     private $mailingList;
 
-    // added $picture in User after deleting it in Pro because of problems in Db
     /**
      * @ORM\Column(name="picture", type="blob", nullable=true)
      */
@@ -248,6 +253,23 @@ class User implements UserInterface, \Serializable
     public function getEmail()
     {
         return $this->email;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPlainpassword()
+    {
+        return $this->plainpassword;
+    }
+    /**
+     * @param mixed $plainpassword
+     * @return User
+     */
+    public function setPlainpassword($plainpassword)
+    {
+        $this->plainpassword = $plainpassword;
+        return $this;
     }
 
     /**
