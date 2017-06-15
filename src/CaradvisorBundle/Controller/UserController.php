@@ -5,14 +5,13 @@ namespace CaradvisorBundle\Controller;
 use CaradvisorBundle\Entity\Answer;
 use CaradvisorBundle\Entity\Pro;
 use CaradvisorBundle\Entity\User;
-use CaradvisorBundle\Entity\UserProfile;
 use CaradvisorBundle\Entity\Vehicle;
 use CaradvisorBundle\Form\AnswerType;
 use CaradvisorBundle\Form\ChangePasswordType;
 use CaradvisorBundle\Form\ProProfileType;
-use CaradvisorBundle\Form\UserProfileType;
 use CaradvisorBundle\Form\UserType;
 use CaradvisorBundle\Form\VehicleType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,11 +22,15 @@ class UserController extends Controller
     // Home page for user (professionals & non-professionals)
     /**
      * @Route("/user/{user}", name="user")
+     * @Security("has_role('ROLE_PART', 'ROLE_PRO')")
      * @param User $user
      * @return Response
      */
     public function indexAction(User $user)
     {
+        /* Deny Access if not logged in
+        $this->denyAccessUnlessGranted(['ROLE_PART', 'ROLE_PRO'], null, 'Unable to access this page!'); */
+
         return $this->render('@Caradvisor/User/home.html.twig', [
             "user" => $user
         ]);
@@ -41,6 +44,9 @@ class UserController extends Controller
      */
     public function profileAction(User $user)
     {
+        /* Deny Access if not logged in */
+        $this->denyAccessUnlessGranted(['ROLE_PART', 'ROLE_PRO'], null, 'Unable to access this page!');
+
         return $this->render('@Caradvisor/User/profile.html.twig', [
             "user" => $user,
             "userProfile" => $user->getUserProfile(),
@@ -57,6 +63,9 @@ class UserController extends Controller
      */
     public function editAction(Request $request, User $user)
     {
+        /* Deny Access if not logged in */
+        $this->denyAccessUnlessGranted(['ROLE_PART', 'ROLE_PRO'], null, 'Unable to access this page!');
+
         $editForm = $this->createForm(UserType::class, $user);
         $editForm->handleRequest($request);
 
