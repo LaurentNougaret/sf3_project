@@ -5,6 +5,7 @@ namespace CaradvisorBundle\Controller;
 use CaradvisorBundle\Entity\Pro;
 use CaradvisorBundle\Entity\ReviewBuy;
 use CaradvisorBundle\Entity\ReviewRepair;
+use CaradvisorBundle\Entity\User;
 use CaradvisorBundle\Form\ReviewBuyType;
 use CaradvisorBundle\Form\ReviewRepairType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -27,22 +28,23 @@ class ReviewController extends Controller
         $reviewRepair = new ReviewRepair();
 
         $form = $this->createForm(ReviewRepairType::class, $reviewRepair);
-
         $form->handleRequest($request);
 
-        if ($form->isSubmitted()){
+        //$user = $this->getDoctrine()->getRepository(User::class);
+
+        if ($form->isSubmitted() && $form->isValid()){
             $reviewRepair->setDateReview(new \DateTime());
+
             $em = $this->getDoctrine()->getManager();
 
             $dealerName = $form['dealerName']->getData();
-            $city = $form['city']->getData();
-            $postalCode = $form['postalCode']->getData();
 
             $repository = $this->getDoctrine()->getRepository(Pro::class);
 
-            $proId = $repository->findProIdByName($dealerName)[0];
-            $reviewRepair->setPro($proId);
+            $pro = $repository->findByDealerName($dealerName);
+            $reviewRepair->setPro($pro[0]);
             $reviewRepair->setUser($this->getUser());
+
             $em->persist($reviewRepair);
             $em->flush();
 
@@ -67,20 +69,18 @@ class ReviewController extends Controller
 
         $form->handleRequest($request);
 
-        if ($form->isSubmitted()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $reviewBuy->setReviewBuyType('Neuf');
             $reviewBuy->setDateReview(new \DateTime());
 
             $em = $this->getDoctrine()->getManager();
 
             $dealerName = $form['dealerName']->getData();
-            $city = $form['city']->getData();
-            $postalCode = $form['postalCode']->getData();
 
             $repository = $this->getDoctrine()->getRepository(Pro::class);
 
-            $proId = $repository->findProIdByName($dealerName)[0];
-            $reviewBuy->setPro($proId);
+            $pro = $repository->findByDealerName($dealerName);
+            $reviewBuy->setPro($pro[0]);
             $reviewBuy->setUser($this->getUser());
 
             $em->persist($reviewBuy);
@@ -107,20 +107,18 @@ class ReviewController extends Controller
 
         $form->handleRequest($request);
 
-        if ($form->isSubmitted()) {
-            $reviewBuy->setReviewBuyType('Occasion');
+        if ($form->isSubmitted() && $form->isValid()) {
+            $reviewBuy->setReviewBuyType('Neuf');
             $reviewBuy->setDateReview(new \DateTime());
 
             $em = $this->getDoctrine()->getManager();
 
             $dealerName = $form['dealerName']->getData();
-            $city = $form['city']->getData();
-            $postalCode = $form['postalCode']->getData();
 
             $repository = $this->getDoctrine()->getRepository(Pro::class);
 
-            $proId = $repository->findProIdByName($dealerName)[0];
-            $reviewBuy->setPro($proId);
+            $pro = $repository->findByDealerName($dealerName);
+            $reviewBuy->setPro($pro[0]);
             $reviewBuy->setUser($this->getUser());
 
             $em->persist($reviewBuy);
