@@ -109,7 +109,7 @@ class Pro
     private $brand;
 
     /**
-     * @ORM\Column(name="ratingPro", type="decimal", precision=10, scale=2)
+     * @ORM\Column(name="ratingPro", type="decimal", precision=10, scale=2, nullable=true)
      */
     private $ratingPro;
 
@@ -117,6 +117,12 @@ class Pro
      * @ORM\Column(name="picture", type="blob", nullable=true )
      */
     private $picture;
+
+    /**
+     * @ORM\OneToOne(targetEntity="CaradvisorBundle\Entity\Answer")
+     * @ORM\JoinColumn(name="answer_id", referencedColumnName="id")
+     */
+    private $answer;
 
     /**
      * Get id
@@ -506,4 +512,24 @@ class Pro
     {
         return $this->picture;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getAnswer()
+    {
+        return $this->answer;
+    }
+
+    /**
+     * @param mixed $answer
+     * @return Pro
+     */
+    public function setAnswer($answer)
+    {
+        $this->answer = $answer;
+        return $this;
+    }
+
+
 }

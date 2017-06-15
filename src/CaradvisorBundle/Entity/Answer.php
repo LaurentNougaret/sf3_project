@@ -29,6 +29,33 @@ class Answer
      * @ORM\Column(name="date", type="datetime")
      */
     private $date;
+
+    /**
+     * Answer constructor.
+     */
+    public function __construct()
+    {
+        $this->date = new \DateTime('now');
+    }
+
+    /**
+     * @ORM\OneToOne(targetEntity="pro")
+     * @ORM\JoinColumn(name="pro_id", referencedColumnName="id")
+     */
+    private $pro;
+
+    /**
+     * @ORM\OneToOne(targetEntity="CaradvisorBundle\Entity\ReviewRepair")
+     * @ORM\JoinColumn(name="reviewRepair_id", referencedColumnName="id")
+     */
+    private $reviewRepair;
+
+    /**
+     * @ORM\OneToOne(targetEntity="CaradvisorBundle\Entity\ReviewBuy")
+     * @ORM\JoinColumn(name="reviewBuy_id", referencedColumnName="id")
+     */
+    private $reviewBuy;
+
     /**
      * Get id
      *
@@ -80,4 +107,62 @@ class Answer
     {
         return $this->date;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getPro()
+    {
+        return $this->pro;
+    }
+
+    /**
+     * @param mixed $pro
+     * @return Answer
+     */
+    public function setPro($pro)
+    {
+        $this->pro = $pro;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getReviewRepair()
+    {
+        return $this->reviewRepair;
+    }
+
+    /**
+     * @param mixed $reviewRepair
+     * @return Answer
+     */
+    public function setReviewRepair($reviewRepair)
+    {
+        $this->reviewRepair = $reviewRepair;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getReviewBuy()
+    {
+        return $this->reviewBuy;
+    }
+
+    /**
+     * @param mixed $reviewBuy
+     * @return Answer
+     */
+    public function setReviewBuy($reviewBuy)
+    {
+        $this->reviewBuy = $reviewBuy;
+        return $this;
+    }
+
+
+
+
 }

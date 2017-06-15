@@ -19,23 +19,23 @@
                         <div class="col-xs-8 col-xs-offset-2">
                             <div class="ListReviewsByPro">
                                 <div class="reviews-content">
-                                    <small class="review-card-title">
-                                        {{ user.firstName ~ " " ~ user.lastName }}
-                                    </small>
-                                    <p>{{ reviewrepair.dateReview|date('d-m-y') }}</p>
+                                    <h4 class="review-card-title">Avis réparation</h4>
+                                    <p>
+                                        <i>{{ user.firstName ~ " " ~ user.lastName }}</i>, {{ user.city }}
+
+                                    </p>
+                                    <small>Posté le {{ reviewrepair.dateReview|date('d-m-y') }}</small>
+                                    <h5><i class="fa fa-quote-left" aria-hidden="true"></i>  {{ reviewrepair.subject }} <i class="fa fa-quote-right" aria-hidden="true"></i>
+                                    </h5>
                                 </div>
                                 <div class="SeeReviewStars">
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-                                    <i class="fa fa-star" aria-hidden="true"></i>
+                                    <h4>{{ reviewrepair.ratingGlobal }}</h4>
                                 </div>
 
                                 <!-- Review made by client -->
                                 <div class="review-body">
                                     <div class="card-review">
-                                        <p>{{reviewrepair.review}}</p>
+                                        <p class="review-establishment" >{{reviewrepair.review}}</p>
                                     </div>
 
                                     <div class="card-review">
