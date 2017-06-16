@@ -42,7 +42,7 @@ class ProProfileType extends AbstractType
                 'attr' => ['placeholder' => 'Marque']])
             ->add('description', TextareaType::class, ['label' => false,
                  'attr' => ['rows' => '6', 'placeholder' => 'Ajoutez une description de votre établissement', 'style' => 'resize = none']])
-            ->add('save', SubmitType::class, ['label' => 'Modifier', 'attr' =>['class' => 'save-pro-btn center-block']]);
+            ->add('save', SubmitType::class, ['label' => 'Enregistrer', 'attr' =>['class' => 'save-pro-btn center-block']]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

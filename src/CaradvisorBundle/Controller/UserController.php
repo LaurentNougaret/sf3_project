@@ -293,7 +293,7 @@ class UserController extends Controller
      */
     public function listReviewsEstablishmentAction(User $user, Pro $pro)
     {
-       return $this->render('@Caradvisor/Pro/reviews.html.twig', [
+       return $this->render('@Caradvisor/User/reviewsEstab.html.twig', [
            'data' => $pro->getReviewRepairs(),
            'beta' => $pro->getReviewBuys(),
            'user' => $user,
