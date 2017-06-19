@@ -269,7 +269,8 @@ class User implements UserInterface, \Serializable
     public function setPlainpassword($plainpassword)
     {
         $this->plainpassword = $plainpassword;
-        return $this;
+        // https://knpuniversity.com/screencast/symfony-security/user-plain-password
+        $this->password = null;
     }
 
     /**
@@ -419,7 +420,9 @@ class User implements UserInterface, \Serializable
 
     public function eraseCredentials()
     {
-
+        /* Symfony calls this after logging in, and it's just a minor security
+        measure to prevent the plain-text password from being accidentally saved anywhere.*/
+        $this->plainPassword = null;
     }
 
     public function serialize()

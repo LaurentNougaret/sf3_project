@@ -16,23 +16,26 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 class UserController extends Controller
 {
     // Home page for user (professionals & non-professionals)
+
+    // @Security("has_role('ROLE_PART', 'ROLE_PRO')") NAO FUNCIONA
     /**
-     * @Route("/user/{user}", name="user")
-     * @Security("has_role('ROLE_PART', 'ROLE_PRO')")
-     * @param User $user
+     * @Route("/user", name="user")
      * @return Response
      */
-    public function indexAction(User $user)
+    public function indexAction()
     {
-        /* Deny Access if not logged in
-        $this->denyAccessUnlessGranted(['ROLE_PART', 'ROLE_PRO'], null, 'Unable to access this page!'); */
+        /* NAO MOSTRA OS BOTOES ESPECIFICOS PARA PRO E PART
+        if (!$this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY')) {
+            throw $this->createAccessDeniedException();
+        }*/
 
         return $this->render('@Caradvisor/User/home.html.twig', [
-            "user" => $user
+            "user" => $user = $this->get('security.token_storage')->getToken()->getUser()
         ]);
     }
 
@@ -44,8 +47,6 @@ class UserController extends Controller
      */
     public function profileAction(User $user)
     {
-        /* Deny Access if not logged in */
-        $this->denyAccessUnlessGranted(['ROLE_PART', 'ROLE_PRO'], null, 'Unable to access this page!');
 
         return $this->render('@Caradvisor/User/profile.html.twig', [
             "user" => $user,
@@ -63,8 +64,9 @@ class UserController extends Controller
      */
     public function editAction(Request $request, User $user)
     {
-        /* Deny Access if not logged in */
-        $this->denyAccessUnlessGranted(['ROLE_PART', 'ROLE_PRO'], null, 'Unable to access this page!');
+        if (!$this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY')) {
+            throw $this->createAccessDeniedException();
+        }
 
         $editForm = $this->createForm(UserType::class, $user);
         $editForm->handleRequest($request);
@@ -188,9 +190,7 @@ class UserController extends Controller
      */
     public function reviewsAction(User $user)
     {
-       //$userRepository = $this->getDoctrine()
-        //->getRepository('CaradvisorBundle:User');
-       //$data = $userRepository->getReviewUser($user->getId());
+
        return $this->render('@Caradvisor/User/reviews.html.twig', [
            'data' => $user->getReviewRepairs(),
            'beta' => $user->getReviewBuys(),
