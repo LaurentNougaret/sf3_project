@@ -23,8 +23,9 @@
                                     </div>
                                     <!-- Title -->
                                     <div class="card-content">
-                                        <span class="card-title"><a href="{{ path('establishment_profile') }}">{{ pro.dealerName }}</a></span>
-                                    </div>
+                                        <span class="card-title"><a href="{{ path('establishment_profile',
+                                            {'pro': pro.id}) }}">{{ pro.dealerName }}</a></span>
+                                    </div><!-- card content -->
 
                                     <!-- Info about establishment -->
                                     <div class="card-action">
@@ -39,16 +40,17 @@
                                             <li><p>Description: {{ pro.description }}</p></li>
                                         </ul>
                                         <br>
-                                        <a href="{{ path('reviews_establishment') }}">
+                                        <a class="seeReviews" href="{{ path('reviews_establishment',
+                                        {'pro': pro.id, 'user': user.id}) }}">
                                             <i class="fa fa-comments fa-2x" aria-hidden="true"></i>
+                                        </a>
+                                        <a href="{{ path('edit_establishment',{'pro':pro.id}) }}">
+                                            <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
                                         </a>
                                     </div>
                                 </div>
                             </div>
                     </div>
-                    <a href="{{ path('edit_establishment') }}"
-                       class="btn btn-default center-block btn-send">
-                        Modifier profil</a>
                 </div>
             </div>
         </div>

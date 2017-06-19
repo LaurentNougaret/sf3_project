@@ -13,13 +13,10 @@ use CaradvisorBundle\Form\ChangePasswordType;
 use CaradvisorBundle\Form\ProProfileType;
 use CaradvisorBundle\Form\UserType;
 use CaradvisorBundle\Form\VehicleType;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Security\Core\User\UserInterface;
 
 class UserController extends Controller
 {
@@ -88,10 +85,8 @@ class UserController extends Controller
     }
 
     // User's settings page: Change Password
-
     /**
-     * @Route("/user/settings/password/{user}", name="user_password")
-     * @param Request $request
+     * @Route("/user/settings/password", name="user_password")
      * @return Response
      */
     public function changePasswordAction(Request $request)
@@ -124,116 +119,101 @@ class UserController extends Controller
     }
 
     // User's show vehicles
-
     /**
-     * @Route("/user/vehicles/{user}", name="user_vehicle")
-     * @param User $user
-     * @param Vehicle $vehicle
+     * @Route("/user/vehicles", name="user_vehicle")
      * @param Request $request
      * @return Response
      */
-    public function listCarsAction(User $user, Vehicle $vehicle, Request $request )
+    public function listCarsAction(Request $request )
     {
         $car = new Vehicle();
         $em = $this->getDoctrine()->getManager();
         $form = $this->createForm(VehicleType::class, $car);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $car->setUser($user);
+            $car->setUser($user= $this->get('security.token_storage')->getToken()->getUser());
             $em->persist($car);
             $em->flush();
         }
         return $this->render('@Caradvisor/User/car.html.twig',[
-            'user' => $user,
-            'vehicle' => $vehicle,
+            'user' => $user= $this->get('security.token_storage')->getToken()->getUser(),
             'data' =>$user->getVehicles(),
             'alfa' =>$user->getLastName(),
             'form' => $form->createView(),
-
         ]);
     }
 
     // User's vehicles: Add new vehicle
-
     /**
-     * @Route("/user/vehicle/add/{user}", name="add_vehicle")
-     * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
-     * @Route("/user/vehicles/detail/{user}/{vehicle}", name="detail_car")
-     * @param User $user
+     * @Route("/user/vehicles/detail/{vehicle}", name="detail_car")
      * @param Vehicle $vehicle
      * @return Response
      */
-    public function showDetailCarAction(User $user, Vehicle $vehicle)
+    public function showDetailCarAction(Vehicle $vehicle)
     {
         return $this->render('@Caradvisor/User/detailCar.html.twig', [
-            'user' => $user,
+            'user' => $user= $this->get('security.token_storage')->getToken()->getUser(),
             'vehicle' => $vehicle,
         ]);
     }
 
     // User's vehicles: Edit vehicle
-
     /**
-     * @Route("/user/vehicles/edit/{user}/{vehicle}", name="edit_vehicle")
+     * @Route("/user/vehicles/edit/{vehicle}", name="edit_vehicle")
      * @param Request $request
-     * @param User $user
      * @param Vehicle $vehicle
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      */
-    public function editVehicleAction(Request $request, User $user, Vehicle $vehicle)
+    public function editVehicleAction(Request $request, Vehicle $vehicle)
     {
         $editForm = $this->createForm(VehicleType::class, $vehicle);
         $editForm->handleRequest($request);
-
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
             return $this->redirectToRoute('user_vehicle', array(
-                'user' => $user->getId(),
+                'user' => $user= $this->get('security.token_storage')->getToken()->getUser(),
                 'vehicle' => $vehicle->getId(),
             ));
         }
         return $this->render('@Caradvisor/User/editCar.html.twig', array(
             'edit_form' => $editForm->createView(),
-            'user' => $user,
+            'user' => $user= $this->get('security.token_storage')->getToken()->getUser(),
             'vehicle' => $vehicle
         ));
     }
 
+    // User's vehicles: Delete vehicle
     /**
-     * @Route("/user/vehicles/delete/{user}/{vehicle}", name="delete_car")
+     * @Route("/user/vehicles/delete/{vehicle}", name="delete_car")
      * @param Vehicle $vehicle
-     * @param User $user
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function deleteCarAction(Vehicle $vehicle, User $user)
+    public function deleteCarAction(Vehicle $vehicle)
     {
         $em = $this->getDoctrine()->getManager();
         $em->remove($vehicle);
         $em->flush();
         return $this->redirectToRoute('user_vehicle', array(
             'vehicle' => $vehicle,
-            'user' => $user->getId(),
+            'user' => $user= $this->get('security.token_storage')->getToken()->getUser(),
         ));
     }
 
+
     /**
-     * @Route("/user/reviews/{user}", name="user_reviews")
-     * @param User $user
+     * @Route("/user/reviews", name="user_reviews")
      * @return Response
      */
-    public function reviewsAction(User $user)
+    public function reviewsAction()
     {
        return $this->render('@Caradvisor/Pro/reviews.html.twig', [
-           'data' => $user->getReviewRepairs(),
-           'beta' => $user->getReviewBuys(),
-           'user' => $user,
+           'data' => $user= $this->get('security.token_storage')->getToken()->getUser()->getReviewRepairs(),
+           'beta' => $user= $this->get('security.token_storage')->getToken()->getUser()->getReviewBuys(),
+           'user' => $user= $this->get('security.token_storage')->getToken()->getUser()
        ]);
     }
 
     // Professionals page: list of establishments of an user
-
     /**
      * @Route("/user/establishments", name="user_establishments")
      * @param Request $request
@@ -250,7 +230,6 @@ class UserController extends Controller
             $em->persist($establishment);
             $em->flush();
         }
-
         return $this->render('@Caradvisor/User/establishments.html.twig', [
             'user' => $user= $this->get('security.token_storage')->getToken()->getUser(),
             'establishment' => $user->getPros(),
@@ -259,28 +238,27 @@ class UserController extends Controller
     }
 
     // Professionals page: profile of an establishment
-
     /**
-     * @Route("/user/establishments/profile", name="establishment_profile")
+     * @param Pro $pro
+     * @Route("/user/establishments/profile/{pro}", name="establishment_profile")
      * @return Response
      */
-    public function showEstablishmentProfileAction()
+    public function showEstablishmentProfileAction(Pro $pro)
     {
         return $this->render('@Caradvisor/Pro/profile.html.twig', [
-            'user' => $user = $this->get('security.token_storage')->getToken()->getUser(),
+            'user' => $user= $this->get('security.token_storage')->getToken()->getUser(),
+            'pro' => $pro,
         ]);
     }
 
     // Professionals page: edit profile of an establishment
-
     /**
-     * @Route("/user/establishments/edit/{user}/{pro}", name="edit_establishment")
-     * @param Request $request
+     * @Route("/user/establishments/edit/{pro}", name="edit_establishment")
      * @param Pro $pro
-     * @param User $user
+     * @param Request $request
      * @return Response
      */
-    public function editEstablishmentAction(Request $request, Pro $pro, User $user)
+    public function editEstablishmentAction(Pro $pro, Request $request)
     {
         $editForm = $this->createForm(ProProfileType::class, $pro);
         $editForm->handleRequest($request);
@@ -289,13 +267,13 @@ class UserController extends Controller
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('establishment_profile', array(
-                'user' => $user->getId(),
+                'user' => $user= $this->get('security.token_storage')->getToken()->getUser(),
                 'pro' => $pro->getId(),
             ));
         }
         return $this->render('@Caradvisor/User/editEstab.html.twig', array(
             'edit_form' => $editForm->createView(),
-            'user' => $user,
+            'user' => $user= $this->get('security.token_storage')->getToken()->getUser(),
             'pro' => $pro
         ));
     }
@@ -303,17 +281,16 @@ class UserController extends Controller
     // Professionals page: see reviews of an establishment
 
     /**
-     * @Route("/user/establishments/reviews/{user}/{pro}", name="reviews_establishment")
-     * @param User $user
+     * @Route("/user/establishments/reviews/{pro}", name="reviews_establishment")
      * @param Pro $pro
      * @return Response
      */
-    public function listReviewsEstablishmentAction(User $user, Pro $pro)
+    public function listReviewsEstablishmentAction( Pro $pro)
     {
        return $this->render('@Caradvisor/User/reviewsEstab.html.twig', [
            'data' => $pro->getReviewRepairs(),
            'beta' => $pro->getReviewBuys(),
-           'user' => $user,
+           'user' => $user= $this->get('security.token_storage')->getToken()->getUser(),
            'pro' =>  $pro,
        ]);
     }
