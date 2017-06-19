@@ -7,10 +7,10 @@
                     <h2 class="text-center">Les Avis</h2>
                 </div>
                 {#<div class="col-xs-10 col-xs-offset-1 col-md-6 col-md-offset-1">#}
-                {#<a href="{{ path('user',{'user': app.user.id}) }}">#}
-                {#<p><i class="fa fa-angle-double-left" aria-hidden="true"> </i>#}
-                {#Revenir à Mon Compte</p><br>#}
-                {#</a>#}
+                    {#<a href="{{ path('user',{'user': app.user.id}) }}">#}
+                        {#<p><i class="fa fa-angle-double-left" aria-hidden="true"> </i>#}
+                            {#Revenir à Mon Compte</p><br>#}
+                    {#</a>#}
                 {#</div>#}
             </div>
             <div class="col-xs-12">
@@ -20,7 +20,7 @@
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2 review">
                     <h4>L'avis</h4>
                     <p class="text-justify">{{ review.review }}</p>
-                    {#<small>{{ review.user.lastname }} {{ review.user.firstname }}, {{ review.dateReview|date('d-m-y') }}</small>#}
+                    <small>{{ review.user.lastName }} {{ review.user.firstName }}, {{ review.dateReview|date('d-m-y') }}</small>
                     <br><br><br>
                     {% if review.answer is null %}
                         <div class="col-xs-12">
@@ -41,8 +41,8 @@
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2 review">
                     <h4>L'avis</h4>
                     <p class="text-justify">{{ review.review }}</p>
-                    {#<small>{{ review.user.lastname }} {{ review.user.firstname }}
-                    , {{ review.dateReview|date('d-m-y') }}</small>#}
+                    <small>{{ review.user.lastname }} {{ review.user.firstname }}
+                        , {{ review.dateReview|date('d-m-y') }}</small>
                     <br><br><br>
                     {% if review.answer is null %}
                         <div class="col-xs-12">
@@ -61,6 +61,4 @@
             {% endfor %}
         </div>
     </section>
-
 {% endblock %}
-

@@ -1,0 +1,49 @@
+{% extends ('@Caradvisor/index.html.twig') %}
+{% block body %}
+    <section class="pro">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h2 class="text-center">Mon véhicule</h2>
+                    <hr class="pro-review-underline"><br>
+                    <!-- Back to main page -->
+                    <div class="row">
+                        <div class="col-xs-10 col-xs-offset-2 col-md-6 col-md-offset-2">
+                            <a href="{{ path('user_vehicle', {'user': user.id}) }}">
+                                <i class="icon-back fa fa-chevron-left fa-1x" aria-hidden="true"></i> </i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 col-xs-offset-3">
+                            <div class="card">
+                                <div class="card-image">
+                                    <img class="img-responsive center-block" src="{{ asset('img/t.png') }}">
+                                </div><!-- card image -->
+
+                                <div class="card-content">
+                                        <span class="card-title"><a href="{{ path('user_vehicle',
+                                            {'user': user.id}) }}">{{ vehicle.brand}} {{ vehicle.model }}</a></span>
+                                </div><!-- card content -->
+
+                                <!-- Info about establishment -->
+                                <div class="card-action">
+                                    <ul>
+                                        <li><p>Marque: {{ vehicle.brand }}</p></li>
+                                        <li><p>Modéle: {{ vehicle.model }}</p></li>
+                                        <li><p>Vérsion: {{ vehicle.version }}</p></li>
+                                        <li><p>Kilométrage: {{ vehicle.kilometers }}</p></li>
+                                        <li><p>Immatriculation: {{ vehicle.registration }}</p></li>
+                                        <li><p>Année: {{ vehicle.year }}</p></li>
+                                        <li><p>Energy: {{ vehicle.energy }}</p></li>
+                                    </ul>
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

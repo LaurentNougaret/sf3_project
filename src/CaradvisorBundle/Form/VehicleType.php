@@ -43,6 +43,8 @@ class VehicleType extends AbstractType
                 'label' => false,
                 'attr' => ['placeholder' => 'Enérgie']
             ]);
+
+
     }
 
     public function configureOptions(OptionsResolver $resolver)

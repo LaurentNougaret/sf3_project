@@ -1,0 +1,57 @@
+{% extends ('@Caradvisor/index.html.twig') %}
+{% block body %}
+    <section class="pro">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-10 col-xs-offset-1">
+                    <h2 class="text-center">Modifier Vehicule</h2>
+                    <hr class="pro-review-underline">
+                    <!-- Back to main page -->
+                    <div class="row">
+                        <div class="col-xs-10 col-xs-offset-2 col-md-6 col-md-offset-2">
+                            <a href="{{ path('user_vehicle', {'user': user.id}) }}">
+                                <i class="icon-back fa fa-chevron-left" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-8 col-xs-offset-2">
+                            {{ form_start(edit_form) }}
+                            <div class="card">
+                                <!-- Avatar utilisateur -->
+                                <span class="user-avatar">
+                                    <i class="fa fa-car fa-2x" aria-hidden="true"></i>
+                                </span>
+
+                                <div class="card-content">
+                                    <span class="card-title">{{vehicle.brand ~ " " ~ vehicle.model }}</a></span>
+                                </div><!-- card content -->
+
+                                <!-- Modify user's info -->
+                                <div class="card-action">
+                                    <ul>
+                                        <li><p>Marque: {{ form_row(edit_form.brand) }}</p></li>
+                                        <li><p>Modéle: {{ form_row(edit_form.model) }}</p></li>
+                                        <li><p>Energy: {{ form_row(edit_form.energy) }}</p></li>
+                                        <li><p>Année: {{ form_row(edit_form.year) }}</p></li>
+                                        <li><p>Version: {{ form_row(edit_form.version) }}</p></li>
+                                        <li><p>Immatriculation: {{ form_row(edit_form.registration) }}</p></li>
+                                        <li><p>Kilométrage: {{ form_row(edit_form.kilometers) }}</p></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <button type="submit" class="btn btn-primary center-block modify-pro-review">
+                                    Modifier
+                                </button>
+                            </div>
+                        </div>
+                        {{ form_row(edit_form._token) }}
+                        {{ form_end(edit_form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

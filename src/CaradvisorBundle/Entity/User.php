@@ -169,7 +169,6 @@ class User implements UserInterface, \Serializable
     public function setFirstName($firstName)
     {
         $this->firstName = $firstName;
-
         return $this;
     }
 
@@ -193,7 +192,6 @@ class User implements UserInterface, \Serializable
     public function setLastName($lastName)
     {
         $this->lastName = $lastName;
-
         return $this;
     }
 
@@ -217,7 +215,6 @@ class User implements UserInterface, \Serializable
     public function setUserName($userName)
     {
         $this->userName = $userName;
-
         return $this;
     }
 
@@ -262,6 +259,7 @@ class User implements UserInterface, \Serializable
     {
         return $this->plainpassword;
     }
+
     /**
      * @param mixed $plainpassword
      * @return User
@@ -283,7 +281,6 @@ class User implements UserInterface, \Serializable
     public function setPassword($password)
     {
         $this->password = $password;
-
         return $this;
     }
 
@@ -307,7 +304,6 @@ class User implements UserInterface, \Serializable
     public function setGender($gender)
     {
         $this->gender = $gender;
-
         return $this;
     }
 
@@ -331,7 +327,6 @@ class User implements UserInterface, \Serializable
     public function setMailingList($mailingList)
     {
         $this->mailingList = $mailingList;
-
         return $this;
     }
 
@@ -355,7 +350,6 @@ class User implements UserInterface, \Serializable
     public function setPicture($picture)
     {
         $this->picture = $picture;
-
         return $this;
     }
 
@@ -440,7 +434,7 @@ class User implements UserInterface, \Serializable
             $this->id,
             $this->userName,
             $this->password,
-        ) = unserialize($serialized);
+            ) = unserialize($serialized);
     }
 
     /**
@@ -528,7 +522,6 @@ class User implements UserInterface, \Serializable
     public function addPro(\CaradvisorBundle\Entity\Pro $pro)
     {
         $this->pros[] = $pro;
-
         return $this;
     }
 
@@ -562,7 +555,6 @@ class User implements UserInterface, \Serializable
     public function addReviewRepair(\CaradvisorBundle\Entity\ReviewRepair $reviewRepair)
     {
         $this->reviewRepairs[] = $reviewRepair;
-
         return $this;
     }
 
@@ -596,7 +588,6 @@ class User implements UserInterface, \Serializable
     public function addReviewBuy(\CaradvisorBundle\Entity\ReviewBuy $reviewBuy)
     {
         $this->reviewBuys[] = $reviewBuy;
-
         return $this;
     }
 

@@ -1,44 +1,115 @@
 {% extends '@Caradvisor/index.html.twig' %}
 {% block body %}
 <section id="account-cars">
-    <div class="container">
+     <div class="container">
             <div class="row">
-                <h2 class="text-center">Bonjour {% for user in alfa %}{{user.lastName}}{% endfor %}</h2>
                 <h2 class="text-center">Vos Véhicules</h2>
                 <hr>
                 <!-- Back to main page -->
-                <div class="row">
-                    <div class="col-lg-5">
-                        <a href="javascript:history.back(-1)">
-                            <p><i class="fa fa-angle-double-left" aria-hidden="true"> </i>
-                                Revenir à Mon Compte</p><br>
-                        </a>
-                    </div>
+                <div class="col-xs-10 col-xs-offset-2 col-md-6 col-md-offset-2">
+                    <a href="{{ path('user', {'user': user.id}) }}">
+                        <i class="icon-back fa fa-chevron-left fa-1x" aria-hidden="true"></i>
+                    </a>
                 </div>
-            {% for vehicle in data %}
-                {{ vehicle.brand }}<br/>
-            {% endfor %}
-            <div class="text-center"><a class="text-center" data-toggle="collapse" data-target="#demo"><span class="glyphicon glyphicon-plus"></span></a><h4 class="plus-vehicule">Ajouter un véhicule</h4></div>
-            <hr>
-            <div id="demo" class="collapse">
-                <div class="row">
-                    <div class="col-xs-10 col-xs-offset-1 col-md-5 offset-md-3">
-                        {{ form_start(form) }}
-                        {{ form_errors(form) }}
+            </div><br>
+         <div class="row">
+             {% for vehicle in data %}
+                 <div class="col-xs-12 col-sm-6 col-md-4">
+                     <div class="card">
+                         <div class="card-image">
+                             <img class="img-responsive center-block" src="{{ asset('img/t.png') }}">
+                         </div><!-- card image -->
 
-                        {{ form_row(form.brand) }}
-                        {{ form_row(form.model) }}
-                        {{ form_row(form.version) }}
-                        {{ form_row(form.kilometers) }}
-                        {{ form_row(form.registration) }}
-                        {{ form_row(form.year) }}
-                        {{ form_row(form.energy) }}
+                         <div class="card-content">
+                                        <span class="card-title">{{ vehicle.brand }} {{ vehicle.model }} {{ vehicle.version }}</span>
 
-                        {{ form_end(form) }}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                         </div><!-- card content -->
+                         <div class="card-action">
+                             <a href="{{ path('detail_car',
+                             {'user': user.id, 'vehicle': vehicle.id}) }}">
+                                 <i class="fa fa-eye fa-2x" aria-hidden="true"></i></a>
+                             <a href="{{ path('edit_vehicle',
+                             {'user': user.id, 'vehicle': vehicle.id}) }}">
+                                 <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
+                             </a>
+                             {% if data|length != 1 %}
+                             <a data-toggle="modal" data-target="#delete-car{{ vehicle.id }}">
+                                 <i class="fa fa-remove fa-2x" aria-hidden="true"></i>
+                             </a>
+                             {% endif %}
+                         </div>
+                     </div>
+                 </div>
+                 <div class="modal fade" id="delete-car{{ vehicle.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                     <div class="modal-dialog">
+                         <div class="modal-content">
+                             <div class="modal-header" align="center">
+                                 <div class="modal-header" align="center">
+                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                         <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                                     </button>
+                                     <p class="modalTitle">Car<span>Advisor</span></p>
+                                 </div>
+                                 <div>
+                                         <div class="modal-body">
+                                             <h4 class="text-center">Êtes-vous sûr de vouloir de supprimer votre véhicule ?</h4>
+                                         </div>
+                                         <div class="modal-footer">
+                                             <div>
+                                                 <a href="{{ path('delete_car',
+                                                 {'user': user.id, 'vehicle': vehicle.id}) }}" type="submit" class="btn btn-conn btn-primary btn-lg btn-block">Supprimer</a>
+                                             </div>
+                                         </div>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             {% endfor %}
+         </div><br><br>
+         <div class="row">
+             <div class="col-xs-12">
+                 <a class="text-center" data-toggle="collapse" data-target="#demo">
+                     <button type="button" class="btn btn-conn  center-block">Ajouter un véhicule</button>
+                 </a>
+             </div>
+         </div><br><br>
+
+         <div class="row">
+             <div id="demo" class="collapse ">
+                 <div class="col-xs-10 col-xs-offset-1 col-md-4">
+                     {{ form_start(form) }}
+                     {{ form_errors(form) }}
+                     {{ form_row(form.brand) }}
+                 </div>
+                 <div class="col-xs-10 col-xs-offset-1 col-md-4">
+                     {{ form_row(form.model) }}
+                 </div>
+                 <div class="col-xs-10 col-xs-offset-1 col-md-4">
+                     {{ form_row(form.version) }}
+                 </div>
+                 <div class="col-xs-10 col-xs-offset-1 col-md-4">
+                     {{ form_row(form.kilometers) }}
+                 </div>
+                 <div class="col-xs-10 col-xs-offset-1 col-md-4">
+                     {{ form_row(form.registration) }}
+                 </div>
+                 <div class="col-xs-10 col-xs-offset-1 col-md-4">
+                     {{ form_row(form.year) }}
+                 </div>
+                 <div class="col-xs-10 col-xs-offset-1 col-md-4">
+                     {{ form_row(form.energy) }}
+                 </div>
+                 <div class="col-xs-12">
+                     <button type="submit" class="btn btn-primary center-block modify-pro-review">
+                         Envoyer
+                     </button>
+                 </div>
+                 {{ form_end(form) }}
+             </div>
+         </div>
+     </div>
+
 </section>
+
 {% endblock %}

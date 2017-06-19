@@ -1,9 +1,6 @@
 <?php
-
 namespace CaradvisorBundle\Entity;
-
 use Doctrine\ORM\Mapping as ORM;
-
 /**
  * ReviewBuy
  *
@@ -20,165 +17,141 @@ class ReviewBuy
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-
     /**
      * @var string
      *
      * @ORM\Column(name="reviewBuyType", type="string", length=255)
      */
     private $reviewBuyType;
-
     /**
      * @var string
      *
      * @ORM\Column(name="dealerType", type="string", length=255)
      */
     private $dealerType;
-
     /**
      * @var string
      *
      * @ORM\Column(name="dealerName", type="string", length=255)
      */
     private $dealerName;
-
     /**
      * @var string
      *
      * @ORM\Column(name="city", type="string", length=255)
      */
     private $city;
-
     /**
      * @var int
      *
      * @ORM\Column(name="postalCode", type="integer")
      */
     private $postalCode;
-
     /**
      * @var string
      *
      * @ORM\Column(name="ratingGlobal", type="decimal", precision=10, scale=2)
      */
     private $ratingGlobal;
-
     /**
      * @var string
      *
      * @ORM\Column(name="subject", type="string", length=255)
      */
     private $subject;
-
     /**
      * @var string
      *
      * @ORM\Column(name="review", type="text")
      */
     private $review;
-
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="dateBuy", type="datetime")
      */
     private $dateBuy;
-
     /**
      * @var string
      *
      * @ORM\Column(name="ratingWelcome", type="decimal", precision=10, scale=2)
      */
     private $ratingWelcome;
-
     /**
      * @var string
      *
      * @ORM\Column(name="informationDelayRating", type="decimal", precision=10, scale=2)
      */
     private $informationDelayRating;
-
     /**
      * @var bool
      *
      * @ORM\Column(name="wantedInformation", type="boolean")
      */
     private $wantedInformation;
-
     /**
      * @var bool
      *
      * @ORM\Column(name="test", type="boolean")
      */
     private $test;
-
     /**
      * @var bool
      *
      * @ORM\Column(name="wantedEngineTest", type="boolean")
      */
     private $wantedEngineTest;
-
     /**
      * @var bool
      *
      * @ORM\Column(name="fundingSolution", type="boolean")
      */
     private $fundingSolution;
-
-    /**
-     * @var bool
-     *
-     * @ORM\Column(name="warranty", type="boolean", nullable=true)
-     */
-    private $warranty;
-
     /**
      * @var string
      *
      * @ORM\Column(name="recommendProRating", type="decimal", precision=10, scale=2)
      */
     private $recommendProRating;
-
     /**
      * @var string
      *
      * @ORM\Column(name="advice", type="text")
      */
     private $advice;
-
     /**
      * @var string
      *
      * @ORM\Column(name="attachedFile", type="blob")
      */
     private $attachedFile;
-
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="dateReview", type="datetime")
      */
     private $dateReview;
-
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="warranty", type="boolean")
+     */
+    private $warranty;
     // Join Column: interdit la creation d'un review sans Pro
     /**
      * @ORM\ManyToOne(targetEntity="CaradvisorBundle\Entity\Pro", inversedBy="reviewBuys")
      * @ORM\JoinColumn(nullable=false)
      */
     private $pro;
-
     /**
      * @ORM\ManyToOne(targetEntity="CaradvisorBundle\Entity\User", inversedBy="reviewBuys")
      */
     private $user;
-
     /**
      * @ORM\OneToOne(targetEntity="CaradvisorBundle\Entity\Answer")
      * @ORM\JoinColumn(name="answer_id", referencedColumnName="id")
      */
     private $answer;
-
     /**
      * Get id
      *
@@ -188,7 +161,6 @@ class ReviewBuy
     {
         return $this->id;
     }
-
     /**
      * Set dealerType
      *
@@ -199,10 +171,8 @@ class ReviewBuy
     public function setDealerType($dealerType)
     {
         $this->dealerType = $dealerType;
-
         return $this;
     }
-
     /**
      * Get dealerType
      *
@@ -212,7 +182,6 @@ class ReviewBuy
     {
         return $this->dealerType;
     }
-
     /**
      * Set dealerName
      *
@@ -223,10 +192,8 @@ class ReviewBuy
     public function setDealerName($dealerName)
     {
         $this->dealerName = $dealerName;
-
         return $this;
     }
-
     /**
      * Get dealerName
      *
@@ -236,7 +203,6 @@ class ReviewBuy
     {
         return $this->dealerName;
     }
-
     /**
      * Set city
      *
@@ -247,10 +213,8 @@ class ReviewBuy
     public function setCity($city)
     {
         $this->city = $city;
-
         return $this;
     }
-
     /**
      * Get city
      *
@@ -260,7 +224,6 @@ class ReviewBuy
     {
         return $this->city;
     }
-
     /**
      * Set postalCode
      *
@@ -271,10 +234,8 @@ class ReviewBuy
     public function setPostalCode($postalCode)
     {
         $this->postalCode = $postalCode;
-
         return $this;
     }
-
     /**
      * Get postalCode
      *
@@ -284,7 +245,6 @@ class ReviewBuy
     {
         return $this->postalCode;
     }
-
     /**
      * Set ratingGlobal
      *
@@ -295,10 +255,8 @@ class ReviewBuy
     public function setRatingGlobal($ratingGlobal)
     {
         $this->ratingGlobal = $ratingGlobal;
-
         return $this;
     }
-
     /**
      * Get ratingGlobal
      *
@@ -308,7 +266,6 @@ class ReviewBuy
     {
         return $this->ratingGlobal;
     }
-
     /**
      * Set subject
      *
@@ -319,10 +276,8 @@ class ReviewBuy
     public function setSubject($subject)
     {
         $this->subject = $subject;
-
         return $this;
     }
-
     /**
      * Get subject
      *
@@ -332,7 +287,6 @@ class ReviewBuy
     {
         return $this->subject;
     }
-
     /**
      * Set review
      *
@@ -343,10 +297,8 @@ class ReviewBuy
     public function setReview($review)
     {
         $this->review = $review;
-
         return $this;
     }
-
     /**
      * Get review
      *
@@ -356,7 +308,6 @@ class ReviewBuy
     {
         return $this->review;
     }
-
     /**
      * Set dateBuy
      *
@@ -367,10 +318,8 @@ class ReviewBuy
     public function setDateBuy($dateBuy)
     {
         $this->dateBuy = $dateBuy;
-
         return $this;
     }
-
     /**
      * Get dateBuy
      *
@@ -380,7 +329,6 @@ class ReviewBuy
     {
         return $this->dateBuy;
     }
-
     /**
      * Set ratingWelcome
      *
@@ -391,10 +339,8 @@ class ReviewBuy
     public function setRatingWelcome($ratingWelcome)
     {
         $this->ratingWelcome = $ratingWelcome;
-
         return $this;
     }
-
     /**
      * Get ratingWelcome
      *
@@ -404,7 +350,6 @@ class ReviewBuy
     {
         return $this->ratingWelcome;
     }
-
     /**
      * Set informationDelayRating
      *
@@ -415,10 +360,8 @@ class ReviewBuy
     public function setInformationDelayRating($informationDelayRating)
     {
         $this->informationDelayRating = $informationDelayRating;
-
         return $this;
     }
-
     /**
      * Get informationDelayRating
      *
@@ -428,7 +371,6 @@ class ReviewBuy
     {
         return $this->informationDelayRating;
     }
-
     /**
      * Set wantedInformation
      *
@@ -439,10 +381,8 @@ class ReviewBuy
     public function setWantedInformation($wantedInformation)
     {
         $this->wantedInformation = $wantedInformation;
-
         return $this;
     }
-
     /**
      * Get wantedInformation
      *
@@ -452,7 +392,6 @@ class ReviewBuy
     {
         return $this->wantedInformation;
     }
-
     /**
      * Set test
      *
@@ -463,10 +402,8 @@ class ReviewBuy
     public function setTest($test)
     {
         $this->test = $test;
-
         return $this;
     }
-
     /**
      * Get test
      *
@@ -476,7 +413,6 @@ class ReviewBuy
     {
         return $this->test;
     }
-
     /**
      * Set wantedEngineTest
      *
@@ -487,10 +423,8 @@ class ReviewBuy
     public function setWantedEngineTest($wantedEngineTest)
     {
         $this->wantedEngineTest = $wantedEngineTest;
-
         return $this;
     }
-
     /**
      * Get wantedEngineTest
      *
@@ -500,7 +434,6 @@ class ReviewBuy
     {
         return $this->wantedEngineTest;
     }
-
     /**
      * Set fundingSolution
      *
@@ -511,10 +444,8 @@ class ReviewBuy
     public function setFundingSolution($fundingSolution)
     {
         $this->fundingSolution = $fundingSolution;
-
         return $this;
     }
-
     /**
      * Get fundingSolution
      *
@@ -524,31 +455,6 @@ class ReviewBuy
     {
         return $this->fundingSolution;
     }
-
-    /**
-     * Set warranty
-     *
-     * @param boolean $warranty
-     *
-     * @return ReviewBuy
-     */
-    public function setWarranty($warranty)
-    {
-        $this->warranty = $warranty;
-
-        return $this;
-    }
-
-    /**
-     * Get warranty
-     *
-     * @return bool
-     */
-    public function getWarranty()
-    {
-        return $this->warranty;
-    }
-
     /**
      * Set recommendProRating
      *
@@ -559,10 +465,8 @@ class ReviewBuy
     public function setRecommendProRating($recommendProRating)
     {
         $this->recommendProRating = $recommendProRating;
-
         return $this;
     }
-
     /**
      * Get recommendProRating
      *
@@ -572,7 +476,6 @@ class ReviewBuy
     {
         return $this->recommendProRating;
     }
-
     /**
      * Set advice
      *
@@ -583,10 +486,8 @@ class ReviewBuy
     public function setAdvice($advice)
     {
         $this->advice = $advice;
-
         return $this;
     }
-
     /**
      * Get advice
      *
@@ -596,7 +497,6 @@ class ReviewBuy
     {
         return $this->advice;
     }
-
     /**
      * Set attachedFile
      *
@@ -607,10 +507,8 @@ class ReviewBuy
     public function setAttachedFile($attachedFile)
     {
         $this->attachedFile = $attachedFile;
-
         return $this;
     }
-
     /**
      * Get attachedFile
      *
@@ -620,7 +518,6 @@ class ReviewBuy
     {
         return $this->attachedFile;
     }
-
     /**
      * Set dateReview
      *
@@ -631,10 +528,8 @@ class ReviewBuy
     public function setDateReview($dateReview)
     {
         $this->dateReview = $dateReview;
-
         return $this;
     }
-
     /**
      * Get dateReview
      *
@@ -644,7 +539,27 @@ class ReviewBuy
     {
         return $this->dateReview;
     }
-
+    /**
+     * Set warranty
+     *
+     * @param boolean $warranty
+     *
+     * @return ReviewBuy
+     */
+    public function setWarranty($warranty)
+    {
+        $this->warranty = $warranty;
+        return $this;
+    }
+    /**
+     * Get warranty
+     *
+     * @return bool
+     */
+    public function getWarranty()
+    {
+        return $this->warranty;
+    }
     /**
      * Set pro
      *
@@ -655,10 +570,8 @@ class ReviewBuy
     public function setPro(\CaradvisorBundle\Entity\Pro $pro = null)
     {
         $this->pro = $pro;
-
         return $this;
     }
-
     /**
      * Get pro
      *
@@ -668,7 +581,6 @@ class ReviewBuy
     {
         return $this->pro;
     }
-
     /**
      * Set user
      *
@@ -679,10 +591,8 @@ class ReviewBuy
     public function setUser(\CaradvisorBundle\Entity\User $user = null)
     {
         $this->user = $user;
-
         return $this;
     }
-
     /**
      * Get user
      *
@@ -692,7 +602,6 @@ class ReviewBuy
     {
         return $this->user;
     }
-
     /**
      * Set answer
      *
@@ -703,10 +612,8 @@ class ReviewBuy
     public function setAnswer(\CaradvisorBundle\Entity\answer $answer = null)
     {
         $this->answer = $answer;
-
         return $this;
     }
-
     /**
      * Get answer
      *
@@ -716,7 +623,6 @@ class ReviewBuy
     {
         return $this->answer;
     }
-
     /**
      * Set reviewBuyType
      *
@@ -727,10 +633,8 @@ class ReviewBuy
     public function setReviewBuyType($reviewBuyType)
     {
         $this->reviewBuyType = $reviewBuyType;
-
         return $this;
     }
-
     /**
      * Get reviewBuyType
      *

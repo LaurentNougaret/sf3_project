@@ -52,9 +52,9 @@
                                     <img class="img-circle" src="{{ asset('img/photo_fondateur2.png') }}">
                                 </div>
                                 <div class="col-sm-9">
-                                    <h3 class="review-pro">{{ review.proname }}</h3>
+                                    <h3 class="review-pro">{{ review.pro.dealerName }}</h3>
                                     <p class="review">{{ review.review }}</p>
-                                    <small class="review-author">{{ review.firstname ~ review.lastname ~ review.city }}</small>
+                                    <small class="review-author">{{ review.user.firstName }} {{ review.user.lastName}}, {{  review.user.city }}</small>
                                 </div>
                             </div>
                         </div>

@@ -17,7 +17,7 @@ class MainController extends Controller
      */
     public function indexAction()
     {
-        $reviews = $this->getDoctrine()->getRepository('CaradvisorBundle:Review')->findAll();
+        $reviews = $this->getDoctrine()->getRepository('CaradvisorBundle:ReviewBuy')->findAll();
         return $this->render('@Caradvisor/Default/home.html.twig', [
             'reviews' => $reviews,
         ]);
@@ -52,6 +52,22 @@ class MainController extends Controller
             array(
                 'listReviewsBuy' => $listReviewsBuy
             ));
+    }
+
+    /**
+     * @Route("/review/new", name="review_new")
+     */
+    public function reviewNewAction()
+    {
+        return $this->render('@Caradvisor/Reviews/new.html.twig');
+    }
+
+    /**
+     * @Route("/review/used", name="review_used")
+     */
+    public function reviewUsedAction()
+    {
+        return $this->render('@Caradvisor/Reviews/used.html.twig');
     }
 
     /**

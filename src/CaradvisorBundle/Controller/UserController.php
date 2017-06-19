@@ -4,6 +4,8 @@ namespace CaradvisorBundle\Controller;
 
 use CaradvisorBundle\Entity\Answer;
 use CaradvisorBundle\Entity\Pro;
+use CaradvisorBundle\Entity\ReviewBuy;
+use CaradvisorBundle\Entity\ReviewRepair;
 use CaradvisorBundle\Entity\User;
 use CaradvisorBundle\Entity\Vehicle;
 use CaradvisorBundle\Form\AnswerType;
@@ -14,6 +16,7 @@ use CaradvisorBundle\Form\VehicleType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -28,7 +31,6 @@ class UserController extends Controller
      */
     public function indexAction()
     {
-
         return $this->render('@Caradvisor/User/home.html.twig', [
             "user" => $user = $this->get('security.token_storage')->getToken()->getUser()
         ]);
@@ -91,7 +93,6 @@ class UserController extends Controller
      * @Route("/user/settings/password/{user}", name="user_password")
      * @param Request $request
      * @return Response
-     * @internal param User $user
      */
     public function changePasswordAction(Request $request)
     {
@@ -123,52 +124,98 @@ class UserController extends Controller
     }
 
     // User's show vehicles
+
     /**
      * @Route("/user/vehicles/{user}", name="user_vehicle")
      * @param User $user
-     * @return Response
+     * @param Vehicle $vehicle
      * @param Request $request
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
+     * @return Response
      */
-    public function carsAction(User $user,Request $request )
+    public function listCarsAction(User $user, Vehicle $vehicle, Request $request )
     {
-        $vehicle = new Vehicle();
+        $car = new Vehicle();
         $em = $this->getDoctrine()->getManager();
-        $form = $this->createForm(VehicleType::class, $vehicle);
+        $form = $this->createForm(VehicleType::class, $car);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $vehicle->setUser($user);
-            $em->persist($vehicle);
+            $car->setUser($user);
+            $em->persist($car);
             $em->flush();
-            //return $this->redirectToRoute('user_car');
         }
         return $this->render('@Caradvisor/User/car.html.twig',[
+            'user' => $user,
+            'vehicle' => $vehicle,
             'data' =>$user->getVehicles(),
             'alfa' =>$user->getLastName(),
             'form' => $form->createView(),
+
         ]);
     }
 
     // User's vehicles: Add new vehicle
+
     /**
      * @Route("/user/vehicle/add/{user}", name="add_vehicle")
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
+     * @Route("/user/vehicles/detail/{user}/{vehicle}", name="detail_car")
+     * @param User $user
+     * @param Vehicle $vehicle
+     * @return Response
      */
-    public function addVehicleAction(Request $request)
+    public function showDetailCarAction(User $user, Vehicle $vehicle)
     {
-
+        return $this->render('@Caradvisor/User/detailCar.html.twig', [
+            'user' => $user,
+            'vehicle' => $vehicle,
+        ]);
     }
 
     // User's vehicles: Edit vehicle
+
     /**
-     * @Route("/user/vehicle/{user}/edit", name="edit_vehicle")
+     * @Route("/user/vehicles/edit/{user}/{vehicle}", name="edit_vehicle")
      * @param Request $request
+     * @param User $user
+     * @param Vehicle $vehicle
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      */
-    public function editVehicleAction(Request $request)
+    public function editVehicleAction(Request $request, User $user, Vehicle $vehicle)
     {
+        $editForm = $this->createForm(VehicleType::class, $vehicle);
+        $editForm->handleRequest($request);
 
+        if ($editForm->isSubmitted() && $editForm->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('user_vehicle', array(
+                'user' => $user->getId(),
+                'vehicle' => $vehicle->getId(),
+            ));
+        }
+        return $this->render('@Caradvisor/User/editCar.html.twig', array(
+            'edit_form' => $editForm->createView(),
+            'user' => $user,
+            'vehicle' => $vehicle
+        ));
+    }
+
+    /**
+     * @Route("/user/vehicles/delete/{user}/{vehicle}", name="delete_car")
+     * @param Vehicle $vehicle
+     * @param User $user
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function deleteCarAction(Vehicle $vehicle, User $user)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($vehicle);
+        $em->flush();
+        return $this->redirectToRoute('user_vehicle', array(
+            'vehicle' => $vehicle,
+            'user' => $user->getId(),
+        ));
     }
 
     /**
@@ -178,10 +225,10 @@ class UserController extends Controller
      */
     public function reviewsAction(User $user)
     {
-
-       return $this->render('@Caradvisor/User/reviews.html.twig', [
+       return $this->render('@Caradvisor/Pro/reviews.html.twig', [
            'data' => $user->getReviewRepairs(),
            'beta' => $user->getReviewBuys(),
+           'user' => $user,
        ]);
     }
 
@@ -251,43 +298,85 @@ class UserController extends Controller
      */
     public function listReviewsEstablishmentAction(User $user, Pro $pro)
     {
-       return $this->render('@Caradvisor/Pro/reviews.html.twig', [
-           'user' => $user,
-           'pro' => $pro,
+       return $this->render('@Caradvisor/User/reviewsEstab.html.twig', [
            'data' => $pro->getReviewRepairs(),
-           'beta' => $pro->getReviewBuys()
+           'beta' => $pro->getReviewBuys(),
+           'user' => $user,
+           'pro' =>  $pro,
        ]);
     }
 
     // Professionals page: answer to a client's review
 
     /**
-     * @Route("/user/establishments/reviews/answer/{user}/{pro}", name="reviews_answer")
-     * @param Request $request
+     * @Route("/user/establishments/reviews/answer/repair/{user}/{pro}", name="answer_repair")
      * @param User $user
      * @param Pro $pro
-     * @param Answer $answer
+     * @param ReviewRepair $reviewRepair
+     * @param Request $request
      * @return Response
      */
-    public function answerReviewsAction(Request $request, User $user, Pro $pro, Answer $answer)
+    public function answerRepairAction(User $user, Pro $pro, ReviewRepair $reviewRepair, Request $request)
     {
-       /* $answer = new Answer();
-        $form = $this->createForm(AnswerType::class, $user);
+        $answer = new Answer();
+        $em = $this->getDoctrine()->getManager();
+        $form = $this->createForm(AnswerType::class, $answer);
         $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()){
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($user);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $answer->setPro($pro);
+            $type = $request->request->get('type');
+            $id = $request->request->get('id');
+            $repair = $em->getRepository('CaradvisorBundle:ReviewRepair')->find($id);
+            $answer->setReviewRepair($repair);
+            $em->persist($answer);
             $em->flush();
-        }*/
 
-        return $this->render('estabReviewsAnswer.html.twig', [
-            //'form'      => $form->createView(),
+            return $this->redirectToRoute('reviews_establishment', array(
+                'user' => $user->getId(),
+                'pro' => $pro->getId(),
+            ));
+        }
+        return $this->render('@Caradvisor/User/answerReviewEstabRepair.html.twig', [
             'user' => $user,
             'pro' => $pro,
-            'data' => $user->getReviewRepairs(),
-            'beta' => $user->getReviewBuys(),
-            'zed' => $answer
+            'reviewrepair' => $reviewRepair,
+            'form' =>$form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/user/establishments/reviews/answer/buy/{user}/{pro}", name="answer_buy")
+     * @param User $user
+     * @param Pro $pro
+     * @param ReviewBuy $reviewBuy
+     * @param Request $request
+     * @return Response
+     */
+    public function answerBuyAction(User $user, Pro $pro, ReviewBuy $reviewBuy, Request $request)
+    {
+        $answer = new Answer();
+        $em = $this->getDoctrine()->getManager();
+        $form = $this->createForm(AnswerType::class, $answer);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $answer->setPro($pro);
+            $type = $request->request->get('type');
+            $id = $request->request->get('id');
+            $buy = $em->getRepository('CaradvisorBundle:ReviewBuy')->find($id);
+            $answer->setReviewBuy($buy);
+            $em->persist($answer);
+            $em->flush();
+
+            return $this->redirectToRoute('reviews_establishment', array(
+                'user' => $user->getId(),
+                'pro' => $pro->getId(),
+            ));
+        }
+        return $this->render('@Caradvisor/User/answerReviewEstabBuy.html.twig', [
+            'user' => $user,
+            'pro' => $pro,
+            'reviewbuy' => $reviewBuy,
+            'form' =>$form->createView(),
         ]);
     }
 }
