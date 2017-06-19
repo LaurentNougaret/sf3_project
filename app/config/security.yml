@@ -47,6 +47,10 @@ security:
         - { path: ^/admin, roles: ROLE_ADMIN }
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY}
 
+        # require ROLE_PART and ROLE_PRO for /user*
+        - { path: ^/user, roles: [ROLE_PART, ROLE_PRO] }
 
+        #- { path: ^/dashboard, roles: IS_ATHENTICATED_REMEMBERED} il faudra changer pour ROLE_ADMIN
+        - { path: ^/dashboard, roles: ROLE_ADMIN }
 
 

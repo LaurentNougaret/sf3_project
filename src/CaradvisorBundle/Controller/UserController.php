@@ -22,17 +22,12 @@ class UserController extends Controller
 {
     // Home page for user (professionals & non-professionals)
 
-    // @Security("has_role('ROLE_PART', 'ROLE_PRO')") NAO FUNCIONA
     /**
      * @Route("/user", name="user")
      * @return Response
      */
     public function indexAction()
     {
-        /* NAO MOSTRA OS BOTOES ESPECIFICOS PARA PRO E PART
-        if (!$this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY')) {
-            throw $this->createAccessDeniedException();
-        }*/
 
         return $this->render('@Caradvisor/User/home.html.twig', [
             "user" => $user = $this->get('security.token_storage')->getToken()->getUser()
@@ -41,15 +36,14 @@ class UserController extends Controller
 
     // User's profile page: Visualize profile
     /**
-     * @Route("/user/profile/{user}", name="user_profile")
-     * @param User $user
+     * @Route("/user/profile", name="user_profile")
      * @return Response
      */
-    public function profileAction(User $user)
+    public function profileAction()
     {
 
         return $this->render('@Caradvisor/User/profile.html.twig', [
-            "user" => $user,
+            "user" => $user = $this->get('security.token_storage')->getToken()->getUser(),
             "userProfile" => $user->getUserProfile(),
         ]);
     }
@@ -57,43 +51,37 @@ class UserController extends Controller
     // User's profile page: Edit profile
 
     /**
-     * @Route("/user/profile/edit/{user}", name="user_edit")
+     * @Route("/user/profile/edit", name="user_edit")
      * @param Request $request
-     * @param User $user
      * @return Response
      */
-    public function editAction(Request $request, User $user)
+    public function editAction(Request $request)
     {
-        if (!$this->get('security.authorization_checker')->isGranted('IS_AUTHENTICATED_FULLY')) {
-            throw $this->createAccessDeniedException();
-        }
-
-        $editForm = $this->createForm(UserType::class, $user);
+        $editForm = $this->createForm(UserType::class, $user = $this->get('security.token_storage')->getToken()->getUser());
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('user_profile', array(
-                'user' => $user->getId()
+                "user" => $user = $this->get('security.token_storage')->getToken()->getUser()
             ));
         }
         return $this->render('@Caradvisor/User/editUser.html.twig', array(
             'edit_form' => $editForm->createView(),
-            'user' => $user,
+            'user' => $user = $this->get('security.token_storage')->getToken()->getUser()
         ));
     }
 
     // User's settings page
     /**
-     * @Route("/user/settings/{user}", name="user_settings")
-     * @param User $user
+     * @Route("/user/settings", name="user_settings")
      * @return Response
      */
-    public function settingsAction(User $user)
+    public function settingsAction()
     {
         return $this->render('@Caradvisor/User/settings.html.twig',[
-            'user' => $user
+            'user' => $user = $this->get('security.token_storage')->getToken()->getUser()
         ]);
     }
 
@@ -200,16 +188,13 @@ class UserController extends Controller
     // Professionals page: list of establishments of an user
 
     /**
-     * @Route("/user/establishments/{user}", name="user_establishments")
-     * @param User $user
-     * @param Pro $pro
+     * @Route("/user/establishments", name="user_establishments")
      * @return Response
      */
-    public function listEstablishmentsAction(User $user, Pro $pro)
+    public function listEstablishmentsAction()
     {
         return $this->render('@Caradvisor/User/establishments.html.twig', [
-            'user' => $user,
-            'pro' => $pro,
+            'user' => $user = $this->get('security.token_storage')->getToken()->getUser(),
             'establishment' => $user->getPros(),
         ]);
     }
@@ -217,16 +202,13 @@ class UserController extends Controller
     // Professionals page: profile of an establishment
 
     /**
-     * @Route("/user/establishments/{user}/{pro}", name="establishment_profile")
-     * @param User $user
-     * @param Pro $pro
+     * @Route("/user/establishments/profile", name="establishment_profile")
      * @return Response
      */
-    public function showEstablishmentProfileAction(User $user, Pro $pro)
+    public function showEstablishmentProfileAction()
     {
         return $this->render('@Caradvisor/Pro/profile.html.twig', [
-            'user' => $user,
-            'pro' => $pro,
+            'user' => $user = $this->get('security.token_storage')->getToken()->getUser(),
         ]);
     }
 
