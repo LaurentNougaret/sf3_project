@@ -9,7 +9,7 @@
                     <!-- Back to main page -->
                     <div class="row">
                         <div class="col-xs-10 col-xs-offset-2 col-md-6 col-md-offset-2">
-                            <a href="{{ path('user_vehicle', {'user': user.id}) }}">
+                            <a href="{{ path('user_vehicle') }}">
                                 <i class="icon-back fa fa-chevron-left fa-1x" aria-hidden="true"></i> </i>
                             </a>
                         </div>
@@ -22,8 +22,7 @@
                                 </div><!-- card image -->
 
                                 <div class="card-content">
-                                        <span class="card-title"><a href="{{ path('user_vehicle',
-                                            {'user': user.id}) }}">{{ vehicle.brand}} {{ vehicle.model }}</a></span>
+                                        <span class="card-title"><a href="{{ path('user_vehicle') }}">{{ vehicle.brand}} {{ vehicle.model }}</a></span>
                                 </div><!-- card content -->
 
                                 <!-- Info about establishment -->
