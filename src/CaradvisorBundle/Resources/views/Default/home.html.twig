@@ -43,30 +43,32 @@
                         <!-- Carousel Slides / Quotes -->
                         <div class="carousel-inner">
                             {% for review in reviews %}
-                            <!-- Quote 1 -->
-                            <div class="item {% if(review.id == 1) %}
-                                                     {{ "active" }}
-                                             {% endif %}">
-                            <div class="row">
-                                <div class="col-sm-3 text-center">
-                                    <img class="img-circle" src="{{ asset('img/photo_fondateur2.png') }}">
+                                <!-- Quote 1 -->
+                                <div class="item {% if(review.id == 1) %}
+                                                         {{ "active" }}
+                            {% endif %}">
+                                    <div class="row">
+                                        <div class="col-sm-3 text-center">
+                                            <img class="img-circle" src="{{ asset('img/photo_fondateur2.png') }}">
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <h3 class="review-pro">{{ review.pro.dealerName }}</h3>
+                                            <p class="review">{{ review.review }}</p>
+                                            <small class="review-author">{{ review.user.firstName }} {{ review.user.lastName }}</small>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="col-sm-9">
-                                    <h3 class="review-pro">{{ review.pro.dealerName }}</h3>
-                                    <p class="review">{{ review.review }}</p>
-                                    <small class="review-author">{{ review.user.firstName }} {{ review.user.lastName}}, {{  review.user.city }}</small>
-                                </div>
-                            </div>
+                            {% endfor %}
                         </div>
-                        {% endfor %}
-                    </div>
 
-                    <!-- Carousel Buttons Next/Prev -->
-                    <a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa fa-chevron-left"></i></a>
-                    <a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="fa fa-chevron-right"></i></a>
+                        <!-- Carousel Buttons Next/Prev -->
+                        <a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i
+                                    class="fa fa-chevron-left"></i></a>
+                        <a data-slide="next" href="#quote-carousel" class="right carousel-control"><i
+                                    class="fa fa-chevron-right"></i></a>
+                    </div>
                 </div>
             </div>
-        </div>
         </div>
     </section>
     <!-- / Slider -->
