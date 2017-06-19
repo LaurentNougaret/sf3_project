@@ -33,9 +33,11 @@ class ReviewBuyType extends AbstractType
             ])
             ->add('city', TextType::class, [
                 'label' => 'Ville',
+                'attr'  => ['readonly' => 'readonly']
             ])
             ->add('postalCode', TextType::class, [
                 'label' => 'Code Postal',
+                'attr'  => ['readonly' => 'readonly']
             ])
             ->add('ratingGlobal', ChoiceType::class, [ //mettre un IntegerType::class au rating ?
                 'label' => 'Note Globale',

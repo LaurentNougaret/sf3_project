@@ -3,6 +3,57 @@
     margin-bottom: 100px;
 }
 
+#signup .breadcrumb-pagination {
+    text-align: center;
+    color: #B3B7C1;
+    margin: 5% 0;
+}
+
+#signup .completed span {
+    background-color: transparent;
+    color: #ff4756;
+    border: 2px solid #ff4756;
+}
+
+#signup .active span {
+    background-color: #ff4756;
+    color: #fff;
+}
+
+.todo span {
+    background-color: transparent;
+    color: #E1E6EB;
+    border: 2px solid #E1E6EB;
+}
+
+#signup .breadcrumb-pagination div span {
+    margin: 0 auto;
+    display: block;
+    border-radius: 100%;
+    height: 36px;
+    width: 36px;
+    padding: 6px 0 0 0;
+    font-size: 20px;
+}
+
+#signup .breadcrumb-pagination div p {
+    text-align: center;
+    line-height: 0;
+    margin: 30px auto 25px;
+}
+
+#signup .active p {
+    border-bottom: 2px solid #ff4756;
+    padding-bottom: 27px;
+    margin-bottom: 0 !important;
+    color: #2d3142;
+    font-weight: bold;
+}
+
+#signup .completed span::before {
+    content: '\2713'
+}
+
 #signup .bloc hr {
     border-top: 1px solid #ff4756;
 }
