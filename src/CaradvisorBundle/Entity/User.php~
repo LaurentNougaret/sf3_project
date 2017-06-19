@@ -1,14 +1,13 @@
 <?php
+
 namespace CaradvisorBundle\Entity;
-<<<<<<< HEAD
 
 use Doctrine\Common\Collections\ArrayCollection;
-=======
->>>>>>> 6d4755e702106d85b73e7bcb79dab58e82ebdc98
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
+
 /**
  * User
  *
@@ -27,153 +26,120 @@ class User implements UserInterface, \Serializable
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
     /**
      * @var string
      *
      * @ORM\Column(name="firstName", type="string", length=255)
      */
     private $firstName;
+
     /**
      * @var string
      *
      * @ORM\Column(name="lastName", type="string", length=255)
      */
     private $lastName;
+
     /**
      * @var string
      *
      * @ORM\Column(name="userName", type="string", length=255, unique=true)
      */
     private $userName;
+
     /**
-     * @Assert\NotBlank()
      * @Assert\Length(max="4096")
      */
     private $plainpassword;
+
     /**
      * @var string
      *
      * @ORM\Column(name="password", type="string", length=255)
      */
     private $password;
+
     /**
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=255)
      */
     private $email;
+
     /**
      * @var string
      *
      * @ORM\Column(name="gender", type="string", length=255)
      */
     private $gender;
+
     /**
-<<<<<<< HEAD
      * @var bool
-=======
-     * @var string
-     *
-     * @ORM\Column(name="address", type="string", length=255, nullable=true)
-     */
-    private $address;
-    /**
-     * @var string
->>>>>>> 6d4755e702106d85b73e7bcb79dab58e82ebdc98
      *
      * @ORM\Column(name="mailingList", type="boolean", nullable=true)
      */
-<<<<<<< HEAD
     private $mailingList;
 
-=======
-    private $city;
->>>>>>> 6d4755e702106d85b73e7bcb79dab58e82ebdc98
     /**
      * @ORM\Column(name="picture", type="blob", nullable=true)
      */
-<<<<<<< HEAD
     private $picture;
 
-=======
-    private $postalCode;
->>>>>>> 6d4755e702106d85b73e7bcb79dab58e82ebdc98
     /**
      * @ORM\OneToMany(targetEntity="CaradvisorBundle\Entity\Vehicle", mappedBy="user")
      */
-<<<<<<< HEAD
     private $vehicles;
 
-=======
-    private $phone;
->>>>>>> 6d4755e702106d85b73e7bcb79dab58e82ebdc98
     /**
      * @var bool
      *
      * @ORM\Column(name="isActive", type="boolean")
      */
-<<<<<<< HEAD
     private $isActive;
 
-=======
-    private $birthDate;
->>>>>>> 6d4755e702106d85b73e7bcb79dab58e82ebdc98
     /**
      * @var array
      * @ORM\Column(name="roles", type="array")
      */
     private $roles = array();
+
     /**
      * @ORM\Column(name="token", type="string", length=255, nullable=true)
      */
-<<<<<<< HEAD
     private $token;
 
-=======
-    private $isActive;
->>>>>>> 6d4755e702106d85b73e7bcb79dab58e82ebdc98
     /**
      * @var \DateTime
      *
      * @ORM\Column(name="date_limit_token", type="datetime", nullable=true)
      */
-<<<<<<< HEAD
     private $dateLimitToken;
 
-=======
-    private $mailingList;
->>>>>>> 6d4755e702106d85b73e7bcb79dab58e82ebdc98
     /**
      * @ORM\OneToOne(targetEntity="CaradvisorBundle\Entity\UserProfile", cascade={"persist"})
      * @ORM\JoinColumn(name="userProfile_id", referencedColumnName="id")
      */
-<<<<<<< HEAD
     private $userProfile;
 
-=======
-    private $vehicles;
->>>>>>> 6d4755e702106d85b73e7bcb79dab58e82ebdc98
     /**
      * @ORM\OneToMany(targetEntity="CaradvisorBundle\Entity\Pro", mappedBy="user")
      */
     private $pros;
+
     /**
      * @ORM\OneToMany(targetEntity="CaradvisorBundle\Entity\ReviewRepair", mappedBy="user")
      */
     private $reviewRepairs;
+
     /**
      * @ORM\OneToMany(targetEntity="CaradvisorBundle\Entity\ReviewBuy", mappedBy="user")
      */
     private $reviewBuys;
-<<<<<<< HEAD
 
-=======
-    // added $picture in User after deleting it in Pro because of problems in Db
->>>>>>> 6d4755e702106d85b73e7bcb79dab58e82ebdc98
     /**
      * Constructor
      */
-<<<<<<< HEAD
     public function __construct()
     {
         $this->isActive = false;
@@ -183,9 +149,6 @@ class User implements UserInterface, \Serializable
         $this->reviewBuys = new ArrayCollection();
     }
 
-=======
-    private $picture;
->>>>>>> 6d4755e702106d85b73e7bcb79dab58e82ebdc98
     /**
      * Get id
      *
@@ -195,6 +158,7 @@ class User implements UserInterface, \Serializable
     {
         return $this->id;
     }
+
     /**
      * Set firstName
      *
@@ -207,6 +171,7 @@ class User implements UserInterface, \Serializable
         $this->firstName = $firstName;
         return $this;
     }
+
     /**
      * Get firstName
      *
@@ -216,6 +181,7 @@ class User implements UserInterface, \Serializable
     {
         return $this->firstName;
     }
+
     /**
      * Set lastName
      *
@@ -228,6 +194,7 @@ class User implements UserInterface, \Serializable
         $this->lastName = $lastName;
         return $this;
     }
+
     /**
      * Get lastName
      *
@@ -237,6 +204,7 @@ class User implements UserInterface, \Serializable
     {
         return $this->lastName;
     }
+
     /**
      * Set userName
      *
@@ -249,6 +217,7 @@ class User implements UserInterface, \Serializable
         $this->userName = $userName;
         return $this;
     }
+
     /**
      * Get userName
      *
@@ -258,6 +227,7 @@ class User implements UserInterface, \Serializable
     {
         return $this->userName;
     }
+
     /**
      * Set email
      *
@@ -289,6 +259,7 @@ class User implements UserInterface, \Serializable
     {
         return $this->plainpassword;
     }
+
     /**
      * @param mixed $plainpassword
      * @return User
@@ -296,8 +267,10 @@ class User implements UserInterface, \Serializable
     public function setPlainpassword($plainpassword)
     {
         $this->plainpassword = $plainpassword;
-        return $this;
+        // https://knpuniversity.com/screencast/symfony-security/user-plain-password
+        $this->password = null;
     }
+
     /**
      * Set password
      *
@@ -310,6 +283,7 @@ class User implements UserInterface, \Serializable
         $this->password = $password;
         return $this;
     }
+
     /**
      * Get password
      *
@@ -319,31 +293,8 @@ class User implements UserInterface, \Serializable
     {
         return $this->password;
     }
+
     /**
-<<<<<<< HEAD
-=======
-     * Set email
-     *
-     * @param string $email
-     *
-     * @return User
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-        return $this;
-    }
-    /**
-     * Get email
-     *
-     * @return string
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
-    /**
->>>>>>> 6d4755e702106d85b73e7bcb79dab58e82ebdc98
      * Set gender
      *
      * @param string $gender
@@ -355,6 +306,7 @@ class User implements UserInterface, \Serializable
         $this->gender = $gender;
         return $this;
     }
+
     /**
      * Get gender
      *
@@ -364,6 +316,7 @@ class User implements UserInterface, \Serializable
     {
         return $this->gender;
     }
+
     /**
      * Set mailingList
      *
@@ -373,14 +326,10 @@ class User implements UserInterface, \Serializable
      */
     public function setMailingList($mailingList)
     {
-<<<<<<< HEAD
         $this->mailingList = $mailingList;
-
-=======
-        $this->address = $address;
->>>>>>> 6d4755e702106d85b73e7bcb79dab58e82ebdc98
         return $this;
     }
+
     /**
      * Get mailingList
      *
@@ -390,6 +339,7 @@ class User implements UserInterface, \Serializable
     {
         return $this->mailingList;
     }
+
     /**
      * Set picture
      *
@@ -399,41 +349,20 @@ class User implements UserInterface, \Serializable
      */
     public function setPicture($picture)
     {
-<<<<<<< HEAD
         $this->picture = $picture;
-
-=======
-        $this->city = $city;
->>>>>>> 6d4755e702106d85b73e7bcb79dab58e82ebdc98
         return $this;
     }
+
     /**
      * Get picture
      *
      * @return string
      */
-<<<<<<< HEAD
     public function getPicture()
     {
         return $this->picture;
-=======
-    public function getCity()
-    {
-        return $this->city;
     }
-    /**
-     * Set postalCode
-     *
-     * @param integer $postalCode
-     *
-     * @return User
-     */
-    public function setPostalCode($postalCode)
-    {
-        $this->postalCode = $postalCode;
-        return $this;
->>>>>>> 6d4755e702106d85b73e7bcb79dab58e82ebdc98
-    }
+
     /**
      * Get isActive
      *
@@ -443,19 +372,17 @@ class User implements UserInterface, \Serializable
     {
         return $this->isActive;
     }
+
     /**
      * @param bool $isActive
      * @return User
      */
     public function setIsActive($isActive)
     {
-<<<<<<< HEAD
         $this->isActive = $isActive;
-=======
-        $this->phone = $phone;
->>>>>>> 6d4755e702106d85b73e7bcb79dab58e82ebdc98
         return $this;
     }
+
     /**
      * Get roles
      *
@@ -465,6 +392,7 @@ class User implements UserInterface, \Serializable
     {
         return $this->roles;
     }
+
     /**
      * Set roles
      *
@@ -474,140 +402,23 @@ class User implements UserInterface, \Serializable
      */
     public function setRoles($roles)
     {
-<<<<<<< HEAD
         $this->roles = $roles;
 
         return $this;
     }
 
     public function getSalt()
-=======
-        $this->birthDate = $birthDate;
-        return $this;
-    }
-    /**
-     * Get birthDate
-     *
-     * @return \DateTime
-     */
-    public function getBirthDate()
->>>>>>> 6d4755e702106d85b73e7bcb79dab58e82ebdc98
     {
         return null;
     }
-<<<<<<< HEAD
 
     public function eraseCredentials()
-=======
-    /**
-     * @return bool
-     */
-    public function isActive()
->>>>>>> 6d4755e702106d85b73e7bcb79dab58e82ebdc98
     {
-
-    }
-<<<<<<< HEAD
-
-    public function serialize()
-=======
-    /**
-     * @param bool $isActive
-     * @return User
-     */
-    public function setIsActive($isActive)
->>>>>>> 6d4755e702106d85b73e7bcb79dab58e82ebdc98
-    {
-        return serialize([
-            $this->id,
-            $this->userName,
-            $this->password,
-        ]);
-    }
-<<<<<<< HEAD
-
-    public function unserialize($serialized)
-    {
-        list(
-            $this->id,
-            $this->userName,
-            $this->password,
-        ) = unserialize($serialized);
-=======
-    /**
-     * Set mailingList
-     *
-     * @param boolean $mailingList
-     *
-     * @return User
-     */
-    public function setMailingList($mailingList)
-    {
-        $this->mailingList = $mailingList;
-        return $this;
->>>>>>> 6d4755e702106d85b73e7bcb79dab58e82ebdc98
-    }
-    /**
-     * @return mixed
-     */
-    public function getToken()
-    {
-        return $this->token;
-    }
-    /**
-     * @param mixed $token
-     * @return User
-     */
-    public function setToken($token)
-    {
-<<<<<<< HEAD
-        $this->token = $token;
-        return $this;
+        /* Symfony calls this after logging in, and it's just a minor security
+        measure to prevent the plain-text password from being accidentally saved anywhere.*/
+        $this->plainPassword = null;
     }
 
-    public function generateToken()
-=======
-        $this->picture = $picture;
-        return $this;
-    }
-    /**
-     * Get picture
-     *
-     * @return string
-     */
-    public function getPicture()
->>>>>>> 6d4755e702106d85b73e7bcb79dab58e82ebdc98
-    {
-        return sha1(microtime() . $this->getEmail());
-    }
-    /**
-     * @return mixed
-     */
-    public function getDateLimitToken()
-    {
-        return $this->dateLimitToken;
-    }
-    /**
-     * @param mixed $dateLimitToken
-     * @return User
-     */
-<<<<<<< HEAD
-    public function setDateLimitToken($dateLimitToken)
-    {
-        $this->dateLimitToken = $dateLimitToken;
-        return $this;
-=======
-    public function getIsActive()
-    {
-        return $this->isActive;
-    }
-    public function getSalt()
-    {
-        return null;
-    }
-    public function eraseCredentials()
-    {
-    }
     public function serialize()
     {
         return serialize([
@@ -616,6 +427,7 @@ class User implements UserInterface, \Serializable
             $this->password,
         ]);
     }
+
     public function unserialize($serialized)
     {
         list(
@@ -623,8 +435,49 @@ class User implements UserInterface, \Serializable
             $this->userName,
             $this->password,
             ) = unserialize($serialized);
->>>>>>> 6d4755e702106d85b73e7bcb79dab58e82ebdc98
     }
+
+    /**
+     * @return mixed
+     */
+    public function getToken()
+    {
+        return $this->token;
+    }
+
+    /**
+     * @param mixed $token
+     * @return User
+     */
+    public function setToken($token)
+    {
+        $this->token = $token;
+        return $this;
+    }
+
+    public function generateToken()
+    {
+        return sha1(microtime() . $this->getEmail());
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDateLimitToken()
+    {
+        return $this->dateLimitToken;
+    }
+
+    /**
+     * @param mixed $dateLimitToken
+     * @return User
+     */
+    public function setDateLimitToken($dateLimitToken)
+    {
+        $this->dateLimitToken = $dateLimitToken;
+        return $this;
+    }
+
     /**
      * Add vehicle
      *
@@ -635,8 +488,10 @@ class User implements UserInterface, \Serializable
     public function addVehicle(\CaradvisorBundle\Entity\Vehicle $vehicle)
     {
         $this->vehicles[] = $vehicle;
+
         return $this;
     }
+
     /**
      * Remove vehicle
      *
@@ -646,6 +501,7 @@ class User implements UserInterface, \Serializable
     {
         $this->vehicles->removeElement($vehicle);
     }
+
     /**
      * Get vehicles
      *
@@ -655,6 +511,7 @@ class User implements UserInterface, \Serializable
     {
         return $this->vehicles;
     }
+
     /**
      * Add pro
      *
@@ -667,6 +524,7 @@ class User implements UserInterface, \Serializable
         $this->pros[] = $pro;
         return $this;
     }
+
     /**
      * Remove pro
      *
@@ -676,6 +534,7 @@ class User implements UserInterface, \Serializable
     {
         $this->pros->removeElement($pro);
     }
+
     /**
      * Get pros
      *
@@ -685,6 +544,7 @@ class User implements UserInterface, \Serializable
     {
         return $this->pros;
     }
+
     /**
      * Add reviewRepair
      *
@@ -697,6 +557,7 @@ class User implements UserInterface, \Serializable
         $this->reviewRepairs[] = $reviewRepair;
         return $this;
     }
+
     /**
      * Remove reviewRepair
      *
@@ -706,6 +567,7 @@ class User implements UserInterface, \Serializable
     {
         $this->reviewRepairs->removeElement($reviewRepair);
     }
+
     /**
      * Get reviewRepairs
      *
@@ -715,6 +577,7 @@ class User implements UserInterface, \Serializable
     {
         return $this->reviewRepairs;
     }
+
     /**
      * Add reviewBuy
      *
@@ -727,6 +590,7 @@ class User implements UserInterface, \Serializable
         $this->reviewBuys[] = $reviewBuy;
         return $this;
     }
+
     /**
      * Remove reviewBuy
      *
@@ -736,6 +600,7 @@ class User implements UserInterface, \Serializable
     {
         $this->reviewBuys->removeElement($reviewBuy);
     }
+
     /**
      * Get reviewBuys
      *
@@ -745,6 +610,7 @@ class User implements UserInterface, \Serializable
     {
         return $this->reviewBuys;
     }
+
     /**
      * Set userProfile
      *
@@ -758,6 +624,7 @@ class User implements UserInterface, \Serializable
 
         return $this;
     }
+
     /**
      * Get userProfile
      *
@@ -765,11 +632,6 @@ class User implements UserInterface, \Serializable
      */
     public function getUserProfile()
     {
-<<<<<<< HEAD
         return $this->userProfile;
-=======
-        $this->roles = $roles;
-        return $this;
->>>>>>> 6d4755e702106d85b73e7bcb79dab58e82ebdc98
     }
 }

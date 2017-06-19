@@ -236,13 +236,25 @@ class UserController extends Controller
 
     /**
      * @Route("/user/establishments", name="user_establishments")
+     * @param Request $request
      * @return Response
      */
-    public function listEstablishmentsAction()
+    public function listEstablishmentsAction(Request $request)
     {
+        $establishment = new Pro();
+        $em = $this->getDoctrine()->getManager();
+        $form = $this->createForm(ProProfileType::class, $establishment);
+        $form ->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()){
+            $establishment->setUser($user= $this->get('security.token_storage')->getToken()->getUser());
+            $em->persist($establishment);
+            $em->flush();
+        }
+
         return $this->render('@Caradvisor/User/establishments.html.twig', [
-            'user' => $user = $this->get('security.token_storage')->getToken()->getUser(),
+            'user' => $user= $this->get('security.token_storage')->getToken()->getUser(),
             'establishment' => $user->getPros(),
+            'form' => $form->createView(),
         ]);
     }
 

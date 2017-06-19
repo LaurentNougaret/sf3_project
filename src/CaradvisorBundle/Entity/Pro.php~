@@ -71,11 +71,6 @@ class Pro
      */
     private $phone;
     /**
-     * @var
-     * @ORM\Column(name="picture", type="blob", nullable=true)
-     */
-    private $picture;
-    /**
      * @var string
      *
      * @ORM\Column(name="description", type="text")
@@ -118,8 +113,6 @@ class Pro
     private $ratingPro;
 
     /**
-<<<<<<< HEAD
-=======
      * @ORM\Column(name="picture", type="blob", nullable=true )
      */
     private $picture;
@@ -131,7 +124,6 @@ class Pro
     private $answer;
 
     /**
->>>>>>> 6d4755e702106d85b73e7bcb79dab58e82ebdc98
      * Get id
      *
      * @return int
