@@ -5,6 +5,8 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Security\Core\Validator\Constraints as SecurityAssert;
+
 /**
  * User
  *
@@ -49,6 +51,21 @@ class User implements UserInterface, \Serializable
      * @Assert\NotBlank(groups={"registration"})
      */
     private $password;
+
+    /**
+     * A non-persisted field that's used to create the encoded password.
+     *
+     * @var string
+     */
+    private $plainPassword;
+    /**
+     * @var string
+     * @SecurityAssert\UserPassword(
+     *     message = "Wrong value for your current password"
+     * )
+     */
+    private $oldPassword;
+
     /**
      * @var string
      *
@@ -240,6 +257,25 @@ class User implements UserInterface, \Serializable
     {
         return $this->password;
     }
+
+    /**
+     * @return string
+     */
+    public function getPlainPassword()
+    {
+        return $this->plainPassword;
+    }
+
+    /**
+     * @param string $plainPassword
+     * @return User
+     */
+    public function setPlainPassword($plainPassword)
+    {
+        $this->plainPassword = $plainPassword;
+        return $this;
+    }
+
     /**
      * Set gender
      *
@@ -346,9 +382,12 @@ class User implements UserInterface, \Serializable
     {
         return null;
     }
+
     public function eraseCredentials()
     {
+        $this->plainPassword = null;
     }
+
     public function serialize()
     {
         return serialize([
@@ -357,6 +396,7 @@ class User implements UserInterface, \Serializable
             $this->password,
         ]);
     }
+
     public function unserialize($serialized)
     {
         list(
@@ -365,6 +405,7 @@ class User implements UserInterface, \Serializable
             $this->password,
             ) = unserialize($serialized);
     }
+
     /**
      * @return mixed
      */

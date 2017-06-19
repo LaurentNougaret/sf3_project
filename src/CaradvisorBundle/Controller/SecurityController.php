@@ -49,7 +49,7 @@ class SecurityController extends Controller
              */
             $user->setToken(sha1(microtime() . $user->getEmail()));
             $password = $this->get('security.password_encoder')
-                ->encodePassword($user, $user->getPassword());
+                ->encodePassword($user, $user->getPlainPassword());
             $user->setPassword($password);
             $dateLimitToken = new \DateTime("now");
             $dateLimitToken->add(new \DateInterval("P1D"));
@@ -163,7 +163,6 @@ class SecurityController extends Controller
      */
     public function resetPasswordAction(Request $request, $token)
     {
-        $message = "";
         $em = $this->getDoctrine()->getManager();
         $user = $em->getRepository("CaradvisorBundle:User")->findOneBy(["token" => $token]);
         $today = new \DateTime("now");
@@ -172,24 +171,18 @@ class SecurityController extends Controller
             $form = $this->createForm(ResetPasswordType::class, $user);
             $form->handleRequest($request);
             if ($form->isSubmitted() && $form->isValid()) {
-                $password = $user->getPassword();
-                $verificationPassword = $request->request->get("caradvisor_bundle_reset_password_type")["passwordCompare"];
-                if ($password === $verificationPassword) {
-                    $encoder = $this->get('security.password_encoder');
-                    $encoded = $encoder->encodePassword($user, $user->getPassword());
-                    $user->setPassword($encoded);
-                    $user->setDateLimitToken(null);
-                    $user->setToken(null);
-                    $em->flush();
-                    $this->addFlash("notice-green", "Votre mot de passe a bien été modifié.");
-                    return $this->redirectToRoute("home");
-                } else {
-                    $message = "Les mots de passe ne correspondent pas.";
-                }
+                $password = $user->getPlainPassword();
+                $encoder = $this->get('security.password_encoder');
+                $encoded = $encoder->encodePassword($user, $password);
+                $user->setPassword($encoded);
+                $user->setDateLimitToken(null);
+                $user->setToken(null);
+                $em->flush();
+                $this->addFlash("notice-green", "Votre mot de passe a bien été modifié.");
+                return $this->redirectToRoute("home");
             }
             return $this->render("@Caradvisor/Security/passwordReset.html.twig", [
                 "form" => $form->createView(),
-                "message" => $message,
             ]);
         } else {
             $this->addFlash("notice", "Cette demande de réinitialisation de mot de passe n'est pas valide.");

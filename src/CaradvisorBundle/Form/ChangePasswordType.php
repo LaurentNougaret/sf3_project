@@ -2,6 +2,7 @@
 
 namespace CaradvisorBundle\Form;
 
+use CaradvisorBundle\Entity\Model\ChangePassword;
 use CaradvisorBundle\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -15,11 +16,13 @@ class ChangePasswordType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('Password', PasswordType::class, [
+            ->add('oldPassword', PasswordType::class, [
                 'label' => false,
-                'attr'  => ['placeholder' => 'Entrez votre mot de passe actuel']
+                'mapped' => false,
+                'attr'  => ['placeholder' => 'Entrez votre mot de passe actuel'],
+                'invalid_message' => 'Le mot de passe saisi ne correspond au mot de passe actuel'
             ])
-            ->add('newPassword', RepeatedType::class, [
+            ->add('plainPassword', RepeatedType::class, [
             'type' => PasswordType::class,
             'first_options' => [
                 'label' => false,
@@ -29,11 +32,9 @@ class ChangePasswordType extends AbstractType
                 'attr' => ['placeholder' => 'Confirmez le mot de passe']],
             'invalid_message' => 'Les mots de passe doivent être identiques',
             ])
-            ->add('submit', SubmitType::class, [
+            ->add('save', SubmitType::class, [
                 'label' => false,
-                'attr'  => ['placeholder' => 'Enregistrer']
-            ])
-            ;
+                'attr'  => ['placeholder' => 'Enregistrer', 'class' => 'passwordButton center-block']]);
 
     }
 

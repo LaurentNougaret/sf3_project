@@ -12,6 +12,7 @@ use CaradvisorBundle\Form\ProProfileType;
 use CaradvisorBundle\Form\UserSignupType;
 use CaradvisorBundle\Form\UserType;
 use CaradvisorBundle\Form\VehicleType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
@@ -72,53 +73,71 @@ class UserController extends Controller
 
     // User's settings page
     /**
-     * @Route("/user/settings/{user}", name="user_settings")
-     * @param User $user
+     * @Route("/user/settings/password", name="user_password")
+     * @param Request $request
+     * @return Response
+     * @Method({"GET", "POST"})
+     */
+    public function changePasswordAction(Request $request)
+    {
+        $user = $this->getUser();
+        $form = $this->createForm(ChangePasswordType::class, $user);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $row = $request->request-> get('app_bundle_change_password_type')['oldPassword'];
+            $encoder = $this->get('security.password_encoder');
+            if ($encoder->isPasswordValid($user, $row)) {
+                $plainPassword = $user->getPlainPassword();
+                $encoded = $encoder->encodePassword($user, $plainPassword);
+                $user->setPassword($encoded);
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($user);
+                $em->flush();
+                $this->addFlash('notice', "Le mot de passe est changé ! ");
+                return $this->redirectToRoute('user');
+            } else {
+                $this->addFlash('notice', "Le mot de passe actuel n'est pas correct !");
+            }
+        }
+        return $this->render('CaradvisorBundle:Security:passwordChange.html.twig', [
+            'form' => $form->createView()
+        ]);
+        /*$user = $this->get('security.token_storage')->getToken()->getUser();
+        $form = $this->createForm(ChangePasswordType::class, $user);
+        $form->handleRequest($request);
+        $em = $this->getDoctrine()->getManager();
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $verificationPassword = $request->request->get("caradvisor_bundle_change_password_type")["oldPassword"];
+            $encoder = $this->get('security.password_encoder');
+            if ($encoder->isPasswordValid($user, $verificationPassword)) {
+                $plainPassword = $user->getPlainPassword();
+                $encoded = $encoder->encodePassword($user, $plainPassword);
+                $user->setPassword($encoded);
+                $em->persist($user);
+                $em->flush();
+                $this->addFlash("notice-green", "Votre mot de passe a bien été modifié.");
+                return $this->redirectToRoute("user");
+            } else {
+                $this->addFlash("notice-red", "Les mots de passe ne correspondent pas.");
+            }
+        }
+        return $this->render('CaradvisorBundle:Security:passwordChange.html.twig', [
+            'form' => $form->createView()]);*/
+    }
+
+    /**
+     * @Route("/user/settings", name="user_settings")
      * @return Response
      */
-    public function settingsAction(User $user)
+    public function settingsAction()
     {
         return $this->render('@Caradvisor/User/settings.html.twig',[
-            'user' => $user
+            'user' => $this->get('security.token_storage')->getToken()->getUser()
         ]);
     }
 
     // User's settings page: Change Password
-
-    /**
-     * @Route("/user/settings/password/{user}", name="user_password")
-     * @param Request $request
-     * @return Response
-     * @internal param User $user
-     */
-    public function changePasswordAction(Request $request)
-    {
-        $user = new User();
-        $em = $this->getDoctrine()->getManager();
-        $form = $this->createForm(ChangePasswordType::class, $user);
-        $form->handleRequest($request);
-        $message = "";
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $password = $user->getPassword();
-            $verificationPassword = $request->request->get("caradvisor_bundle_reset_password_type")["newPassword"];
-            if ($password === $verificationPassword) {
-                $encoder = $this->get('security.password_encoder');
-                $encoded = $encoder->encodePassword($user, $user->getPassword());
-                $user->setPassword($encoded);
-                $em->flush();
-                $this->addFlash("notice", "Votre mot de passe a bien été modifié.");
-                return $this->redirectToRoute("home");
-            } else {
-                $message = "Les mots de passe ne correspondent pas.";
-            }
-        return $this->render('CaradvisorBundle:Security:passwordReset.html.twig', [
-            'form' => $form->createView(),
-            "message" => $message,
-            ]);
-        }
-        return $this->redirectToRoute("home");
-    }
 
     // User's show vehicles
     /**

@@ -2,10 +2,11 @@
 namespace CaradvisorBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Security\Core\Validator\Constraints as SecurityAssert;
+
 /**
  * User
  *
@@ -47,8 +48,24 @@ class User implements UserInterface, \Serializable
      * @var string
      *
      * @ORM\Column(name="password", type="string", length=255)
+     * @Assert\NotBlank(groups={"registration"})
      */
     private $password;
+
+    /**
+     * A non-persisted field that's used to create the encoded password.
+     *
+     * @var string
+     */
+    private $plainPassword;
+    /**
+     * @var string
+     * @SecurityAssert\UserPassword(
+     *     message = "Wrong value for your current password"
+     * )
+     */
+    private $oldPassword;
+
     /**
      * @var string
      *
@@ -218,22 +235,7 @@ class User implements UserInterface, \Serializable
     {
         return $this->email;
     }
-    /**
-     * @return mixed
-     */
-    public function getPlainpassword()
-    {
-        return $this->plainpassword;
-    }
-    /**
-     * @param mixed $plainpassword
-     * @return User
-     */
-    public function setPlainpassword($plainpassword)
-    {
-        $this->plainpassword = $plainpassword;
-        return $this;
-    }
+
     /**
      * Set password
      *
@@ -255,6 +257,25 @@ class User implements UserInterface, \Serializable
     {
         return $this->password;
     }
+
+    /**
+     * @return string
+     */
+    public function getPlainPassword()
+    {
+        return $this->plainPassword;
+    }
+
+    /**
+     * @param string $plainPassword
+     * @return User
+     */
+    public function setPlainPassword($plainPassword)
+    {
+        $this->plainPassword = $plainPassword;
+        return $this;
+    }
+
     /**
      * Set gender
      *
@@ -361,9 +382,12 @@ class User implements UserInterface, \Serializable
     {
         return null;
     }
+
     public function eraseCredentials()
     {
+        $this->plainPassword = null;
     }
+
     public function serialize()
     {
         return serialize([
@@ -372,6 +396,7 @@ class User implements UserInterface, \Serializable
             $this->password,
         ]);
     }
+
     public function unserialize($serialized)
     {
         list(
@@ -380,6 +405,7 @@ class User implements UserInterface, \Serializable
             $this->password,
             ) = unserialize($serialized);
     }
+
     /**
      * @return mixed
      */
