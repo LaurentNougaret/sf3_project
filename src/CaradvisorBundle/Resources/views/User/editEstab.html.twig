@@ -9,7 +9,7 @@
                 <!-- Back to main page -->
                 <div class="row">
                     <div class="col-xs-10 col-xs-offset-2 col-md-6 col-md-offset-2">
-                        <a href="{{ path('user_establishments', {'pro': pro.id, 'user': user.id}) }}">
+                        <a href="{{ path('establishment_profile', {'pro':pro.id}) }}">
                             <i class="icon-back fa fa-chevron-left" aria-hidden="true"></i>
                         </a>
                     </div>
@@ -31,7 +31,11 @@
                         <div class="card-action">
                             <ul>
                             <!-- Company's name & Siret shouldn't be able to be changed by the user -->
+
+                                <li><p>Type: {{ form_row(edit_form.siret) }}</p></li>
+                                <li><p>Type: {{ form_row(edit_form.dealerName) }}</p></li>
                                 <li><p>Type: {{ form_row(edit_form.dealertype) }}</p></li>
+                                <li><p>Type: {{ form_row(edit_form.brand) }}</p></li>
                                 <li><p>Addresse: {{ form_row(edit_form.address) }}</p></li>
                                 <li><p>Code Postal: {{ form_row(edit_form.postalCode) }}</p></li>
                                 <li><p>Ville: {{ form_row(edit_form.city) }}</p></li>

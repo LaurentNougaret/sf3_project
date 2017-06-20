@@ -17,17 +17,19 @@ class ReviewRepairRepository extends \Doctrine\ORM\EntityRepository
     public function getReviewsForSlides($reviewRepairId)
     {
         $qb = $this->createQueryBuilder("r")
-            ->select(array(
-                "r.review",
-                "r.id",
-                "r.city",
-                "r.dateReview",
-                "r.dealerName",
-                "u.userName"))
-            ->join("r.user", "u")
-            ->orderBy("r.dateReview", "desc")
-            ->setMaxResults(3)
-            ->getQuery();
+                    ->select(array(
+                        "r.review",
+                        "r.id",
+                        "r.city",
+                        "r.dateReview",
+                        "r.dealerName",
+                        "u.userName"))
+                    ->join("r.user", "u")
+                    ->orderBy("r.dateReview", "desc")
+                    ->setMaxResults(3)
+                    ->getQuery();
+
         return $qb->getResult();
+
     }
 }

@@ -10,7 +10,7 @@
                     <!-- Back to main page -->
                    <div class="row">
                         <div class="col-xs-10 col-xs-offset-2 col-md-6 col-md-offset-2">
-                            <a href="{{ path('user', {'user': user.id}) }}">
+                            <a href="{{ path('user') }}">
                                 <i class="icon-back fa fa-chevron-left fa-1x" aria-hidden="true"></i> </i>
                             </a>
                         </div>
@@ -19,49 +19,79 @@
                     <!-- Loop to list all establishments -->
                         <div class="row">
                             {% for pro in establishment %}
-                            <div class="col-xs-4">
-                                <div class="card">
-                                    <div class="card-image">
-                                        <img class="img-responsive" src="{{ asset('img/garage.jpg') }}">
-                                    </div><!-- card image -->
+                                <div class="col-xs-12 col-sm-6 col-md-4">
+                                    <div class="card">
+                                        <div class="card-image">
+                                            <img class="img-responsive" src="{{ asset('img/garage.jpg') }}">
+                                        </div><!-- card image -->
 
-                                    <div class="card-content">
-                                        <span class="card-title"><a href="{{ path('establishment_profile',
-                                            {'pro': pro.id, 'user': user.id}) }}">{{ pro.dealerName }}</a></span>
-                                    </div><!-- card content -->
-                                    <div class="card-action">
-                                        <a href="{{ path('establishment_profile',
-                                        {'pro': pro.id, 'user': user.id}) }}">
-                                            <i class="fa fa-eye fa-2x" aria-hidden="true"></i></a>
-                                        <a href="{{ path('edit_establishment',
-                                        {'pro': pro.id, 'user': user.id}) }}">
-                                            <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
-                                        </a>
-                                        <a href="{{ path('reviews_establishment',
-                                        {'pro': pro.id, 'user': user.id}) }}">
-                                            <i class="fa fa-comments fa-2x" aria-hidden="true"></i>
-                                        </a>
+                                        <div class="card-content">
+                                            <span class="card-title"><a href="{{ path('user_establishments') }}">{{ pro.dealerName }}</a></span>
+                                        </div><!-- card content -->
+                                        <div class="card-action">
+                                            <a href="{{ path('establishment_profile', {'pro':pro.id}) }}">
+                                                <i class="fa fa-eye fa-2x" aria-hidden="true"></i></a>
+                                            <a href="{{ path('edit_establishment',{'pro':pro.id}) }}">
+                                                <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
+                                            </a>
+                                            <a href="{{ path('reviews_establishment', {'pro':pro.id}) }}">
+                                                <i class="fa fa-comments fa-2x" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
                             {% endfor %}
-                        </div>
+                        </div><br><br>
 
                     <!-- Button Add Establishment -->
                     <div class="row">
-                        <div class="col-xs-4 col-md-offset-4">
-                            <div class="card">
-                                <div class="card-content">
-                                    <p><span class="card-title">Ajouter un établissement
-                                        <br><span class="addIcon">+</span>
-                                        </span>
-                                    </p>
-                                </div>
+                        <div class="col-xs-12">
+                            <a class="text-center" data-toggle="collapse" data-target="#demo1">
+                            <button type="button" class="save-pro-btn  center-block">Ajouter un établissement</button>
+                            </a>
+                        </div>
+                    </div><br><br>
+
+                    <div class="row">
+                        <div id="demo1" class="collapse ">
+                                {{ form_start(form) }}
+                                {{ form_errors(form) }}
+                            <div class="col-xs-10 col-xs-offset-1 col-md-4  ">
+                            {{ form_row(form.siret) }}
+                            </div>
+                            <div class="col-xs-10 col-xs-offset-1 col-md-4">
+                                {{ form_row(form.dealerName) }}
+                            </div>
+                            <div class="col-xs-10 col-xs-offset-1 col-md-4">
+                                {{ form_row(form.dealertype) }}
+                            </div>
+                            <div class="col-xs-10 col-xs-offset-1 col-md-4">
+                                {{ form_row(form.email) }}
+                            </div>
+                            <div class="col-xs-10 col-xs-offset-1 col-md-9">
+                                {{ form_row(form.address) }}
+                            </div>
+                            <div class="col-xs-10 col-xs-offset-1 col-md-4">
+                                {{ form_row(form.city) }}
+                            </div>
+                            <div class="col-xs-10 col-xs-offset-1 col-md-4">
+                                {{ form_row(form.postalCode) }}
+                            </div>
+                            <div class="col-xs-10 col-xs-offset-1 col-md-4">
+                                {{ form_row(form.phone) }}
+                            </div>
+                            <div class="col-xs-10 col-xs-offset-1 col-md-4">
+                                {{ form_row(form.brand) }}
+                            </div>
+                            <div class="col-xs-10 col-xs-offset-1 col-md-9">
+                            {{ form_row(form.description) }}
+                                {{ form_end(form) }}
+                            </div>
+
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
     </section>
 {% endblock %}

@@ -9,7 +9,7 @@
                     <!-- Back to main page -->
                     <div class="row">
                         <div class="col-xs-10 col-xs-offset-2 col-md-6 col-md-offset-2">
-                            <a href="{{ path('user', {'user': user.id}) }}">
+                            <a href="{{ path('user') }}">
                                 <i class="icon-back fa fa-chevron-left fa-1x" aria-hidden="true"></i> </i>
                             </a>
                         </div>
@@ -33,9 +33,8 @@
                                         <li><p>Nom: {{ user.lastName }}</p></li>
                                         <li><p>Nom d'utilisateur: {{ user.userName }}</p></li>
 
-                                        {# Using "default" Twig filter to set default value if it's undefined or empty
+                                        {# Using "default" Twig filter to set default value if it's undefined or empty#}
                                         <li><p>Date de naissance: {{ userProfile.birthdate|default('') }}</p></li> #}
-                                        <li><p>Date de naissance: {{ userProfile.birthdate|default('') }}</p></li>
                                         <li><p>Genre: {{ user.gender}}</p></li>
                                         <li><p>Adresse: {{ userProfile.address|default('') }}</p></li>
                                         <li><p>Code postal: {{ userProfile.postalCode|default('') }}</p></li>
@@ -47,7 +46,7 @@
                             </div>
                         </div>
                     </div>
-                        <a href="{{ path('user_edit', {'user': user.id}) }}"
+                        <a href="{{ path('user_edit') }}"
                            class="btn btn-default center-block btn-send">
                             Modifier profil</a>
                     </div>
