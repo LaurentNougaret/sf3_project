@@ -10,21 +10,24 @@ namespace CaradvisorBundle\Repository;
  */
 class ReviewRepairRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function getReviewsForSlides()
+    /**
+     * @param $reviewRepairId
+     * @return array
+     */
+    public function getReviewsForSlides($reviewRepairId)
     {
         $qb = $this->createQueryBuilder("r")
-            ->select(
-                "r.review",
-                "r.id",
-                "r.city",
-                "r.dateReview",
-                "r.dealerName",
-                "u.userName")
-            ->join("r.user", "u")
-            //->where("r.id > :id")
-            ->orderBy("r.dateReview", "desc")
-            ->setMaxResults(3)
-            ->getQuery();
+                    ->select(array(
+                        "r.review",
+                        "r.id",
+                        "r.city",
+                        "r.dateReview",
+                        "r.dealerName",
+                        "u.userName"))
+                    ->join("r.user", "u")
+                    ->orderBy("r.dateReview", "desc")
+                    ->setMaxResults(3)
+                    ->getQuery();
 
         return $qb->getResult();
 
