@@ -1,0 +1,56 @@
+# To get started with security, check out the documentation:
+# http://symfony.com/doc/current/security.html
+security:
+    encoders:
+        CaradvisorBundle\Entity\User:
+            algorithm: bcrypt
+
+    # http://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
+    providers:
+        db_provider:
+            entity:
+                class: CaradvisorBundle:User
+                property: userName
+   #     in_memory:
+   #         memory: ~
+
+    firewalls:
+        # disables authentication for assets and the profiler, adapt it according to your needs
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        main:
+            anonymous: ~
+            form_login:
+                login_path: /login
+                check_path: /login
+                default_target_path: default_security_target
+            logout:
+                path: /logout
+                target: /
+            remember_me:
+                secret: '%secret%'
+            provider: db_provider
+            # activate different ways to authenticate
+
+            # http://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
+            #http_basic: ~
+
+            # http://symfony.com/doc/current/cookbook/security/form_login_setup.html
+            #form_login: ~
+
+    role_hierarchy:
+        ROLE_ADMIN: [ROLE_PART, ROLE_PRO]
+
+    access_control:
+        # require ROLE_ADMIN for /admin*
+        - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY}
+
+        # require ROLE_PART and ROLE_PRO for /user*
+        - { path: ^/user, roles: [ROLE_PART, ROLE_PRO] }
+
+        #- require ROLE_ADMIN for /dashboard*
+        - { path: ^/dashboard, roles: ROLE_ADMIN }
+
+

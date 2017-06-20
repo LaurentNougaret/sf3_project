@@ -1,0 +1,72 @@
+{% extends ('@Caradvisor/index.html.twig') %}
+{% block body %}
+    <section class="pro">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-10 col-xs-offset-1">
+                    <h2 class="text-center">Modifier profil</h2>
+                    <hr class="pro-review-underline">
+                    <!-- Back to main page -->
+                    <div class="row">
+                        <div class="col-xs-10 col-xs-offset-2 col-md-6 col-md-offset-2">
+                            <a href="{{ path('user_profile') }}">
+                                <i class="icon-back fa fa-chevron-left" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-8 col-xs-offset-2">
+                            {{ form_start(edit_form) }}
+                            <div class="card">
+                                <!-- Avatar utilisateur -->
+                                <span class="user-avatar">
+                                    <i class="fa fa-user fa-2x" aria-hidden="true"></i>
+                                </span>
+
+                                <div class="card-content">
+                                    <span class="card-title">{{ user.firstName ~ " " ~ user.lastName }}</a></span>
+                                </div><!-- card content -->
+
+                                <!-- Modify user's info -->
+                                <div class="card-action">
+                                    <ul>
+                                        <li><p>Prénom: {{ form_row(edit_form.firstname) }}</p></li>
+                                        <li><p>Nom: {{ form_row(edit_form.lastname) }}</p></li>
+                                        <li><p>Nom d'utilisateur: {{ form_row(edit_form.username) }}</p></li>
+                                        <li><p>Date de naissance: {{ form_row(edit_form.userProfile.birthdate) }}</p></li>
+                                        <li><p>Genre: {{ form_row(edit_form.gender) }}</p></li>
+                                        <li><p>Adresse: {{ form_row(edit_form.userProfile.address) }}</p></li>
+                                        <li><p>Code postal: {{ form_row(edit_form.userProfile.postalCode) }}</p></li>
+                                        <li><p>Ville: {{ form_row(edit_form.userProfile.city) }}</p></li>
+                                        <li><p>E-mail: {{ form_row(edit_form.email) }}</p></li>
+                                        <li><p>Téléphone: {{ form_row(edit_form.userProfile.phone) }}</p></li>
+                                        {#<li><p>Pour valider vos modifications, veuillez insérer votre mot de passe:</p></li>
+                                        <li><p>{{ form_row(edit_form.password) }}</p></li>#}
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Add picture or avatar -->
+                        {#<div class="col-xs-12 text-center">
+                            <label class=" control-label" for="filebutton">Ajoutez une photo ou avatar </label>
+                            <div>
+                                <input id="filebutton" name="filebutton" class="input-file center-block" type="file"
+                                       accept=".jpg, .png, .jpeg">
+                                <br>
+                                <span class="help-block">Formats de fichiers acceptés: JPG, JPEG, PNG.</span>
+                            </div>
+                        </div>#}
+                        <div class="col-xs-12">
+                            <button type="submit" class="btn btn-primary center-block modify-pro-review">
+                                Envoyer
+                            </button>
+                        </div>
+                        {{ form_widget(edit_form._token) }}
+                        {{ form_end(edit_form, {'render_rest': false}) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

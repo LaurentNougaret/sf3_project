@@ -4,8 +4,8 @@ namespace caradvisor;
 
 class Config
 {
-    const HOST = "localhost";
+    const HOST = "localhost:8889";
     const USER = "root";
-    const PASSWORD = "789oplm";
+    const PASSWORD = "root";
     const DBNAME = "caradvisor";
 }

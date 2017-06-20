@@ -1,0 +1,163 @@
+{% extends '@Caradvisor/index.html.twig' %}
+{% block body %}
+    <section class="forms">
+        <div class="container reviewform">
+            <div class="row">
+                <div class="col-xs-12 title text-center">
+                    <h1>Entretien ou réparation d'un véhicule - Ajouter un avis</h1>
+                    <br>
+                    <p>Merci de remplir le formulaire afin de déposer un avis sur l'entretien ou la réparation de votre véhicule. En déposant celui-ci et grâce à l'aide de <strong>CarAdvisor</strong>, vous contribuez grandement à l'amélioration du monde automobile et de ses acteurs. </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-3 col-sm-offset-2 col-md-3 col-md-offset-3">
+                    <a href={{ path('review_new') }}><button type="button" class="btn btn-primary btn-lg btn-block center-block">ACHAT NEUF</button></a>
+                </div>
+                <div class="col-xs-12 col-sm-3 col-sm-offset-1 col-md-3 col-md-offset-0">
+                    <a href="{{ path('review_used') }}"><button type="button" class="btn btn-primary btn-lg btn-block center-block">ACHAT OCCASION</button></a>
+                </div>
+            </div>
+            <!-- Form Name - Add Review -->
+            {{ form_start(form) }}
+            {{ form_errors(form) }}
+            <div class="bloc form-horizontal">
+                <h2 class="text-center">Informations sur l'entreprise</h2>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-3 control-label">{{ form_label(form.dealerType) }}</div>
+                    <div class="col-sm-4">{{ form_widget(form.dealerType) }}</div>
+                    {{ form_errors(form.dealerType) }}
+                </div>
+                <div class="row">
+                    <div class="col-sm-3 control-label">{{ form_label(form.dealerName) }}</div>
+                    <div class="col-sm-6">{{ form_widget(form.dealerName) }}<ul id="autocomplete"></ul></div>
+                    {{ form_errors(form.dealerName) }}
+                </div>
+                <div class="row">
+                    <div class="col-sm-3 control-label">{{ form_label(form.city) }}</div>
+                    <div class="col-sm-3">{{ form_widget(form.city) }}</div>
+                    {{ form_errors(form.city) }}
+                </div>
+                <div class="row">
+                    <div class="col-sm-3 control-label">{{ form_label(form.postalCode) }}</div>
+                    <div class="col-sm-3">{{ form_widget(form.postalCode) }}</div>
+                    {{ form_errors(form.postalCode) }}
+                </div>
+            </div>
+            <div class="bloc form-horizontal">
+                <h2 class="text-center">Votre Expérience</h2>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-3 control-label">{{ form_label(form.ratingGlobal) }}</div>
+                    <div class="col-sm-3">{{ form_widget(form.ratingGlobal) }}</div>
+                    {{ form_errors(form.ratingGlobal) }}
+                </div>
+                <div class="row">
+                    <div class="col-sm-3 control-label">{{ form_label(form.subject) }}</div>
+                    <div class="col-sm-6">{{ form_widget(form.subject) }}</div>
+                    {{ form_errors(form.subject) }}
+                </div>
+                <div class="row">
+                    <div class="col-sm-3 control-label">{{ form_label(form.review) }}</div>
+                    <div class="col-sm-6">{{ form_widget(form.review) }}</div>
+                    {{ form_errors(form.review) }}
+                </div>
+                <div class="row">
+                    <div class="col-sm-3 control-label">{{ form_label(form.dateRepair) }}</div>
+                    <div class="col-sm-2">{{ form_widget(form.dateRepair) }}</div>
+                    {{ form_errors(form.dateRepair) }}
+                </div>
+            </div>
+            <div class="bloc form-horizontal">
+                <h2 class="text-center">Donnez votre avis</h2>
+                <hr>
+                <div class="row">
+                    <div class="col-sm-3 control-label">{{ form_label(form.ratingWelcome) }}</div>
+                    <div class="col-sm-6">{{ form_widget(form.ratingWelcome) }}</div>
+                    {{ form_errors(form.ratingWelcome) }}
+                </div>
+                <div class="row">
+                    <div class="col-sm-3 control-label">{{ form_label(form.typeRepair) }}</div>
+                    <div class="col-sm-6">{{ form_widget(form.typeRepair) }}</div>
+                    {{ form_errors(form.typeRepair) }}
+                </div>
+                 <div class="row">
+                    <div class="col-sm-3 control-label">{{ form_label(form.appointmentDelay) }}</div>
+                    <div class="col-sm-6">{{ form_widget(form.appointmentDelay) }}</div>
+                    {{ form_errors(form.appointmentDelay) }}
+                </div>
+                 <div class="row">
+                    <div class="col-sm-3 control-label">{{ form_label(form.onSpotDelayRating) }}</div>
+                    <div class="col-sm-6">{{ form_widget(form.onSpotDelayRating) }}</div>
+                    {{ form_errors(form.onSpotDelayRating) }}
+                </div>
+                <div class="row">
+                    <div class="col-sm-3 control-label">{{ form_label(form.explanationRepair) }}</div>
+                    <div class="col-sm-6">{{ form_widget(form.explanationRepair) }}</div>
+                    {{ form_errors(form.explanationRepair) }}
+                </div>
+                <div class="row">
+                    <div class="col-sm-3 control-label">{{ form_label(form.priceRepair) }}</div>
+                    <div class="col-sm-6">{{ form_widget(form.priceRepair) }}</div>
+                    {{ form_errors(form.priceRepair) }}
+                </div>
+                <div class="row">
+                    <div class="col-sm-3 control-label">{{ form_label(form.authorizationRepair) }}</div>
+                    <div class="col-sm-6">{{ form_widget(form.authorizationRepair) }}</div>
+                    {{ form_errors(form.authorizationRepair) }}
+                </div>
+                <div class="row">
+                    <div class="col-sm-3 control-label">{{ form_label(form.respectQuotationRepair) }}</div>
+                    <div class="col-sm-6">{{ form_widget(form.respectQuotationRepair) }}</div>
+                    {{ form_errors(form.respectQuotationRepair) }}
+                </div>
+                <div class="row">
+                    <div class="col-sm-3 control-label">{{ form_label(form.courtesyVehicle) }}</div>
+                    <div class="col-sm-6">{{ form_widget(form.courtesyVehicle) }}</div>
+                    {{ form_errors(form.courtesyVehicle) }}
+                </div>
+                <div class="row">
+                    <div class="col-sm-3 control-label">{{ form_label(form.respectDelayRepair) }}</div>
+                    <div class="col-sm-6">{{ form_widget(form.respectDelayRepair) }}</div>
+                    {{ form_errors(form.respectDelayRepair) }}
+                </div>
+                <div class="row">
+                    <div class="col-sm-3 control-label">{{ form_label(form.conditionVehicleRating) }}</div>
+                    <div class="col-sm-6">{{ form_widget(form.conditionVehicleRating) }}</div>
+                    {{ form_errors(form.conditionVehicleRating) }}
+                </div>
+                <div class="row">
+                    <div class="col-sm-3 control-label">{{ form_label(form.recommendProRating) }}</div>
+                    <div class="col-sm-6">{{ form_widget(form.recommendProRating) }}</div>
+                    {{ form_errors(form.recommendProRating) }}
+                </div>
+                 <div class="row">
+                    <div class="col-sm-3 control-label">{{ form_label(form.advice) }}</div>
+                    <div class="col-sm-6">{{ form_widget(form.advice) }}</div>
+                    {{ form_errors(form.advice) }}
+                </div>
+            </div>
+            <div class="text-center">
+                <h4>{{ form_label(form.attachedFile) }}</h4>
+                {{ form_widget(form.attachedFile) }}
+                {{ form_errors(form.attachedFile) }}
+            </div>
+
+            <div class="col-xs-12 col-sm-8 col-sm-offset-2 text-justify">
+                <div class="checkbox">
+                    <label class="agree" for="iagree-0">
+                        <input name="iagree" id="iagree-0" value="1" type="checkbox">
+                        Je certifie que cet avis reflète ma propre expérience et mon opinion authentique sur ce Garage,
+                        que je ne suis pas lié personnellement ni professionnellement à cet établissement et que je n'ai reçu aucune compensation financière ou autre de celui-ci pour écrire cet avis.
+                        Je comprends que CarAdvisor applique une politique de tolérance zéro sur les faux avis
+                    </label>
+                </div>
+            </div>
+            <!-- Button - Save review -->
+            <div class="col-xs-12">
+                <button class="btn btn-primary btn-block center-block" type="submit">Envoyer votre avis</button>
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </section>
+{% endblock %}

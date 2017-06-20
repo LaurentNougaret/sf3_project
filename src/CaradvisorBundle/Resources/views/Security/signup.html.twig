@@ -1,0 +1,66 @@
+{% extends ('@Caradvisor/index.html.twig') %}
+{% block body %}
+
+    <section id="signup">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-10 col-xs-offset-1 col-md-6 col-md-offset-3 bloc">
+                    <h2 class="text-center">Inscription</h2>
+                    <div class="col-xs-12 breadcrumb-pagination">
+                        <div class="col-xs-6 active">
+                            <span></span>
+                            <p>Profil</p>
+                        </div>
+
+                        <div class="col-xs-6 todo">
+                            <span></span>
+                            <p>Vehicule</p>
+                        </div>
+                    </div>
+                    <h3 class="text-center">Créer votre profil</h3>
+                    <hr>
+                    {{ form_start(form) }}
+                    {{ form_errors(form) }}
+                    <div class="col-xs-12 col-sm-6">
+                        {{ form_row(form.roles) }}
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        {{ form_row(form.gender) }}
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        {{ form_row(form.lastname) }}
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        {{ form_row(form.firstname) }}
+                    </div>
+                    <div class="col-xs-12">
+                        {{ form_row(form.email) }}
+                    </div>
+                    <div class="col-xs-12">
+                        {{ form_row(form.username) }}
+                    </div>
+                    <div class="col-xs-12">
+                        {{ form_row(form.plainpassword.first) }}
+                    </div>
+                    <div class="col-xs-12">
+                        {{ form_row(form.plainpassword.second) }}
+                    </div>
+                    <div class="row">
+                        <div id="inscrition-text-footer" class="col-xs-12 col-sm-12 text-justify">
+                            En cliquant sur  <strong>Inscription</strong>, vous acceptez les <a href="{{ path('cgu') }}" target="_blank">Conditions d'utilisation</a> en vigueur sur ce site, y compris notre politique sur les cookies.
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <button name="inscription" class="btn btn-primary btn-block center-block btn-red" type="submit">Suivant</button>
+                        </div>
+                    </div>
+                    {{ form_row(form._token) }}
+
+                    {{ form_end(form, {'render_rest': false}) }}
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
