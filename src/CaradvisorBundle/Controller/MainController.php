@@ -18,7 +18,8 @@ class MainController extends Controller
     public function indexAction()
     {
         $reviews = $this->getDoctrine()->getRepository("CaradvisorBundle:ReviewRepair");
-        $data = $reviews->getReviewsForSlides();
+        $data = $reviews->getReviewsForSlides($reviews);
+        dump($data);
         return $this->render('@Caradvisor/Default/home.html.twig', [
             'data' => $data,
             'reviews' => $reviews,
