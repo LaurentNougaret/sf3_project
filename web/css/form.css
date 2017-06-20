@@ -44,7 +44,9 @@
 .forms .bloc .row {
     margin-bottom: 10px;
 }
-
+/*
+    For star rating
+*/
 .forms .starRating input { display:none; }
 
 .forms .starRating label {

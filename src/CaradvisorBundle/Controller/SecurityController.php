@@ -90,7 +90,7 @@ class SecurityController extends Controller
                         'userName'         => $user->getUserName(),
                         'url'              => $this->generateUrl("home", [], UrlGeneratorInterface::ABSOLUTE_URL),
                         'confirmationLink' => $this->generateUrl("signup_confirmation", [
-                            'token' => $user->getToken(),
+                        'token' => $user->getToken(),
                             ], UrlGeneratorInterface::ABSOLUTE_URL
                         )
                     ]),
@@ -98,7 +98,7 @@ class SecurityController extends Controller
                 );
 
             $this->get('mailer')->send($email);
-            $this->addFlash("notice-green", "Un email vous a été envoyé, vous pouvez maintenant vous connecter.");
+            $this->addFlash("notice-green", "Un email vous a été envoyé, merci de confimer votre inscription.");
 
             return $this->redirectToRoute('signupSecond');
         }

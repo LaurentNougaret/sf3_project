@@ -78,8 +78,24 @@
                 <h2 class="text-center">Donnez votre avis</h2>
                 <hr>
                 <div class="row">
-                    <div class="col-sm-3 control-label">{{ form_label(form.ratingWelcome) }}</div>
-                    <div class="col-sm-6">{{ form_widget(form.ratingWelcome) }}</div>
+                    <p class="col-sm-3 control-label">{{ form_label(form.ratingWelcome) }}</p>
+                    <div class="col-sm-6 controls rating">
+                        <label>
+                            {{ form_widget(form.ratingWelcome[0]) }}
+                        </label>
+                        <label>
+                            {{ form_widget(form.ratingWelcome[1]) }}
+                        </label>
+                        <label>
+                            {{ form_widget(form.ratingWelcome[2]) }}
+                        </label>
+                        <label>
+                            {{ form_widget(form.ratingWelcome[3]) }}
+                        </label>
+                        <label>
+                            {{ form_widget(form.ratingWelcome[4]) }}
+                        </label>
+                    </div>
                     {{ form_errors(form.ratingWelcome) }}
                 </div>
                 <div class="row">
