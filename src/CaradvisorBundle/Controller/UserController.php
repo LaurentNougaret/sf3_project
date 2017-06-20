@@ -209,7 +209,7 @@ class UserController extends Controller
      */
     public function reviewsAction()
     {
-        return $this->render('@Caradvisor/Pro/reviews.html.twig', [
+        return $this->render('@Caradvisor/User/UserReviews.html.twig', [
             'data' => $user= $this->get('security.token_storage')->getToken()->getUser()->getReviewRepairs(),
             'beta' => $user= $this->get('security.token_storage')->getToken()->getUser()->getReviewBuys(),
             'user' => $user= $this->get('security.token_storage')->getToken()->getUser()
