@@ -73,6 +73,7 @@ class ReviewController extends Controller
             $reviewBuy->setReviewBuyType('Neuf');
             $reviewBuy->setDateReview(new \DateTime());
 
+            /** @var Symfony\Component\HttpFoundation\File\UploadedFile $file */
             $file = $reviewBuy->getAttachedFile();
             $fileName = md5(uniqid()).'.'.$file->guessExtension();
             $file->move(

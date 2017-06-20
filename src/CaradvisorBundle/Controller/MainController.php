@@ -21,7 +21,7 @@ class MainController extends Controller
         $data = $reviews->getReviewsForSlides($reviews);
         return $this->render('@Caradvisor/Default/home.html.twig', [
             'data' => $data,
-            'reviews' => $reviews,
+
         ]);
     }
 
