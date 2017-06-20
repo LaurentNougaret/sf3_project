@@ -24,35 +24,35 @@ class UserProfile
     /**
      * @var string
      *
-     * @ORM\Column(name="address", type="string", length=255)
+     * @ORM\Column(name="address", type="string", length=255, nullable=true)
      */
     private $address;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="city", type="string", length=255)
+     * @ORM\Column(name="city", type="string", length=255, nullable=true)
      */
     private $city;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="postalCode", type="integer")
+     * @ORM\Column(name="postalCode", type="integer", nullable=true)
      */
     private $postalCode;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="phone", type="integer")
+     * @ORM\Column(name="phone", type="integer", nullable=true)
      */
     private $phone;
 
     /**
-     * @var \DateTime
+     * @var int
      *
-     * @ORM\Column(name="birthdate", type="date")
+     * @ORM\Column(name="birthdate", type="integer", nullable=true)
      */
     private $birthdate;
 
@@ -184,5 +184,29 @@ class UserProfile
     public function getBirthdate()
     {
         return $this->birthdate;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \CaradvisorBundle\Entity\User $user
+     *
+     * @return UserProfile
+     */
+    public function setUser(\CaradvisorBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \CaradvisorBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

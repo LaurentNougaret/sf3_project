@@ -1,16 +1,17 @@
 {% extends ('@Caradvisor/index.html.twig') %}
-{% block body %}    {% include ('@Caradvisor/Elements/flashbag.html.twig') %}
+{% block body %}
+    {% include ('@Caradvisor/Elements/flashbag.html.twig') %}
     <section class="pro">
         <div class="container">
             <div class="row" id="account-pro-reviews">
                 <div class="col-xs-10 col-xs-offset-1">
-                    <h2 class="welcomePro">Bienvenue, {{ user.firstName }}</h2>
+                    <h2 class="welcomePro">Bienvenue, {{ app.user.firstName }}</h2>
                     <h3 class="text-center">Mon Compte</h3>
                     <hr class="pro-review-underline"><br>
                     <div class="color">
                         <div class="row">
                             <div class="col-xs-8 col-xs-offset-2 col-lg-3 col-lg-offset-3">
-                                <a href="{{ path('user_profile', {'user': user.id}) }}">
+                                <a href="{{ path('user_profile') }}">
                                     <div class="panel myaccountProAccessProfile">
                                         <div class="panel-heading">
                                             <div class="row">
@@ -28,7 +29,7 @@
                             </div>
 
                             <div class="col-xs-8 col-xs-offset-2 col-lg-3 col-lg-offset-0">
-                                <a href="{{ path('user_settings', {'user': user.id}) }}">
+                                <a href="{{ path('user_settings') }}">
                                     <div class="panel myaccountProSettings">
                                         <div class="panel-heading">
                                             <div class="row">
@@ -48,7 +49,7 @@
                         <div class="row">
                             {% if is_granted('ROLE_PART') %}
                                 <div class="col-xs-8 col-xs-offset-2 col-lg-3 col-lg-offset-3">
-                                    <a href="{{ path('user_vehicle', {'user': app.user.id}) }}">
+                                    <a href="{{ path('user_vehicle') }}">
                                         <div class="panel myaccountUserAccessCompanyPage">
                                             <div class="panel-heading">
                                                 <div class="row">
@@ -65,7 +66,7 @@
                                     </a>
                                 </div>
                                 <div class="col-xs-8 col-xs-offset-2 col-lg-3 col-lg-offset-0">
-                                    <a href="{{ path('user_reviews', {'user': app.user.id}) }}">
+                                    <a href="{{ path('user_reviews') }}">
                                         <div class="panel myaccountUserSettings">
                                             <div class="panel-heading">
                                                 <div class="row">
@@ -84,7 +85,7 @@
 
                             {% elseif is_granted('ROLE_PRO') %}
                                 <div class="col-xs-8 col-xs-offset-2 col-lg-3 col-lg-offset-3">
-                                    <a href="{{ path('user_establishments', {'user': user.id}) }}">
+                                    <a href="{{ path('user_establishments') }}">
                                         <div class="panel myaccountProAccessCompanyPage">
                                             <div class="panel-heading">
                                                 <div class="row">

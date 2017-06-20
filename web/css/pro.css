@@ -58,7 +58,6 @@
 .pro hr {
     border: 1px solid #ff4756;
 }
-
 .pro #account-pro-reviews .pro-review-underline {
     margin-bottom: 20px;
 }
@@ -72,10 +71,7 @@
 .pro .btn-send, .pro .modify-pro-review {
     width: 9em;
     font-size: 16px;
-    margin-top: 1em;
-    margin-bottom: 3em;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0.1em auto 3em;
     border-radius: 4px;
     border: 3px solid #ff4756;
     background-color: #fff;
@@ -222,29 +218,36 @@
     -webkit-transition: color .2s ease-out, background 0.2s ease-in;
 }
 
+/* User profile */
+
+.user-avatar {
+    position: absolute;
+    top: 5%;
+    left: 5%
+}
+
 /* List of Establishments page */
 
 .card {
     text-align: center;
     position: relative;
     font-family: 'Roboto', sans-serif;
-    margin-top: 10px;
-    margin-bottom: 8%;
+    margin-top: 0.5%;
+    margin-bottom: 4%;
     -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
     -moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-    box-shadow: 4px 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    box-shadow: 1px 2px 3px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
 
 .card .card-content {
     padding: 19px;
 }
-
 .card .card-content .card-title, .card-reveal .card-title{
     font-size: 20px;
     font-weight: 200;
 }
-
 .card .card-action{
+    text-align: left;
     padding: 20px;
     border-top: 1px solid rgba(160, 160, 160, 0.2);
 }
@@ -274,7 +277,9 @@
 .card .card-action ul {
     list-style-type: none;
 }
-
+.seeReviews {
+    text-align: center;
+}
 /* Establishment: see reviews page */
 
 .ListReviewsByPro {
@@ -282,9 +287,10 @@
     font-family: 'Roboto', sans-serif;
     margin-top: 10px;
     margin-bottom: 8%;
-    -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-    -moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-    box-shadow: 4px 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    background-color: rgba(209, 210, 210, 0.15);
+    /*-webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);*/
+    /*-moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);*/
+    /*box-shadow: 4px 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);*/
 }
 .ListReviewsByPro .SeeReviewStars {
     position: absolute;
@@ -295,9 +301,23 @@
     padding: 19px;
 }
 
-.ListReviewsByPro .reviews-content .review-card-title {
+.review-card-title {
     font-size: 20px;
     font-weight: 200;
+    color:#ff4756;
+
+}
+
+.review-establishment {
+    font-size: 18px;
+}
+
+.review-establishment-response {
+    color: #ff4756;
+}
+
+.review-establishment-header {
+    background-color: rgba(184, 185, 185, 0.15);
 }
 
 .ListReviewsByPro .review-body{
@@ -306,6 +326,7 @@
 }
 
 /* --- Establishment: see reviews & answer pages: Buttons --- */
+
 .ListReviewsByPro .AnswerReviewButton {
     color: #999999;
     border: 1px solid #999999;

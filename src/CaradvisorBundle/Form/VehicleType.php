@@ -42,9 +42,7 @@ class VehicleType extends AbstractType
             ->add('energy',TextType::class,[
                 'label' => false,
                 'attr' => ['placeholder' => 'Enérgie']
-            ])
-            ->add('submit', SubmitType::class, ['label' => 'Envoyer']
-            );
+            ]);
 
 
     }

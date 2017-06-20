@@ -33,9 +33,11 @@ class ReviewBuyType extends AbstractType
             ])
             ->add('city', TextType::class, [
                 'label' => 'Ville',
+                'attr'  => ['readonly' => 'readonly']
             ])
             ->add('postalCode', TextType::class, [
                 'label' => 'Code Postal',
+                'attr'  => ['readonly' => 'readonly']
             ])
             ->add('ratingGlobal', ChoiceType::class, [ //mettre un IntegerType::class au rating ?
                 'label' => 'Note Globale',
@@ -57,14 +59,11 @@ class ReviewBuyType extends AbstractType
                 ]
             ])
             ->add('dateBuy', DateType::class, [
-                'label' => 'Date de l\'achat',
+                'label' => 'Date de l\'intervention',
                 'widget' => 'single_text',
-                // do not render as type="date", to avoid HTML5 date pickers
-                'html5' => false,
-                // add a class that can be selected in JavaScript
                 'attr' => [
-                    'class' => 'js-datepicker',
                     'placeholder' => 'jj-mm-aaaa',
+                    'format' => 'dd-MM-yyyy',
                 ],
             ])
             ->add('ratingWelcome', ChoiceType::class, [
