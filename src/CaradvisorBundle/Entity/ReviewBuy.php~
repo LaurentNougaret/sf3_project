@@ -154,7 +154,7 @@ class ReviewBuy
      */
     private $user;
     /**
-     * @ORM\OneToOne(targetEntity="CaradvisorBundle\Entity\Answer")
+     * @ORM\OneToOne(targetEntity="CaradvisorBundle\Entity\Answer", cascade={"remove"})
      * @ORM\JoinColumn(name="answer_id", referencedColumnName="id")
      */
     private $answer;
