@@ -270,6 +270,5 @@ class SecurityController extends Controller
             $this->addFlash("notice", "Cette demande de réinitialisation de mot de passe n'est pas valide.");
             return $this->redirectToRoute("home");
         }
-        return $this->redirectToRoute("home");
     }
 }

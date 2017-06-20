@@ -10,4 +10,16 @@ namespace CaradvisorBundle\Repository;
  */
 class ReviewRepairRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getReviewsForSlides()
+    {
+        $qb = $this->createQueryBuilder("r")
+                    ->select("r.review", "r.city", "r.dateReview", "r.dealerName", "u.userName")
+                    ->join("r.user", "u")
+                    ->orderBy("r.dateReview", "desc")
+                    ->setMaxResults(3)
+                    ->getQuery();
+
+        return $qb->getResult();
+
+    }
 }

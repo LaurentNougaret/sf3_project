@@ -54,7 +54,7 @@ security:
         # require ROLE_PART and ROLE_PRO for /user*
         - { path: ^/user, roles: [ROLE_PART, ROLE_PRO] }
 
-        #- { path: ^/dashboard, roles: IS_ATHENTICATED_REMEMBERED} il faudra changer pour ROLE_ADMIN
+        #- require ROLE_ADMIN for /dashboard*
         - { path: ^/dashboard, roles: ROLE_ADMIN }
 
 

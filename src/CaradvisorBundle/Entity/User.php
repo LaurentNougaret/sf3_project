@@ -82,7 +82,7 @@ class User implements UserInterface, \Serializable
     private $mailingList;
 
     /**
-     * @ORM\Column(name="picture", type="blob", nullable=true)
+     * @ORM\Column(name="picture", type="string", nullable=true)
      */
     private $picture;
 
