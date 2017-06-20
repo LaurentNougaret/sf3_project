@@ -34,6 +34,12 @@ class SecurityController extends Controller
 
         //last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
+        /*$user = $this->getUser();
+
+        $isActive = $user->isActive(0);
+        if ($isActive === null) {
+            $this->addFlash("notice-red", "Votre compte est désavtivé, veuillez contactez le site.");
+        }*/
 
         return $this->render('@Caradvisor/Security/login.html.twig', [
             'last_username' => $lastUsername,
@@ -192,5 +198,20 @@ class SecurityController extends Controller
         }
 
         return $this->redirectToRoute("home");
+    }
+
+
+    /**
+     * @Route("/user/settings/delete-account/{id}", name="deactivate-account")
+     * @return Response
+     * @param User $user
+     */
+    public function deactivateAccount(User $user)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user->setIsActive(false);
+        $em->persist($user);
+        $em->flush();
+        return $this->redirectToRoute("logout");
     }
 }

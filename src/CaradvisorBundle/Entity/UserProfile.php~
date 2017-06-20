@@ -50,9 +50,9 @@ class UserProfile
     private $phone;
 
     /**
-     * @var int
+     * @var \DateTime
      *
-     * @ORM\Column(name="birthdate", type="integer", nullable=true)
+     * @ORM\Column(name="birthdate", type="datetime", nullable=true)
      */
     private $birthdate;
 
