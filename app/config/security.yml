@@ -43,8 +43,14 @@ security:
         ROLE_ADMIN: [ROLE_PART, ROLE_PRO]
 
     access_control:
-        - { path: ^/, roles: IS_AUTHENTICATED_ANONYMOUSLY}
+        # require ROLE_ADMIN for /admin*
+        - { path: ^/admin, roles: ROLE_ADMIN }
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY}
-        #- { path: ^/dashboard, roles: IS_ATHENTICATED_REMEMBERED} il faudra changer pour ROLE_ADMIN
-        - { path: ^/, roles: ROLE_USER }
-        - { path: ^/, roles: ROLE_PRO }
+
+        # require ROLE_PART and ROLE_PRO for /user*
+        - { path: ^/user, roles: [ROLE_PART, ROLE_PRO] }
+
+        #- require ROLE_ADMIN for /dashboard*
+        - { path: ^/dashboard, roles: ROLE_ADMIN }
+
+

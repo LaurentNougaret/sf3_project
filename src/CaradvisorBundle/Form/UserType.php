@@ -3,6 +3,7 @@
 namespace CaradvisorBundle\Form;
 
 use CaradvisorBundle\Entity\User;
+use CaradvisorBundle\Entity\UserProfile;
 use CaradvisorBundle\Entity\Vehicle;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -34,11 +35,14 @@ class UserType extends AbstractType
                 'attr'  => ['placeholder' => 'Nom d\'utilisateur']
             ])
             ->add('plainpassword', RepeatedType::class, [
+                'required' => false,
                 'type' => PasswordType::class,
                 'first_options' => [
+                    'required' => false,
                     'label' => false,
                     'attr' => ['placeholder' => 'Mot de passe']],
                 'second_options' => [
+                    'required' => false,
                     'label' => false,
                     'attr' => ['placeholder' => 'Confirmez le mot de passe']],
                 'invalid_message' => 'Les mots de passe doivent être identiques',
@@ -63,7 +67,8 @@ class UserType extends AbstractType
             ->add('email', EmailType::class, [
                 'label' => false,
                 'attr'  => ['placeholder' => 'Email'],
-            ]);
+            ])
+            ->add('userProfile', UserProfileType::class);
 
         $builder->get('roles')
             ->addModelTransformer(new CallbackTransformer(

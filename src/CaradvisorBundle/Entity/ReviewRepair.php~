@@ -74,7 +74,7 @@ class ReviewRepair
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="dateRepair", type="datetime")
+     * @ORM\Column(name="dateRepair", type="date")
      */
     private $dateRepair;
 
