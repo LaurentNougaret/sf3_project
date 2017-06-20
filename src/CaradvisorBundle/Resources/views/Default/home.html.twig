@@ -42,19 +42,19 @@
                     <div class="carousel slide" data-ride="carousel" id="quote-carousel">
                         <!-- Carousel Slides / Quotes -->
                         <div class="carousel-inner">
-                            {% for review in reviews %}
+                            {% for review in data %}
                                 <!-- Quote 1 -->
-                                <div class="item {% if(review.id == 1) %}
-                                                         {{ "active" }}
-                            {% endif %}">
+                                <div class="item {% if(loop.index == 1) %}
+                                                 {{ "active" }}
+                                         {% endif %}">
                                     <div class="row">
                                         <div class="col-sm-3 text-center">
                                             <img class="img-circle" src="{{ asset('img/photo_fondateur2.png') }}">
                                         </div>
                                         <div class="col-sm-9">
-                                            <h3 class="review-pro">{{ review.pro.dealerName }}</h3>
+                                            <h3 class="review-pro">{{ review.dealerName }}</h3>
                                             <p class="review">{{ review.review }}</p>
-                                            <small class="review-author">{{ review.user.firstName }} {{ review.user.lastName }}</small>
+                                            <small class="review-author">{{ review.userName }}, {{  review.city }}</small>
                                         </div>
                                     </div>
                                 </div>
