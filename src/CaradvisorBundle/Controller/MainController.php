@@ -19,7 +19,6 @@ class MainController extends Controller
     {
         $reviews = $this->getDoctrine()->getRepository("CaradvisorBundle:ReviewRepair");
         $data = $reviews->getReviewsForSlides($reviews);
-        dump($data);
         return $this->render('@Caradvisor/Default/home.html.twig', [
             'data' => $data,
 

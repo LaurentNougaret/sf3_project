@@ -162,7 +162,6 @@ class SecurityController extends Controller
     }
 
     /**
-     * @param Request $request
      * @param $token
      * @return RedirectResponse
      * @Route("/signup-confirmation/{token}", name="signup_confirmation")
@@ -270,6 +269,5 @@ class SecurityController extends Controller
             $this->addFlash("notice", "Cette demande de réinitialisation de mot de passe n'est pas valide.");
             return $this->redirectToRoute("home");
         }
-        return $this->redirectToRoute("home");
     }
 }
