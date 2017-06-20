@@ -171,7 +171,6 @@ class SecurityController extends Controller
     }
 
     /**
-     * @param Request $request
      * @param $token
      * @return RedirectResponse
      * @Route("/signup-confirmation/{token}", name="signup_confirmation")
@@ -194,7 +193,7 @@ class SecurityController extends Controller
 
             $this->addFlash("notice-green", "Votre compte à bien été enregistré, vous pouvez maintenant vous connecter.");
         } else {
-            $this->addFlash("notice-red", "Votre compte n'a pas été enregistré, veuillez vous réinscrire.");
+            $this->addFlash("notice-red", "Nous n'avons pas pu traiter votre demande.");
         }
 
         return $this->redirectToRoute("home");
