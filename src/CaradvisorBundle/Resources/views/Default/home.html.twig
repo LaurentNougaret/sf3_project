@@ -19,15 +19,19 @@
                 <div class="row">
                     <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0 col-md-4 col-md-offset-2">
                         <form class="searchbar" action="{{ path('results') }}" method="GET">
-                            <input type="text" class="form-control" name="query" placeholder="Cherchez par professionnel" />
+                            <input type="text" class="form-control" name="query"
+                                   placeholder="Cherchez par professionnel"/>
                         </form>
                     </div>
                     <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0 col-md-4">
                         <form class="searchbar" action="{{ path('results') }}" method="GET">
-                            <input type="text" class="form-control" name="query" placeholder="Cherchez par ville ou code postal"/>
+                            <input type="text" class="form-control" name="query"
+                                   placeholder="Cherchez par ville ou code postal"/>
                         </form>
                     </div>
-                    <div class="col-xs-12 col-md-1"><a href="{{ path('results') }}"><button type="submit" class="btn btn-primary btn-search center-block">OK</button></a></div>
+                    <div class="col-xs-12 col-md-1"><a href="{{ path('results') }}">
+                            <button type="submit" class="btn btn-primary btn-search center-block">OK</button>
+                        </a></div>
                 </div>
             </div>
         </div>
@@ -43,30 +47,31 @@
                         <!-- Carousel Slides / Quotes -->
                         <div class="carousel-inner">
                             {% for review in data %}
-                            <!-- Quote 1 -->
-                            <div class="item {% if(loop.index == 1) %}
-                                                     {{ "active" }}
-                                             {% endif %}">
-                                <div class="row">
-                                    <div class="col-sm-3 text-center">
-                                        <img class="img-circle" src="{{ asset('img/photo_fondateur2.png') }}">
-                                    </div>
-                                    <div class="col-sm-9">
-                                        <h3 class="review-pro">{{ review.dealerName }}</h3>
-                                        <p class="review">{{ review.review }}</p>
-                                        <small class="review-author">{{ review.userName }}, {{  review.city }}</small>
+                                <!-- Quote 1 -->
+                                <div class="item {% if(loop.index == 1) %} {{ "active" }} {% endif %}">
+                                    <div class="row">
+                                        <div class="col-sm-3 text-center">
+                                            <img class="img-circle" src="{{ asset('img/photo_fondateur2.png') }}">
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <h3 class="review-pro">{{ review.dealerName }}</h3>
+                                            <p class="review">{{ review.review }}</p>
+                                            <small class="review-author">{{ review.userName }}
+                                                , {{ review.city }}</small>
+                                        </div>
                                     </div>
                                 </div>
+                            {% endfor %}
                         </div>
-                        {% endfor %}
-                    </div>
 
-                    <!-- Carousel Buttons Next/Prev -->
-                    <a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i class="fa fa-chevron-left"></i></a>
-                    <a data-slide="next" href="#quote-carousel" class="right carousel-control"><i class="fa fa-chevron-right"></i></a>
+                        <!-- Carousel Buttons Next/Prev -->
+                        <a data-slide="prev" href="#quote-carousel" class="left carousel-control"><i
+                                    class="fa fa-chevron-left"></i></a>
+                        <a data-slide="next" href="#quote-carousel" class="right carousel-control"><i
+                                    class="fa fa-chevron-right"></i></a>
+                    </div>
                 </div>
             </div>
-        </div>
         </div>
     </section>
     <!-- / Slider -->
@@ -74,7 +79,7 @@
     <!-- Leave opinion -->
     {% if is_granted('ROLE_PRO') %}
     {% elseif is_granted('ROLE_PART') %}
-        <section id="review" >
+        <section id="review">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 col-md-12">
@@ -86,39 +91,57 @@
                     <div class="col-xs-12 col-sm-12 col-md-4">
                         <h3 class="text-center">Vous venez de faire réparer votre véhicule ?</h3>
                         <div class="block-center">
-                            <a href="{{ path('review_repair') }}"><button type="button" class="btn btn-primary btn-lg btn-block center-block">Cliquez ici</button></a>
+                            <a href="{{ path('review_repair') }}">
+                                <button type="button" class="btn btn-primary btn-lg btn-block center-block">Cliquez
+                                    ici
+                                </button>
+                            </a>
                         </div>
                     </div>
                     <div class="col-xs-12 col-md-4">
                         <h3 class="text-center">Vous venez d'acquérir un véhicule neuf ?</h3>
                         <div class="block-center">
-                            <a href="{{ path('review_new') }}" ><button type="button" class="btn btn-primary btn-lg btn-block center-block">Cliquez ici</button></a>
+                            <a href="{{ path('review_new') }}">
+                                <button type="button" class="btn btn-primary btn-lg btn-block center-block">Cliquez
+                                    ici
+                                </button>
+                            </a>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-4 ">
                         <h3 class="text-center">Vous venez d'acquérir un véhicule d'occasion ?</h3>
                         <div class="block-center">
-                            <a href="{{ path('review_used') }}"><button type="button" class="btn btn-primary btn-lg btn-block center-block">Cliquez ici</button></a>
+                            <a href="{{ path('review_used') }}">
+                                <button type="button" class="btn btn-primary btn-lg btn-block center-block">Cliquez
+                                    ici
+                                </button>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
     {% elseif is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}
-        <section id="review" >
+        <section id="review">
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 col-sm-6">
                         <h2 class="text-center">Vous êtes un<br><span>professionnel</span> ?</h2>
                         <hr>
                         <h4 class="text-center">Vous pouvez ajouter un établissement<br>en vous inscrivant</h4>
-                        <a href="{{ path('login') }}"><button type="button" class="btn btn-primary btn-lg btn-block center-block">Cliquez ici</button></a>
+                        <a href="{{ path('login') }}">
+                            <button type="button" class="btn btn-primary btn-lg btn-block center-block">Cliquez ici
+                            </button>
+                        </a>
                     </div>
                     <div class="col-xs-12 col-sm-6">
                         <h2 class="text-center">Vous êtes un<br><span>particulier</span> ?</h2>
                         <hr>
                         <h4 class="text-center">Vous pouvez ajouter un avis<br>en vous inscrivant</h4>
-                        <a href="{{ path('login') }}"><button type="button" class="btn btn-primary btn-lg btn-block center-block">Cliquez ici</button></a>
+                        <a href="{{ path('login') }}">
+                            <button type="button" class="btn btn-primary btn-lg btn-block center-block">Cliquez ici
+                            </button>
+                        </a>
                     </div>
                 </div>
                 <div class="row">
@@ -148,21 +171,27 @@
                 <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-0 bloktext">
                     <h2 class="hauteurtitre">À propos de <br>CarAdvisor</h2>
                     <p class="text-justify">
-                        <strong>CarAdvisor</strong> est le premier site automobile complètement indépendant qui vous permet de
-                        donner un avis sur un professionnel du secteur (concessionnaire, garagiste indépendant, centre-auto...).<br>
-                        Basé sur un échange de témoignages et de notations vérifiés (certification AFNOR), <strong>CarAdvisor</strong> vous garantit
-                        une totale transparence pour que vous puissiez choisir en toute simplicité qui s’occupera de votre véhicule.
-                        <br>   <span class="blind">.</span>
+                        <strong>CarAdvisor</strong> est le premier site automobile complètement indépendant qui vous
+                        permet de
+                        donner un avis sur un professionnel du secteur (concessionnaire, garagiste indépendant,
+                        centre-auto...).<br>
+                        Basé sur un échange de témoignages et de notations vérifiés (certification AFNOR), <strong>CarAdvisor</strong>
+                        vous garantit
+                        une totale transparence pour que vous puissiez choisir en toute simplicité qui s’occupera de
+                        votre véhicule.
+                        <br> <span class="blind">.</span>
                     </p>
                 </div>
                 <div class="col-xs-10 col-xs-offset-1 col-sm-5 col-sm-offset-1 bloktext">
                     <h2 class="hauteurtitre text-right">Le fondateur</h2>
                     <img src="{{ asset('img/photo_fondateur.png') }}" alt="photo du fondateur" id="founderPhoto">
                     <p class="text-justify ">
-                        Fort d’une expérience de plus de 20 ans dans le monde de l’automobile, <strong>Olivier Jacquet</strong> est un professionnel de l’animation
+                        Fort d’une expérience de plus de 20 ans dans le monde de l’automobile, <strong>Olivier
+                            Jacquet</strong> est un professionnel de l’animation
                         et de la gestion de réseau automobile. <br>
                         Sa volonté : faire en sorte que les bonnes adresses, tout comme les mauvaises, soient
-                        connues grâce au partage des expériences de chacun afin d’améliorer la qualité de la relation client. En un mot changer la
+                        connues grâce au partage des expériences de chacun afin d’améliorer la qualité de la relation
+                        client. En un mot changer la
                         vie de l’utilisateur automobile.
                     </p>
                 </div>
@@ -185,12 +214,14 @@
                 </div>
                 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 text-center">
                     <h3>Fiabilité</h3>
-                    <img class="img-responsive" src="{{ asset('img/picto/reliability.png') }}" alt="image de fiabilité"/>
+                    <img class="img-responsive" src="{{ asset('img/picto/reliability.png') }}"
+                         alt="image de fiabilité"/>
                     <h4>... grâce à la vérification des avis</h4>
                 </div>
                 <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 text-center">
                     <h3>Simplicité</h3>
-                    <img class="img-responsive" src="{{ asset('img/picto/simplicity.png') }}" alt="image de simplicité"/>
+                    <img class="img-responsive" src="{{ asset('img/picto/simplicity.png') }}"
+                         alt="image de simplicité"/>
                     <h4>... déposez vos avis en un clic !</h4>
                 </div>
             </div>
