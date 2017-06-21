@@ -34,7 +34,7 @@
                                         <li><p>Nom d'utilisateur: {{ user.userName }}</p></li>
 
                                         {# Using "default" Twig filter to set default value if it's undefined or empty#}
-                                        <li><p>Date de naissance: {{ userProfile.birthdate|date('d-m-y') }}</p></li> #}
+                                        <li><p>Date de naissance: {{ userProfile.birthdate|date('d-m-Y') }}</p></li>
                                         <li><p>Genre: {{ user.gender}}</p></li>
                                         <li><p>Adresse: {{ userProfile.address|default('') }}</p></li>
                                         <li><p>Code postal: {{ userProfile.postalCode|default('') }}</p></li>

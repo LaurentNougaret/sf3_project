@@ -41,7 +41,7 @@ class ReviewBuyType extends AbstractType
             ])
             ->add('ratingGlobal', ChoiceType::class, [ //mettre un IntegerType::class au rating ?
                 'label' => 'Note Globale',
-                'choices' => ['1' => 1, '2' => 2, '3' => 3, '4' => 4, '5' => 5],
+                'choices' => ['1', '2', '3', '4', '5'],
                 'required'=>true,
                 'expanded'=>true,
                 'multiple'=>false,
@@ -68,7 +68,7 @@ class ReviewBuyType extends AbstractType
             ])
             ->add('ratingWelcome', ChoiceType::class, [
                 'label' => 'Quel type d\'accueil avez-vous eu ?',
-                'choices' => ['1' => 1, '2' => 2, '3' => 3, '4' => 4, '5' => 5],
+                'choices' => ['1', '2', '3', '4', '5'],
                 'required'=>true,
                 'expanded'=>true,
                 'multiple'=>false,
