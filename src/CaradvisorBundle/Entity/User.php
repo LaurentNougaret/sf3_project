@@ -5,7 +5,7 @@ namespace CaradvisorBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Security\Core\User\AdvancedUserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -16,7 +16,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @UniqueEntity(fields={"userName"}, message="Le nom d'utilisateur est déjà pris")
  * @ORM\Entity(repositoryClass="CaradvisorBundle\Repository\UserRepository")
  */
-class User implements UserInterface, \Serializable
+class User implements AdvancedUserInterface, \Serializable
 {
     /**
      * @var int
@@ -142,7 +142,7 @@ class User implements UserInterface, \Serializable
      */
     public function __construct()
     {
-        $this->isActive = false;
+        $this->isActive = true;
         $this->vehicles = new ArrayCollection();
         $this->pros = new ArrayCollection();
         $this->reviewRepairs = new ArrayCollection();
@@ -419,12 +419,33 @@ class User implements UserInterface, \Serializable
         $this->plainPassword = null;
     }
 
+    public function isAccountNonExpired()
+    {
+        return true;
+    }
+
+    public function isAccountNonLocked()
+    {
+        return true;
+    }
+
+    public function isCredentialsNonExpired()
+    {
+        return true;
+    }
+
+    public function isEnabled()
+    {
+        return $this->isActive;
+    }
+
     public function serialize()
     {
         return serialize([
             $this->id,
             $this->userName,
             $this->password,
+            $this->isActive,
         ]);
     }
 
@@ -434,6 +455,7 @@ class User implements UserInterface, \Serializable
             $this->id,
             $this->userName,
             $this->password,
+            $this->isActive,
             ) = unserialize($serialized);
     }
 
