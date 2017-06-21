@@ -73,6 +73,7 @@ class LoadReviewBuyData extends AbstractFixture implements OrderedFixtureInterfa
             $reviewBuy->setAdvice($faker->paragraph(3));
             $reviewBuy->setAttachedFile('http://aws-cf.caradisiac.com/prod/mesimages/142824/facture%20revision%202%20an%2036.800%20km.jpg');
             $reviewBuy->setDateReview($faker->dateTime);
+            $reviewBuy->setIsActive($faker->randomElement($array = ['0', '1']));
 
             $reviewBuy->setUser($this->getReference("users_" . rand(0, LoadUserData::MAX_USER - 1)));
             $reviewBuy->setPro($this->getReference("pros_" . rand(0, LoadProData::PRO_MAX - 1)));
