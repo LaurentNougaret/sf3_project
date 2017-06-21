@@ -5,6 +5,7 @@ namespace CaradvisorBundle\Form;
 use CaradvisorBundle\Entity\UserProfile;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -39,6 +40,11 @@ class UserProfileType extends AbstractType
                     'required' => false,
                     'label' => false,
                     'attr' => ['placeholder' => 'Code Postal']
+                ])
+
+                ->add('picture', FileType::class, [
+                    'label' => 'Modifiez votre avatar',
+                    'attr' => ['style' => 'display:inline-block;']
                 ]);
     }
 

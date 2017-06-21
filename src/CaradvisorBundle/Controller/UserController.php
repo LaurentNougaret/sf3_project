@@ -7,7 +7,6 @@ use CaradvisorBundle\Entity\ReviewRepair;
 use CaradvisorBundle\Entity\User;
 use CaradvisorBundle\Entity\Vehicle;
 use CaradvisorBundle\Form\AnswerType;
-use CaradvisorBundle\Form\ChangePasswordType;
 use CaradvisorBundle\Form\ForgottenPasswordType;
 use CaradvisorBundle\Form\ProProfileType;
 use CaradvisorBundle\Form\UserType;
