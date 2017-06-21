@@ -92,7 +92,7 @@ class SecurityController extends Controller
                 ->setFrom("apitchen@gmail.com")
                 ->setTo($user->getEmail())
                 ->setBody(
-                    $this->renderView("@Caradvisor/Security/registration.html.twig", [
+                    $this->renderView("@Caradvisor/Mail/signupMail.html.twig", [
                         'userName'         => $user->getUserName(),
                         'url'              => $this->generateUrl("home", [], UrlGeneratorInterface::ABSOLUTE_URL),
                         'confirmationLink' => $this->generateUrl("signup_confirmation", [
