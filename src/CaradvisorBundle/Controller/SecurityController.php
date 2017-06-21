@@ -21,6 +21,7 @@ use Symfony\Component\Validator\Constraints\Url;
 
 class SecurityController extends Controller
 {
+
     /**
      * @param Request $request
      * @return Response
@@ -35,6 +36,12 @@ class SecurityController extends Controller
 
         //last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
+        /*$user = $this->getUser();
+
+        $isActive = $user->isActive(0);
+        if ($isActive === null) {
+            $this->addFlash("notice-red", "Votre compte est désavtivé, veuillez contactez le site.");
+        }*/
 
         return $this->render('@Caradvisor/Security/login.html.twig', [
             'last_username' => $lastUsername,
@@ -87,7 +94,7 @@ class SecurityController extends Controller
                         'userName'         => $user->getUserName(),
                         'url'              => $this->generateUrl("home", [], UrlGeneratorInterface::ABSOLUTE_URL),
                         'confirmationLink' => $this->generateUrl("signup_confirmation", [
-                            'token' => $user->getToken(),
+                        'token' => $user->getToken(),
                             ], UrlGeneratorInterface::ABSOLUTE_URL
                         )
                     ]),
@@ -95,7 +102,7 @@ class SecurityController extends Controller
                 );
 
             $this->get('mailer')->send($email);
-            $this->addFlash("notice-green", "Un email vous a été envoyé, vous pouvez maintenant vous connecter.");
+            $this->addFlash("notice-green", "Un email vous a été envoyé, merci de confimer votre inscription.");
 
             return $this->redirectToRoute('signupSecond');
         }
@@ -169,12 +176,15 @@ class SecurityController extends Controller
     public function signupConfirmation($token)
     {
         $time = new \DateTime();
+
         $user = $this->getDoctrine()->getRepository(User::class)->findOneBy(["token" => $token]);
+
         if ($user !== null && $user->getDateLimitToken() > $time) {
             $user->setMailingList(true);
             $user->setIsActive(true);
             $user->setToken(null);
             $user->setDateLimitToken(null);
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
@@ -269,5 +279,20 @@ class SecurityController extends Controller
             $this->addFlash("notice", "Cette demande de réinitialisation de mot de passe n'est pas valide.");
             return $this->redirectToRoute("home");
         }
+    }
+
+
+    /**
+     * @Route("/user/settings/delete-account/{id}", name="deactivate-account")
+     * @return Response
+     * @param User $user
+     */
+    public function deactivateAccount(User $user)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user->setIsActive(false);
+        $em->persist($user);
+        $em->flush();
+        return $this->redirectToRoute("logout");
     }
 }
