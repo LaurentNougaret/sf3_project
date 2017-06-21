@@ -281,9 +281,9 @@ class UserController extends Controller
      * @param Pro $pro
      * @return Response
      */
-    public function listReviewsEstablishmentAction( Pro $pro)
+    public function listReviewsEstablishmentAction(Pro $pro)
     {
-        return $this->render('@Caradvisor/User/reviewsEstab.html.twig', [
+        return $this->render('@Caradvisor/User/estabReviews.html.twig', [
             'data' => $pro->getReviewRepairs(),
             'beta' => $pro->getReviewBuys(),
             'user' => $user= $this->get('security.token_storage')->getToken()->getUser(),
