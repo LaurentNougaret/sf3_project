@@ -2,12 +2,17 @@
 
 namespace CaradvisorBundle\Controller;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class AdminController extends Controller
 {
-    public function indexAction($name)
+    /**
+     * @Route ("/admin", name="admin")
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function indexAction()
     {
-        return $this->render('', array('name' => $name));
+        return $this->render('@Caradvisor/Admin/index.html.twig');
     }
 }

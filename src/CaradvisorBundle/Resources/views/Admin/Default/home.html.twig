@@ -1,0 +1,33 @@
+{% extends '@Caradvisor/Admin/index.html.twig' %}
+{% block body %}
+<section id="admin">
+    <div class="container">
+        <div class="row">
+            <div class="bloc">
+                <div class="col-xs-10 col-xs-offset-1 col-md-5">
+                    <h2 class="text-center">Connexion</h2>
+                    <hr>
+                    <form method="post">
+                        <div class="form-group">
+                            <label for="username"></label>
+                            <input class="form-control" type="text" id="username" name="_username"
+                                   placeholder="Nom d'utilisateur" {#value="{{ username }}"#} />
+                            </div>
+                            <div class="form-group">
+                                <label for="password"></label>
+                                <input class="form-control" type="password" id="password" name="_password"
+                                       placeholder="Mot de passe" />
+                            </div>
+                            <div class="text-center">
+                                <input type="checkbox" id="remember_me" name="_remember_me" checked />
+                                <label for="remember_me">Se souvenir de moi</label>
+                            </div>
+
+                            <button class="btn btn-primary btn-block center-block btn-red" type="submit">Connecter</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
