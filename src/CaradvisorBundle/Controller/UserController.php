@@ -143,7 +143,7 @@ class UserController extends Controller
             $em->persist($car);
             $em->flush();
         }
-        return $this->render('@Caradvisor/User/car.html.twig',[
+        return $this->render('@Caradvisor/User/UserCar/car.html.twig',[
             'user' => $user= $this->get('security.token_storage')->getToken()->getUser(),
             'data' =>$user->getVehicles(),
             'alfa' =>$user->getLastName(),
@@ -158,7 +158,7 @@ class UserController extends Controller
      */
     public function showDetailCarAction(Vehicle $vehicle)
     {
-        return $this->render('@Caradvisor/User/detailCar.html.twig', [
+        return $this->render('@Caradvisor/User/UserCar/detailCar.html.twig', [
             'user' => $user= $this->get('security.token_storage')->getToken()->getUser(),
             'vehicle' => $vehicle,
         ]);
@@ -181,7 +181,7 @@ class UserController extends Controller
                 'vehicle' => $vehicle->getId(),
             ));
         }
-        return $this->render('@Caradvisor/User/editCar.html.twig', array(
+        return $this->render('@Caradvisor/User/UserCar/editCar.html.twig', array(
             'edit_form' => $editForm->createView(),
             'user' => $user= $this->get('security.token_storage')->getToken()->getUser(),
             'vehicle' => $vehicle
@@ -209,7 +209,7 @@ class UserController extends Controller
      */
     public function reviewsAction()
     {
-        return $this->render('@Caradvisor/User/UserReviews.html.twig', [
+        return $this->render('CaradvisorBundle:User:UserReviews.html.twig', [
             'data' => $user= $this->get('security.token_storage')->getToken()->getUser()->getReviewRepairs(),
             'beta' => $user= $this->get('security.token_storage')->getToken()->getUser()->getReviewBuys(),
             'user' => $user= $this->get('security.token_storage')->getToken()->getUser()
@@ -232,7 +232,7 @@ class UserController extends Controller
             $em->persist($establishment);
             $em->flush();
         }
-        return $this->render('@Caradvisor/User/establishments.html.twig', [
+        return $this->render('@Caradvisor/User/UserEstablishment/establishments.html.twig', [
             'user' => $user= $this->get('security.token_storage')->getToken()->getUser(),
             'establishment' => $user->getPros(),
             'form' => $form->createView(),
@@ -269,7 +269,7 @@ class UserController extends Controller
                 'pro' => $pro->getId(),
             ));
         }
-        return $this->render('@Caradvisor/User/editEstab.html.twig', array(
+        return $this->render('@Caradvisor/User/UserEstablishment/editEstab.html.twig', array(
             'edit_form' => $editForm->createView(),
             'user' => $user= $this->get('security.token_storage')->getToken()->getUser(),
             'pro' => $pro
@@ -283,7 +283,7 @@ class UserController extends Controller
      */
     public function listReviewsEstablishmentAction(Pro $pro)
     {
-        return $this->render('@Caradvisor/User/estabReviews.html.twig', [
+        return $this->render('@Caradvisor/User/UserEstablishment/estabReviews.html.twig', [
             'data' => $pro->getReviewRepairs(),
             'beta' => $pro->getReviewBuys(),
             'user' => $user= $this->get('security.token_storage')->getToken()->getUser(),
@@ -292,7 +292,7 @@ class UserController extends Controller
     }
     // Professionals page: answer to a client's review
     /**
-     * @Route("/user/establishments/reviews/answer/repair/{user}/{pro}", name="answer_repair")
+     * @Route("/user/establishments/reviews/answer/repair/{pro}", name="answer_repair")
      * @param User $user
      * @param Pro $pro
      * @param ReviewRepair $reviewRepair
@@ -314,19 +314,19 @@ class UserController extends Controller
             $em->persist($answer);
             $em->flush();
             return $this->redirectToRoute('reviews_establishment', array(
-                'user' => $user->getId(),
+                'user' => $user= $this->get('security.token_storage')->getToken()->getUser(),
                 'pro' => $pro->getId(),
             ));
         }
-        return $this->render('@Caradvisor/User/answerReviewEstabRepair.html.twig', [
-            'user' => $user,
+        return $this->render('@Caradvisor/User/UserEstablishment/answerReviewEstabRepair.html.twig', [
+            'user' => $user= $this->get('security.token_storage')->getToken()->getUser(),
             'pro' => $pro,
             'reviewrepair' => $reviewRepair,
             'form' =>$form->createView(),
         ]);
     }
     /**
-     * @Route("/user/establishments/reviews/answer/buy/{user}/{pro}", name="answer_buy")
+     * @Route("/user/establishments/reviews/answer/buy/{pro}", name="answer_buy")
      * @param User $user
      * @param Pro $pro
      * @param ReviewBuy $reviewBuy
@@ -348,12 +348,12 @@ class UserController extends Controller
             $em->persist($answer);
             $em->flush();
             return $this->redirectToRoute('reviews_establishment', array(
-                'user' => $user->getId(),
+                'user' => $user= $this->get('security.token_storage')->getToken()->getUser(),
                 'pro' => $pro->getId(),
             ));
         }
-        return $this->render('@Caradvisor/User/answerReviewEstabBuy.html.twig', [
-            'user' => $user,
+        return $this->render('@Caradvisor/User/UserEstablishment/answerReviewEstabRepair.html.twig', [
+            'user' => $user= $this->get('security.token_storage')->getToken()->getUser(),
             'pro' => $pro,
             'reviewbuy' => $reviewBuy,
             'form' =>$form->createView(),

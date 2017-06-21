@@ -128,7 +128,7 @@ class ReviewBuy
      *
      * @ORM\Column(name="attachedFile", type="string")
      * @Assert\NotBlank(message="Fichiers acceptés : .jpg, .pdf, .png")
-     * @Assert\File(mimeTypes={"application/pdf", "application/jpg", "application/jpeg", "application/png"})
+     * @Assert\File(mimeTypes={"application/pdf", "image/jpg", "image/jpeg", "image/png"})
      */
     private $attachedFile;
     /**
