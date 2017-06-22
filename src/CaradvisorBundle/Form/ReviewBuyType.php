@@ -20,11 +20,11 @@ class ReviewBuyType extends AbstractType
             ->add('dealerType', ChoiceType::class, [
                 'label' => 'Type de prestataire',
                 'choices' => [
-                    'Concessionnaire' => 1,
-                    'Garagiste' => 2,
-                    'Agent' => 3,
-                    'Carrossier' => 4,
-                    'Autre' => 5
+                    'Concessionnaire' => 'Concessionnaire',
+                    'Garagiste' => 'Garagiste',
+                    'Agent' => 'Agent',
+                    'Carrossier' => 'Carrossier',
+                    'Autre' => 'Autre'
                 ]
             ])
             ->add('dealerName', TextType::class, [

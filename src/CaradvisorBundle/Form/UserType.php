@@ -34,8 +34,7 @@ class UserType extends AbstractType
                 'label' => false,
                 'attr'  => ['placeholder' => 'Nom d\'utilisateur']
             ])
-            ->add('plainpassword', RepeatedType::class, [
-                'required' => false,
+            ->add('plainPassword', RepeatedType::class, [
                 'type' => PasswordType::class,
                 'first_options' => [
                     'required' => false,

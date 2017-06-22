@@ -73,6 +73,14 @@ class ReviewController extends Controller
             $reviewBuy->setReviewBuyType('Neuf');
             $reviewBuy->setDateReview(new \DateTime());
 
+            $file = $reviewBuy->getAttachedFile();
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            $file->move(
+                $this->getParameter('attachedfile_directory'),
+                $fileName
+            );
+            $reviewBuy->setAttachedFile($fileName);
+
             $em = $this->getDoctrine()->getManager();
 
             $dealerName = $form['dealerName']->getData();
@@ -82,6 +90,7 @@ class ReviewController extends Controller
             $pro = $repository->findByDealerName($dealerName);
             $reviewBuy->setPro($pro[0]);
             $reviewBuy->setUser($this->getUser());
+            $reviewBuy->setWarranty(false);
 
             $em->persist($reviewBuy);
             $em->flush();
