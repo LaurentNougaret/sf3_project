@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class AdminController extends Controller
 {
@@ -20,16 +21,26 @@ class AdminController extends Controller
     {
         $authenticationUtils = $this->get('security.authentication_utils');
 
-        //get error if there is one
+        // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
 
-        //last username entered by the user
+        // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
 
-        return $this->render('@Caradvisor/Admin/index.html.twig', [
+        return $this->render('@Caradvisor/Admin/Default/test.html.twig', array(
             'last_username' => $lastUsername,
-            'error' => $error,
-        ]);
+            'error'         => $error,
+        ));
+        /*return $this->render('@Caradvisor/Admin/Default/test.html.twig', [
+        ]);*/
+    }
+
+    /**
+     * @Route("/admin/dashboard", name="dashboard")
+     */
+    public function viewDashboard()
+    {
+        return $this->render('@Caradvisor/Admin/Default/test.html.twig');
     }
 
     /**
