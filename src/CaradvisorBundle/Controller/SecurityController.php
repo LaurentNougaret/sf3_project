@@ -34,12 +34,6 @@ class SecurityController extends Controller
 
         //last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
-        /*$user = $this->getUser();
-
-        $isActive = $user->isActive(0);
-        if ($isActive === null) {
-            $this->addFlash("notice-red", "Votre compte est désavtivé, veuillez contactez le site.");
-        }*/
 
         return $this->render('@Caradvisor/Security/login.html.twig', [
             'last_username' => $lastUsername,
