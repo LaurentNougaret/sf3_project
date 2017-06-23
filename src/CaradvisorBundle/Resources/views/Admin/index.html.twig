@@ -15,16 +15,17 @@
           crossorigin="anonymous">
     <!-- Local CSS -->
     <link rel="stylesheet" href="{{ asset ('css/admin.css') }}">
+    <link rel="stylesheet" href="{{ asset ('css/adminNav.css') }}">
     <!-- External CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
           integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     {% block stylesheets %}{% endblock %}
 </head>
 <body>
+                {% include ('@Caradvisor/Admin/AdminPartials/adminNav.html.twig') %}
+                {% block body %}
+                {% endblock %}
 
-{% block body %}
-    {% include ('@Caradvisor/Admin/Default/home.html.twig') %}
-{% endblock %}
 
 <!-- Latest compiled and minified JavaScript (Bootstrap & JQuery) -->
 <script src="http://code.jquery.com/jquery-3.2.1.min.js"
@@ -33,8 +34,6 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
-<!-- External JS -->
-<script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js'></script>
 <!-- Local JS -->
 {% block javascripts %}{% endblock %}
 </body>
