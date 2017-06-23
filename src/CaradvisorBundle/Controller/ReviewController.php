@@ -94,7 +94,7 @@ class ReviewController extends Controller
 
             $repository = $this->getDoctrine()->getRepository(Pro::class);
 
-            $pro = $repository->findByDealerName($dealerName);
+            $pro = $repository->findOneBy($dealerName);
             $reviewBuy->setPro($pro[0]);
             $reviewBuy->setUser($this->getUser());
             $reviewBuy->setWarranty(false);

@@ -44,7 +44,7 @@ class ProProfileType extends AbstractType
             ->add('description', TextareaType::class, ['label' => false,
                  'attr' => ['rows' => '6', 'placeholder' => 'Ajoutez une description de votre établissement', 'style' => 'resize = none']])
             ->add('picture', FileType::class, ['label' => 'Modifiez la photo de votre établissement', 'data_class' => null,
-                 'attr' => ['style' => 'display:inline-block, margin-left: 30%' ]])
+                 'attr' => ['class' => 'estab_pic' ]])
             ->add('save', SubmitType::class, ['label' => 'Enregistrer', 'attr' =>['class' => 'save-pro-btn center-block']]);
     }
 

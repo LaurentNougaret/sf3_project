@@ -29,7 +29,7 @@ class UserController extends Controller
     public function indexAction()
     {
         return $this->render('@Caradvisor/User/home.html.twig', [
-            "user" => $user = $this->get('security.token_storage')->getToken()->getUser()
+            "user" => $this->getUser(),
         ]);
     }
     // User's profile page: Visualize profile
@@ -40,8 +40,8 @@ class UserController extends Controller
     public function profileAction()
     {
         return $this->render('@Caradvisor/User/profile.html.twig', [
-            "user" => $user = $this->get('security.token_storage')->getToken()->getUser(),
-            "userProfile" => $user->getUserProfile(),
+            "user" => $this->getUser(),
+            "userProfile" => $this->getUser()->getUserProfile(),
         ]);
     }
     // User's profile page: Edit profile
@@ -83,7 +83,7 @@ class UserController extends Controller
     public function settingsAction()
     {
         return $this->render('@Caradvisor/User/settings.html.twig',[
-            'user' => $user = $this->get('security.token_storage')->getToken()->getUser()
+            'user' => $this->getUser(),
         ]);
     }
     // User's settings page: Change Password
@@ -149,14 +149,14 @@ class UserController extends Controller
         $form = $this->createForm(VehicleType::class, $car);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $car->setUser($user= $this->get('security.token_storage')->getToken()->getUser());
+            $car->setUser($this->getUser());
             $em->persist($car);
             $em->flush();
         }
         return $this->render('@Caradvisor/User/car.html.twig',[
-            'user' => $user= $this->get('security.token_storage')->getToken()->getUser(),
-            'data' =>$user->getVehicles(),
-            'alfa' =>$user->getLastName(),
+            'user' => $this->getUser(),
+            'data' =>$this->getUser()->getVehicles(),
+            'alfa' =>$this->getUser()->getLastName(),
             'form' => $form->createView(),
         ]);
     }
@@ -169,7 +169,7 @@ class UserController extends Controller
     public function showDetailCarAction(Vehicle $vehicle)
     {
         return $this->render('@Caradvisor/User/detailCar.html.twig', [
-            'user' => $user= $this->get('security.token_storage')->getToken()->getUser(),
+            'user' => $this->getUser(),
             'vehicle' => $vehicle,
         ]);
     }
@@ -187,13 +187,13 @@ class UserController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
             return $this->redirectToRoute('user_vehicle', array(
-                'user' => $user= $this->get('security.token_storage')->getToken()->getUser(),
+                'user' => $this->getUser(),
                 'vehicle' => $vehicle->getId(),
             ));
         }
         return $this->render('@Caradvisor/User/editCar.html.twig', array(
             'edit_form' => $editForm->createView(),
-            'user' => $user= $this->get('security.token_storage')->getToken()->getUser(),
+            'user' => $this->getUser(),
             'vehicle' => $vehicle
         ));
     }
@@ -210,7 +210,7 @@ class UserController extends Controller
         $em->flush();
         return $this->redirectToRoute('user_vehicle', array(
             'vehicle' => $vehicle,
-            'user' => $user= $this->get('security.token_storage')->getToken()->getUser(),
+            'user' => $this->getUser(),
         ));
     }
     /**
@@ -220,9 +220,9 @@ class UserController extends Controller
     public function reviewsAction()
     {
         return $this->render('@Caradvisor/Pro/reviews.html.twig', [
-            'data' => $user= $this->get('security.token_storage')->getToken()->getUser()->getReviewRepairs(),
-            'beta' => $user= $this->get('security.token_storage')->getToken()->getUser()->getReviewBuys(),
-            'user' => $user= $this->get('security.token_storage')->getToken()->getUser()
+            'data' => $this->getUser()->getReviewRepairs(),
+            'beta' => $this->getUser()->getReviewBuys(),
+            'user' => $this->getUser(),
         ]);
     }
     // Professionals page: list of establishments of an user
@@ -238,13 +238,13 @@ class UserController extends Controller
         $form = $this->createForm(ProProfileType::class, $establishment);
         $form ->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()){
-            $establishment->setUser($user= $this->get('security.token_storage')->getToken()->getUser());
+            $establishment->setUser($this->getUser());
             $em->persist($establishment);
             $em->flush();
         }
         return $this->render('@Caradvisor/User/establishments.html.twig', [
-            'user' => $user= $this->get('security.token_storage')->getToken()->getUser(),
-            'establishment' => $user->getPros(),
+            'user' => $this->getUser(),
+            'establishment' => $this->getUser()->getPros(),
             'form' => $form->createView(),
         ]);
     }
@@ -257,7 +257,7 @@ class UserController extends Controller
     public function showEstablishmentProfileAction(Pro $pro)
     {
         return $this->render('@Caradvisor/Pro/profile.html.twig', [
-            'user' => $user= $this->get('security.token_storage')->getToken()->getUser(),
+            'user' => $this->getUser(),
             'pro' => $pro,
         ]);
     }
@@ -283,13 +283,13 @@ class UserController extends Controller
 
             $this->getDoctrine()->getManager()->flush();
             return $this->redirectToRoute('establishment_profile', array(
-                'user' => $user= $this->get('security.token_storage')->getToken()->getUser(),
+                'user' => $this->getUser(),
                 'pro' => $pro->getId(),
             ));
         }
         return $this->render('@Caradvisor/User/editEstab.html.twig', array(
             'edit_form' => $editForm->createView(),
-            'user' => $user= $this->get('security.token_storage')->getToken()->getUser(),
+            'user' => $this->getUser(),
             'pro' => $pro
         ));
     }
@@ -304,7 +304,7 @@ class UserController extends Controller
         return $this->render('@Caradvisor/User/reviewsEstab.html.twig', [
             'data' => $pro->getReviewRepairs(),
             'beta' => $pro->getReviewBuys(),
-            'user' => $user= $this->get('security.token_storage')->getToken()->getUser(),
+            'user' => $this->getUser(),
             'pro' =>  $pro,
         ]);
     }
