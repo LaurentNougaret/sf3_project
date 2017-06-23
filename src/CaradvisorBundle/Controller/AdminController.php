@@ -33,7 +33,7 @@ class AdminController extends Controller
      */
     public function viewDashboard()
     {
-        return $this->render('@Caradvisor/Admin/Default/test.html.twig');
+        return $this->render('@Caradvisor/Admin/Default/home.html.twig');
     }
 
     /**
