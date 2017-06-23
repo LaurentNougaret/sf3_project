@@ -14,6 +14,7 @@ use CaradvisorBundle\Form\VehicleType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
@@ -51,17 +52,27 @@ class UserController extends Controller
      */
     public function editAction(Request $request)
     {
-        $editForm = $this->createForm(UserType::class, $user = $this->get('security.token_storage')->getToken()->getUser());
+        $currentUser = $this->getUser();
+        $editForm = $this->createForm(UserType::class, $currentUser);
+        $editForm->remove('roles');
         $editForm->handleRequest($request);
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+
+            /** @var File $file */
+            $file = $currentUser->getPicture();
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            $targetDirectory = $this->getParameter('avatar_directory');
+            $file->move($targetDirectory, $fileName);
+            $currentUser->setPicture($fileName);
+
             $this->getDoctrine()->getManager()->flush();
             return $this->redirectToRoute('user_profile', array(
-                "user" => $user = $this->get('security.token_storage')->getToken()->getUser()
+                "user" => $currentUser,
             ));
         }
         return $this->render('@Caradvisor/User/editUser.html.twig', array(
             'edit_form' => $editForm->createView(),
-            'user' => $user = $this->get('security.token_storage')->getToken()->getUser()
+            'user' => $user = $currentUser,
         ));
     }
     // User's settings page
@@ -262,6 +273,14 @@ class UserController extends Controller
         $editForm = $this->createForm(ProProfileType::class, $pro);
         $editForm->handleRequest($request);
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+
+            /** @var File $file */
+            $file = $pro->getPicture();
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            $targetDirectory = $this->getParameter('estabpic_directory');
+            $file->move($targetDirectory, $fileName);
+            $pro->setPicture($fileName);
+
             $this->getDoctrine()->getManager()->flush();
             return $this->redirectToRoute('establishment_profile', array(
                 'user' => $user= $this->get('security.token_storage')->getToken()->getUser(),

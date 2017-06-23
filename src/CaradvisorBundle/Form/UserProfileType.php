@@ -40,11 +40,6 @@ class UserProfileType extends AbstractType
                     'required' => false,
                     'label' => false,
                     'attr' => ['placeholder' => 'Code Postal']
-                ])
-
-                ->add('picture', FileType::class, [
-                    'label' => 'Modifiez votre avatar',
-                    'attr' => ['style' => 'display:inline-block;']
                 ]);
     }
 

@@ -13,6 +13,7 @@ use CaradvisorBundle\Form\VehicleType;
 use Faker\Provider\DateTime;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -76,6 +77,7 @@ class SecurityController extends Controller
             $dateLimitToken = new \DateTime("now");
             $dateLimitToken->add(new \DateInterval("P1D"));
             $user->setDateLimitToken($dateLimitToken);
+            $user->setPicture('web/img/user_avatar.png');
 
             $signup->set('role', $user->getRoles());
 

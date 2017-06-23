@@ -83,6 +83,7 @@ class User implements AdvancedUserInterface, \Serializable
 
     /**
      * @ORM\Column(name="picture", type="string", nullable=true)
+     * @Assert\File(mimeTypes={"image/jpg", "image/jpeg", "image/x-icon", "image/png"})
      */
     private $picture;
 
@@ -148,7 +149,6 @@ class User implements AdvancedUserInterface, \Serializable
         $this->reviewRepairs = new ArrayCollection();
         $this->reviewBuys = new ArrayCollection();
     }
-
     /**
      * Get id
      *

@@ -36,6 +36,13 @@ class ReviewController extends Controller
         if ($form->isSubmitted() && $form->isValid()){
             $reviewRepair->setDateReview(new \DateTime());
 
+            /** @var File $file */
+            $file = $reviewRepair->getAttachedFile();
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            $targetDirectory = $this->getParameter('attachedfile_directory');
+            $file->move($targetDirectory, $fileName);
+            $reviewRepair->setAttachedFile($fileName);
+
             $em = $this->getDoctrine()->getManager();
 
             $dealerName = $form['dealerName']->getData();

@@ -238,13 +238,30 @@
     -moz-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
     box-shadow: 1px 2px 3px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
 }
+.card .user-avatar {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.card .card-image {
+    position: relative;
+    top: 30px;
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-bottom: 30px;
+}
 
 .card .card-content {
     padding: 19px;
+    height: 120px;
 }
 .card .card-content .card-title, .card-reveal .card-title{
     font-size: 20px;
     font-weight: 200;
+}
+.card .estab_pic{
+    margin-left: 20%;
 }
 .card .card-action{
     text-align: left;
@@ -276,6 +293,7 @@
 }
 .card .card-action ul {
     list-style-type: none;
+    margin-right: 9%;
 }
 .seeReviews {
     text-align: center;

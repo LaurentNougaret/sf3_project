@@ -19,7 +19,11 @@
                             <div class="card">
                                 <!-- Avatar utilisateur -->
                                 <span class="user-avatar">
-                                    {{ user.picture }}
+                                    {% if user.picture is null %}
+                                        <img src="{{ asset('img/user_avatar.png') }}" style="width:100px;" />
+                                    {%  else %}
+                                        <img src="{{ asset('upload/avatar/' ~ user.picture)}}" style="width:100px;" />
+                                    {% endif %}
                                 </span>
                                 <!-- Title -->
                                 <div class="card-content">

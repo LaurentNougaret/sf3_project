@@ -9,8 +9,8 @@ imports:
 parameters:
     locale: en
     attachedfile_directory: '%kernel.root_dir%/../web/upload/attachedFile'
-    avatar_directory: '%kernel.root_dir%/web/upload/avatar'
-    estabpic_directory: '%kernel.root_dir%/web/upload/estabPic'
+    avatar_directory: '%kernel.root_dir%/../web/upload/avatar'
+    estabpic_directory: '%kernel.root_dir%/../web/upload/estabPic'
 
 framework:
     #esi: ~
