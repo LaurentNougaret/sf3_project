@@ -10,4 +10,6 @@ namespace CaradvisorBundle\Repository;
  */
 class AdminRepository extends \Doctrine\ORM\EntityRepository
 {
+
+
 }

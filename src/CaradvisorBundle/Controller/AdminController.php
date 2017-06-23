@@ -109,4 +109,17 @@ class AdminController extends Controller
         ]);
 
     }
+
+    /**
+     * @Route("/admin/users", name="admin_users")
+     */
+    public function listUsersAction()
+    {
+        $users = $this->getDoctrine()->getRepository('CaradvisorBundle:User')->findAll(array('lastName' => 'ASC'));
+//        $data = $repo->getUsersByLastName();
+            return $this->render('@Caradvisor/Admin/Default/adminListUsers.html.twig',[
+               'users' => $users
+        ]);
+
+    }
 }
