@@ -213,4 +213,6 @@ class SecurityController extends Controller
         $em->flush();
         return $this->redirectToRoute("logout");
     }
+
+
 }

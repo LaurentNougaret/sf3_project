@@ -8,7 +8,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class AdminController extends Controller
 {
@@ -20,19 +19,13 @@ class AdminController extends Controller
     public function loginAction(Request $request)
     {
         $authenticationUtils = $this->get('security.authentication_utils');
+        $error = $authenticationUtils->getLastAuthenticationError();         // get the login error if there is one
+        $lastUsername = $authenticationUtils->getLastUsername();         // last username entered by the user
 
-        // get the login error if there is one
-        $error = $authenticationUtils->getLastAuthenticationError();
-
-        // last username entered by the user
-        $lastUsername = $authenticationUtils->getLastUsername();
-
-        return $this->render('@Caradvisor/Admin/Default/test.html.twig', array(
+        return $this->render('@Caradvisor/Admin/Default/login.html.twig', array(
             'last_username' => $lastUsername,
             'error'         => $error,
         ));
-        /*return $this->render('@Caradvisor/Admin/Default/test.html.twig', [
-        ]);*/
     }
 
     /**
@@ -58,6 +51,8 @@ class AdminController extends Controller
             $password = $this->get('security.password_encoder')
                 ->encodePassword($admin, $admin->getPlainPassword());
             $admin->setPassword($password);
+
+            $admin->setRoles(['ROLE_ADMIN']);
 
             $em = $this->getDoctrine()->getManager();
             $em->persist($admin);
