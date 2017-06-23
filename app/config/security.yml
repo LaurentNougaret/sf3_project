@@ -19,9 +19,6 @@ security:
             entity:
                 class: CaradvisorBundle:Admin
                 property: username
-        chain_provider:
-            chain:
-                providers: [user_db, admin_db]
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
@@ -29,11 +26,12 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         admin:
+            anonymous: ~
             pattern: ^/admin
             form_login:
                 login_path: /admin/login
                 check_path: /admin/login
-                default_target_path: default_security_target
+                default_target_path: /admin/dashboard
                 #username_parameters:
                 #password_parameters:
             logout:
@@ -70,10 +68,10 @@ security:
 
     access_control:
         #- require ROLE_ADMIN for /dashboard*
-        - { path: ^/admin/dashboard, roles: ROLE_ADMIN }
+        - { path: ^/admin/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin, roles: ROLE_ADMIN }
 
         # doesn't require special role for authentication
-        - { path: ^/admin/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY}
 
         # require ROLE_PART and ROLE_PRO for /user*
