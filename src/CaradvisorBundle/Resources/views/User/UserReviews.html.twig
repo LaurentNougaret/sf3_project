@@ -13,7 +13,8 @@
                 </div>
             </div>
             <hr class="pro-review-underline"><br>
-                    {% for review in data %}
+    {% for review in data %}
+          {% if review.isActive == 1 %}
             <div class="row">
                 <div class="col-xs-8 col-xs-offset-2">
                     <div class="ListReviewsByPro">
@@ -21,7 +22,7 @@
                             <div class="reviews-content">
                                 <h4 class="review-card-title">Avis réparation</h4>
                                 <p>
-                                <i>{{ review.user.firstName ~ " " ~ review.user.lastName }}</i>, {{ review.user.city }}
+                                <i>{{ review.user.firstName ~ " " ~ review.user.lastName }}</i>
                                 </p>
                                 <small>Posté le {{ review.dateReview|date('d-m-y') }}</small>
                                 <h5><i class="fa fa-quote-left" aria-hidden="true"></i>  {{ review.subject }} <i class="fa fa-quote-right" aria-hidden="true"></i>
@@ -51,8 +52,10 @@
                     </div>
                 </div>
             </div>
-                        {% endfor %}
-                        {% for review in beta %}
+            {% endif %}
+        {% endfor %}
+        {% for review in beta %}
+            {% if review.isActive == 1 %}
             <div class="row">
                 <div class="col-xs-8 col-xs-offset-2">
                     <div class="ListReviewsByPro">
@@ -60,7 +63,7 @@
                             <div class="reviews-content">
                                 <h4 class="review-card-title">Avis Achat {{ review.reviewBuyType  }}</h4>
                                 <p>
-                                    <i>{{ review.user.firstName ~ " " ~ review.user.lastName }}</i>, {{ review.user.city }}
+                                    <i>{{ review.user.firstName ~ " " ~ review.user.lastName }}</i>
                                 </p>
                                 <small>Posté le {{ review.dateReview|date('d-m-y') }}</small>
                                 <h5><i class="fa fa-quote-left" aria-hidden="true"></i>  {{ review.subject }} <i class="fa fa-quote-right" aria-hidden="true"></i>
@@ -89,7 +92,8 @@
                         {% endif %}
                 </div>
             </div>
-                        {% endfor %}
+            {% endif %}
+            {% endfor %}
         </div>
     </section>
 

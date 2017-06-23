@@ -1,0 +1,20 @@
+{% extends'@Caradvisor/Admin/index.html.twig' %}
+{% block body %}
+    <p>Type achat : {{ reviewBuy.reviewBuyType }}</p>
+    <p>Type etablissement : {{ reviewBuy.dealerType }}</p>
+    <p>Nom etablissement : {{ reviewBuy.dealerName}}</p>
+    <p>Ville : {{ reviewBuy.city}}</p>
+    <p>Code postal : {{ reviewBuy.postalCode}}</p>
+    <p>Note globale : {{ reviewBuy.ratingGlobal}}</p>
+    <p>Sujet : {{ reviewBuy.subject}}</p>
+    <p>Avis : {{ reviewBuy.review}}</p>
+    <p>Date achat : {{ reviewBuy.dateBuy|date("d-m-y")}}</p>
+    <p>Note accueil : {{ reviewBuy.ratingWelcome}}</p>
+    <p>Clareté informations : {{ reviewBuy.wantedInformation}}</p>
+    <p>Funding : {{ reviewBuy.fundingSolution}}</p>
+    <p>Recommander le pro : {{ reviewBuy.recommendProRating}}</p>
+    <p>Conseil pour le pro : {{ reviewBuy.advice}}</p>
+    <p>Documents : {{ reviewBuy.attachedFile}}</p>
+    <p>Date avis : {{ reviewBuy.dateReview|date("d-m-y")}}</p>
+    <p>Garantie : {{ reviewBuy.warranty}}</p>
+{% endblock %}

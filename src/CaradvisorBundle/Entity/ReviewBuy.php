@@ -146,7 +146,7 @@ class ReviewBuy
     /**
      * @var bool
      *
-     * @ORM\Column(name="isActive", type="boolean")
+     * @ORM\Column(name="isActive", type="boolean", nullable=true)
      */
     private $isActive;
 

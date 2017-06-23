@@ -1,22 +1,19 @@
 {% extends '@Caradvisor/Admin/index.html.twig' %}
 {% block body %}
     {% for review in reviewsBuy %}
-        {% if review.isActive == 0 %}
         <h3>{{ review.id }}</h3>
         <h4> Avis achat {{ review.reviewBuyType }} </h4>
         <p>{{ review.review }}</p>
-            <a href="{{ path('activate-review-buy', {'reviewBuy': review.id}) }} " type="button">Activer</a>
+            <a href="{{ path('activate_review_buy', {'reviewBuy': review.id}) }}"><button type="button">Activer</button></a>
+            <a href="{{ path('detail_review_buy', {'reviewBuy': review.id})}}"><button type="button">Detail avis</button></a>
             <hr>
-        {% endif %}
-
     {% endfor %}
     {% for review in reviewsRepair %}
-        {% if review.isActive == 0 %}
         <h3>{{ review.id }}</h3>
         <h4> Avis réparation </h4>
         <p>{{ review.review }}</p>
-            <a href="{{ path('activate-review-repair', {'reviewRepair': review.id}) }} " type="button">Activer</a>
+            <a href="{{ path('activate_review_repair', {'reviewRepair': review.id}) }}"><button type="button">Activer</button></a>
+            <a href="{{ path('detail_review_repair', {'reviewRepair': review.id})}}"><button type="button">Detail avis</button></a>
             <hr>
-        {% endif %}
     {% endfor %}
 {% endblock %}

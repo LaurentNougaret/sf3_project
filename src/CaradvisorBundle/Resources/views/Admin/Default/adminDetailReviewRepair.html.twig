@@ -1,0 +1,27 @@
+{% extends'@Caradvisor/Admin/index.html.twig' %}
+{% block body %}
+    <p>Type reparation : {{ reviewRepair.dealerType }}</p>
+    <p>Type etablissement : {{ reviewRepair.dealerType }}</p>
+    <p>Nom etablissement : {{ reviewRepair.dealerName }}</p>
+    <p>Ville : {{ reviewRepair.city }}</p>
+    <p>Code postal : {{ reviewRepair.postalCode }}</p>
+    <p>Note globale : {{ reviewRepair.ratingGlobal }}</p>
+    <p>Sujet : {{ reviewRepair.subject }}</p>
+    <p>Avis : {{ reviewRepair.review }}</p>
+    <p>Date reparation : {{ reviewRepair.dateRepair|date("d-m-y") }}</p>
+    <p>Note accueil : {{ reviewRepair.ratingWelcome }}</p>
+    <p>Type de reparation : {{ reviewRepair.typeRepair }}</p>
+    <p>Delais rendez-vous : {{ reviewRepair.appointmentDelay }}</p>
+    <p>Attente sur place : {{ reviewRepair.onSpotDelayRating }}</p>
+    <p>Explication reparation : {{ reviewRepair.explanationRepair }}</p>
+    <p>Prix de la reparation : {{ reviewRepair.priceRepair }}</p>
+    <p>Autorisation de reparation : {{ reviewRepair.authorizationRepair }}</p>
+    <p>Recpect du devis : {{ reviewRepair.respectQuotationRepair }}</p>
+    <p>Véhicule de courtoisie : {{ reviewRepair.courtesyVehicle }}</p>
+    <p>Respect delais de reparation : {{ reviewRepair.respectDelayRepair }}</p>
+    <p>Etat vehicule rendu : {{ reviewRepair.conditionVehicleRating }}</p>
+    <p>Recommander le pros : {{ reviewRepair.recommendProRating }}</p>
+    <p>Conseil :  {{ reviewRepair.advice }}</p>
+    <p>Image : {{ reviewRepair.attachedFile}}</p>
+    <p>Date de l'avis : {{ reviewRepair.dateReview|date("d-m-y") }}</p>
+{% endblock %}

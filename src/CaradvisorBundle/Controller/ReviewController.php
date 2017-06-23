@@ -44,6 +44,7 @@ class ReviewController extends Controller
             $pro = $repository->findByDealerName($dealerName);
             $reviewRepair->setPro($pro[0]);
             $reviewRepair->setUser($this->getUser());
+            $reviewRepair->setIsActive(false);
 
             $em->persist($reviewRepair);
             $em->flush();
@@ -91,6 +92,7 @@ class ReviewController extends Controller
             $reviewBuy->setPro($pro[0]);
             $reviewBuy->setUser($this->getUser());
             $reviewBuy->setWarranty(false);
+            $reviewBuy->setIsActive(false);
 
             $em->persist($reviewBuy);
             $em->flush();
@@ -129,6 +131,7 @@ class ReviewController extends Controller
             $pro = $repository->findByDealerName($dealerName);
             $reviewBuy->setPro($pro[0]);
             $reviewBuy->setUser($this->getUser());
+            $reviewBuy->setIsActive(false);
 
             $em->persist($reviewBuy);
             $em->flush();

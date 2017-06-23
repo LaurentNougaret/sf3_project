@@ -38,13 +38,12 @@ class AdminController extends Controller
 
     /**
      * @Route ("/admin/reviews", name="admin_reviews")
-     * @param User $user
      * @return Response
      */
     public function adminReviewsAction()
     {
-        $reviewsBuy = $this->getDoctrine()->getRepository('CaradvisorBundle:ReviewBuy')->findAll();
-        $reviewsRepair = $this->getDoctrine()->getRepository('CaradvisorBundle:ReviewRepair')->findAll();
+        $reviewsBuy = $this->getDoctrine()->getRepository('CaradvisorBundle:ReviewBuy')->findByIsActive(false);
+        $reviewsRepair = $this->getDoctrine()->getRepository('CaradvisorBundle:ReviewRepair')->findByIsActive(false);
         return $this->render('@Caradvisor/Admin/Default/adminReviews.html.twig', [
             'reviewsBuy' => $reviewsBuy,
             'reviewsRepair' => $reviewsRepair
@@ -52,11 +51,11 @@ class AdminController extends Controller
     }
 
     /**
-     * @Route("/admin/reviews/activate-review-buy/{reviewBuy}", name="activate-review-buy")
+     * @Route("/admin/reviews/activate-review-buy/{reviewBuy}", name="activate_review_buy")
      * @param ReviewBuy $reviewBuy
      * @return Response
      */
-    public function activateBuyAccount(ReviewBuy $reviewBuy)
+    public function activateBuyAction(ReviewBuy $reviewBuy)
     {
         $em = $this->getDoctrine()->getManager();
         $reviewBuy->setIsActive(true);
@@ -69,11 +68,11 @@ class AdminController extends Controller
     }
 
     /**
-     * @Route("/admin/reviews/activate-review-repair/{reviewRepair}", name="activate-review-repair")
+     * @Route("/admin/reviews/activate-review-repair/{reviewRepair}", name="activate_review_repair")
      * @param ReviewRepair $reviewRepair
      * @return Response
      */
-    public function activateRepairAccount(ReviewRepair $reviewRepair)
+    public function activateRepairAction(ReviewRepair $reviewRepair)
     {
         $em = $this->getDoctrine()->getManager();
         $reviewRepair->setIsActive(true);
@@ -85,5 +84,29 @@ class AdminController extends Controller
 
     }
 
+    /**
+     * @Route("/admin/reviews/detail-buy/{reviewBuy}", name="detail_review_buy")
+     * @param ReviewBuy $reviewBuy
+     * @return Response
+     */
+    public function detailReviewBuyAction(ReviewBuy $reviewBuy)
+    {
+        return $this->render('@Caradvisor/Admin/Default/adminDetailReviewBuy.html.twig', [
+            'reviewBuy' => $reviewBuy
+        ]);
 
+    }
+
+    /**
+     * @Route("/admin/reviews/detail-repair/{reviewRepair}", name="detail_review_repair")
+     * @param ReviewRepair $reviewRepair
+     * @return Response
+     */
+    public function detailReviewRepairAction(ReviewRepair $reviewRepair)
+    {
+        return $this->render('@Caradvisor/Admin/Default/adminDetailReviewRepair.html.twig', [
+            'reviewRepair' => $reviewRepair
+        ]);
+
+    }
 }

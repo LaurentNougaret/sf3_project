@@ -175,7 +175,7 @@ class ReviewRepair
      * @ORM\Column(name="attachedFile", type="string")
      *
      * @Assert\NotBlank(message="Fichiers acceptés : .jpg, .pdf, .png")
-     * @Assert\File(mimeTypes={"application/pdf", "application/jpg", "application/png"})
+     * @Assert\File(mimeTypes={"application/pdf", "image/jpg", "image/png", "image/jpeg"})
      */
     private $attachedFile;
 
@@ -189,7 +189,7 @@ class ReviewRepair
     /**
      * @var bool
      *
-     * @ORM\Column(name="isActive", type="boolean")
+     * @ORM\Column(name="isActive", type="boolean", nullable=true)
      */
     private $isActive;
 
@@ -846,6 +846,7 @@ class ReviewRepair
     public function __construct()
     {
         $this->dateReview = new \DateTime();
+        $this->isActive = false;
     }
 
     /**
