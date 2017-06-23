@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 class AdminController extends Controller
 {
     /**
-     * @Route ("/admin", name="admin")
+     * @Route ("/admin/login", name="admin_login")
      * @param Request $request
      * @return Response
      */
