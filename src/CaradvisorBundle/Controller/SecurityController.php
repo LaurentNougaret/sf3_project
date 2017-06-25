@@ -10,15 +10,12 @@ use CaradvisorBundle\Form\ProProfileType;
 use CaradvisorBundle\Form\ResetPasswordType;
 use CaradvisorBundle\Form\UserType;
 use CaradvisorBundle\Form\VehicleType;
-use Faker\Provider\DateTime;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
-use Symfony\Component\Validator\Constraints\Url;
 
 class SecurityController extends Controller
 {
@@ -28,7 +25,7 @@ class SecurityController extends Controller
      * @return Response
      * @Route("/login", name="login")
      */
-    public function loginAction(Request $request)
+    public function loginAction()
     {
         $authenticationUtils = $this->get('security.authentication_utils');
 
@@ -37,12 +34,6 @@ class SecurityController extends Controller
 
         //last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
-        /*$user = $this->getUser();
-
-        $isActive = $user->isActive(0);
-        if ($isActive === null) {
-            $this->addFlash("notice-red", "Votre compte est désavtivé, veuillez contactez le site.");
-        }*/
 
         return $this->render('@Caradvisor/Security/login.html.twig', [
             'last_username' => $lastUsername,
@@ -63,12 +54,16 @@ class SecurityController extends Controller
         $signup = $request->getSession();
 
         $form = $this->createForm(UserType::class, $user);
+
         $form->handleRequest($request);
+
         if ($form->isSubmitted() && $form->isValid()){
+
             /**
              * Token for signup validation
              */
             $user->setToken(sha1(microtime() . $user->getEmail()));
+
             $password = $this->get('security.password_encoder')
                 ->encodePassword($user, $user->getPlainPassword());
 
@@ -77,7 +72,9 @@ class SecurityController extends Controller
             $dateLimitToken = new \DateTime("now");
             $dateLimitToken->add(new \DateInterval("P1D"));
             $user->setDateLimitToken($dateLimitToken);
+
             $signup->set('role', $user->getRoles());
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
@@ -92,8 +89,8 @@ class SecurityController extends Controller
                         'userName'         => $user->getUserName(),
                         'url'              => $this->generateUrl("home", [], UrlGeneratorInterface::ABSOLUTE_URL),
                         'confirmationLink' => $this->generateUrl("signup_confirmation", [
-                            'token' => $user->getToken(),
-                        ], UrlGeneratorInterface::ABSOLUTE_URL
+                        'token' => $user->getToken(),
+                            ], UrlGeneratorInterface::ABSOLUTE_URL
                         )
                     ]),
                     'text/html'
@@ -186,10 +183,12 @@ class SecurityController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
-            $this->addFlash("notice-green", "Votre compte a bien été enregistré, vous pouvez maintenant vous connecter.");
+
+            $this->addFlash("notice-green", "Votre compte à bien été enregistré, vous pouvez maintenant vous connecter.");
         } else {
             $this->addFlash("notice-red", "Nous n'avons pas pu traiter votre demande.");
         }
+
         return $this->redirectToRoute("home");
     }
 

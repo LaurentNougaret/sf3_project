@@ -1,0 +1,54 @@
+#adminnav .sideNav {
+    padding: 0 !important;
+}
+
+#adminnav ul.nav.nav-pills.nav-stacked {
+    background-color: #2d3142;
+    height: 100vh;
+}
+
+#adminnav ul li a {
+    font-weight: bold;
+    font-size: 1.8vm;
+    color: #bfc0c0 !important;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+#adminnav ul li a:hover, #adminnav ul li a:focus, #adminnav ul li a:active {
+    color: #fff !important;
+    background-color: #ff4756;
+}
+
+#adminnav i {
+    margin-right: 5%;
+}
+
+#adminnav p {
+    margin: 0;
+}
+
+#adminnav .glyphicon {
+    font-size: 2em;
+}
+
+#adminnav li a:focus{
+    outline: none;
+}
+
+@media (max-width: 900px) {
+    #adminnav p {
+        display: none;
+    }
+
+    #adminnav ul li a {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    #adminnav ul.nav.nav-pills.nav-stacked {
+        height: 150vh;
+    }
+}
