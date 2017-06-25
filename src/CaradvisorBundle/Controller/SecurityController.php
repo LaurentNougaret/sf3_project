@@ -77,34 +77,30 @@ class SecurityController extends Controller
             $dateLimitToken = new \DateTime("now");
             $dateLimitToken->add(new \DateInterval("P1D"));
             $user->setDateLimitToken($dateLimitToken);
-            $user->setPicture('web/img/user_avatar.png');
-
             $signup->set('role', $user->getRoles());
-
             $em = $this->getDoctrine()->getManager();
             $em->persist($user);
             $em->flush();
-
             $signup->set('id', $user->getId());
-
             $email = \Swift_Message::newInstance()
                 ->setSubject("Caradvisor : Confirmation d'inscription")
-                ->setFrom("apitchen@gmail.com")
+//                ->setFrom($this->getParameter('mailer_user'))
+                ->setFrom($this->getParameter('mailer_address'))
                 ->setTo($user->getEmail())
                 ->setBody(
                     $this->renderView("@Caradvisor/Mail/signupMail.html.twig", [
                         'userName'         => $user->getUserName(),
                         'url'              => $this->generateUrl("home", [], UrlGeneratorInterface::ABSOLUTE_URL),
                         'confirmationLink' => $this->generateUrl("signup_confirmation", [
-                        'token' => $user->getToken(),
-                            ], UrlGeneratorInterface::ABSOLUTE_URL
+                            'token' => $user->getToken(),
+                        ], UrlGeneratorInterface::ABSOLUTE_URL
                         )
                     ]),
                     'text/html'
                 );
 
             $this->get('mailer')->send($email);
-            $this->addFlash("notice-green", "Un email vous a été envoyé, merci de confimer votre inscription.");
+            $this->addFlash("notice-green", "Un email vous a été envoyé, merci de confirmer votre inscription.");
 
             return $this->redirectToRoute('signupSecond');
         }
@@ -224,7 +220,7 @@ class SecurityController extends Controller
                 $em->flush();
                 $email = \Swift_Message::newInstance()
                     ->setSubject('Caradvisor : réinitialisation du mot de passe')
-                    ->setFrom('apitchen@gmail.com')
+                    ->setFrom($this->getParameter('mailer_address'))
                     ->setTo($newUser->getEmail())
                     ->setBody(
                         $this->renderView("@Caradvisor/Mail/forgottenPassword.html.twig", [

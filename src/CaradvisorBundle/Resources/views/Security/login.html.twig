@@ -25,15 +25,16 @@
                                 <input type="checkbox" id="remember_me" name="_remember_me" checked />
                                 <label for="remember_me">Se souvenir de moi</label>
                             </div>
-                            {#<input type="hidden" name="_target_path" value="/" />#}
-
+                            <div>
+                                <p class="pass_link text-center">Vos avez oublié votre mot de passe? Cliquez <a href="{{ asset(path('forgotten')) }}">ici</a>.</p>
+                            </div>
                             <button class="btn btn-primary btn-block center-block btn-red" type="submit">Connexion</button>
                         </form>
                     </div>
                     <div class="col-xs-10 col-xs-offset-1 col-md-5 col-md-offset-1">
                         <h2 class="text-center">Pas encore inscrit(e) ?</h2>
                         <hr>
-                        <h4 class="text-center">Rejoignez la communauté <strong>Car<span>advisor</span></strong> pour déposer votre avis ou ajouter un établissement (compte professionnel uniquement)</h4>
+                        <h4 class="text-center">Rejoignez la communauté <br/><strong>Car<span>advisor</span></strong><br/> pour déposer votre avis ou ajouter un établissement <br/>(compte professionnel uniquement)<br/></h4>
                         <a href="{{ path('user_signup')}}">
                             <button class="btn btn-primary btn-block center-block btn-red">Cliquez ici</button>
                         </a>
