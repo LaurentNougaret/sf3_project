@@ -1,5 +1,12 @@
 /* ==== ADMIN ==== */
 
+hr {
+    border: 1px solid #ff4756;
+    width: 70%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
 /* -- Connection Button -- */
 #admin .btn-login {
     width: 40%;
@@ -19,13 +26,6 @@
 }
 
 /* -- Home -- */
-#adminHome hr {
-    border: 1px solid #ff4756;
-    width: 70%;
-    margin-top: 5%;
-    margin-bottom: 5%;
-}
-
 #adminHome .panel {
     background-color: white; !important;
     color: #2d3142;
@@ -38,7 +38,6 @@
     transition: 0.5s ease;
 }
 
-
 @media (max-width: 380px) {
     #adminHome .bloc {
         display: block;
@@ -46,3 +45,5 @@
         margin-left: 10%;
     }
 }
+
+/* -- Estabs -- */

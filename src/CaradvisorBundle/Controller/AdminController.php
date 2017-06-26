@@ -3,12 +3,13 @@
 namespace CaradvisorBundle\Controller;
 
 use CaradvisorBundle\Entity\Admin;
+use CaradvisorBundle\Entity\Pro;
 use CaradvisorBundle\Form\AdminType;
+use CaradvisorBundle\Repository\ProRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
 class AdminController extends Controller
 {
@@ -71,4 +72,42 @@ class AdminController extends Controller
         );
     }
 
+    /**
+     * @internal param $page
+     * @param int $page
+     * @return Response
+     * @Route("/admin/etabs", name="admin_etabs")
+     */
+    public function listEstabsAction($page = 1)
+    {
+        $repo = $this->getDoctrine()->getRepository(Pro::class);
+        $maxResults = 5;
+        $proCount = $repo->totalEstabs();
+
+        $pagination = [
+            'page'          => $page,
+            'route'         => 'admin_etabs',
+            'pages_count'   => ceil($proCount / $maxResults),
+            'route_params'  => [],
+        ];
+
+        $pros = $repo->listEstabs($page, $maxResults);
+
+        return $this->render('@Caradvisor/Admin/Default/adminListEstabs.html.twig', [
+            'pros'          => $pros,
+            'pagination'    => $pagination,
+        ]);
+    }
+
+    /**
+     * @Route("/admin/etabs/detail-estabs{pro}", name="detail_pro")
+     * @param Pro $pro
+     * @return Response
+     */
+    public function showEstabsAction(Pro $pro)
+    {
+        return $this->render('@Caradvisor/Admin/Default/adminDetailEstabs.html.twig', [
+            'pro'   => $pro,
+        ]);
+    }
 }
