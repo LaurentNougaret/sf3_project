@@ -1,3 +1,4 @@
+{% extends'@Caradvisor/Admin/index.html.twig' %}
 {% block body %}
     <section id="admin_users">
         <div class="col-xs-10">
@@ -11,6 +12,7 @@
                             <th>Nom</th>
                             <th>Prenom</th>
                             <th>Nom d'utilisateur</th>
+                            <th>Detail</th>
                             <th>Etat</th>
                             <th>Desactiver</th>
                         </tr>
@@ -21,8 +23,14 @@
                             <td>{{ user.lastName }}</td>
                             <td>{{ user.firstName }}</td>
                             <td>{{ user.userName }}</td>
-                            <td></td>
-                            <td></td>
+                            <td><a href="{{ path('detail_user', {'user': user.id}) }}"><i class="fa fa-eye fa-2x" aria-hidden="true"></i></a></td>
+                            {% if user.isActive == true %}
+                                <td><i  class="fa fa-unlock fa-2x" aria-hidden="true"></i></td>
+                                <td><a href="{{ path('desactivate_user', {'user': user.id}) }}"><button type="button">Désactiver</button></a></td>
+                            {% else %}
+                                <td><i class="fa fa-lock fa-2x" aria-hidden="true"></i></td>
+                                <td><a href="{{ path('activate_user', {'user': user.id}) }}"><button type="button">Activer</button></a></td>
+                            {% endif %}
                         </tr>
                         {% endfor %}
                         </tbody>

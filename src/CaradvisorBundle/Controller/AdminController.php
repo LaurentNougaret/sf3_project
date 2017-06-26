@@ -3,6 +3,7 @@
 namespace CaradvisorBundle\Controller;
 
 use CaradvisorBundle\Entity\Admin;
+use CaradvisorBundle\Entity\UserProfile;
 use CaradvisorBundle\Form\AdminType;
 use CaradvisorBundle\Entity\ReviewBuy;
 use CaradvisorBundle\Entity\ReviewRepair;
@@ -64,25 +65,51 @@ class AdminController extends Controller
             $em->persist($admin);
             $em->flush();
 
-            return $this->redirectToRoute('admin');
+            return $this->redirectToRoute('dashboard');
         }
         return $this->render(
             '@Caradvisor/Admin/Default/registerAdmin.html.twig',
             array('form' => $form->createView())
         );
     }
+
     /**
-     * @Route ("/admin/reviews", name="admin_reviews")
+     * @Route ("/admin/reviews/{page}", name="admin_reviews")
+     * @param int $page
      * @return Response
      */
-    public function adminReviewsAction()
+//    public function adminReviewsAction()
+//    {
+//        $reviewsBuy = $this->getDoctrine()->getRepository('CaradvisorBundle:ReviewBuy')->findByIsActive(false);
+//        $reviewsRepair = $this->getDoctrine()->getRepository('CaradvisorBundle:ReviewRepair')->findByIsActive(false);
+//        return $this->render('@Caradvisor/Admin/Default/adminReviews.html.twig', [
+//            'reviewsBuy' => $reviewsBuy,
+//            'reviewsRepair' => $reviewsRepair,
+//        ]);
+//    }
+    public function listAdminReviews($page = 1)
     {
-        $reviewsBuy = $this->getDoctrine()->getRepository('CaradvisorBundle:ReviewBuy')->findByIsActive(false);
-        $reviewsRepair = $this->getDoctrine()->getRepository('CaradvisorBundle:ReviewRepair')->findByIsActive(false);
-        return $this->render('@Caradvisor/Admin/Default/adminReviews.html.twig', [
-            'reviewsBuy' => $reviewsBuy,
-            'reviewsRepair' => $reviewsRepair
+        $repo = $this->getDoctrine()->getRepository('CaradvisorBundle:ReviewBuy');
+        $repos = $this->getDoctrine()->getRepository('CaradvisorBundle:ReviewRepair');
+        $maxResults = 7;
+        $userCount = $repo->totalUsers();
+
+        $pagination = [
+            'page'          => $page,
+            'route'         => 'admin_reviews',
+            'pages_count'    => ceil($userCount / $maxResults),
+            'route_params'  => [],
+        ];
+
+        $reviewsBuy = $repo->listReviewBuy($page, $maxResults);
+        $reviewsRepair = $repos->listReviewRepair($page, $maxResults);
+
+        return $this->render('@Caradvisor/Admin/Default/adminReviews.html.twig',[
+            'reviewsBuy'      => $reviewsBuy,
+            'reviewsRepair'   => $reviewsRepair,
+            'pagination'      => $pagination
         ]);
+
     }
 
     /**
@@ -98,6 +125,7 @@ class AdminController extends Controller
         $em->flush();
         return $this->redirectToRoute("admin_reviews", [
             'reviewBuy' => $reviewBuy
+
         ]);
 
     }
@@ -146,7 +174,7 @@ class AdminController extends Controller
     }
 
     /**
-     * @Route("/admin/users", name="admin_users")
+     * @Route("/admin/users/{page}", name="admin_users")
      * @param int $page
      * @return Response
      */
@@ -168,6 +196,54 @@ class AdminController extends Controller
             return $this->render('@Caradvisor/Admin/Default/adminListUsers.html.twig',[
                 'users'      => $users,
                 'pagination' => $pagination
+        ]);
+
+    }
+
+    /**
+     * @Route("/admin/users/detail/{user}", name="detail_user")
+     * @param User $user
+     * @return Response
+     */
+    public function detailuserAction(User $user)
+    {
+        return $this->render('@Caradvisor/Admin/Default/adminDetailUsers.html.twig', [
+            'user'        => $user,
+            'userProfile' => $user->getUserProfile()
+        ]);
+
+    }
+
+    /**
+     * @Route("/admin/users/desactivate/{user}", name="desactivate_user")
+     * @param User $user
+     * @return Response
+     */
+    public function desactivateUserAction(User $user)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user->setIsActive(false);
+        $em->persist($user);
+        $em->flush();
+        return $this->redirectToRoute("admin_users", [
+            'user' => $user
+        ]);
+
+    }
+
+    /**
+     * @Route("/admin/users/activate/{user}", name="activate_user")
+     * @param User $user
+     * @return Response
+     */
+    public function activateUserAction(User $user)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user->setIsActive(true);
+        $em->persist($user);
+        $em->flush();
+        return $this->redirectToRoute("admin_users", [
+            'user' => $user
         ]);
 
     }

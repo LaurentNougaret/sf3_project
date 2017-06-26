@@ -5,6 +5,8 @@
 #adminnav ul.nav.nav-pills.nav-stacked {
     background-color: #2d3142;
     height: 100vh;
+    position: fixed;
+    width: 16.00%;
 }
 
 #adminnav ul li a {

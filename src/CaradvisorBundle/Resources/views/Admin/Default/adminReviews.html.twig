@@ -1,19 +1,43 @@
 {% extends '@Caradvisor/Admin/index.html.twig' %}
 {% block body %}
-    {% for review in reviewsBuy %}
-        <h3>{{ review.id }}</h3>
-        <h4> Avis achat {{ review.reviewBuyType }} </h4>
-        <p>{{ review.review }}</p>
-            <a href="{{ path('activate_review_buy', {'reviewBuy': review.id}) }}"><button type="button">Activer</button></a>
-            <a href="{{ path('detail_review_buy', {'reviewBuy': review.id})}}"><button type="button">Detail avis</button></a>
-            <hr>
-    {% endfor %}
-    {% for review in reviewsRepair %}
-        <h3>{{ review.id }}</h3>
-        <h4> Avis réparation </h4>
-        <p>{{ review.review }}</p>
-            <a href="{{ path('activate_review_repair', {'reviewRepair': review.id}) }}"><button type="button">Activer</button></a>
-            <a href="{{ path('detail_review_repair', {'reviewRepair': review.id})}}"><button type="button">Detail avis</button></a>
-            <hr>
-    {% endfor %}
+    <div class="row">
+        <div class="col-xs-offset-3">
+            {% for review in reviewsBuy %}
+                <h4> Avis achat {{ review.reviewBuyType }} </h4>
+                <small>{{ review.user.firstName}} {{ review.user.lastName}}, {{ review.user.userName}}</small>
+                <p>{{ review.review }}</p>
+                <small>{{ review.dateReview | date('d-m-y') }}</small><br>
+                    <a href="{{ path('activate_review_buy', {'reviewBuy': review.id}) }}"><button type="button">Activer</button></a>
+                    <a href="{{ path('detail_review_buy', {'reviewBuy': review.id})}}"><button type="button">Detail avis</button></a>
+                    <hr>
+            {% endfor %}
+            {% for review in reviewsRepair %}
+                <h4> Avis réparation </h4>
+                <small>{{ review.user.firstName}} {{ review.user.lastName}}, {{ review.user.userName}}</small>
+                <p>{{ review.review }}</p>
+                <small>{{ review.dateReview | date('d-m-y') }}</small><br>
+                    <a href="{{ path('activate_review_repair', {'reviewRepair': review.id}) }}"><button type="button">Activer</button></a>
+                    <a href="{{ path('detail_review_repair', {'reviewRepair': review.id})}}"><button type="button">Detail avis</button></a>
+                    <hr>
+            {% endfor %}
+            <div class="pagination">
+                <div class="pagination-buttons">
+                    {% if pagination.page > 1 %}
+                        <a href="{{ path(pagination.route, pagination.route_params|merge({'page': 1})) }}"><<</a>
+                        <a href="{{ path(pagination.route, pagination.route_params|merge({'page': pagination.page-1})) }}"><</a>
+                    {% endif %}
+
+                    {#display p numbers only from p-4 to p+4 but don't go <1 or >pages_count#}
+                    {% for p in range(max(pagination.page-4, 1), min(pagination.page+4, pagination.pages_count)) %}
+                        <a{% if p == pagination.page %} class="current-page" {% endif %} href="{{ path(pagination.route, pagination.route_params|merge({'page': p})) }}">{{ p }}</a>
+                    {% endfor %}
+
+                    {% if pagination.page<pagination.pages_count %}
+                        <a href="{{ path(pagination.route, pagination.route_params|merge({'page': pagination.page+1})) }}">></a>
+                        <a href="{{ path(pagination.route, pagination.route_params|merge({'page': pagination.pages_count})) }}">>></a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
