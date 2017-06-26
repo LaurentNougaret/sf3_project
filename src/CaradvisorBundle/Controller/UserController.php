@@ -219,7 +219,7 @@ class UserController extends Controller
      */
     public function reviewsAction()
     {
-        return $this->render('@Caradvisor/Pro/reviews.html.twig', [
+        return $this->render('@Caradvisor/User/UserReviews.html.twig', [
             'data' => $this->getUser()->getReviewRepairs(),
             'beta' => $this->getUser()->getReviewBuys(),
             'user' => $this->getUser(),
@@ -299,9 +299,9 @@ class UserController extends Controller
      * @param Pro $pro
      * @return Response
      */
-    public function listReviewsEstablishmentAction( Pro $pro)
+    public function listReviewsEstablishmentAction(Pro $pro)
     {
-        return $this->render('@Caradvisor/User/reviewsEstab.html.twig', [
+        return $this->render('@Caradvisor/User/estabReviews.html.twig', [
             'data' => $pro->getReviewRepairs(),
             'beta' => $pro->getReviewBuys(),
             'user' => $this->getUser(),

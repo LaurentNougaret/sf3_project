@@ -22,7 +22,12 @@
 
                         <div class="col-xs-6 active">
                             <span>2</span>
+                            {% if (app.session.get('role') == ['ROLE_PART']) %}
                             <p>Vehicule</p>
+                            {% endif %}
+                            {% if (app.session.get('role') == ['ROLE_PRO']) %}
+                            <p>Etablissement</p>
+                            {% endif %}
                         </div>
                     </div>
                     {% if (app.session.get('role') == ['ROLE_PART']) %}
