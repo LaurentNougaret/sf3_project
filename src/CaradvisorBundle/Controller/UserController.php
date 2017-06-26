@@ -113,7 +113,7 @@ class UserController extends Controller
                 $em->flush();
                 $email = \Swift_Message::newInstance()
                     ->setSubject('Caradvisor : réinitialisation du mot de passe')
-                    ->setFrom('apitchen@gmail.com')
+                    ->setFrom($this->getParameter('mailer_address'))
                     ->setTo($newUser->getEmail())
                     ->setBody(
                         $this->renderView("@Caradvisor/Mail/forgottenPassword.html.twig", [
