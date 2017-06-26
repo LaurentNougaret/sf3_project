@@ -5,6 +5,7 @@ namespace CaradvisorBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -42,6 +43,8 @@ class ProProfileType extends AbstractType
                 'attr' => ['placeholder' => 'Marque']])
             ->add('description', TextareaType::class, ['label' => false,
                  'attr' => ['rows' => '6', 'placeholder' => 'Ajoutez une description de votre établissement', 'style' => 'resize = none']])
+            ->add('picture', FileType::class, ['label' => 'Modifiez la photo de votre établissement', 'data_class' => null,
+                 'attr' => ['class' => 'estab_pic' ]])
             ->add('save', SubmitType::class, ['label' => 'Enregistrer', 'attr' =>['class' => 'save-pro-btn center-block']]);
     }
 

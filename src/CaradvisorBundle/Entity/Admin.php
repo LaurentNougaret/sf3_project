@@ -58,6 +58,12 @@ class Admin implements UserInterface, \Serializable
      */
     private $isActive;
 
+    /**
+     * @var array
+     * @ORM\Column(name="roles", type="array")
+     */
+    private $roles = array();
+
     public function __construct()
     {
         $this->isActive = true;
@@ -172,7 +178,7 @@ class Admin implements UserInterface, \Serializable
      */
     public function serialize()
     {
-        return $this->serialize(array(
+        return serialize(array(
             $this->id,
             $this->username,
             $this->password,
@@ -204,6 +210,20 @@ class Admin implements UserInterface, \Serializable
     public function getRoles()
     {
         return array('ROLE_ADMIN');
+    }
+
+    /**
+     * Set roles
+     *
+     * @param array $roles
+     *
+     * @return Admin
+     */
+    public function setRoles($roles)
+    {
+        $this->roles = $roles;
+
+        return $this;
     }
 
     /**
