@@ -10,6 +10,7 @@ use CaradvisorBundle\Form\ReviewBuyType;
 use CaradvisorBundle\Form\ReviewRepairType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -34,6 +35,13 @@ class ReviewController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()){
             $reviewRepair->setDateReview(new \DateTime());
+
+            /** @var File $file */
+            $file = $reviewRepair->getAttachedFile();
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            $targetDirectory = $this->getParameter('attachedfile_directory');
+            $file->move($targetDirectory, $fileName);
+            $reviewRepair->setAttachedFile($fileName);
 
             $em = $this->getDoctrine()->getManager();
 
@@ -73,12 +81,11 @@ class ReviewController extends Controller
             $reviewBuy->setReviewBuyType('Neuf');
             $reviewBuy->setDateReview(new \DateTime());
 
+            /** @var File $file */
             $file = $reviewBuy->getAttachedFile();
             $fileName = md5(uniqid()).'.'.$file->guessExtension();
-            $file->move(
-                $this->getParameter('attachedfile_directory'),
-                $fileName
-            );
+            $targetDirectory = $this->getParameter('attachedfile_directory');
+            $file->move($targetDirectory, $fileName);
             $reviewBuy->setAttachedFile($fileName);
 
             $em = $this->getDoctrine()->getManager();
@@ -87,7 +94,7 @@ class ReviewController extends Controller
 
             $repository = $this->getDoctrine()->getRepository(Pro::class);
 
-            $pro = $repository->findByDealerName($dealerName);
+            $pro = $repository->findOneBy($dealerName);
             $reviewBuy->setPro($pro[0]);
             $reviewBuy->setUser($this->getUser());
             $reviewBuy->setWarranty(false);
@@ -119,6 +126,13 @@ class ReviewController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $reviewBuy->setReviewBuyType('Neuf');
             $reviewBuy->setDateReview(new \DateTime());
+
+            /** @var File $file */
+            $file = $reviewBuy->getAttachedFile();
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            $targetDirectory = $this->getParameter('attachedfile_directory');
+            $file->move($targetDirectory, $fileName);
+            $reviewBuy->setAttachedFile($fileName);
 
             $em = $this->getDoctrine()->getManager();
 

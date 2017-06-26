@@ -9,6 +9,12 @@
     margin: 5% 0;
 }
 
+#signup .icon-back
+{
+    color: #ff4756;
+    margin-bottom: 7%;
+}
+
 #signup .completed span {
     background-color: transparent;
     color: #ff4756;
