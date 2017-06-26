@@ -243,6 +243,7 @@
     position: absolute;
     top: 10px;
     left: 10px;
+    width:100px;
 }
 
 .card .card-image {
@@ -263,6 +264,7 @@
 }
 .card .estab_pic{
     margin-left: 20%;
+    width:100px;
 }
 .card .card-action{
     text-align: left;
