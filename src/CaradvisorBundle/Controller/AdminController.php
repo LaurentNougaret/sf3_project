@@ -29,6 +29,14 @@ class AdminController extends Controller
     }
 
     /**
+     * @Route("/admin/settings", name="admin_settings")
+     */
+    public function settingsAction()
+    {
+        return $this->render('@Caradvisor/Admin/Default/settings.html.twig');
+    }
+
+    /**
      * @Route("/admin/dashboard", name="dashboard")
      */
     public function viewDashboard()
