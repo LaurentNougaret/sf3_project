@@ -152,13 +152,27 @@ class AdminController extends Controller
 
     /**
      * @Route("/admin/users", name="admin_users")
+     * @param int $page
+     * @return Response
      */
-    public function listUsersAction()
+    public function listUsersAction($page = 1)
     {
-        $users = $this->getDoctrine()->getRepository('CaradvisorBundle:User')->findAll(array('lastName' => 'ASC'));
-//        $data = $repo->getUsersByLastName();
+        $repo = $this->getDoctrine()->getRepository('CaradvisorBundle:User');
+        $maxResults = 5;
+        $userCount = $repo->totalUsers();
+
+        $pagination = [
+            'page'          => $page,
+            'route'         => 'admin_users',
+            'pages_count'    => ceil($userCount / $maxResults),
+            'route_params'  => [],
+        ];
+
+        $users = $repo->listUser($page, $maxResults);
+
             return $this->render('@Caradvisor/Admin/Default/adminListUsers.html.twig',[
-               'users' => $users
+                'users'      => $users,
+                'pagination' => $pagination
         ]);
 
     }

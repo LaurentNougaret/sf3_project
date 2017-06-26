@@ -1,6 +1,52 @@
 {% block body %}
-    {% for user in users %}
-        <p>{{ user.lastName }} </p>
-        <hr>
-    {% endfor %}
+    <section id="admin_users">
+        <div class="col-xs-10">
+            <h1 class="text-center">Utilisateurs</h1>
+            <hr class="text-center">
+            <div class="row">
+                <div class="col-xs-10 col-xs-offset-1">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Prenom</th>
+                            <th>Nom d'utilisateur</th>
+                            <th>Etat</th>
+                            <th>Desactiver</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for user in users %}
+                        <tr>
+                            <td>{{ user.lastName }}</td>
+                            <td>{{ user.firstName }}</td>
+                            <td>{{ user.userName }}</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="pagination">
+            <div class="pagination-buttons">
+                {% if pagination.page > 1 %}
+                    <a href="{{ path(pagination.route, pagination.route_params|merge({'page': 1})) }}"><<</a>
+                    <a href="{{ path(pagination.route, pagination.route_params|merge({'page': pagination.page-1})) }}"><</a>
+                {% endif %}
+
+                {#display p numbers only from p-4 to p+4 but don't go <1 or >pages_count#}
+                {% for p in range(max(pagination.page-4, 1), min(pagination.page+4, pagination.pages_count)) %}
+                    <a{% if p == pagination.page %} class="current-page" {% endif %} href="{{ path(pagination.route, pagination.route_params|merge({'page': p})) }}">{{ p }}</a>
+                {% endfor %}
+
+                {% if pagination.page<pagination.pages_count %}
+                    <a href="{{ path(pagination.route, pagination.route_params|merge({'page': pagination.page+1})) }}">></a>
+                    <a href="{{ path(pagination.route, pagination.route_params|merge({'page': pagination.pages_count})) }}">>></a>
+                {% endif %}
+            </div>
+        </div>
+    </section>
 {% endblock %}

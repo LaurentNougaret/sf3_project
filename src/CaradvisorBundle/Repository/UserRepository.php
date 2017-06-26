@@ -3,22 +3,36 @@
 namespace CaradvisorBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 
 class UserRepository extends EntityRepository
 {
-//    public function getUsersByLastName($lastName)
-//    {
-//        $qb = $this->createQueryBuilder("u")
-//            ->select("u.lastName")
-//            ->orderBy("u.lastName" , "asc")
-//            ->getQuery();
-//        return $qb->getResult();
-//
-//
-//    }
+    /**
+     * @param int $page
+     * @param int $maxresults
+     * @return Paginator
+     */
+   public function listUser($page = 1, $maxresults = 5)
+   {
+       $qb = $this->createQueryBuilder('u')
+           ->orderBy('u.lastName', 'ASC')
+           ->setFirstResult(($page - 1) * $maxresults)
+           ->setMaxResults($maxresults)
+           ->getQuery();
 
-    public function findAll()
-    {
-        return $this->findBy(array(), array('lastName' => 'ASC'));
-    }
+       return new Paginator($qb, $fetchJoinCollection = false);
+   }
+
+    /**
+     * @return mixed
+     */
+   public function totalUsers()
+   {
+       $qb = $this->createQueryBuilder('u')
+           ->select('COUNT(u)')
+           ->getQuery()
+           ->getSingleScalarResult();
+
+       return $qb;
+   }
 }
