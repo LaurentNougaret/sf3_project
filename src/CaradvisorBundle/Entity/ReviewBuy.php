@@ -1,6 +1,10 @@
 <?php
+
 namespace CaradvisorBundle\Entity;
+
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 /**
  * ReviewBuy
  *
@@ -122,7 +126,9 @@ class ReviewBuy
     /**
      * @var string
      *
-     * @ORM\Column(name="attachedFile", type="blob")
+     * @ORM\Column(name="attachedFile", type="string")
+     * @Assert\NotBlank(message="Fichiers acceptés : .jpg, .jpeg, .pdf")
+     * @Assert\File(mimeTypes={"application/pdf", "image/jpg", "image/jpeg"})
      */
     private $attachedFile;
     /**

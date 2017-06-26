@@ -1,0 +1,48 @@
+/* ==== ADMIN ==== */
+
+/* -- Connection Button -- */
+#admin .btn-login {
+    width: 40%;
+    margin: 10px auto;
+    border-radius: 4px;
+    border: 3px solid #ff4756;
+    background-color: #fff;
+    color: #ff4756;
+    -o-transition:color .2s ease-out, background .2s ease-in;
+    -moz-transition:color .2s ease-out, background .2s ease-in;
+    -webkit-transition:color .2s ease-out, background .2s ease-in;
+}
+#admin .btn-login:hover, .btn-login:focus {
+    color: #fff;
+    background-color: #ff4756;
+    outline: none;
+}
+
+/* -- Home -- */
+#adminHome hr {
+    border: 1px solid #ff4756;
+    width: 70%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+#adminHome .panel {
+    background-color: white; !important;
+    color: #2d3142;
+    border-color: #5e5e5e;
+    text-align: center;
+}
+
+#adminHome .panel:hover {
+    color: #ff4756;
+    transition: 0.5s ease;
+}
+
+
+@media (max-width: 380px) {
+    #adminHome .bloc {
+        display: block;
+        width: 80%;
+        margin-left: 10%;
+    }
+}

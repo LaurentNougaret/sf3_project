@@ -40,7 +40,6 @@ class LoadProData extends AbstractFixture implements OrderedFixtureInterface
             $pro->setPostalCode($faker->regexify('[0-9]{1}[0-7]{1}[0-9]{2}0'));
             $pro->setPhone($faker->regexify('0[0-9]{1}([0-9]{2}){4}'));
             $pro->setDescription($faker->paragraph(2));
-            $pro->setPicture($faker->imageUrl('http://i1248.photobucket.com/albums/hh481/ondine3/268cdd2f-a81d-42ee-b7b8-895a091e4b79_zpsk3iuquvw.jpg'));
             $pro->setRatingPro($faker->randomElement($array = [
                 '1',
                 '2',

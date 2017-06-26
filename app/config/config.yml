@@ -8,6 +8,9 @@ imports:
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
+    attachedfile_directory: '%kernel.root_dir%/../web/upload/attachedFile'
+    avatar_directory: '%kernel.root_dir%/../web/upload/avatar'
+    estabpic_directory: '%kernel.root_dir%/../web/upload/estabPic'
 
 framework:
     #esi: ~
@@ -71,4 +74,5 @@ swiftmailer:
     port: '%mailer_port%'
     username: '%mailer_user%'
     password: '%mailer_password%'
+    sender_address: '%mailer_address%'
     spool: { type: memory }

@@ -1,0 +1,19 @@
+{% extends "@Caradvisor/Admin/index.html.twig" %}
+{% block body %}
+
+    <!-- Only Admin will have access to this form. It allows adding other
+    admins.
+    After it's tested and done, please don't forget to update access control
+    for it in security.yml, limiting the access to Role_Admin -->
+
+    <h1>Register Admin</h1>
+    {{ form_start(form) }}
+    {{ form_row(form.username) }}
+    {{ form_row(form.email) }}
+    {{ form_row(form.plainPassword.first) }}
+    {{ form_row(form.plainPassword.second) }}
+
+<button type="submit">Register!</button>
+{{ form_end(form) }}
+
+{% endblock %}

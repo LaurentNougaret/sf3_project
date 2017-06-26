@@ -1,6 +1,7 @@
 {% extends ('@Caradvisor/index.html.twig') %}
 {% block body %}
 
+
     <section id="signup">
         <div class="container">
             <div class="row">
@@ -11,13 +12,12 @@
                             <span></span>
                             <p>Profil</p>
                         </div>
-
                         <div class="col-xs-6 todo">
                             <span></span>
-                            <p>Vehicule</p>
+                            <p>Véhicule</p>
                         </div>
                     </div>
-                    <h3 class="text-center">Créer votre profil</h3>
+                    <h3 class="text-center">Créez votre profil</h3>
                     <hr>
                     {{ form_start(form) }}
                     {{ form_errors(form) }}
@@ -40,11 +40,12 @@
                         {{ form_row(form.username) }}
                     </div>
                     <div class="col-xs-12">
-                        {{ form_row(form.plainpassword.first) }}
+                        {{ form_row(form.plainPassword.first) }}
                     </div>
                     <div class="col-xs-12">
-                        {{ form_row(form.plainpassword.second) }}
+                        {{ form_row(form.plainPassword.second) }}
                     </div>
+
                     <div class="row">
                         <div id="inscrition-text-footer" class="col-xs-12 col-sm-12 text-justify">
                             En cliquant sur  <strong>Inscription</strong>, vous acceptez les <a href="{{ path('cgu') }}" target="_blank">Conditions d'utilisation</a> en vigueur sur ce site, y compris notre politique sur les cookies.
@@ -56,7 +57,6 @@
                         </div>
                     </div>
                     {{ form_row(form._token) }}
-
                     {{ form_end(form, {'render_rest': false}) }}
                 </div>
             </div>

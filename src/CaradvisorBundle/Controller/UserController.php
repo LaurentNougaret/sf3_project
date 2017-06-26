@@ -1,7 +1,5 @@
 <?php
-
 namespace CaradvisorBundle\Controller;
-
 use CaradvisorBundle\Entity\Answer;
 use CaradvisorBundle\Entity\Pro;
 use CaradvisorBundle\Entity\ReviewBuy;
@@ -9,19 +7,21 @@ use CaradvisorBundle\Entity\ReviewRepair;
 use CaradvisorBundle\Entity\User;
 use CaradvisorBundle\Entity\Vehicle;
 use CaradvisorBundle\Form\AnswerType;
-use CaradvisorBundle\Form\ChangePasswordType;
+use CaradvisorBundle\Form\ForgottenPasswordType;
 use CaradvisorBundle\Form\ProProfileType;
 use CaradvisorBundle\Form\UserType;
 use CaradvisorBundle\Form\VehicleType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class UserController extends Controller
 {
     // Home page for user (professionals & non-professionals)
-
     /**
      * @Route("/user", name="user")
      * @return Response
@@ -29,10 +29,9 @@ class UserController extends Controller
     public function indexAction()
     {
         return $this->render('@Caradvisor/User/home.html.twig', [
-            "user" => $user = $this->get('security.token_storage')->getToken()->getUser()
+            "user" => $this->getUser(),
         ]);
     }
-
     // User's profile page: Visualize profile
     /**
      * @Route("/user/profile", name="user_profile")
@@ -40,15 +39,12 @@ class UserController extends Controller
      */
     public function profileAction()
     {
-
         return $this->render('@Caradvisor/User/profile.html.twig', [
-            "user" => $user = $this->get('security.token_storage')->getToken()->getUser(),
-            "userProfile" => $user->getUserProfile(),
+            "user" => $this->getUser(),
+            "userProfile" => $this->getUser()->getUserProfile(),
         ]);
     }
-
     // User's profile page: Edit profile
-
     /**
      * @Route("/user/profile/edit", name="user_edit")
      * @param Request $request
@@ -56,22 +52,29 @@ class UserController extends Controller
      */
     public function editAction(Request $request)
     {
-        $editForm = $this->createForm(UserType::class, $user = $this->get('security.token_storage')->getToken()->getUser());
+        $currentUser = $this->getUser();
+        $editForm = $this->createForm(UserType::class, $currentUser);
+        $editForm->remove('roles');
         $editForm->handleRequest($request);
-
         if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
 
+            /** @var File $file */
+            $file = $currentUser->getPicture();
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            $targetDirectory = $this->getParameter('avatar_directory');
+            $file->move($targetDirectory, $fileName);
+            $currentUser->setPicture($fileName);
+
+            $this->getDoctrine()->getManager()->flush();
             return $this->redirectToRoute('user_profile', array(
-                "user" => $user = $this->get('security.token_storage')->getToken()->getUser()
+                "user" => $currentUser,
             ));
         }
         return $this->render('@Caradvisor/User/editUser.html.twig', array(
             'edit_form' => $editForm->createView(),
-            'user' => $user = $this->get('security.token_storage')->getToken()->getUser()
+            'user' => $user = $currentUser,
         ));
     }
-
     // User's settings page
     /**
      * @Route("/user/settings", name="user_settings")
@@ -80,42 +83,57 @@ class UserController extends Controller
     public function settingsAction()
     {
         return $this->render('@Caradvisor/User/settings.html.twig',[
-            'user' => $user = $this->get('security.token_storage')->getToken()->getUser()
+            'user' => $this->getUser(),
         ]);
     }
-
     // User's settings page: Change Password
     /**
      * @Route("/user/settings/password", name="user_password")
      * @return Response
+     * @Method({"GET", "POST"})
      */
     public function changePasswordAction(Request $request)
     {
         $user = new User();
         $em = $this->getDoctrine()->getManager();
-        $form = $this->createForm(ChangePasswordType::class, $user);
+        $form = $this->createForm(ForgottenPasswordType::class, $user);
         $form->handleRequest($request);
         $message = "";
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $password = $user->getPassword();
-            $verificationPassword = $request->request->get("caradvisor_bundle_reset_password_type")["newPassword"];
-            if ($password === $verificationPassword) {
-                $encoder = $this->get('security.password_encoder');
-                $encoded = $encoder->encodePassword($user, $user->getPassword());
-                $user->setPassword($encoded);
-                $em->flush();
-                $this->addFlash("notice", "Votre mot de passe a bien été modifié.");
-                return $this->redirectToRoute("home");
+        if ($form->isSubmitted() && $form->isValid()){
+            /** @var User $newUser */
+            $newUser = $em->getRepository("CaradvisorBundle:User")->findOneBy(["email" => $user->getEmail()]);
+            if (null === $newUser){
+                $message = "Nous n'avons pas trouvé cet utilisateur";
             } else {
-                $message = "Les mots de passe ne correspondent pas.";
+                $newUser->setToken($newUser->generateToken());
+                $dueDate = new \DateTime("now");
+                $dueDate->add(new \DateInterval("P1D"));
+                $newUser->setDateLimitToken($dueDate);
+                $em->persist($newUser);
+                $em->flush();
+                $email = \Swift_Message::newInstance()
+                    ->setSubject('Caradvisor : réinitialisation du mot de passe')
+                    ->setFrom($this->getParameter('mailer_address'))
+                    ->setTo($newUser->getEmail())
+                    ->setBody(
+                        $this->renderView("@Caradvisor/Mail/forgottenPassword.html.twig", [
+                            "resetPasswordLink" => $this->generateUrl("reset", [
+                                "token" => $newUser->getToken(),
+                            ],
+                                UrlGeneratorInterface::ABSOLUTE_URL),
+                        ]),
+                        'text/html'
+                    );
+                $this->get('mailer')->send($email);
+                $this->addFlash("notice-green", "Un mail a été envoyé à l'adresse de l'utilisateur.");
+                return $this->redirectToRoute('home');
             }
-        return $this->render('CaradvisorBundle:Security:passwordReset.html.twig', [
-            'form' => $form->createView(),
-            "message" => $message,
-            ]);
         }
-        return $this->redirectToRoute("home");
+        return $this->render("@Caradvisor/Security/passwordProcess.html.twig", [
+            "form" => $form->createView(),
+            "userName" => $user->getUserName(),
+            "message" => $message,
+        ]);
     }
 
     // User's show vehicles
@@ -131,18 +149,17 @@ class UserController extends Controller
         $form = $this->createForm(VehicleType::class, $car);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            $car->setUser($user= $this->get('security.token_storage')->getToken()->getUser());
+            $car->setUser($this->getUser());
             $em->persist($car);
             $em->flush();
         }
         return $this->render('@Caradvisor/User/car.html.twig',[
-            'user' => $user= $this->get('security.token_storage')->getToken()->getUser(),
-            'data' =>$user->getVehicles(),
-            'alfa' =>$user->getLastName(),
+            'user' => $this->getUser(),
+            'data' =>$this->getUser()->getVehicles(),
+            'alfa' =>$this->getUser()->getLastName(),
             'form' => $form->createView(),
         ]);
     }
-
     // User's vehicles: Add new vehicle
     /**
      * @Route("/user/vehicles/detail/{vehicle}", name="detail_car")
@@ -152,11 +169,10 @@ class UserController extends Controller
     public function showDetailCarAction(Vehicle $vehicle)
     {
         return $this->render('@Caradvisor/User/detailCar.html.twig', [
-            'user' => $user= $this->get('security.token_storage')->getToken()->getUser(),
+            'user' => $this->getUser(),
             'vehicle' => $vehicle,
         ]);
     }
-
     // User's vehicles: Edit vehicle
     /**
      * @Route("/user/vehicles/edit/{vehicle}", name="edit_vehicle")
@@ -171,17 +187,16 @@ class UserController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
             return $this->redirectToRoute('user_vehicle', array(
-                'user' => $user= $this->get('security.token_storage')->getToken()->getUser(),
+                'user' => $this->getUser(),
                 'vehicle' => $vehicle->getId(),
             ));
         }
         return $this->render('@Caradvisor/User/editCar.html.twig', array(
             'edit_form' => $editForm->createView(),
-            'user' => $user= $this->get('security.token_storage')->getToken()->getUser(),
+            'user' => $this->getUser(),
             'vehicle' => $vehicle
         ));
     }
-
     // User's vehicles: Delete vehicle
     /**
      * @Route("/user/vehicles/delete/{vehicle}", name="delete_car")
@@ -195,24 +210,21 @@ class UserController extends Controller
         $em->flush();
         return $this->redirectToRoute('user_vehicle', array(
             'vehicle' => $vehicle,
-            'user' => $user= $this->get('security.token_storage')->getToken()->getUser(),
+            'user' => $this->getUser(),
         ));
     }
-
-
     /**
      * @Route("/user/reviews", name="user_reviews")
      * @return Response
      */
     public function reviewsAction()
     {
-       return $this->render('@Caradvisor/Pro/reviews.html.twig', [
-           'data' => $user= $this->get('security.token_storage')->getToken()->getUser()->getReviewRepairs(),
-           'beta' => $user= $this->get('security.token_storage')->getToken()->getUser()->getReviewBuys(),
-           'user' => $user= $this->get('security.token_storage')->getToken()->getUser()
-       ]);
+        return $this->render('@Caradvisor/User/UserReviews.html.twig', [
+            'data' => $this->getUser()->getReviewRepairs(),
+            'beta' => $this->getUser()->getReviewBuys(),
+            'user' => $this->getUser(),
+        ]);
     }
-
     // Professionals page: list of establishments of an user
     /**
      * @Route("/user/establishments", name="user_establishments")
@@ -226,17 +238,16 @@ class UserController extends Controller
         $form = $this->createForm(ProProfileType::class, $establishment);
         $form ->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()){
-            $establishment->setUser($user= $this->get('security.token_storage')->getToken()->getUser());
+            $establishment->setUser($this->getUser());
             $em->persist($establishment);
             $em->flush();
         }
         return $this->render('@Caradvisor/User/establishments.html.twig', [
-            'user' => $user= $this->get('security.token_storage')->getToken()->getUser(),
-            'establishment' => $user->getPros(),
+            'user' => $this->getUser(),
+            'establishment' => $this->getUser()->getPros(),
             'form' => $form->createView(),
         ]);
     }
-
     // Professionals page: profile of an establishment
     /**
      * @param Pro $pro
@@ -246,11 +257,10 @@ class UserController extends Controller
     public function showEstablishmentProfileAction(Pro $pro)
     {
         return $this->render('@Caradvisor/Pro/profile.html.twig', [
-            'user' => $user= $this->get('security.token_storage')->getToken()->getUser(),
+            'user' => $this->getUser(),
             'pro' => $pro,
         ]);
     }
-
     // Professionals page: edit profile of an establishment
     /**
      * @Route("/user/establishments/edit/{pro}", name="edit_establishment")
@@ -262,41 +272,43 @@ class UserController extends Controller
     {
         $editForm = $this->createForm(ProProfileType::class, $pro);
         $editForm->handleRequest($request);
-
         if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
 
+            /** @var File $file */
+            $file = $pro->getPicture();
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            $targetDirectory = $this->getParameter('estabpic_directory');
+            $file->move($targetDirectory, $fileName);
+            $pro->setPicture($fileName);
+
+            $this->getDoctrine()->getManager()->flush();
             return $this->redirectToRoute('establishment_profile', array(
-                'user' => $user= $this->get('security.token_storage')->getToken()->getUser(),
+                'user' => $this->getUser(),
                 'pro' => $pro->getId(),
             ));
         }
         return $this->render('@Caradvisor/User/editEstab.html.twig', array(
             'edit_form' => $editForm->createView(),
-            'user' => $user= $this->get('security.token_storage')->getToken()->getUser(),
+            'user' => $this->getUser(),
             'pro' => $pro
         ));
     }
-
     // Professionals page: see reviews of an establishment
-
     /**
      * @Route("/user/establishments/reviews/{pro}", name="reviews_establishment")
      * @param Pro $pro
      * @return Response
      */
-    public function listReviewsEstablishmentAction( Pro $pro)
+    public function listReviewsEstablishmentAction(Pro $pro)
     {
-       return $this->render('@Caradvisor/User/reviewsEstab.html.twig', [
-           'data' => $pro->getReviewRepairs(),
-           'beta' => $pro->getReviewBuys(),
-           'user' => $user= $this->get('security.token_storage')->getToken()->getUser(),
-           'pro' =>  $pro,
-       ]);
+        return $this->render('@Caradvisor/User/estabReviews.html.twig', [
+            'data' => $pro->getReviewRepairs(),
+            'beta' => $pro->getReviewBuys(),
+            'user' => $this->getUser(),
+            'pro' =>  $pro,
+        ]);
     }
-
     // Professionals page: answer to a client's review
-
     /**
      * @Route("/user/establishments/reviews/answer/repair/{user}/{pro}", name="answer_repair")
      * @param User $user
@@ -319,7 +331,6 @@ class UserController extends Controller
             $answer->setReviewRepair($repair);
             $em->persist($answer);
             $em->flush();
-
             return $this->redirectToRoute('reviews_establishment', array(
                 'user' => $user->getId(),
                 'pro' => $pro->getId(),
@@ -332,7 +343,6 @@ class UserController extends Controller
             'form' =>$form->createView(),
         ]);
     }
-
     /**
      * @Route("/user/establishments/reviews/answer/buy/{user}/{pro}", name="answer_buy")
      * @param User $user
@@ -355,7 +365,6 @@ class UserController extends Controller
             $answer->setReviewBuy($buy);
             $em->persist($answer);
             $em->flush();
-
             return $this->redirectToRoute('reviews_establishment', array(
                 'user' => $user->getId(),
                 'pro' => $pro->getId(),

@@ -20,11 +20,11 @@ class ReviewBuyType extends AbstractType
             ->add('dealerType', ChoiceType::class, [
                 'label' => 'Type de prestataire',
                 'choices' => [
-                    'Concessionnaire' => 1,
-                    'Garagiste' => 2,
-                    'Agent' => 3,
-                    'Carrossier' => 4,
-                    'Autre' => 5
+                    'Concessionnaire' => 'Concessionnaire',
+                    'Garagiste' => 'Garagiste',
+                    'Agent' => 'Agent',
+                    'Carrossier' => 'Carrossier',
+                    'Autre' => 'Autre'
                 ]
             ])
             ->add('dealerName', TextType::class, [
@@ -55,7 +55,7 @@ class ReviewBuyType extends AbstractType
                 'attr' => [
                     'rows' => '7',
                     'style' => 'resize:none',
-                    'placeholder' => 'Devrivez votre expérience',
+                    'placeholder' => 'Decrivez votre expérience',
                 ]
             ])
             ->add('dateBuy', DateType::class, [
@@ -95,7 +95,7 @@ class ReviewBuyType extends AbstractType
                 'multiple'=>false,
             ])
             ->add('wantedEngineTest', ChoiceType::class, [
-                'label' => 'L\'essai était-il sur le véhicule souhaité (motorisation ?',
+                'label' => 'L\'essai était-il sur le véhicule souhaité (motorisation, finition ...) ?',
                 'choices' => ['oui' => 1, 'non' => 2],
                 'required'=>true,
                 'expanded'=>true,
