@@ -1,6 +1,6 @@
 {% block body %}
     <section id="adminnav">
-        {% if app.request.get('_route') == 'admin_login' %}
+        {% if app.request.get('_route') == 'admin_login' or app.request.get('_route') == 'admin_register'%}
         {% else %}
         <div class="col-xs-2 sideNav">
             <ul class="nav nav-pills nav-stacked">

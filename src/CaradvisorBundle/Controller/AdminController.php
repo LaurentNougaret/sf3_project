@@ -58,7 +58,7 @@ class AdminController extends Controller
             $em->persist($admin);
             $em->flush();
 
-            return $this->redirectToRoute('admin');
+            return $this->redirectToRoute('admin_login');
         }
         return $this->render(
             '@Caradvisor/Admin/Default/registerAdmin.html.twig',
