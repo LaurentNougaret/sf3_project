@@ -7,6 +7,9 @@ hr {
     margin-bottom: 5%;
 }
 
+.fa-chevron-left {
+    color: #ff4756;
+}
 /* -- Connection Button -- */
 #admin .btn-login {
     width: 40%;

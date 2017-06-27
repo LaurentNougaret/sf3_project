@@ -60,7 +60,7 @@ class AdminController extends Controller
             $em->persist($admin);
             $em->flush();
 
-            return $this->redirectToRoute('admin');
+            return $this->redirectToRoute('dashboard');
         }
         return $this->render(
             '@Caradvisor/Admin/Default/registerAdmin.html.twig',
@@ -72,7 +72,7 @@ class AdminController extends Controller
      * @internal param $page
      * @param int $page
      * @return Response
-     * @Route("/admin/etabs", name="admin_etabs")
+     * @Route("/admin/etablissements/{page}", name="admin_etabs")
      */
     public function listEstabsAction($page = 1)
     {
@@ -96,14 +96,47 @@ class AdminController extends Controller
     }
 
     /**
-     * @Route("/admin/etabs/detail-estabs{pro}", name="detail_pro")
-     * @param Pro $pro
+     * @Route("/admin/etablissements/detail-establissements/{pros}", name="detail_pro")
+     * @param Pro $pros
      * @return Response
      */
-    public function showEstabsAction(Pro $pro)
+    public function showEstabsAction(Pro $pros)
     {
         return $this->render('@Caradvisor/Admin/Default/adminDetailEstabs.html.twig', [
-            'pro'   => $pro,
+            'pro'   => $pros,
         ]);
+    }
+
+    /**
+     * @Route("/admin/users/desactivate/{pros}", name="desactivate_pro")
+     * @param Pro $pros
+     * @return Response
+     */
+    public function desactivateEstabAction(Pro $pros)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $pros->setIsActive(false);
+        $em->persist($pros);
+        $em->flush();
+        return $this->redirectToRoute("admin_etabs", [
+            'pros' => $pros
+        ]);
+    }
+
+    /**
+     * @Route("/admin/users/activate/{pros}", name="activate_pro")
+     * @param Pro $pros
+     * @return Response
+     */
+    public function activateEstabAction(Pro $pros)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $pros->setIsActive(true);
+        $em->persist($pros);
+        $em->flush();
+        return $this->redirectToRoute("admin_etabs", [
+            'pros' => $pros
+        ]);
+
     }
 }

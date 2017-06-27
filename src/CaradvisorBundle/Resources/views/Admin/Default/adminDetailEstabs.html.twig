@@ -1,4 +1,43 @@
 {% extends '@Caradvisor/Admin/index.html.twig' %}
 {% block body %}
-{{ pro.dealerName }}
+
+    <div class="col-xs-10">
+        <div class="col-xs-10 col-xs-offset-1 col-xs-offset-2">
+            <h1 class="text-center">
+                <a href="{{ path('admin_etabs') }}" class="pull-left">
+                    <i class="icon-back fa fa-chevron-left fa-1x" aria-hidden="true"></i>
+                </a>
+                {{ pro.dealerName }}
+            </h1>
+            <hr class="text-center">
+        </div>
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-2">
+                <div class="panel panel-default">
+
+                    <div class="panel-heading text-center">
+                        {% if pro.picture is null %}
+                            <img src="{{ asset('img/default_estab.svg') }}" style="width:100px;" />
+                        {%  else %}
+                            <img src="{{ asset('upload/estabPic/' ~ pro.picture)}}" style="width:100px;" />
+                        {% endif %}
+                    </div>
+                    <div class="panel-body">
+                        <p>{{ pro.description }}</p>
+                    </div>
+
+                    <ul class="list-group">
+                        <li class="list-group-item"><strong>SIRET : </strong><span class="pull-right">{{ pro.siret }}</span></li>
+                        <li class="list-group-item"><strong>Type : </strong><span class="pull-right">{{ pro.dealerType }}</span></li>
+                        <li class="list-group-item"><strong>Addresse : </strong><span class="pull-right">{{ pro.address }}</span></li>
+                        <li class="list-group-item"><strong>Code Postal : </strong><span class="pull-right">{{ pro.postalCode }}</span></li>
+                        <li class="list-group-item"><strong>Ville : </strong><span class="pull-right">{{ pro.city }}</span></li>
+                        <li class="list-group-item"><strong>E-mail : </strong><span class="pull-right">{{ pro.email }}</span></li>
+                        <li class="list-group-item"><strong>Ville : </strong><span class="pull-right">{{ pro.city }}</span></li>
+                        <li class="list-group-item"><strong>Téléphone : </strong><span class="pull-right">{{ pro.phone }}</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
