@@ -28,6 +28,7 @@
                             <div>
                                 <p class="pass_link text-center">Vos avez oublié votre mot de passe? Cliquez <a href="{{ asset(path('forgotten')) }}">ici</a>.</p>
                             </div>
+                            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
                             <button class="btn btn-primary btn-block center-block btn-red" type="submit">Connexion</button>
                         </form>
                     </div>
