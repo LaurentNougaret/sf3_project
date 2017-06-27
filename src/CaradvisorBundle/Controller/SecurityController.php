@@ -80,7 +80,6 @@ class SecurityController extends Controller
             $signup->set('id', $user->getId());
             $email = \Swift_Message::newInstance()
                 ->setSubject("Caradvisor : Confirmation d'inscription")
-//                ->setFrom($this->getParameter('mailer_user'))
                 ->setFrom($this->getParameter('mailer_address'))
                 ->setTo($user->getEmail())
                 ->setBody(
