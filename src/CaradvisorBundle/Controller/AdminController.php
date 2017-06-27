@@ -132,7 +132,6 @@ class AdminController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $pros->setIsActive(true);
-        $em->persist($pros);
         $em->flush();
         return $this->redirectToRoute("admin_etabs", [
             'pros' => $pros
