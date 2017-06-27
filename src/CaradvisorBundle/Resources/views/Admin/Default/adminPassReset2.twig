@@ -1,0 +1,31 @@
+{% extends "@Caradvisor/Admin/index.html.twig" %}
+{% block body %}
+    <section class="admin_password_reset">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 text-center">
+                    <h2 class="text-center">Modifiez votre mot de passe</h2>
+                    <hr class="password-review-underline">
+                    <div class="row inline-block">
+                        {% for flash_message in app.session.flashBag.get('notice') %}
+                            <div class="alert alert-info">
+                                {{ flash_message }}
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                {{ form_start(form) }}
+                {{ form_errors(form) }}
+                <div class="col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-3">
+                    {{ form_row(form.plainPassword.first) }}
+                    {{ form_row(form.plainPassword.second) }}
+                    {{ form_widget(form._token) }}
+                    {{ form_row(form.save) }}
+                    {{ form_end(form, {'render_rest': false}) }}
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

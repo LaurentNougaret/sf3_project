@@ -29,29 +29,29 @@
                                             {'pro': pro.id}) }}">{{ pro.dealerName }}</a></span>
                                     </div><!-- card content -->
 
-                                    <!-- Info about establishment -->
-                                    <div class="card-action">
-                                        <ul>
-                                            <li><p>SIRET: {{ pro.siret }}</p></li>
-                                            <li><p>Type: {{ pro.dealerType }}</p></li>
-                                            <li><p>Addresse: {{ pro.address }}</p></li>
-                                            <li><p>Code Postal: {{ pro.postalCode }}</p></li>
-                                            <li><p>Ville: {{ pro.city }}</p></li>
-                                            <li><p>E-mail: {{ pro.email }}</p></li>
-                                            <li><p>Téléphone: {{ pro.phone }}</p></li>
-                                            <li><p>Description: {{ pro.description }}</p></li>
-                                        </ul>
-                                        <br>
-                                        <a class="seeReviews" href="{{ path('reviews_establishment',
-                                        {'pro': pro.id, 'user': user.id}) }}">
-                                            <i class="fa fa-comments fa-2x" aria-hidden="true"></i>
-                                        </a>
-                                        <a href="{{ path('edit_establishment',{'pro':pro.id}) }}">
-                                            <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
-                                        </a>
-                                    </div>
+                                <!-- Info about establishment -->
+                                <div class="card-action">
+                                    <ul>
+                                        <li><p>SIRET: {{ pro.siret }}</p></li>
+                                        <li><p>Type: {{ pro.dealerType }}</p></li>
+                                        <li><p>Addresse: {{ pro.address }}</p></li>
+                                        <li><p>Code Postal: {{ pro.postalCode }}</p></li>
+                                        <li><p>Ville: {{ pro.city }}</p></li>
+                                        <li><p>E-mail: {{ pro.email }}</p></li>
+                                        <li><p>Téléphone: {{ pro.phone }}</p></li>
+                                        <li><p>Description: {{ pro.description }}</p></li>
+                                    </ul>
+                                    <br>
+                                    <a class="seeReviews" href="{{ path('reviews_establishment',
+                                    {'pro': pro.id, 'user': user.id}) }}">
+                                        <i class="fa fa-comments fa-2x" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="{{ path('edit_establishment',{'pro':pro.id}) }}">
+                                        <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
+                                    </a>
                                 </div>
                             </div>
+                        </div>
                     </div>
                 </div>
             </div>
