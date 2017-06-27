@@ -13,10 +13,9 @@ class AdminController extends Controller
 {
     /**
      * @Route ("/admin/login", name="admin_login")
-     * @param Request $request
      * @return Response
      */
-    public function loginAction(Request $request)
+    public function loginAction()
     {
         $authenticationUtils = $this->get('security.authentication_utils');
         $error = $authenticationUtils->getLastAuthenticationError();         // get the login error if there is one
@@ -30,10 +29,12 @@ class AdminController extends Controller
 
     /**
      * @Route("/admin/dashboard", name="dashboard")
+     * @return Response
      */
     public function viewDashboard()
     {
-        return $this->render('@Caradvisor/Admin/Default/home.html.twig');
+        return $this->render('@Caradvisor/Admin/Default/home.html.twig'
+        );
     }
 
     /**
