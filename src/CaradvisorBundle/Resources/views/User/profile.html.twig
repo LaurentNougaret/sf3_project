@@ -20,9 +20,9 @@
                                 <!-- Avatar utilisateur -->
                                 <span class="user-avatar">
                                     {% if user.picture is null %}
-                                        <img src="{{ asset('img/user_avatar.png') }}" style="width:100px;" />
+                                        <img src="{{ asset('img/user_avatar.png') }}" />
                                     {%  else %}
-                                        <img src="{{ asset('upload/avatar/' ~ user.picture)}}" style="width:100px;" />
+                                        <img src="{{ asset('upload/avatar/' ~ user.picture)}}" />
                                     {% endif %}
                                 </span>
                                 <!-- Title -->
