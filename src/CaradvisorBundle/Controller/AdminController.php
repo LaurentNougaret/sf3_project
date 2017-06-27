@@ -5,8 +5,10 @@ namespace CaradvisorBundle\Controller;
 use CaradvisorBundle\Entity\Admin;
 use CaradvisorBundle\Form\AdminPassReset1Type;
 use CaradvisorBundle\Form\AdminPassReset2Type;
+use CaradvisorBundle\Entity\Pro;
 use CaradvisorBundle\Form\AdminType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use CaradvisorBundle\Repository\ProRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -155,4 +157,75 @@ class AdminController extends Controller
         );
     }
 
+    /**
+     * @internal param $page
+     * @param int $page
+     * @return Response
+     * @Route("/admin/etablissements/{page}", name="admin_etabs")
+     */
+    public function listEstabsAction($page = 1)
+    {
+        $repo = $this->getDoctrine()->getRepository(Pro::class);
+        $maxResults = 5;
+        $proCount = $repo->totalEstabs();
+
+        $pagination = [
+            'page'          => $page,
+            'route'         => 'admin_etabs',
+            'pages_count'   => ceil($proCount / $maxResults),
+            'route_params'  => [],
+        ];
+
+        $pros = $repo->listEstabs($page, $maxResults);
+
+        return $this->render('@Caradvisor/Admin/Default/adminListEstabs.html.twig', [
+            'pros'          => $pros,
+            'pagination'    => $pagination,
+        ]);
+    }
+
+    /**
+     * @Route("/admin/etablissements/detail-establissements/{pros}", name="detail_pro")
+     * @param Pro $pros
+     * @return Response
+     */
+    public function showEstabsAction(Pro $pros)
+    {
+        return $this->render('@Caradvisor/Admin/Default/adminDetailEstabs.html.twig', [
+            'pro'   => $pros,
+        ]);
+    }
+
+    /**
+     * @Route("/admin/users/desactivate/{pros}", name="desactivate_pro")
+     * @param Pro $pros
+     * @return Response
+     */
+    public function desactivateEstabAction(Pro $pros)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $pros->setIsActive(false);
+        $em->persist($pros);
+        $em->flush();
+        return $this->redirectToRoute("admin_etabs", [
+            'pros' => $pros
+        ]);
+    }
+
+    /**
+     * @Route("/admin/users/activate/{pros}", name="activate_pro")
+     * @param Pro $pros
+     * @return Response
+     */
+    public function activateEstabAction(Pro $pros)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $pros->setIsActive(true);
+        $em->persist($pros);
+        $em->flush();
+        return $this->redirectToRoute("admin_etabs", [
+            'pros' => $pros
+        ]);
+
+    }
 }
