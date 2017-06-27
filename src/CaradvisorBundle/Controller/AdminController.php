@@ -39,7 +39,9 @@ class AdminController extends Controller
      */
     public function viewDashboard()
     {
-        return $this->render('@Caradvisor/Admin/Default/home.html.twig');
+        return $this->render('@Caradvisor/Admin/Default/home.html.twig', array(
+            'admin' => $this->getUser(),
+        ));
     }
 
     // Change Password
