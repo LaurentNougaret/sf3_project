@@ -48,6 +48,7 @@ class LoadProData extends AbstractFixture implements OrderedFixtureInterface
             ]));
             $pro->setEmail($faker->email);
             $pro->setBrand($faker->company);
+            $pro->setIsActive($faker->randomElement($array = ['0', '1']));
 
             $pro->setUser($this->getReference("users_" . rand(0, LoadUserData::MAX_USER - 1)));
 

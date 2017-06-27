@@ -124,6 +124,12 @@ class Pro
     private $answer;
 
     /**
+     * @var bool
+     * @ORM\Column(name="isActive", type="boolean")
+     */
+    private $isActive;
+
+    /**
      * Get id
      *
      * @return int

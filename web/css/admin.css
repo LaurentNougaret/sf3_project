@@ -6,6 +6,7 @@ hr {
     margin-top: 5%;
     margin-bottom: 5%;
 }
+
 .fa-chevron-left {
     color: #ff4756;
 }
@@ -28,13 +29,6 @@ hr {
 }
 
 /* -- Home -- */
-#adminHome hr {
-    border: 1px solid #ff4756;
-    width: 70%;
-    margin-top: 5%;
-    margin-bottom: 5%;
-}
-
 #adminHome .panel {
     background-color: white; !important;
     color: #2d3142;
@@ -47,7 +41,6 @@ hr {
     transition: 0.5s ease;
 }
 
-
 @media (max-width: 380px) {
     #adminHome .bloc {
         display: block;
@@ -55,3 +48,5 @@ hr {
         margin-left: 10%;
     }
 }
+
+/* -- Estabs -- */

@@ -1,0 +1,60 @@
+{% extends ('@Caradvisor/index.html.twig') %}
+{% block body %}
+    <section class="pro">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h2 class="text-center">Mon établissement</h2>
+                    <hr class="pro-review-underline"><br>
+                    <!-- Back to main page -->
+                    <div class="row">
+                        <div class="col-xs-10 col-xs-offset-2 col-md-6 col-md-offset-2">
+                            <a href="{{ path('user_establishments') }}">
+                                <i class="icon-back fa fa-chevron-left fa-1x" aria-hidden="true"></i> </i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-6 col-xs-offset-3">
+                            <div class="card">
+                                <!-- Establishment's photo -->
+                                {% if pro.picture is null %}
+                                    <img src="{{ asset('img/default_estab.svg') }}" style="width:100px;" />
+                                {%  else %}
+                                    <img src="{{ asset('upload/estabPic/' ~ pro.picture)}}" style="width:100px;" />
+                                {% endif %}
+                                <!-- Title -->
+                                <div class="card-content">
+                                    <span class="card-title"><a href="{{ path('establishment_profile',
+                                        {'pro': pro.id}) }}">{{ pro.dealerName }}</a></span>
+                                </div><!-- card content -->
+
+                                <!-- Info about establishment -->
+                                <div class="card-action">
+                                    <ul>
+                                        <li><p>SIRET: {{ pro.siret }}</p></li>
+                                        <li><p>Type: {{ pro.dealerType }}</p></li>
+                                        <li><p>Addresse: {{ pro.address }}</p></li>
+                                        <li><p>Code Postal: {{ pro.postalCode }}</p></li>
+                                        <li><p>Ville: {{ pro.city }}</p></li>
+                                        <li><p>E-mail: {{ pro.email }}</p></li>
+                                        <li><p>Téléphone: {{ pro.phone }}</p></li>
+                                        <li><p>Description: {{ pro.description }}</p></li>
+                                    </ul>
+                                    <br>
+                                    <a class="seeReviews" href="{{ path('reviews_establishment',
+                                    {'pro': pro.id, 'user': user.id}) }}">
+                                        <i class="fa fa-comments fa-2x" aria-hidden="true"></i>
+                                    </a>
+                                    <a href="{{ path('edit_establishment',{'pro':pro.id}) }}">
+                                        <i class="fa fa-pencil-square-o fa-2x" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

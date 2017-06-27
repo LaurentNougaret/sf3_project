@@ -124,6 +124,12 @@ class Pro
     private $answer;
 
     /**
+     * @var bool
+     * @ORM\Column(name="isActive", type="boolean")
+     */
+    private $isActive;
+
+    /**
      * Get id
      *
      * @return int
@@ -528,5 +534,31 @@ class Pro
     {
         $this->answer = $answer;
         return $this;
+    }
+
+
+
+    /**
+     * Set isActive
+     *
+     * @param boolean $isActive
+     *
+     * @return Pro
+     */
+    public function setIsActive($isActive)
+    {
+        $this->isActive = $isActive;
+
+        return $this;
+    }
+
+    /**
+     * Get isActive
+     *
+     * @return boolean
+     */
+    public function getIsActive()
+    {
+        return $this->isActive;
     }
 }

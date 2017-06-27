@@ -2,7 +2,10 @@
 
 namespace CaradvisorBundle\Repository;
 
-class ProRepository extends \Doctrine\ORM\EntityRepository
+use Doctrine\ORM\EntityRepository;
+use Doctrine\ORM\Tools\Pagination\Paginator;
+
+class ProRepository extends EntityRepository
 {
     /**
      * @param $dealerName
@@ -17,5 +20,34 @@ class ProRepository extends \Doctrine\ORM\EntityRepository
             ->setParameter('dealerName', $dealerName)
             ->getQuery();
         return $qb->getResult();
+    }
+
+    /**
+     * @param int $page
+     * @param int $maxResults
+     * @return Paginator
+     */
+    public function listEstabs($page = 1, $maxResults = 5)
+    {
+        $qb = $this->createQueryBuilder('p')
+            ->orderBy('p.dealerName', 'ASC')
+            ->setFirstResult(($page - 1) * $maxResults)
+            ->setMaxResults($maxResults)
+            ->getQuery();
+
+        return new Paginator($qb, $fetchJoinCollection = false);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function totalEstabs()
+    {
+        $qb = $this->createQueryBuilder('p')
+            ->select('COUNT(p)')
+            ->getQuery()
+            ->getSingleScalarResult();
+
+        return $qb;
     }
 }
