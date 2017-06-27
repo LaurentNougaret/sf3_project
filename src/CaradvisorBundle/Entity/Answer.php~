@@ -1,6 +1,8 @@
 <?php
 namespace CaradvisorBundle\Entity;
+
 use Doctrine\ORM\Mapping as ORM;
+
 /**
  * Answer
  *
@@ -161,8 +163,4 @@ class Answer
         $this->reviewBuy = $reviewBuy;
         return $this;
     }
-
-
-
-
 }

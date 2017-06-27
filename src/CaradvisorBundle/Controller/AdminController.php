@@ -54,7 +54,7 @@ class AdminController extends Controller
         $form = $this->createForm(AdminType::class, $admin);
 
         $form->handleRequest($request);
-        if($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $password = $this->get('security.password_encoder')
                 ->encodePassword($admin, $admin->getPlainPassword());
             $admin->setPassword($password);
@@ -78,15 +78,7 @@ class AdminController extends Controller
      * @param int $page
      * @return Response
      */
-//    public function adminReviewsAction()
-//    {
-//        $reviewsBuy = $this->getDoctrine()->getRepository('CaradvisorBundle:ReviewBuy')->findByIsActive(false);
-//        $reviewsRepair = $this->getDoctrine()->getRepository('CaradvisorBundle:ReviewRepair')->findByIsActive(false);
-//        return $this->render('@Caradvisor/Admin/Default/adminReviews.html.twig', [
-//            'reviewsBuy' => $reviewsBuy,
-//            'reviewsRepair' => $reviewsRepair,
-//        ]);
-//    }
+
     public function listAdminReviews($page = 1)
     {
         $repo = $this->getDoctrine()->getRepository('CaradvisorBundle:ReviewBuy');
@@ -104,12 +96,11 @@ class AdminController extends Controller
         $reviewsBuy = $repo->listReviewBuy($page, $maxResults);
         $reviewsRepair = $repos->listReviewRepair($page, $maxResults);
 
-        return $this->render('@Caradvisor/Admin/Default/adminReviews.html.twig',[
+        return $this->render('@Caradvisor/Admin/Default/adminReviews.html.twig', [
             'reviewsBuy'      => $reviewsBuy,
             'reviewsRepair'   => $reviewsRepair,
             'pagination'      => $pagination
         ]);
-
     }
 
     /**
@@ -121,13 +112,11 @@ class AdminController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $reviewBuy->setIsActive(true);
-        $em->persist($reviewBuy);
         $em->flush();
         return $this->redirectToRoute("admin_reviews", [
             'reviewBuy' => $reviewBuy
 
         ]);
-
     }
 
     /**
@@ -139,12 +128,10 @@ class AdminController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $reviewRepair->setIsActive(true);
-        $em->persist($reviewRepair);
         $em->flush();
         return $this->redirectToRoute("admin_reviews", [
             'reviewRepair' => $reviewRepair
         ]);
-
     }
 
     /**
@@ -157,7 +144,6 @@ class AdminController extends Controller
         return $this->render('@Caradvisor/Admin/Default/adminDetailReviewBuy.html.twig', [
             'reviewBuy' => $reviewBuy
         ]);
-
     }
 
     /**
@@ -170,7 +156,6 @@ class AdminController extends Controller
         return $this->render('@Caradvisor/Admin/Default/adminDetailReviewRepair.html.twig', [
             'reviewRepair' => $reviewRepair
         ]);
-
     }
 
     /**
@@ -193,11 +178,10 @@ class AdminController extends Controller
 
         $users = $repo->listUser($page, $maxResults);
 
-            return $this->render('@Caradvisor/Admin/Default/adminListUsers.html.twig',[
+        return $this->render('@Caradvisor/Admin/Default/adminListUsers.html.twig', [
                 'users'      => $users,
                 'pagination' => $pagination
         ]);
-
     }
 
     /**
@@ -211,7 +195,6 @@ class AdminController extends Controller
             'user'        => $user,
             'userProfile' => $user->getUserProfile()
         ]);
-
     }
 
     /**
@@ -223,12 +206,10 @@ class AdminController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $user->setIsActive(false);
-        $em->persist($user);
         $em->flush();
         return $this->redirectToRoute("admin_users", [
             'user' => $user
         ]);
-
     }
 
     /**
@@ -240,11 +221,9 @@ class AdminController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $user->setIsActive(true);
-        $em->persist($user);
         $em->flush();
         return $this->redirectToRoute("admin_users", [
             'user' => $user
         ]);
-
     }
 }

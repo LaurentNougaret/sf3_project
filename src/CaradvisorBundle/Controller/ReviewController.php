@@ -14,7 +14,6 @@ use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-
 class ReviewController extends Controller
 {
     /**
@@ -33,7 +32,7 @@ class ReviewController extends Controller
 
         //$user = $this->getDoctrine()->getRepository(User::class);
 
-        if ($form->isSubmitted() && $form->isValid()){
+        if ($form->isSubmitted() && $form->isValid()) {
             $reviewRepair->setDateReview(new \DateTime());
 
             /** @var File $file */
@@ -70,7 +69,8 @@ class ReviewController extends Controller
      * @return Response
      * @Route("/review/buy/new", name="review_new")
      */
-    public function addReviewNewAction(Request $request) {
+    public function addReviewNewAction(Request $request)
+    {
         $this->denyAccessUnlessGranted('ROLE_PART', null, 'Vous ne pouvez pas déposez d\'avis avec votre compte professionnel');
 
         $reviewBuy = new ReviewBuy();
@@ -106,7 +106,7 @@ class ReviewController extends Controller
 
             return $this->redirectToRoute('home');
         }
-        return $this->render('@Caradvisor/Reviews/buy.html.twig',[
+        return $this->render('@Caradvisor/Reviews/buy.html.twig', [
             'form'      => $form->createView(),
             'reviewBuy' => $reviewBuy,
         ]);
@@ -117,7 +117,8 @@ class ReviewController extends Controller
      * @return Response
      * @Route("/review/buy/used", name="review_used")
      */
-    public function addReviewUsedAction(Request $request) {
+    public function addReviewUsedAction(Request $request)
+    {
         $this->denyAccessUnlessGranted('ROLE_PART', null, 'Vous ne pouvez pas déposez d\'avis avec votre compte professionnel');
 
         $reviewBuy = new ReviewBuy();
@@ -152,7 +153,7 @@ class ReviewController extends Controller
 
             return $this->redirectToRoute('home');
         }
-        return $this->render('@Caradvisor/Reviews/buy.html.twig',[
+        return $this->render('@Caradvisor/Reviews/buy.html.twig', [
             'form'      => $form->createView(),
             'reviewBuy' => $reviewBuy,
         ]);

@@ -1,5 +1,6 @@
 {% extends'@Caradvisor/Admin/index.html.twig' %}
 {% block body %}
+<div class="col-xs-offset-3">
     <p>Type achat : {{ reviewBuy.reviewBuyType }}</p>
     <p>Type etablissement : {{ reviewBuy.dealerType }}</p>
     <p>Nom etablissement : {{ reviewBuy.dealerName}}</p>
@@ -17,4 +18,5 @@
     <p>Documents : {{ reviewBuy.attachedFile}}</p>
     <p>Date avis : {{ reviewBuy.dateReview|date("d-m-y")}}</p>
     <p>Garantie : {{ reviewBuy.warranty}}</p>
+</div>
 {% endblock %}

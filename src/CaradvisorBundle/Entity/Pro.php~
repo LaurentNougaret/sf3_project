@@ -529,6 +529,4 @@ class Pro
         $this->answer = $answer;
         return $this;
     }
-
-
 }

@@ -15,7 +15,7 @@ class UserProfileType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-            $builder
+        $builder
                 ->add('birthdate', BirthdayType::class, [
                     'required' => false,
                     'label' => false,
@@ -54,6 +54,4 @@ class UserProfileType extends AbstractType
     {
         return 'caradvisorbundle_userprofile';
     }
-
-
 }

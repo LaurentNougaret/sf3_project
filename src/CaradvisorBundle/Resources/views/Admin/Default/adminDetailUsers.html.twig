@@ -1,56 +1,40 @@
-{% extends ('@Caradvisor/Admin/index.html.twig') %}
+{% extends '@Caradvisor/Admin/index.html.twig' %}
 {% block body %}
-    {#<section class="pro">#}
-        {#<div class="container">#}
-            {#<div class="row">#}
-                {#<div class="col-xs-12">#}
-                    {#<h2 class="text-center">Mon profil</h2>#}
-                    {#<hr class="pro-review-underline"><br>#}
-                    {#<!-- Back to main page -->#}
-                    {#<div class="row">#}
-                        <div class="col-xs-10 col-xs-offset-2 col-md-6 col-md-offset-2">
-                            <a href="{{ path('admin_users') }}">
-                                <i class="icon-back fa fa-chevron-left fa-1x" aria-hidden="true"></i> </i>
-                            </a>
-                        </div>
-                    {#</div>#}
-                    {#<div class="row">#}
-                        <div class="col-xs-6 col-xs-offset-3">
-                            <div class="card">
-                                <!-- Avatar utilisateur -->
-                                <span class="user-avatar">
-                                    {% if user.picture is null %}
-                                        <img src="{{ asset('img/user_avatar.png') }}" style="width:100px;" />
-                                    {%  else %}
-                                        <img src="{{ asset('upload/avatar/' ~ user.picture)}}" style="width:100px;" />
-                                    {% endif %}
-                                </span>
-                                <!-- Title -->
-                                <div class="card-content">
-                                    <span class="card-title">{{ user.firstName ~ " " ~ user.lastName }}</a></span>
-                                </div>
+    <div class="col-xs-10">
+        <div class="col-xs-10 col-xs-offset-1 col-xs-offset-2">
+            <h1 class="text-center">
+                <a href="{{ path('admin_users') }}" class="pull-left">
+                    <i class="icon-back fa fa-chevron-left fa-1x" aria-hidden="true"></i>
+                </a>
+                {{ user.userName }}
+            </h1>
+            <hr class="text-center">
+        </div>
+        <div class="row">
+            <div class="col-xs-8 col-xs-offset-2">
+                <div class="panel panel-default">
 
-                                <!-- Info about user -->
-                                <div class="card-action">
-                                    <ul>
-                                        <li><p>Prénom: {{ user.firstName }}</p></li>
-                                        <li><p>Nom: {{ user.lastName }}</p></li>
-                                        <li><p>Nom d'utilisateur: {{ user.userName }}</p></li>
-                                         Using "default" Twig filter to set default value if it's undefined or empty
-                                        <li><p>Date de naissance: {{ userProfile.birthdate|date('d-m-Y') }}</p></li>
-                                        <li><p>Genre: {{ user.gender}}</p></li>
-                                        <li><p>Adresse: {{ userProfile.address|default('') }}</p></li>
-                                        <li><p>Code postal: {{ userProfile.postalCode|default('') }}</p></li>
-                                        <li><p>Ville: {{ userProfile.city|default('') }}</p></li>
-                                        <li><p>E-mail: {{ user.email }}</p></li>
-                                        <li><p>Téléphone: {{ userProfile.phone|default('') }}</p></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    {#</div>#}
-                {#</div>#}
-            {#</div>#}
-        {#</div>#}
-    </section>
+                    <div class="panel-heading text-center">
+                        {% if user.picture is null %}
+                            <img src="{{ asset('img/user_avatar.png') }}" style="width:100px;" />
+                        {%  else %}
+                            <img src="{{ asset('upload/avatar/' ~ user.picture)}}" style="width:100px;" />
+                        {% endif %}
+                    </div>
+                    <ul class="list-group">
+                        <li class="list-group-item"><strong>Nom : </strong><span class="pull-right">{{ user.lastName }}</span></li>
+                        <li class="list-group-item"><strong>Prénom : </strong><span class="pull-right">{{ user.firstName }}</span></li>
+                        <li class="list-group-item"><strong>Nom d'utilisateur : </strong><span class="pull-right">{{ user.userName }}</span></li>
+                        <li class="list-group-item"><strong>Email : </strong><span class="pull-right">{{ user.email }}</span></li>
+                        <li class="list-group-item"><strong>Genre : </strong><span class="pull-right">{{ user.gender }}</span></li>
+                        <li class="list-group-item"><strong>Adresse: </strong><span class="pull-right">{{ userProfile.address }}</span></li>
+                        <li class="list-group-item"><strong>Ville : </strong><span class="pull-right">{{ userProfile.city }}</span></li>
+                        <li class="list-group-item"><strong>Code postal : </strong><span class="pull-right">{{ userProfile.postalCode }}</span></li>
+                        <li class="list-group-item"><strong>Téléphone : </strong><span class="pull-right">{{ userProfile.phone }}</span></li>
+                        <li class="list-group-item"><strong>Date de naissance : </strong><span class="pull-right">{{ userProfile.birthdate | date('d-m-y') }}</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

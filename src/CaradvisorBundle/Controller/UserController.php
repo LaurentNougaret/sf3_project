@@ -1,5 +1,6 @@
 <?php
 namespace CaradvisorBundle\Controller;
+
 use CaradvisorBundle\Entity\Answer;
 use CaradvisorBundle\Entity\Pro;
 use CaradvisorBundle\Entity\ReviewBuy;
@@ -82,7 +83,7 @@ class UserController extends Controller
      */
     public function settingsAction()
     {
-        return $this->render('@Caradvisor/User/settings.html.twig',[
+        return $this->render('@Caradvisor/User/settings.html.twig', [
             'user' => $this->getUser(),
         ]);
     }
@@ -99,10 +100,10 @@ class UserController extends Controller
         $form = $this->createForm(ForgottenPasswordType::class, $user);
         $form->handleRequest($request);
         $message = "";
-        if ($form->isSubmitted() && $form->isValid()){
+        if ($form->isSubmitted() && $form->isValid()) {
             /** @var User $newUser */
             $newUser = $em->getRepository("CaradvisorBundle:User")->findOneBy(["email" => $user->getEmail()]);
-            if (null === $newUser){
+            if (null === $newUser) {
                 $message = "Nous n'avons pas trouvé cet utilisateur";
             } else {
                 $newUser->setToken($newUser->generateToken());
@@ -142,7 +143,7 @@ class UserController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function listCarsAction(Request $request )
+    public function listCarsAction(Request $request)
     {
         $car = new Vehicle();
         $em = $this->getDoctrine()->getManager();
@@ -153,7 +154,7 @@ class UserController extends Controller
             $em->persist($car);
             $em->flush();
         }
-        return $this->render('@Caradvisor/User/car.html.twig',[
+        return $this->render('@Caradvisor/User/car.html.twig', [
             'user' => $this->getUser(),
             'data' =>$this->getUser()->getVehicles(),
             'alfa' =>$this->getUser()->getLastName(),
@@ -237,7 +238,7 @@ class UserController extends Controller
         $em = $this->getDoctrine()->getManager();
         $form = $this->createForm(ProProfileType::class, $establishment);
         $form ->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()){
+        if ($form->isSubmitted() && $form->isValid()) {
             $establishment->setUser($this->getUser());
             $em->persist($establishment);
             $em->flush();

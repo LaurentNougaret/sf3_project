@@ -1,5 +1,14 @@
 /* ==== ADMIN ==== */
 
+hr {
+    border: 1px solid #ff4756;
+    width: 70%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+.fa-chevron-left {
+    color: #ff4756;
+}
 /* -- Connection Button -- */
 #admin .btn-login {
     width: 40%;

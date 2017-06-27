@@ -4,7 +4,6 @@ namespace CaradvisorBundle\Repository;
 
 use Doctrine\ORM\Tools\Pagination\Paginator;
 
-
 /**
  * ReviewRepairRepository
  *
@@ -33,7 +32,6 @@ class ReviewRepairRepository extends \Doctrine\ORM\EntityRepository
                     ->getQuery();
 
         return $qb->getResult();
-
     }
 
     /**
