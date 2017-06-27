@@ -36,7 +36,6 @@ class Admin implements UserInterface, \Serializable
      * @var string
      *
      * @ORM\Column(name="username", type="string", length=25, unique=true)
-     * @Assert\NotBlank()
      */
     private $username;
 
@@ -48,7 +47,6 @@ class Admin implements UserInterface, \Serializable
     private $password;
 
     /**
-     * @Assert\NotBlank()
      * @Assert\Length(max=4096)
      */
     private $plainPassword;
@@ -63,6 +61,18 @@ class Admin implements UserInterface, \Serializable
      * @ORM\Column(name="roles", type="array")
      */
     private $roles = array();
+
+    /**
+     * @ORM\Column(name="token", type="string", length=255, nullable=true)
+     */
+    private $token;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_limit_token", type="datetime", nullable=true)
+     */
+    private $dateLimitToken;
 
     public function __construct()
     {
@@ -271,5 +281,46 @@ class Admin implements UserInterface, \Serializable
     public function getIsActive()
     {
         return $this->isActive;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getToken()
+    {
+        return $this->token;
+    }
+
+    /**
+     * @param mixed $token
+     * @return Admin
+     */
+    public function setToken($token)
+    {
+        $this->token = $token;
+        return $this;
+    }
+
+    public function generateToken()
+    {
+        return sha1(microtime() . $this->getEmail());
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDateLimitToken()
+    {
+        return $this->dateLimitToken;
+    }
+
+    /**
+     * @param mixed $dateLimitToken
+     * @return Admin
+     */
+    public function setDateLimitToken($dateLimitToken)
+    {
+        $this->dateLimitToken = $dateLimitToken;
+        return $this;
     }
 }
