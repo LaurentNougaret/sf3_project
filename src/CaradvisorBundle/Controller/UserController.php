@@ -333,12 +333,12 @@ class UserController extends Controller
             $em->persist($answer);
             $em->flush();
             return $this->redirectToRoute('reviews_establishment', array(
-                'user' => $user= $this->get('security.token_storage')->getToken()->getUser(),
+                'user' => $user->getId(),
                 'pro' => $pro->getId(),
             ));
         }
         return $this->render('@Caradvisor/User/UserEstablishment/answerReviewEstabRepair.html.twig', [
-            'user' => $user= $this->get('security.token_storage')->getToken()->getUser(),
+            'user' => $user->getId(),
             'pro' => $pro,
             'reviewrepair' => $reviewRepair,
             'form' =>$form->createView(),
@@ -367,12 +367,12 @@ class UserController extends Controller
             $em->persist($answer);
             $em->flush();
             return $this->redirectToRoute('reviews_establishment', array(
-                'user' => $user= $this->get('security.token_storage')->getToken()->getUser(),
+                'user' => $user->getId(),
                 'pro' => $pro->getId(),
             ));
         }
         return $this->render('@Caradvisor/User/UserEstablishment/answerReviewEstabRepair.html.twig', [
-            'user' => $user= $this->get('security.token_storage')->getToken()->getUser(),
+            'user' => $user->getId(),
             'pro' => $pro,
             'reviewbuy' => $reviewBuy,
             'form' =>$form->createView(),

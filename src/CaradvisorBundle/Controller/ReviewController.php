@@ -48,8 +48,8 @@ class ReviewController extends Controller
 
             $repository = $this->getDoctrine()->getRepository(Pro::class);
 
-            $pro = $repository->findByDealerName($dealerName);
-            $reviewRepair->setPro($pro[0]);
+            $pro = $repository->findOneBy($dealerName);
+            $reviewRepair->setPro($pro);
             $reviewRepair->setUser($this->getUser());
             $reviewRepair->setIsActive(false);
 
@@ -96,7 +96,7 @@ class ReviewController extends Controller
             $repository = $this->getDoctrine()->getRepository(Pro::class);
 
             $pro = $repository->findOneBy($dealerName);
-            $reviewBuy->setPro($pro[0]);
+            $reviewBuy->setPro($pro);
             $reviewBuy->setUser($this->getUser());
             $reviewBuy->setWarranty(false);
             $reviewBuy->setIsActive(false);
@@ -143,8 +143,8 @@ class ReviewController extends Controller
 
             $repository = $this->getDoctrine()->getRepository(Pro::class);
 
-            $pro = $repository->findByDealerName($dealerName);
-            $reviewBuy->setPro($pro[0]);
+            $pro = $repository->findOneBy($dealerName);
+            $reviewBuy->setPro($pro);
             $reviewBuy->setUser($this->getUser());
             $reviewBuy->setIsActive(false);
 

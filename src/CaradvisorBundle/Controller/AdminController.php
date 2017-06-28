@@ -246,7 +246,7 @@ class AdminController extends Controller
     {
         $repo = $this->getDoctrine()->getRepository('CaradvisorBundle:ReviewBuy');
         $maxResults = 7;
-        $userCount = $repo->totalUsers();
+        $userCount = count($repo);
 
         $pagination = [
             'page'          => $page,
@@ -273,8 +273,7 @@ class AdminController extends Controller
     {
         $repos = $this->getDoctrine()->getRepository('CaradvisorBundle:ReviewRepair');
         $maxResults = 7;
-        $userCount = $repos->totalUsers();
-
+        $userCount =count($repos);
         $pagination = [
             'page'          => $page,
             'route'         => 'admin_reviews_repair',
