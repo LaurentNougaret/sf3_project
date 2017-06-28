@@ -7,7 +7,7 @@
                     <a href="{{ path('dashboard') }}" class="pull-left">
                         <i class="icon-back fa fa-chevron-left fa-1x" aria-hidden="true"></i>
                     </a>
-                    Liste des avis
+                    Liste des avis achat
                 </h1>
                 <hr class="text-center">
             </div>
@@ -23,20 +23,6 @@
                             <button type="button">Activer</button>
                         </a>
                         <a href="{{ path('detail_review_buy', {'reviewBuy': review.id}) }}">
-                            <button type="button">Detail avis</button>
-                        </a>
-                        <hr>
-                    {% endfor %}
-                    {% for review in reviewsRepair %}
-                        <h4> Avis réparation </h4>
-                        <small>{{ review.user.firstName }} {{ review.user.lastName }}
-                            , {{ review.user.userName }}</small><br><br>
-                        <p>{{ review.review }}</p>
-                        <small>{{ review.dateReview | date('d-m-y') }}</small><br><br>
-                        <a href="{{ path('activate_review_repair', {'reviewRepair': review.id}) }}">
-                            <button type="button">Activer</button>
-                        </a>
-                        <a href="{{ path('detail_review_repair', {'reviewRepair': review.id}) }}">
                             <button type="button">Detail avis</button>
                         </a>
                         <hr>

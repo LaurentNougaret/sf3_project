@@ -9,9 +9,6 @@ use CaradvisorBundle\Form\AdminType;
 use CaradvisorBundle\Entity\ReviewBuy;
 use CaradvisorBundle\Entity\ReviewRepair;
 use CaradvisorBundle\Entity\User;
-use CaradvisorBundle\Entity\Vehicle;
-use CaradvisorBundle\Entity\Answer;
-use CaradvisorBundle\Entity\Pro;
 use CaradvisorBundle\Repository\ProRepository;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -146,31 +143,57 @@ class AdminController extends Controller
         ]);
 
     }
+
     /**
-     * @Route ("/admin/reviews/{page}", name="admin_reviews")
+     * @internal param $page
+     * @Route ("/admin/reviews-buy/{page}", name="admin_reviews_buy")
      * @param int $page
      * @return Response
      */
 
-    public function listAdminReviews($page = 1)
+    public function listAdminReviewsBuy($page = 1)
     {
         $repo = $this->getDoctrine()->getRepository('CaradvisorBundle:ReviewBuy');
-        $repos = $this->getDoctrine()->getRepository('CaradvisorBundle:ReviewRepair');
         $maxResults = 7;
         $userCount = $repo->totalUsers();
 
         $pagination = [
             'page'          => $page,
-            'route'         => 'admin_reviews',
+            'route'         => 'admin_reviews_buy',
             'pages_count'    => ceil($userCount / $maxResults),
             'route_params'  => [],
         ];
 
         $reviewsBuy = $repo->listReviewBuy($page, $maxResults);
+
+        return $this->render('@Caradvisor/Admin/Default/adminReviewsBuy.html.twig', [
+            'reviewsBuy'      => $reviewsBuy,
+            'pagination'      => $pagination
+        ]);
+    }
+    /**
+     * @internal param $page
+     * @Route ("/admin/reviews-repair/{page}", name="admin_reviews_repair")
+     * @param int $page
+     * @return Response
+     */
+
+    public function listAdminReviewsRepair($page = 1)
+    {
+        $repos = $this->getDoctrine()->getRepository('CaradvisorBundle:ReviewRepair');
+        $maxResults = 7;
+        $userCount = $repos->totalUsers();
+
+        $pagination = [
+            'page'          => $page,
+            'route'         => 'admin_reviews_repair',
+            'pages_count'    => ceil($userCount / $maxResults),
+            'route_params'  => [],
+        ];
+
         $reviewsRepair = $repos->listReviewRepair($page, $maxResults);
 
-        return $this->render('@Caradvisor/Admin/Default/adminReviews.html.twig', [
-            'reviewsBuy'      => $reviewsBuy,
+        return $this->render('@Caradvisor/Admin/Default/adminReviewsRepair.html.twig', [
             'reviewsRepair'   => $reviewsRepair,
             'pagination'      => $pagination
         ]);
@@ -258,7 +281,7 @@ class AdminController extends Controller
     }
 
     /**
-     * @Route("/admin/users/detail/{user}", name="detail_user")
+     * @Route("/admin/users/detail-user/{user}", name="detail_user")
      * @param User $user
      * @return Response
      */
@@ -271,7 +294,7 @@ class AdminController extends Controller
     }
 
     /**
-     * @Route("/admin/users/desactivate/{user}", name="desactivate_user")
+     * @Route("/admin/users/deactivate-user/{user}", name="desactivate_user")
      * @param User $user
      * @return Response
      */
@@ -286,7 +309,7 @@ class AdminController extends Controller
     }
 
     /**
-     * @Route("/admin/users/activate/{user}", name="activate_user")
+     * @Route("/admin/users/activate-user/{user}", name="activate_user")
      * @param User $user
      * @return Response
      */
