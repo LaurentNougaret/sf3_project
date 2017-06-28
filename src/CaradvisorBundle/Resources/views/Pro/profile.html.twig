@@ -15,19 +15,19 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-xs-6 col-xs-offset-3">
-                            <div class="card">
-                                <!-- Establishment's photo -->
-                                {% if pro.picture is null %}
-                                    <img src="{{ asset('img/default_estab.svg') }}" style="width:100px;" />
-                                {%  else %}
-                                    <img src="{{ asset('upload/estabPic/' ~ pro.picture)}}" style="width:100px;" />
-                                {% endif %}
-                                <!-- Title -->
-                                <div class="card-content">
-                                    <span class="card-title"><a href="{{ path('establishment_profile',
-                                        {'pro': pro.id}) }}">{{ pro.dealerName }}</a></span>
-                                </div><!-- card content -->
+                            <div class="col-xs-6 col-xs-offset-3">
+                                <div class="card estab_pic">
+                                    <!-- Establishment's photo -->
+                                    {% if pro.picture is null %}
+                                        <img src="{{ asset('img/default_estab.svg') }}" style="width:100px;" />
+                                    {%  else %}
+                                        <img src="{{ asset('upload/estabPic/' ~ pro.picture)}}" style="width:100px;" />
+                                    {% endif %}
+                                    <!-- Title -->
+                                    <div class="card-content">
+                                        <span class="card-title"><a href="{{ path('establishment_profile',
+                                            {'pro': pro.id}) }}">{{ pro.dealerName }}</a></span>
+                                    </div><!-- card content -->
 
                                 <!-- Info about establishment -->
                                 <div class="card-action">

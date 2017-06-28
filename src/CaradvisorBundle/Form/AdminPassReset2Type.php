@@ -1,9 +1,8 @@
 <?php
 
-
 namespace CaradvisorBundle\Form;
 
-use CaradvisorBundle\Entity\User;
+use CaradvisorBundle\Entity\Admin;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
@@ -11,7 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class ChangePasswordType extends AbstractType
+class AdminPassReset2Type extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -32,13 +31,13 @@ class ChangePasswordType extends AbstractType
 
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults([
-            'data_class' => User::class
-        ]);
+        $resolver->setDefaults(array(
+            'data_class' => Admin::class,
+        ));
     }
 
     public function getBlockPrefix()
     {
-        return 'caradvisor_bundle_reset_password_type';
+        return 'caradvisor_bundle_admin_reset_type';
     }
 }
