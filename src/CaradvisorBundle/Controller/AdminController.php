@@ -246,7 +246,8 @@ class AdminController extends Controller
     {
         $repo = $this->getDoctrine()->getRepository('CaradvisorBundle:ReviewBuy');
         $maxResults = 7;
-        $userCount = count($repo);
+        $reviewsBuy = $repo->listReviewBuy($page, $maxResults);
+        $userCount = count($reviewsBuy);
 
         $pagination = [
             'page'          => $page,
@@ -254,8 +255,6 @@ class AdminController extends Controller
             'pages_count'    => ceil($userCount / $maxResults),
             'route_params'  => [],
         ];
-
-        $reviewsBuy = $repo->listReviewBuy($page, $maxResults);
 
         return $this->render('@Caradvisor/Admin/Default/adminReviewsBuy.html.twig', [
             'reviewsBuy'      => $reviewsBuy,
@@ -272,16 +271,16 @@ class AdminController extends Controller
     public function listAdminReviewsRepair($page = 1)
     {
         $repos = $this->getDoctrine()->getRepository('CaradvisorBundle:ReviewRepair');
+
         $maxResults = 7;
-        $userCount =count($repos);
+        $reviewsRepair = $repos->listReviewRepair($page, $maxResults);
+        $userCount =count($reviewsRepair);
         $pagination = [
             'page'          => $page,
             'route'         => 'admin_reviews_repair',
             'pages_count'    => ceil($userCount / $maxResults),
             'route_params'  => [],
         ];
-
-        $reviewsRepair = $repos->listReviewRepair($page, $maxResults);
 
         return $this->render('@Caradvisor/Admin/Default/adminReviewsRepair.html.twig', [
             'reviewsRepair'   => $reviewsRepair,
