@@ -1,29 +1,30 @@
 {% extends '@Caradvisor/Admin/index.html.twig' %}
 {% block body %}
-    <section id="admin_users">
-        <div class="col-xs-offset-1 col-xs-8">
+    <section class="listRepair">
+        <div class="col-xs-12 col-sm-10 col-sm-offset-1 ">
             <div class="col-xs-10 col-xs-offset-1">
                 <h1 class="text-center">
                     <a href="{{ path('dashboard') }}" class="pull-left">
                         <i class="icon-back fa fa-chevron-left fa-1x" aria-hidden="true"></i>
                     </a>
-                    Liste des avis achat
+                    Liste des avis réparation
                 </h1>
                 <hr class="text-center">
             </div>
             <div class="row">
                 <div class="col-xs-10 col-xs-offset-1">
-                    {% for review in reviewsBuy %}
-                        <h4> Avis achat {{ review.reviewBuyType }} </h4>
-                        <small>{{ review.user.firstName }} {{ review.user.lastName }}
-                            , {{ review.user.userName }}</small><br><br>
+                    {% for review in reviewsRepair %}
+                        <h4> Avis réparation </h4>
+                        <small>déposé par {{ review.user.firstName }} {{ review.user.lastName }}
+                            , {{ review.user.userName }} le {{ review.dateReview | date('d-m-y') }}</small><br><br>
                         <p>{{ review.review }}</p>
-                        <small>{{ review.dateReview | date('d-m-y') }}</small><br><br>
-                        <a href="{{ path('activate_review_buy', {'reviewBuy': review.id}) }}">
-                            <button type="button">Activer</button>
+                        <br>
+                        <br>
+                        <a href="{{ path('activate_review_repair', {'reviewRepair': review.id}) }}">
+                            <button class="btn btn-block center-block btn-admin" type="button">Accepter</button>
                         </a>
-                        <a href="{{ path('detail_review_buy', {'reviewBuy': review.id}) }}">
-                            <button type="button">Detail avis</button>
+                        <a href="{{ path('detail_review_repair', {'reviewRepair': review.id}) }}">
+                            <button class="btn btn-block center-block btn-admin" type="button">Detail avis</button>
                         </a>
                         <hr>
                     {% endfor %}

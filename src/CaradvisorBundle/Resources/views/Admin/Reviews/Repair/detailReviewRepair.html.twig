@@ -1,0 +1,79 @@
+{% extends'@Caradvisor/Admin/index.html.twig' %}
+{% block body %}
+    <section class="reviewDetail">
+        <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+            <h1 class="text-center">
+                <a href="{{ path('admin_reviews_buy') }}" class="pull-left">
+                    <i class="icon-back fa fa-chevron-left fa-1x" aria-hidden="true"></i>
+                </a>
+                Avis Réparation
+            </h1>
+            <hr class="text-center">
+            <div class="row">
+                <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" style="overflow: auto">
+                            <div  class="text-center">
+                                <strong>Déposé par {{ reviewRepair.user.firstName }} {{ reviewRepair.user.lastName }} le {{ reviewRepair.dateReview|date("d-m-y")}}</strong><br><br>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <strong>Titre : </strong>
+                                </div>
+                                <div class="col-xs-9">
+                                    <span>{{ reviewRepair.subject}}</span>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <strong>Avis : </strong>
+                                </div>
+                                <div class="col-xs-9">
+                                    <span>{{ reviewRepair.review }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="list-group">
+                            <li class="list-group-item"><strong>Type etablissement : </strong><span class="pull-right">{{ reviewRepair.dealerType }}</span></li>
+                            <li class="list-group-item"><strong>Nom etablissement : </strong><span class="pull-right">{{ reviewRepair.dealerName}}</span></li>
+                            <li class="list-group-item"><strong>Ville : </strong><span class="pull-right">{{ reviewRepair.city}}</span></li>
+                            <li class="list-group-item"><strong>Code postal : </strong><span class="pull-right">{{ reviewRepair.postalCode}}</span></li>
+                            <li class="list-group-item"><strong>Note globale : </strong><span class="pull-right">{{ reviewRepair.ratingGlobal}}</span></li>
+                            <li class="list-group-item"><strong>Note accueil : </strong><span class="pull-right">{{ reviewRepair.ratingWelcome}}</span></li>
+                            <li class="list-group-item"><strong>Type de reparation : </strong><span class="pull-right">{{ reviewRepair.typeRepair }}</span></li>
+                            <li class="list-group-item"><strong>Delais rendez-vous : </strong><span class="pull-right">{{ reviewRepair.appointmentDelay }}</span></li>
+                            <li class="list-group-item"><strong>Attente sur place : </strong><span class="pull-right">{{ reviewRepair.onSpotDelayRating }}</span></li>
+                            <li class="list-group-item"><strong>Explication reparation : </strong><span class="pull-right">{{ reviewRepair.explanationRepair }}</span></li>
+                            <li class="list-group-item"><strong>Prix de la reparation : </strong><span class="pull-right">{{ reviewRepair.priceRepair }}</span></li>
+                            <li class="list-group-item"><strong>Autorisation de reparation : </strong><span class="pull-right">{{ reviewRepair.ratingWelcome}}</span></li>
+                            <li class="list-group-item"><strong>Respect du devis : </strong><span class="pull-right">{{ reviewRepair.respectQuotationRepair }}</span></li>
+                            <li class="list-group-item"><strong>Véhicule de courtoisie : </strong><span class="pull-right">{{ reviewRepair.courtesyVehicle }}</span></li>
+                            <li class="list-group-item"><strong>Respect delais de reparation : </strong><span class="pull-right">{{ reviewRepair.respectDelayRepair }}</span></li>
+                            <li class="list-group-item"><strong>Etat vehicule rendu : </strong><span class="pull-right">{{ reviewRepair.conditionVehicleRating }}</span></li>
+                            <li class="list-group-item"><strong>Recommander le pro : </strong><span class="pull-right">{{ reviewRepair.recommendProRating}}</span></li>
+                            <li class="list-group-item"><strong>Documents : </strong><span class="pull-right"><button type="button" class="btn btn-block center-block btn-admin" data-toggle="modal" data-target="#myModal">Voir facture</button> </span></li>
+                            <li class="list-group-item"><strong>Conseil pour le pro : </strong><span class="pull-right">{{ reviewRepair.advice}}</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {# Modal #}
+
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Facture</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img src="{{ reviewRepair.attachedFile}}"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

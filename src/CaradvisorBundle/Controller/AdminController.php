@@ -184,7 +184,7 @@ class AdminController extends Controller
 
         $pros = $repo->listEstabs($page, $maxResults);
 
-        return $this->render('@Caradvisor/Admin/Default/adminListEstabs.html.twig', [
+        return $this->render('@Caradvisor/Admin/Establishments/listEstablishments.html.twig', [
             'pros'          => $pros,
             'pagination'    => $pagination,
         ]);
@@ -197,7 +197,7 @@ class AdminController extends Controller
      */
     public function showEstabsAction(Pro $pros)
     {
-        return $this->render('@Caradvisor/Admin/Default/adminDetailEstabs.html.twig', [
+        return $this->render('@Caradvisor/Admin/Establishments/detailEstablishments.html.twig', [
             'pro'   => $pros,
         ]);
     }
@@ -227,7 +227,6 @@ class AdminController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $pros->setIsActive(true);
-        $em->persist($pros);
         $em->flush();
         return $this->redirectToRoute("admin_etabs", [
             'pros' => $pros
@@ -256,7 +255,7 @@ class AdminController extends Controller
             'route_params'  => [],
         ];
 
-        return $this->render('@Caradvisor/Admin/Default/adminReviewsBuy.html.twig', [
+        return $this->render('@Caradvisor/Admin/Reviews/Buy/listReviewsBuy.html.twig', [
             'reviewsBuy'      => $reviewsBuy,
             'pagination'      => $pagination
         ]);
@@ -282,7 +281,7 @@ class AdminController extends Controller
             'route_params'  => [],
         ];
 
-        return $this->render('@Caradvisor/Admin/Default/adminReviewsRepair.html.twig', [
+        return $this->render('@Caradvisor/Admin/Reviews/Repair/listReviewsRepair.html.twig', [
             'reviewsRepair'   => $reviewsRepair,
             'pagination'      => $pagination
         ]);
@@ -298,7 +297,7 @@ class AdminController extends Controller
         $em = $this->getDoctrine()->getManager();
         $reviewBuy->setIsActive(true);
         $em->flush();
-        return $this->redirectToRoute("admin_reviews", [
+        return $this->redirectToRoute("admin_reviews_buy", [
             'reviewBuy' => $reviewBuy
 
         ]);
@@ -314,7 +313,7 @@ class AdminController extends Controller
         $em = $this->getDoctrine()->getManager();
         $reviewRepair->setIsActive(true);
         $em->flush();
-        return $this->redirectToRoute("admin_reviews", [
+        return $this->redirectToRoute("admin_reviews_repair", [
             'reviewRepair' => $reviewRepair
         ]);
     }
@@ -326,7 +325,7 @@ class AdminController extends Controller
      */
     public function detailReviewBuyAction(ReviewBuy $reviewBuy)
     {
-        return $this->render('@Caradvisor/Admin/Default/adminDetailReviewBuy.html.twig', [
+        return $this->render('@Caradvisor/Admin/Reviews/Buy/detailReviewBuy.html.twig', [
             'reviewBuy' => $reviewBuy
         ]);
     }
@@ -338,7 +337,7 @@ class AdminController extends Controller
      */
     public function detailReviewRepairAction(ReviewRepair $reviewRepair)
     {
-        return $this->render('@Caradvisor/Admin/Default/adminDetailReviewRepair.html.twig', [
+        return $this->render('@Caradvisor/Admin/Reviews/Repair/detailReviewRepair.html.twig', [
             'reviewRepair' => $reviewRepair
         ]);
     }
@@ -364,7 +363,7 @@ class AdminController extends Controller
 
 
 
-        return $this->render('@Caradvisor/Admin/Default/adminListUsers.html.twig', [
+        return $this->render('@Caradvisor/Admin/Users/listUsers.html.twig', [
                 'users'      => $users,
                 'pagination' => $pagination
         ]);
@@ -377,7 +376,7 @@ class AdminController extends Controller
      */
     public function detailuserAction(User $user)
     {
-        return $this->render('@Caradvisor/Admin/Default/adminDetailUsers.html.twig', [
+        return $this->render('@Caradvisor/Admin/Users/detailUsers.html.twig', [
             'user'        => $user,
             'userProfile' => $user->getUserProfile()
         ]);

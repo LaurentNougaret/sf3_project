@@ -1,5 +1,7 @@
 <?php
+
 namespace CaradvisorBundle\Controller;
+
 use CaradvisorBundle\Entity\Pro;
 use CaradvisorBundle\Entity\ReviewBuy;
 use CaradvisorBundle\Entity\ReviewRepair;
@@ -10,6 +12,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+
+
 class ReviewController extends Controller
 {
     /**
@@ -20,12 +24,17 @@ class ReviewController extends Controller
     public function addReviewRepairAction(Request $request)
     {
         $this->denyAccessUnlessGranted('ROLE_PART', null, 'Vous ne pouvez pas déposez d\'avis avec votre compte professionnel');
+
         $reviewRepair = new ReviewRepair();
+
         $form = $this->createForm(ReviewRepairType::class, $reviewRepair);
         $form->handleRequest($request);
+
         //$user = $this->getDoctrine()->getRepository(User::class);
+
         if ($form->isSubmitted() && $form->isValid()){
             $reviewRepair->setDateReview(new \DateTime());
+
             /** @var File $file */
             $file = $reviewRepair->getAttachedFile();
             $fileName = md5(uniqid()).'.'.$file->guessExtension();
@@ -47,14 +56,14 @@ class ReviewController extends Controller
             $em->persist($reviewRepair);
             $em->flush();
 
-            return $this->redirectToRoute('home', [
-            ]);
+            return $this->redirectToRoute('home');
         }
         return $this->render('@Caradvisor/Reviews/repair.html.twig', [
             'form'          => $form->createView(),
             'reviewRepair'  => $reviewRepair,
         ]);
     }
+
     /**
      * @param Request $request
      * @return Response
@@ -62,12 +71,16 @@ class ReviewController extends Controller
      */
     public function addReviewNewAction(Request $request) {
         $this->denyAccessUnlessGranted('ROLE_PART', null, 'Vous ne pouvez pas déposez d\'avis avec votre compte professionnel');
+
         $reviewBuy = new ReviewBuy();
         $form = $this->createForm(ReviewBuyType::class, $reviewBuy);
+
         $form->handleRequest($request);
+
         if ($form->isSubmitted() && $form->isValid()) {
             $reviewBuy->setReviewBuyType('Neuf');
             $reviewBuy->setDateReview(new \DateTime());
+
             /** @var File $file */
             $file = $reviewBuy->getAttachedFile();
             $fileName = md5(uniqid()).'.'.$file->guessExtension();
@@ -82,13 +95,15 @@ class ReviewController extends Controller
             $repository = $this->getDoctrine()->getRepository(Pro::class);
 
             $pro = $repository->findOneByDealerName($dealerName);
-            
+
             $reviewBuy->setPro($pro);
             $reviewBuy->setIsActive(false);
             $reviewBuy->setUser($this->getUser());
             $reviewBuy->setWarranty(false);
+
             $em->persist($reviewBuy);
             $em->flush();
+
             return $this->redirectToRoute('home');
         }
         return $this->render('@Caradvisor/Reviews/buy.html.twig',[
@@ -96,6 +111,7 @@ class ReviewController extends Controller
             'reviewBuy' => $reviewBuy,
         ]);
     }
+
     /**
      * @param Request $request
      * @return Response
@@ -103,12 +119,16 @@ class ReviewController extends Controller
      */
     public function addReviewUsedAction(Request $request) {
         $this->denyAccessUnlessGranted('ROLE_PART', null, 'Vous ne pouvez pas déposez d\'avis avec votre compte professionnel');
+
         $reviewBuy = new ReviewBuy();
         $form = $this->createForm(ReviewBuyType::class, $reviewBuy);
+
         $form->handleRequest($request);
+
         if ($form->isSubmitted() && $form->isValid()) {
             $reviewBuy->setReviewBuyType('Neuf');
             $reviewBuy->setDateReview(new \DateTime());
+
             /** @var File $file */
             $file = $reviewBuy->getAttachedFile();
             $fileName = md5(uniqid()).'.'.$file->guessExtension();
@@ -127,6 +147,7 @@ class ReviewController extends Controller
             $reviewBuy->setPro($pro);
             $reviewBuy->setIsActive(false);
             $reviewBuy->setUser($this->getUser());
+
             $em->persist($reviewBuy);
             $em->flush();
 
