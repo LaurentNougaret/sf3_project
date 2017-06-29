@@ -5,7 +5,6 @@ namespace CaradvisorBundle\Controller;
 use CaradvisorBundle\Entity\Pro;
 use CaradvisorBundle\Entity\ReviewBuy;
 use CaradvisorBundle\Entity\ReviewRepair;
-use CaradvisorBundle\Entity\User;
 use CaradvisorBundle\Form\ReviewBuyType;
 use CaradvisorBundle\Form\ReviewRepairType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -49,14 +48,15 @@ class ReviewController extends Controller
 
             $repository = $this->getDoctrine()->getRepository(Pro::class);
 
-            $pro = $repository->findByDealerName($dealerName);
-            $reviewRepair->setPro($pro[0]);
+            $pro = $repository->findOneByDealerName($dealerName);
+            $reviewRepair->setPro($pro);
             $reviewRepair->setUser($this->getUser());
-
+            $reviewRepair->setPro($pro);
             $em->persist($reviewRepair);
             $em->flush();
 
-            return $this->redirectToRoute('home');
+            return $this->redirectToRoute('home', [
+            ]);
         }
         return $this->render('@Caradvisor/Reviews/repair.html.twig', [
             'form'          => $form->createView(),
@@ -94,8 +94,8 @@ class ReviewController extends Controller
 
             $repository = $this->getDoctrine()->getRepository(Pro::class);
 
-            $pro = $repository->findOneBy($dealerName);
-            $reviewBuy->setPro($pro[0]);
+            $pro = $repository->findOneByDealerName($dealerName);
+            $reviewBuy->setPro($pro);
             $reviewBuy->setUser($this->getUser());
             $reviewBuy->setWarranty(false);
 
@@ -140,8 +140,8 @@ class ReviewController extends Controller
 
             $repository = $this->getDoctrine()->getRepository(Pro::class);
 
-            $pro = $repository->findByDealerName($dealerName);
-            $reviewBuy->setPro($pro[0]);
+            $pro = $repository->findOneByDealerName($dealerName);
+            $reviewBuy->setPro($pro);
             $reviewBuy->setUser($this->getUser());
 
             $em->persist($reviewBuy);
