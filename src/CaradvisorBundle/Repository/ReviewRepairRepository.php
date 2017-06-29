@@ -50,16 +50,16 @@ class ReviewRepairRepository extends \Doctrine\ORM\EntityRepository
         return new Paginator($qb, $fetchJoinCollection = false);
     }
 
-//    /**
-//     * @return mixed
-//     */
-//    public function totalUsers()
-//    {
-//        $qb = $this->createQueryBuilder('rr')
-//            ->select('COUNT(rr)')
-//            ->getQuery()
-//            ->getSingleScalarResult();
-//
-//        return $qb;
-//    }
+    /**
+     * @return mixed
+     */
+    public function totalUsers()
+    {
+        $qb = $this->createQueryBuilder('rr')
+            ->select('COUNT(rr)')
+            ->getQuery()
+            ->getSingleScalarResult();
+
+        return $qb;
+    }
 }

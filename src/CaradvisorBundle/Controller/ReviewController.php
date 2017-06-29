@@ -32,15 +32,21 @@ class ReviewController extends Controller
             $targetDirectory = $this->getParameter('attachedfile_directory');
             $file->move($targetDirectory, $fileName);
             $reviewRepair->setAttachedFile($fileName);
+
             $em = $this->getDoctrine()->getManager();
+
             $dealerName = $form['dealerName']->getData();
+
             $repository = $this->getDoctrine()->getRepository(Pro::class);
+
             $pro = $repository->findOneByDealerName($dealerName);
+
             $reviewRepair->setPro($pro);
             $reviewRepair->setUser($this->getUser());
-            $reviewRepair->setPro($pro);
+            $reviewRepair->setIsActive(false);
             $em->persist($reviewRepair);
             $em->flush();
+
             return $this->redirectToRoute('home', [
             ]);
         }
@@ -68,11 +74,17 @@ class ReviewController extends Controller
             $targetDirectory = $this->getParameter('attachedfile_directory');
             $file->move($targetDirectory, $fileName);
             $reviewBuy->setAttachedFile($fileName);
+
             $em = $this->getDoctrine()->getManager();
+
             $dealerName = $form['dealerName']->getData();
+
             $repository = $this->getDoctrine()->getRepository(Pro::class);
+
             $pro = $repository->findOneByDealerName($dealerName);
+            
             $reviewBuy->setPro($pro);
+            $reviewBuy->setIsActive(false);
             $reviewBuy->setUser($this->getUser());
             $reviewBuy->setWarranty(false);
             $em->persist($reviewBuy);
@@ -103,14 +115,21 @@ class ReviewController extends Controller
             $targetDirectory = $this->getParameter('attachedfile_directory');
             $file->move($targetDirectory, $fileName);
             $reviewBuy->setAttachedFile($fileName);
+
             $em = $this->getDoctrine()->getManager();
+
             $dealerName = $form['dealerName']->getData();
+
             $repository = $this->getDoctrine()->getRepository(Pro::class);
+
             $pro = $repository->findOneByDealerName($dealerName);
+
             $reviewBuy->setPro($pro);
+            $reviewBuy->setIsActive(false);
             $reviewBuy->setUser($this->getUser());
             $em->persist($reviewBuy);
             $em->flush();
+
             return $this->redirectToRoute('home');
         }
         return $this->render('@Caradvisor/Reviews/buy.html.twig',[

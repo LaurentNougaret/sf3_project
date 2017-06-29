@@ -23,16 +23,16 @@ class ReviewBuyRepository extends EntityRepository
         return new Paginator($qb, $fetchJoinCollection = false);
     }
 
-//    /**
-//     * @return mixed
-//     */
-//    public function totalUsers()
-//    {
-//        $qb = $this->createQueryBuilder('rb')
-//            ->select('COUNT(rb)')
-//            ->getQuery()
-//            ->getSingleScalarResult();
-//
-//        return $qb;
-//    }
+    /**
+     * @return mixed
+     */
+    public function totalUsers()
+    {
+        $qb = $this->createQueryBuilder('rb')
+            ->select('COUNT(rb)')
+            ->getQuery()
+            ->getSingleScalarResult();
+
+        return $qb;
+    }
 }
