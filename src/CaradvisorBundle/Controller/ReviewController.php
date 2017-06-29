@@ -51,7 +51,6 @@ class ReviewController extends Controller
             $pro = $repository->findOneByDealerName($dealerName);
             $reviewRepair->setPro($pro);
             $reviewRepair->setUser($this->getUser());
-            $reviewRepair->setPro($pro);
             $em->persist($reviewRepair);
             $em->flush();
 
