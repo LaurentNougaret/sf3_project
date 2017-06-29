@@ -1,11 +1,8 @@
 <?php
-
 namespace CaradvisorBundle\Controller;
-
 use CaradvisorBundle\Entity\Pro;
 use CaradvisorBundle\Entity\ReviewBuy;
 use CaradvisorBundle\Entity\ReviewRepair;
-use CaradvisorBundle\Entity\User;
 use CaradvisorBundle\Form\ReviewBuyType;
 use CaradvisorBundle\Form\ReviewRepairType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -13,7 +10,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-
 class ReviewController extends Controller
 {
     /**
@@ -24,136 +20,100 @@ class ReviewController extends Controller
     public function addReviewRepairAction(Request $request)
     {
         $this->denyAccessUnlessGranted('ROLE_PART', null, 'Vous ne pouvez pas déposez d\'avis avec votre compte professionnel');
-
         $reviewRepair = new ReviewRepair();
-
         $form = $this->createForm(ReviewRepairType::class, $reviewRepair);
         $form->handleRequest($request);
-
         //$user = $this->getDoctrine()->getRepository(User::class);
-
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()){
             $reviewRepair->setDateReview(new \DateTime());
-
             /** @var File $file */
             $file = $reviewRepair->getAttachedFile();
             $fileName = md5(uniqid()).'.'.$file->guessExtension();
             $targetDirectory = $this->getParameter('attachedfile_directory');
             $file->move($targetDirectory, $fileName);
             $reviewRepair->setAttachedFile($fileName);
-
             $em = $this->getDoctrine()->getManager();
-
             $dealerName = $form['dealerName']->getData();
-
             $repository = $this->getDoctrine()->getRepository(Pro::class);
-
-            $pro = $repository->findOneBy($dealerName);
+            $pro = $repository->findOneByDealerName($dealerName);
             $reviewRepair->setPro($pro);
             $reviewRepair->setUser($this->getUser());
-            $reviewRepair->setIsActive(false);
-
+            $reviewRepair->setPro($pro);
             $em->persist($reviewRepair);
             $em->flush();
-
-            return $this->redirectToRoute('home');
+            return $this->redirectToRoute('home', [
+            ]);
         }
         return $this->render('@Caradvisor/Reviews/repair.html.twig', [
             'form'          => $form->createView(),
             'reviewRepair'  => $reviewRepair,
         ]);
     }
-
     /**
      * @param Request $request
      * @return Response
      * @Route("/review/buy/new", name="review_new")
      */
-    public function addReviewNewAction(Request $request)
-    {
+    public function addReviewNewAction(Request $request) {
         $this->denyAccessUnlessGranted('ROLE_PART', null, 'Vous ne pouvez pas déposez d\'avis avec votre compte professionnel');
-
         $reviewBuy = new ReviewBuy();
         $form = $this->createForm(ReviewBuyType::class, $reviewBuy);
-
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $reviewBuy->setReviewBuyType('Neuf');
             $reviewBuy->setDateReview(new \DateTime());
-
             /** @var File $file */
             $file = $reviewBuy->getAttachedFile();
             $fileName = md5(uniqid()).'.'.$file->guessExtension();
             $targetDirectory = $this->getParameter('attachedfile_directory');
             $file->move($targetDirectory, $fileName);
             $reviewBuy->setAttachedFile($fileName);
-
             $em = $this->getDoctrine()->getManager();
-
             $dealerName = $form['dealerName']->getData();
-
             $repository = $this->getDoctrine()->getRepository(Pro::class);
-
-            $pro = $repository->findOneBy($dealerName);
+            $pro = $repository->findOneByDealerName($dealerName);
             $reviewBuy->setPro($pro);
             $reviewBuy->setUser($this->getUser());
             $reviewBuy->setWarranty(false);
-            $reviewBuy->setIsActive(false);
-
             $em->persist($reviewBuy);
             $em->flush();
-
             return $this->redirectToRoute('home');
         }
-        return $this->render('@Caradvisor/Reviews/buy.html.twig', [
+        return $this->render('@Caradvisor/Reviews/buy.html.twig',[
             'form'      => $form->createView(),
             'reviewBuy' => $reviewBuy,
         ]);
     }
-
     /**
      * @param Request $request
      * @return Response
      * @Route("/review/buy/used", name="review_used")
      */
-    public function addReviewUsedAction(Request $request)
-    {
+    public function addReviewUsedAction(Request $request) {
         $this->denyAccessUnlessGranted('ROLE_PART', null, 'Vous ne pouvez pas déposez d\'avis avec votre compte professionnel');
-
         $reviewBuy = new ReviewBuy();
         $form = $this->createForm(ReviewBuyType::class, $reviewBuy);
-
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $reviewBuy->setReviewBuyType('Neuf');
             $reviewBuy->setDateReview(new \DateTime());
-
             /** @var File $file */
             $file = $reviewBuy->getAttachedFile();
             $fileName = md5(uniqid()).'.'.$file->guessExtension();
             $targetDirectory = $this->getParameter('attachedfile_directory');
             $file->move($targetDirectory, $fileName);
             $reviewBuy->setAttachedFile($fileName);
-
             $em = $this->getDoctrine()->getManager();
-
             $dealerName = $form['dealerName']->getData();
-
             $repository = $this->getDoctrine()->getRepository(Pro::class);
-
-            $pro = $repository->findOneBy($dealerName);
+            $pro = $repository->findOneByDealerName($dealerName);
             $reviewBuy->setPro($pro);
             $reviewBuy->setUser($this->getUser());
-            $reviewBuy->setIsActive(false);
-
             $em->persist($reviewBuy);
             $em->flush();
-
             return $this->redirectToRoute('home');
         }
-        return $this->render('@Caradvisor/Reviews/buy.html.twig', [
+        return $this->render('@Caradvisor/Reviews/buy.html.twig',[
             'form'      => $form->createView(),
             'reviewBuy' => $reviewBuy,
         ]);

@@ -352,7 +352,8 @@ class AdminController extends Controller
     {
         $repo = $this->getDoctrine()->getRepository('CaradvisorBundle:User');
         $maxResults = 5;
-        $userCount = $repo->totalUsers();
+        $users = $repo->listUser($page, $maxResults);
+        $userCount = count($users);
 
         $pagination = [
             'page'          => $page,
@@ -361,7 +362,7 @@ class AdminController extends Controller
             'route_params'  => [],
         ];
 
-        $users = $repo->listUser($page, $maxResults);
+
 
         return $this->render('@Caradvisor/Admin/Default/adminListUsers.html.twig', [
                 'users'      => $users,
