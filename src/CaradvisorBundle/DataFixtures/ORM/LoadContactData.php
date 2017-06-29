@@ -8,7 +8,6 @@
 
 namespace CaradvisorBundle\DataFixtures\ORM;
 
-
 use CaradvisorBundle\Entity\Contact;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
@@ -35,7 +34,6 @@ class LoadContactData extends AbstractFixture implements OrderedFixtureInterface
             $manager->persist($contact);
         }
         $manager->flush();
-
     }
 
     /**
@@ -45,5 +43,4 @@ class LoadContactData extends AbstractFixture implements OrderedFixtureInterface
     {
         return 8;
     }
-
 }

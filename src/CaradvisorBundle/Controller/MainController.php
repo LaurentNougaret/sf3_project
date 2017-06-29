@@ -86,12 +86,11 @@ class MainController extends Controller
 
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()){
+        if ($form->isSubmitted() && $form->isValid()) {
             $em->persist($contact);
             $em->flush();
 
             return $this->redirectToRoute('home');
-
         }
         return $this->render('@Caradvisor/Default/contact.html.twig', [
             'form'  =>  $form->createView(),

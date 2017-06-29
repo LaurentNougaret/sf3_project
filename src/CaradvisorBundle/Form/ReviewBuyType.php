@@ -73,7 +73,7 @@ class ReviewBuyType extends AbstractType
                 'expanded'=>true,
                 'multiple'=>false,
             ])
-            ->add('informationDelayRating',ChoiceType::class, [
+            ->add('informationDelayRating', ChoiceType::class, [
                 'label' => 'Délai pour avoir un renseignement sur le véhicule : ',
                 'choices' => ['1' => 1, '2' => 2, '3' => 3, '4' => 4, '5' => 5],
                 'required'=>true,

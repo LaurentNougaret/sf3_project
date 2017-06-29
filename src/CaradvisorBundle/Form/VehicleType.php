@@ -27,24 +27,22 @@ class VehicleType extends AbstractType
                 'label' => false,
                 'attr' => ['placeholder' => 'Vérsion']
             ])
-            ->add('kilometers',IntegerType::class, [
+            ->add('kilometers', IntegerType::class, [
                 'label' => false,
                 'attr' => ['placeholder' => 'Kilométrage']
             ])
-            ->add('registration',TextType::class,[
+            ->add('registration', TextType::class, [
                 'label' => false,
                 'attr' => ['placeholder' => 'Immatriculation']
             ])
-            ->add('year',IntegerType::class, [
+            ->add('year', IntegerType::class, [
                 'label' => false,
                 'attr' => ['placeholder' => 'Année']
             ])
-            ->add('energy',TextType::class,[
+            ->add('energy', TextType::class, [
                 'label' => false,
                 'attr' => ['placeholder' => 'Enérgie']
             ]);
-
-
     }
 
     public function configureOptions(OptionsResolver $resolver)
@@ -52,7 +50,6 @@ class VehicleType extends AbstractType
         $resolver->setDefaults(array(
             'data_class' => Vehicle::class,
         ));
-
     }
 
     public function getBlockPrefix()

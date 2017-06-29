@@ -174,8 +174,8 @@ class ReviewRepair
      *
      * @ORM\Column(name="attachedFile", type="string")
      *
-     * @Assert\NotBlank(message="Fichiers acceptés : .jpg, .jpeg, .pdf")
-     * @Assert\File(mimeTypes={"application/pdf", "image/jpg", "image/jpeg"})
+     * @Assert\NotBlank(message="Fichiers acceptés : .jpg, .pdf, .png")
+     * @Assert\File(mimeTypes={"application/pdf", "image/jpg", "image/png", "image/jpeg"})
      */
     private $attachedFile;
 
@@ -185,6 +185,13 @@ class ReviewRepair
      * @ORM\Column(name="dateReview", type="datetime")
      */
     private $dateReview;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="isActive", type="boolean", nullable=true)
+     */
+    private $isActive;
 
     /**
      * @ORM\ManyToOne(targetEntity="CaradvisorBundle\Entity\Pro", inversedBy="reviewRepairs")
@@ -839,5 +846,30 @@ class ReviewRepair
     public function __construct()
     {
         $this->dateReview = new \DateTime();
+        $this->isActive = false;
+    }
+
+    /**
+     * Set isActive
+     *
+     * @param boolean $isActive
+     *
+     * @return ReviewRepair
+     */
+    public function setIsActive($isActive)
+    {
+        $this->isActive = $isActive;
+
+        return $this;
+    }
+
+    /**
+     * Get isActive
+     *
+     * @return boolean
+     */
+    public function getIsActive()
+    {
+        return $this->isActive;
     }
 }

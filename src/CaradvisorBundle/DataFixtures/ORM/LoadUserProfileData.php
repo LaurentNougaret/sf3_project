@@ -14,8 +14,6 @@ class LoadUserProfileData extends AbstractFixture implements OrderedFixtureInter
 
     public function load(ObjectManager $manager)
     {
-
-
         $faker = Factory::create('fr_FR');
         $faker->seed(1234);
 
@@ -30,7 +28,6 @@ class LoadUserProfileData extends AbstractFixture implements OrderedFixtureInter
             $manager->persist($userProfile);
 
             $this->setReference('userProfiles_' . $i, $userProfile);
-
         }
         $manager->flush();
     }

@@ -49,13 +49,14 @@ class ReviewController extends Controller
             $repository = $this->getDoctrine()->getRepository(Pro::class);
 
             $pro = $repository->findOneByDealerName($dealerName);
+
             $reviewRepair->setPro($pro);
             $reviewRepair->setUser($this->getUser());
+            $reviewRepair->setIsActive(false);
             $em->persist($reviewRepair);
             $em->flush();
 
-            return $this->redirectToRoute('home', [
-            ]);
+            return $this->redirectToRoute('home');
         }
         return $this->render('@Caradvisor/Reviews/repair.html.twig', [
             'form'          => $form->createView(),
@@ -94,7 +95,9 @@ class ReviewController extends Controller
             $repository = $this->getDoctrine()->getRepository(Pro::class);
 
             $pro = $repository->findOneByDealerName($dealerName);
+
             $reviewBuy->setPro($pro);
+            $reviewBuy->setIsActive(false);
             $reviewBuy->setUser($this->getUser());
             $reviewBuy->setWarranty(false);
 
@@ -140,7 +143,9 @@ class ReviewController extends Controller
             $repository = $this->getDoctrine()->getRepository(Pro::class);
 
             $pro = $repository->findOneByDealerName($dealerName);
+
             $reviewBuy->setPro($pro);
+            $reviewBuy->setIsActive(false);
             $reviewBuy->setUser($this->getUser());
 
             $em->persist($reviewBuy);
