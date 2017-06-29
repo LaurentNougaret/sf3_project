@@ -3,11 +3,11 @@
 
     <section id="adminHome">
         <div class="col-xs-10 col-xs-offset-1">
-            <h1 class="text-center">Bienvenue Olivier</h1>
+            <h1 class="text-center">Bienvenue {{ admin.username }}</h1>
             <hr class="text-center">
             <div class="row">
                 <div class="col-xs-6 col-md-3 col-md-offset-3 bloc">
-                    <a href="#">
+                    <a href="{{ path('admin_users') }}">
                         <div class="text-center panel">
                             <div class="panel-heading">
                                 <div class="row">
@@ -77,15 +77,15 @@
                     </a>
                 </div>
                 <div class="col-xs-4 col-xs-offset-4">
-                    <a href="#">
-                        <div class="text-center panel">
+                    <a href="{{ path('admin_password_change') }}">
+                        <div class="panel text-center">
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-xs-12">
-                                        <i class="fa fa-cog fa-5x" aria-hidden="true"></i>
+                                        <i class="fa fa-key fa-5x" aria-hidden="true"></i>
                                     </div>
                                     <div class="col-xs-12">
-                                        <p class="announcement-text">Paramètres</p>
+                                        <p class="announcement-text">Changer mot de passe</p>
                                     </div>
                                 </div>
                             </div>
