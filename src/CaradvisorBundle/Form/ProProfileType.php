@@ -33,7 +33,7 @@ class ProProfileType extends AbstractType
                 'attr' => ['placeholder' => 'Email']])
             ->add('address', TextType::class, ['label' => false,
                 'attr' => ['placeholder' => 'Adresse']])
-            ->add('city', TextType::class,['label' => false,
+            ->add('city', TextType::class, ['label' => false,
                 'attr' => [ 'placeholder' => 'Ville']])
             ->add('postalCode', TextType::class, ['label' => false,
                 'attr' => [ 'placeholder' => 'Code postal']])

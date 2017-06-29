@@ -2,7 +2,6 @@
 
 namespace CaradvisorBundle\DataFixtures\ORM;
 
-
 use CaradvisorBundle\Entity\ReviewRepair;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
@@ -20,7 +19,7 @@ class LoadReviewRepairData extends AbstractFixture implements OrderedFixtureInte
 
         $totalAnswer = 0;
 
-        for ($i = 0; $i < self::REVIEWREPAIR_MAX; $i ++){
+        for ($i = 0; $i < self::REVIEWREPAIR_MAX; $i ++) {
             $reviewRepair = new ReviewRepair();
             $reviewRepair->setDealerType($faker->randomElement($array = [
                 'Garagiste',
@@ -81,10 +80,11 @@ class LoadReviewRepairData extends AbstractFixture implements OrderedFixtureInte
             $reviewRepair->setAdvice($faker->paragraph(3));
             $reviewRepair->setAttachedFile('http://aws-cf.caradisiac.com/prod/mesimages/142824/facture%20revision%202%20an%2036.800%20km.jpg');
             $reviewRepair->setDateReview($faker->dateTime);
+            $reviewRepair->setIsActive($faker->randomElement($array = ['0', '1']));
 
             $reviewRepair->setUser($this->getReference("users_" . rand(0, LoadUserData::MAX_USER - 1)));
             $reviewRepair->setPro($this->getReference("pros_" . rand(0, LoadProData::PRO_MAX - 1)));
-            if ($totalAnswer < 10){
+            if ($totalAnswer < 10) {
                 $reviewRepair->setAnswer($this->getReference("answers_" . $totalAnswer));
                 $totalAnswer++;
             }

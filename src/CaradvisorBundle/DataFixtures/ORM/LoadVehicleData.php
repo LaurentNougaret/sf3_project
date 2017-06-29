@@ -2,7 +2,6 @@
 
 namespace CaradvisorBundle\DataFixtures\ORM;
 
-
 use CaradvisorBundle\Entity\Vehicle;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;

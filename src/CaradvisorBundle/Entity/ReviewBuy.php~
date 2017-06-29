@@ -143,6 +143,13 @@ class ReviewBuy
      * @ORM\Column(name="warranty", type="boolean")
      */
     private $warranty;
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="isActive", type="boolean", nullable=true)
+     */
+    private $isActive;
+
     // Join Column: interdit la creation d'un review sans Pro
     /**
      * @ORM\ManyToOne(targetEntity="CaradvisorBundle\Entity\Pro", inversedBy="reviewBuys")
@@ -649,5 +656,29 @@ class ReviewBuy
     public function getReviewBuyType()
     {
         return $this->reviewBuyType;
+    }
+
+    /**
+     * Set isActive
+     *
+     * @param boolean $isActive
+     *
+     * @return ReviewBuy
+     */
+    public function setIsActive($isActive)
+    {
+        $this->isActive = $isActive;
+
+        return $this;
+    }
+
+    /**
+     * Get isActive
+     *
+     * @return boolean
+     */
+    public function getIsActive()
+    {
+        return $this->isActive;
     }
 }

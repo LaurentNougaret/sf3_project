@@ -56,7 +56,7 @@ class SecurityController extends Controller
 
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()){
+        if ($form->isSubmitted() && $form->isValid()) {
 
             /**
              * Token for signup validation
@@ -203,10 +203,10 @@ class SecurityController extends Controller
         $form = $this->createForm(ForgottenPasswordType::class, $user);
         $form->handleRequest($request);
         $message = "";
-        if ($form->isSubmitted() && $form->isValid()){
+        if ($form->isSubmitted() && $form->isValid()) {
             /** @var User $newUser */
             $newUser = $em->getRepository("CaradvisorBundle:User")->findOneBy(["email" => $user->getEmail()]);
-            if (null === $newUser){
+            if (null === $newUser) {
                 $message = "Nous n'avons pas trouvé cet utilisateur";
             } else {
                 $newUser->setToken($newUser->generateToken());
