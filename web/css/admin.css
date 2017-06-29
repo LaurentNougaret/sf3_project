@@ -38,7 +38,6 @@ li {
     }
 }
 
-/* -- Button -- */
 .btn-admin {
     width: 100%;
     margin: 10px auto;
@@ -58,6 +57,10 @@ li {
 }
 
 /* -- Home -- */
+#adminHome .noPadding {
+    padding: 0;
+}
+
 #adminHome .panel {
     background-color: white; !important;
     color: #2d3142;
@@ -70,16 +73,16 @@ li {
     transition: 0.5s ease;
 }
 
-@media (max-width: 380px) {
-    #adminHome .bloc {
-        display: block;
-        width: 80%;
-        margin-left: 10%;
+@media (max-width: 421px) {
+    #adminHome i {
+        font-size: 50px;
+    }
+    #adminHome .announcement-text {
+        font-size: 12px;
     }
 }
 
 /* -- Login -- */
-
 #admin .btn-admin {
     width: 40%;
 }
