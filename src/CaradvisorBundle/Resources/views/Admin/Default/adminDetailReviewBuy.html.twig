@@ -1,7 +1,7 @@
 {% extends'@Caradvisor/Admin/index.html.twig' %}
 {% block body %}
-    <div class="col-xs-10">
-        <div class="col-xs-10 col-xs-offset-1 col-xs-offset-2">
+    <section class="reviewDetail">
+        <div class="col-xs-12 col-sm-10 col-sm-offset-1">
             <h1 class="text-center">
                 <a href="{{ path('admin_reviews_buy') }}" class="pull-left">
                     <i class="icon-back fa fa-chevron-left fa-1x" aria-hidden="true"></i>
@@ -9,50 +9,66 @@
                 Avis achat
             </h1>
             <hr class="text-center">
-        </div>
-        <div class="row">
-            <div class="col-xs-8 col-xs-offset-2">
-                <div class="panel panel-default">
-
-                    <div class="panel-heading text-center" style="overflow: auto">
-                        <strong>Déposé par {{ reviewBuy.user.firstName }} {{ reviewBuy.user.lastName }} le {{ reviewBuy.dateReview|date("d-m-y")}}</strong><br><br>
-                        <span class="pull-left"><strong>Titre de l'avis : </strong>{{ reviewBuy.subject}}</span><br>
-                        <span class="pull-left"><strong>Avis : </strong>{{ reviewBuy.review }}</span>
+            <div class="row">
+                <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" style="overflow: auto">
+                            <div  class="text-center">
+                                <strong>Déposé par {{ reviewBuy.user.firstName }} {{ reviewBuy.user.lastName }} le {{ reviewBuy.dateReview|date("d-m-y")}}</strong><br><br>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <strong>Titre : </strong>
+                                </div>
+                                <div class="col-xs-9">
+                                    <span>{{ reviewBuy.subject}}</span>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <strong>Avis : </strong>
+                                </div>
+                                <div class="col-xs-9">
+                                    <span>{{ reviewBuy.review }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="list-group">
+                            <li class="list-group-item"><strong>Type achat : </strong><span class="pull-right">{{ reviewBuy.reviewBuyType }}</span></li>
+                            <li class="list-group-item"><strong>Type etablissement : </strong><span class="pull-right">{{ reviewBuy.dealerType }}</span></li>
+                            <li class="list-group-item"><strong>Nom etablissement : </strong><span class="pull-right">{{ reviewBuy.dealerName}}</span></li>
+                            <li class="list-group-item"><strong>Ville : </strong><span class="pull-right">{{ reviewBuy.city}}</span></li>
+                            <li class="list-group-item"><strong>Code postal : </strong><span class="pull-right">{{ reviewBuy.postalCode}}</span></li>
+                            <li class="list-group-item"><strong>Note globale : </strong><span class="pull-right">{{ reviewBuy.ratingGlobal}}</span></li>
+                            <li class="list-group-item"><strong>Date achat : </strong><span class="pull-right">{{ reviewBuy.dateBuy|date("d-m-y")}}</span></li>
+                            <li class="list-group-item"><strong>Note accueil : </strong><span class="pull-right">{{ reviewBuy.ratingWelcome}}</span></li>
+                            <li class="list-group-item"><strong>Clarté informations : </strong><span class="pull-right">{{ reviewBuy.wantedInformation}}</span></li>
+                            <li class="list-group-item"><strong>Solutions de financementl : </strong><span class="pull-right">{{ reviewBuy.fundingSolution}}</span></li>
+                            <li class="list-group-item"><strong>Recommander le pro : </strong><span class="pull-right">{{ reviewBuy.recommendProRating}}</span></li>
+                            <li class="list-group-item"><strong>Documents : </strong><span class="pull-right"><button type="button" class="btn btn-block center-block btn-admin" data-toggle="modal" data-target="#myModal">Voir facture</button> </span></li>
+                            <li class="list-group-item"><strong>Garantie : </strong><span class="pull-right">{{ reviewBuy.warranty}}</span></li>
+                            <li class="list-group-item"><strong>Conseil pour le pro : </strong><span class="pull-right">{{ reviewBuy.advice}}</span></li>
+                        </ul>
                     </div>
-                    <ul class="list-group">
-                        <li class="list-group-item"><strong>Type achat : </strong><span class="pull-right">{{ reviewBuy.reviewBuyType }}</span></li>
-                        <li class="list-group-item"><strong>Type etablissement : </strong><span class="pull-right">{{ reviewBuy.dealerType }}</span></li>
-                        <li class="list-group-item"><strong>Nom etablissement : </strong><span class="pull-right">{{ reviewBuy.dealerName}}</span></li>
-                        <li class="list-group-item"><strong>Ville : </strong><span class="pull-right">{{ reviewBuy.city}}</span></li>
-                        <li class="list-group-item"><strong>Code postal : </strong><span class="pull-right">{{ reviewBuy.postalCode}}</span></li>
-                        <li class="list-group-item"><strong>Note globale : </strong><span class="pull-right">{{ reviewBuy.ratingGlobal}}</span></li>
-                        <li class="list-group-item"><strong>Date achat : </strong><span class="pull-right">{{ reviewBuy.dateBuy|date("d-m-y")}}</span></li>
-                        <li class="list-group-item"><strong>Note accueil : </strong><span class="pull-right">{{ reviewBuy.ratingWelcome}}</span></li>
-                        <li class="list-group-item"><strong>Clarté informations : </strong><span class="pull-right">{{ reviewBuy.wantedInformation}}</span></li>
-                        <li class="list-group-item"><strong>Solutions de financementl : </strong><span class="pull-right">{{ reviewBuy.fundingSolution}}</span></li>
-                        <li class="list-group-item"><strong>Recommander le pro : </strong><span class="pull-right">{{ reviewBuy.recommendProRating}}</span></li>
-                        <li class="list-group-item" style="overflow: auto;"><strong>Documents : </strong><span class="pull-right"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Voir facture</button> </span></li>
-                        <li class="list-group-item"><strong>Garantie : </strong><span class="pull-right">{{ reviewBuy.warranty}}</span></li>
-                        <li class="list-group-item" style="overflow: auto;"><strong>Conseil pour le pro : </strong><span class="pull-right">{{ reviewBuy.advice}}</span></li>
-                    </ul>
                 </div>
             </div>
         </div>
-    </div>
-
-    {# Modal #}
-
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Facture</h4>
-                </div>
-                <div class="modal-body">
-                    <img src="{{ reviewBuy.attachedFile}}"/>
+    
+        {# Modal #}
+    
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Facture</h4>
+                    </div>
+                    <div class="modal-body">
+                        <img src="{{ reviewBuy.attachedFile}}"/>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 {% endblock %}
