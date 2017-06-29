@@ -22,13 +22,11 @@
     {% block stylesheets %}{% endblock %}
 </head>
 <body>
-                {% include ('@Caradvisor/Admin/AdminPartials/adminNav.html.twig') %}
-                <div class="col-xs-10">
-                {% block body %}
-                {% endblock %}
-                </div>
-
-
+    {% include ('@Caradvisor/Admin/AdminPartials/adminNav.html.twig') %}
+    <div class="col-xs-10">
+        {% block body %}
+        {% endblock %}
+    </div>
 <!-- Latest compiled and minified JavaScript (Bootstrap & JQuery) -->
 <script src="http://code.jquery.com/jquery-3.2.1.min.js"
         integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
