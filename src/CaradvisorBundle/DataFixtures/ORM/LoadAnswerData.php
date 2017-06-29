@@ -8,7 +8,6 @@
 
 namespace CaradvisorBundle\DataFixtures\ORM;
 
-
 use CaradvisorBundle\Entity\Answer;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
@@ -24,7 +23,7 @@ class LoadAnswerData extends AbstractFixture implements OrderedFixtureInterface
         $faker = Factory::create('fr_FR');
         $faker->seed(1234);
 
-        for ($i = 0; $i < self::ANSWER_MAX; $i ++){
+        for ($i = 0; $i < self::ANSWER_MAX; $i ++) {
             $answer = new Answer();
             $answer->setMessage($faker->paragraph(4));
             $answer->setDate($faker->dateTime);

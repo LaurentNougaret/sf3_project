@@ -19,14 +19,14 @@ class SearchController extends Controller
      */
     public function autoCompleteAction(Request $request, $dealerName)
     {
-       if ($request->isXmlHttpRequest()) {
-           $repository = $this->getDoctrine()->getRepository(Pro::class);
+        if ($request->isXmlHttpRequest()) {
+            $repository = $this->getDoctrine()->getRepository(Pro::class);
 
-           $data = $repository->findProIdByName($dealerName);
-           return new JsonResponse(['data' => json_encode($data)]);
-       } else {
-           throw new HttpException('500', 'Invalid Call');
-       }
+            $data = $repository->findProIdByName($dealerName);
+            return new JsonResponse(['data' => json_encode($data)]);
+        } else {
+            throw new HttpException('500', 'Invalid Call');
+        }
     }
 
     /**

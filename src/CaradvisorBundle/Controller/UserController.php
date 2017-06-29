@@ -1,5 +1,6 @@
 <?php
 namespace CaradvisorBundle\Controller;
+
 use CaradvisorBundle\Entity\Answer;
 use CaradvisorBundle\Entity\Pro;
 use CaradvisorBundle\Entity\ReviewBuy;
@@ -82,7 +83,7 @@ class UserController extends Controller
      */
     public function settingsAction()
     {
-        return $this->render('@Caradvisor/User/settings.html.twig',[
+        return $this->render('@Caradvisor/User/settings.html.twig', [
             'user' => $this->getUser(),
         ]);
     }
@@ -99,10 +100,10 @@ class UserController extends Controller
         $form = $this->createForm(ForgottenPasswordType::class, $user);
         $form->handleRequest($request);
         $message = "";
-        if ($form->isSubmitted() && $form->isValid()){
+        if ($form->isSubmitted() && $form->isValid()) {
             /** @var User $newUser */
             $newUser = $em->getRepository("CaradvisorBundle:User")->findOneBy(["email" => $user->getEmail()]);
-            if (null === $newUser){
+            if (null === $newUser) {
                 $message = "Nous n'avons pas trouvé cet utilisateur";
             } else {
                 $newUser->setToken($newUser->generateToken());
@@ -142,7 +143,7 @@ class UserController extends Controller
      * @param Request $request
      * @return Response
      */
-    public function listCarsAction(Request $request )
+    public function listCarsAction(Request $request)
     {
         $car = new Vehicle();
         $em = $this->getDoctrine()->getManager();
@@ -153,7 +154,7 @@ class UserController extends Controller
             $em->persist($car);
             $em->flush();
         }
-        return $this->render('@Caradvisor/User/car.html.twig',[
+        return $this->render('@Caradvisor/User/car.html.twig', [
             'user' => $this->getUser(),
             'data' =>$this->getUser()->getVehicles(),
             'alfa' =>$this->getUser()->getLastName(),
@@ -191,7 +192,7 @@ class UserController extends Controller
                 'vehicle' => $vehicle->getId(),
             ));
         }
-        return $this->render('@Caradvisor/User/editCar.html.twig', array(
+        return $this->render('@Caradvisor/User/UserCar/editCar.html.twig', array(
             'edit_form' => $editForm->createView(),
             'user' => $this->getUser(),
             'vehicle' => $vehicle
@@ -237,7 +238,7 @@ class UserController extends Controller
         $em = $this->getDoctrine()->getManager();
         $form = $this->createForm(ProProfileType::class, $establishment);
         $form ->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()){
+        if ($form->isSubmitted() && $form->isValid()) {
             $establishment->setUser($this->getUser());
             $em->persist($establishment);
             $em->flush();
@@ -287,7 +288,7 @@ class UserController extends Controller
                 'pro' => $pro->getId(),
             ));
         }
-        return $this->render('@Caradvisor/User/editEstab.html.twig', array(
+        return $this->render('@Caradvisor/User/UserEstablishment/editEstab.html.twig', array(
             'edit_form' => $editForm->createView(),
             'user' => $this->getUser(),
             'pro' => $pro
@@ -301,7 +302,7 @@ class UserController extends Controller
      */
     public function listReviewsEstablishmentAction(Pro $pro)
     {
-        return $this->render('@Caradvisor/User/estabReviews.html.twig', [
+        return $this->render('@Caradvisor/User/UserEstablishment/estabReviews.html.twig', [
             'data' => $pro->getReviewRepairs(),
             'beta' => $pro->getReviewBuys(),
             'user' => $this->getUser(),
@@ -310,7 +311,7 @@ class UserController extends Controller
     }
     // Professionals page: answer to a client's review
     /**
-     * @Route("/user/establishments/reviews/answer/repair/{user}/{pro}", name="answer_repair")
+     * @Route("/user/establishments/reviews/answer/repair/{pro}", name="answer_repair")
      * @param User $user
      * @param Pro $pro
      * @param ReviewRepair $reviewRepair
@@ -336,15 +337,15 @@ class UserController extends Controller
                 'pro' => $pro->getId(),
             ));
         }
-        return $this->render('@Caradvisor/User/answerReviewEstabRepair.html.twig', [
-            'user' => $user,
+        return $this->render('@Caradvisor/User/UserEstablishment/answerReviewEstabRepair.html.twig', [
+            'user' => $user->getId(),
             'pro' => $pro,
             'reviewrepair' => $reviewRepair,
             'form' =>$form->createView(),
         ]);
     }
     /**
-     * @Route("/user/establishments/reviews/answer/buy/{user}/{pro}", name="answer_buy")
+     * @Route("/user/establishments/reviews/answer/buy/{pro}", name="answer_buy")
      * @param User $user
      * @param Pro $pro
      * @param ReviewBuy $reviewBuy
@@ -370,8 +371,8 @@ class UserController extends Controller
                 'pro' => $pro->getId(),
             ));
         }
-        return $this->render('@Caradvisor/User/answerReviewEstabBuy.html.twig', [
-            'user' => $user,
+        return $this->render('@Caradvisor/User/UserEstablishment/answerReviewEstabRepair.html.twig', [
+            'user' => $user->getId(),
             'pro' => $pro,
             'reviewbuy' => $reviewBuy,
             'form' =>$form->createView(),

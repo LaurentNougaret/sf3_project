@@ -2,7 +2,6 @@
 
 namespace CaradvisorBundle\DataFixtures\ORM;
 
-
 use CaradvisorBundle\Entity\ReviewBuy;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
@@ -18,7 +17,7 @@ class LoadReviewBuyData extends AbstractFixture implements OrderedFixtureInterfa
         $faker = Factory::create('fr_FR');
         $faker->seed(1234);
         $totalAnswer = 0;
-        for ($i = 0; $i < self::REVIEWBUY_MAX; $i++){
+        for ($i = 0; $i < self::REVIEWBUY_MAX; $i++) {
             $reviewBuy = new ReviewBuy();
             $reviewBuy->setReviewBuyType($faker->randomElement($array = [
                 'Neuf',
@@ -73,11 +72,12 @@ class LoadReviewBuyData extends AbstractFixture implements OrderedFixtureInterfa
             $reviewBuy->setAdvice($faker->paragraph(3));
             $reviewBuy->setAttachedFile('http://aws-cf.caradisiac.com/prod/mesimages/142824/facture%20revision%202%20an%2036.800%20km.jpg');
             $reviewBuy->setDateReview($faker->dateTime);
+            $reviewBuy->setIsActive($faker->randomElement($array = ['0', '1']));
 
             $reviewBuy->setUser($this->getReference("users_" . rand(0, LoadUserData::MAX_USER - 1)));
             $reviewBuy->setPro($this->getReference("pros_" . rand(0, LoadProData::PRO_MAX - 1)));
 
-            if ($totalAnswer < 10){
+            if ($totalAnswer < 10) {
                 $reviewBuy->setAnswer($this->getReference("answers_" . $totalAnswer));
                 $totalAnswer++;
             }
