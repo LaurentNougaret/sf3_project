@@ -23,6 +23,21 @@ class ProRepository extends EntityRepository
     }
 
     /**
+     * @param $city
+     * @return array
+     */
+    public function findProIdByCity($city)
+    {
+        $city = '%' . $city . '%';
+        $qb = $this->createQueryBuilder('p')
+            ->select('p.dealerName', 'p.city', 'p.postalCode')
+            ->where('p.city LIKE :city')
+            ->setParameter('city', $city)
+            ->getQuery();
+        return $qb->getResult();
+    }
+
+    /**
      * @param int $page
      * @param int $maxResults
      * @return Paginator
