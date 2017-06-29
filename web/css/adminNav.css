@@ -12,13 +12,19 @@
 #adminnav ul li a {
     font-weight: bold;
     font-size: 1.8vm;
-    color: #bfc0c0 !important;
+    color: #bfc0c0;
     margin-top: 10px;
     display: flex;
     align-items: center;
+    border-radius: 0;
 }
 
-#adminnav ul li a:hover, #adminnav ul li a:focus, #adminnav ul li a:active {
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+    color: #fff !important;
+    background-color: #bfc0c0;
+}
+
+#adminnav ul li a:hover, #adminnav ul li a:focus {
     color: #fff !important;
     background-color: #ff4756;
 }
